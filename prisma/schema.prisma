@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime      @default(now())
+  applications Application[]
+}
+
+model Application {
+  id        String     @id @default(cuid())
+  companyId String
+  company   Company    @relation(fields: [companyId], references: [id])
+  name      String
+  createdAt DateTime   @default(now())
+  feedback  Feedback[]
+  votes     Vote[]
+}
+
+model Feedback {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id])
+  userId        String // External user ID from parent app
+  title         String
+  description   String
+  status        String      @default("Open")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  votes         Vote[]
+  reply         Reply?
+  tags          Tag[]
+}
+
+model Vote {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id])
+  feedbackId    String
+  feedback      Feedback    @relation(fields: [feedbackId], references: [id])
+  userId        String // External user ID from parent app
+  voteType      String // UPVOTE or DOWNVOTE
+  createdAt     DateTime    @default(now())
+
+  @@unique([applicationId, feedbackId, userId]) // One vote per user per feedback
+}
+
+model Reply {
+  id         String   @id @default(cuid())
+  feedbackId String   @unique
+  feedback   Feedback @relation(fields: [feedbackId], references: [id])
+  message    String
+  createdAt  DateTime @default(now())
+}
+
+model Tag {
+  id         String   @id @default(cuid())
+  feedbackId String
+  feedback   Feedback @relation(fields: [feedbackId], references: [id])
+  name       String
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpVote Widget Integration Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .info-section {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .widget-section {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+
+    .info-item {
+      margin-bottom: 20px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .info-text {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin-top: 10px;
+      border-left: 3px solid #007bff;
+    }
+
+    .setup-steps {
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .setup-steps li {
+      counter-increment: step;
+      margin-bottom: 20px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .setup-steps li:before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #007bff;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .widget-placeholder {
+      border: 2px dashed #007bff;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      color: #007bff;
+      background: #f0f8ff;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      .info-section,
+      .widget-section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>UpVote Widget Integration Example</h1>
+      <p class="subtitle">
+        This page demonstrates how to integrate the UpVote feedback widget into your website
+      </p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Information Section -->
+      <div class="info-section">
+        <h2>Integration Steps</h2>
+
+        <ol class="setup-steps">
+          <li>
+            <div>
+              <div class="info-label">Create an Account</div>
+              <div class="info-text">
+                Sign up at <code>/auth/signup</code> and create your company account
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <div class="info-label">Get Your Company ID</div>
+              <div class="info-text">
+                From your dashboard, copy the widget embedding code which includes your unique company ID
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <div class="info-label">Add the Widget</div>
+              <div class="info-text">
+                Copy the two lines of code provided and paste them where you want the feedback widget to appear
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <div class="info-label">Test & Deploy</div>
+              <div class="info-text">
+                Test the widget locally, then deploy to production when ready
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="info-item">
+          <div class="info-label">Widget HTML Code</div>
+          <div class="info-text">
+            Replace <code>YOUR_COMPANY_ID</code> with your actual company ID:
+          </div>
+          <div class="code-block">
+&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;script src="http://localhost:3000/widget.js"&gt;&lt;/script&gt;
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Production Domain</div>
+          <div class="info-text">
+            When deploying to production, update the script src to your actual domain:
+          </div>
+          <div class="code-block">
+&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;script src="https://your-domain.com/widget.js"&gt;&lt;/script&gt;
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Optional User Tracking</div>
+          <div class="info-text">
+            Track specific users by adding a user ID attribute:
+          </div>
+          <div class="code-block">
+&lt;div data-upvote-company-id="YOUR_COMPANY_ID" 
+     data-upvote-user-id="user@example.com"&gt;&lt;/div&gt;
+&lt;script src="https://your-domain.com/widget.js"&gt;&lt;/script&gt;
+          </div>
+        </div>
+      </div>
+
+      <!-- Widget Section -->
+      <div class="widget-section">
+        <h2>Live Widget Preview</h2>
+
+        <p class="info-text" style="margin-bottom: 20px;">
+          To see the widget in action:
+        </p>
+
+        <ol class="setup-steps" style="margin-bottom: 20px;">
+          <li>
+            <div>Go to <code>/auth/signup</code> to create an account</div>
+          </li>
+          <li>
+            <div>Copy your company ID from the dashboard</div>
+          </li>
+          <li>
+            <div>Update the code below with your company ID</div>
+          </li>
+          <li>
+            <div>The widget will appear below</div>
+          </li>
+        </ol>
+
+        <div id="upvote-widget-container" class="widget-placeholder">
+          Widget will appear here once you add your company ID and load widget.js
+        </div>
+
+        <div class="info-item" style="margin-top: 20px;">
+          <div class="info-label">How to Load the Widget</div>
+          <div class="code-block">
+// 1. Update YOUR_COMPANY_ID below
+// 2. Uncomment the widget initialization code
+// 3. The widget will appear above
+
+&lt;!-- 
+&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;script src="http://localhost:3000/widget.js"&gt;&lt;/script&gt;
+--&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Example: How to dynamically initialize the widget
+    // Uncomment and update with your company ID to test
+
+    /*
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('upvote-widget-container');
+      const companyId = 'YOUR_COMPANY_ID'; // Update this!
+      
+      if (companyId === 'YOUR_COMPANY_ID') {
+        container.innerHTML = '<p>Please update the company ID in this script to test the widget</p>';
+        return;
+      }
+
+      // Create the widget container
+      const widgetDiv = document.createElement('div');
+      widgetDiv.setAttribute('data-upvote-company-id', companyId);
+      container.innerHTML = '';
+      container.appendChild(widgetDiv);
+
+      // Load the widget script
+      const script = document.createElement('script');
+      script.src = window.location.origin + '/widget.js';
+      document.body.appendChild(script);
+    });
+    */
+  </script>
+</body>
+</html>

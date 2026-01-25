@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpVote Widget - Testing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://localhost:3000/widget.js" async></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-50 min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="max-w-2xl w-full space-y-8 text-center">
+        <div class="space-y-4">
+            <div
+                class="w-20 h-20 bg-indigo-600 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl font-black italic shadow-2xl shadow-indigo-600/30">
+                UV</div>
+            <h1 class="text-5xl font-black tracking-tighter text-zinc-900">UpVote Verification</h1>
+            <p class="text-zinc-500 text-lg">Use this page to test your widget integration in real-time.</p>
+        </div>
+
+        <div class="glass border border-white shadow-xl p-8 rounded-[2.5rem] space-y-6 text-left">
+            <div class="space-y-2">
+                <label class="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">Configuration
+                    Status</label>
+                <div id="status-card"
+                    class="p-4 bg-zinc-100 dark:bg-zinc-900 rounded-2xl flex items-center justify-between">
+                    <span class="font-bold text-sm">Widget Script Loaded</span>
+                    <span id="script-status"
+                        class="text-[10px] font-bold bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded">WAITING...</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">Application
+                        ID</label>
+                    <div class="p-3 bg-zinc-50 border border-zinc-100 rounded-xl font-mono text-xs truncate">
+                        app_clx7y89z00000abc12345</div>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">Mock User
+                        ID</label>
+                    <div class="p-3 bg-zinc-50 border border-zinc-100 rounded-xl font-mono text-xs truncate">
+                        user_test_999</div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-zinc-100">
+                <h3 class="font-bold mb-2">Instructions:</h3>
+                <ul class="text-sm text-zinc-500 space-y-2 list-disc pl-4 leading-relaxed">
+                    <li>Ensure your local server is running: <code class="bg-zinc-100 px-1 rounded">npm run dev</code>
+                    </li>
+                    <li>The widget button should appear in the **bottom right** corner.</li>
+                    <li>Try submitting a feedback and upvoting it.</li>
+                    <li>Check the dashboard at <a href="/dashboard"
+                            class="text-indigo-600 font-bold hover:underline">/dashboard</a> to see your submission.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Designed for Modern Product Feedback
+        </p>
+    </div>
+
+    <!-- WIDGET CONFIGURATION -->
+    <div class="upvote-widget" data-application-id="app_clx7y89z00000abc12345" data-user-id="user_test_999"
+        data-position="right" data-theme="light">
+    </div>
+
+    <script>
+        // Check if script loads
+        window.addEventListener('load', () => {
+            const script = document.querySelector('script[src*="widget.js"]');
+            const statusLabel = document.getElementById('script-status');
+
+            setTimeout(() => {
+                const btn = document.getElementById('upvote-widget-button');
+                if (btn) {
+                    statusLabel.textContent = 'CONNECTED';
+                    statusLabel.className = 'text-[10px] font-bold bg-green-500/10 text-green-500 px-2 py-0.5 rounded';
+                } else {
+                    statusLabel.textContent = 'NOT FOUND';
+                    statusLabel.className = 'text-[10px] font-bold bg-red-500/10 text-red-500 px-2 py-0.5 rounded';
+                }
+            }, 1000);
+        });
+    </script>
+
+    <!-- Load from current origin -->
+    <script src="/widget.js" async></script>
+</body>
+
+</html>
