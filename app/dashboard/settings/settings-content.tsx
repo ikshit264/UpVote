@@ -14,6 +14,8 @@ interface SettingsContentProps {
 export default function SettingsContent({ applicationId }: SettingsContentProps) {
     const [copied, setCopied] = useState(false);
 
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || (typeof window !== 'undefined' ? window.location.origin : '');
+
     const widgetCode = `<div class="upvote-widget" 
      data-application-id="${applicationId}" 
      data-user-id="USER_ID_FROM_YOUR_SYSTEM"
@@ -21,7 +23,7 @@ export default function SettingsContent({ applicationId }: SettingsContentProps)
      data-theme="light">
 </div>
 
-<script src="${typeof window !== 'undefined' ? window.location.origin : ''}/widget.js" async></script>`;
+<script src="${appUrl}/widget.js" async></script>`;
 
     const handleCopy = () => {
         navigator.clipboard.writeText(widgetCode);
@@ -72,7 +74,7 @@ export default function SettingsContent({ applicationId }: SettingsContentProps)
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center gap-2 p-3 bg-zinc-50 dark:bg-zinc-800 rounded-xl">
-                                <Input disabled value="localhost:3000" className="bg-transparent border-none font-mono text-xs p-0 h-auto" />
+                                <Input disabled value={appUrl.replace(/^https?:\/\//, '')} className="bg-transparent border-none font-mono text-xs p-0 h-auto" />
                                 <Badge className="bg-green-500/10 text-green-500 border-none font-bold text-[9px]">ACTIVE</Badge>
                             </div>
                             <Button variant="outline" className="w-full border-dashed border-2 border-zinc-200 dark:border-zinc-800 text-zinc-400 hover:text-indigo-500 hover:border-indigo-300 transition-all rounded-xl h-12">
