@@ -1,24 +1,44 @@
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Users, Zap, BarChart3 } from 'lucide-react';
 import AnimatedLogo from '@/components/animated-logo';
+import HeroSection from '@/components/landing/hero-section';
+import SocialProof from '@/components/landing/social-proof';
+import FeaturesGrid from '@/components/landing/features-grid';
+import InteractiveDemo from '@/components/landing/interactive-demo';
+import PricingSection from '@/components/landing/pricing-section';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export default function HomePage() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 selection:bg-blue-100 selection:text-blue-900">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-[100]"
+        style={{ scaleX }}
+      />
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800 z-50 transition-all">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5 text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">
-            <AnimatedLogo size={40} />
-            UpVote
+            <AnimatedLogo size={32} />
+            <span className="hidden sm:inline">UpVote</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/auth/login">
-              <Button variant="ghost">Sign in</Button>
+              <Button variant="ghost" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Sign in</Button>
             </Link>
             <Link href="/auth/signup">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button className="bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-full px-6">
                 Get Started
               </Button>
             </Link>
@@ -26,125 +46,78 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Collect Customer Feedback
-            <span className="text-blue-600"> Effortlessly</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Embed a beautiful feedback widget on your website. Let your customers upvote ideas and
-            track what matters most to them.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/auth/signup">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                Start Free Trial <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-            <Button size="lg" variant="outline">
-              View Demo
-            </Button>
-          </div>
-        </div>
-      </div>
+      <main>
+        <HeroSection />
+        <SocialProof />
+        <FeaturesGrid />
+        <InteractiveDemo />
+        <PricingSection />
 
-      {/* Features */}
-      <div className="bg-white py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Why Choose UpVote?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="p-8 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
-              <Zap className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Easy Integration
-              </h3>
-              <p className="text-gray-600">
-                Add the widget to your website with just two lines of code. No complex setup required.
+        {/* Call to Action Layer */}
+        <section className="py-24 px-4 bg-zinc-900 dark:bg-zinc-50 relative overflow-hidden">
+           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+           <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
+              <div className="mb-8 p-4 bg-white/50 rounded-2xl backdrop-blur-sm border border-zinc-700 dark:border-zinc-200">
+                <AnimatedLogo size="md" className="text-white " />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-zinc-900 mb-6 max-w-2xl mx-auto">
+                 Ready to build what your users actually want?
+              </h2>
+              <p className="text-zinc-400 dark:text-zinc-600 mb-10 text-lg max-w-xl mx-auto">
+                 Join thousands of product teams collecting feedback with UpVote.
               </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="p-8 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
-              <Users className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Engage Users
-              </h3>
-              <p className="text-gray-600">
-                Let customers upvote ideas they care about. Create a community around feature requests.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="p-8 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
-              <BarChart3 className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Track & Analyze
-              </h3>
-              <p className="text-gray-600">
-                See what matters most to your customers. Prioritize development based on real feedback.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Integration Example */}
-      <div className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Integration in Minutes
-          </h2>
-          <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
-            <p className="text-gray-600 mb-4">Copy this code and paste it on your website:</p>
-            <div className="bg-gray-900 text-gray-100 p-6 rounded-lg font-mono text-sm overflow-x-auto mb-4">
-              <pre>{`<div data-upvote-company-id="your_company_id"></div>
-<script src="https://your-domain.com/widget.js"><\/script>`}</pre>
-            </div>
-            <p className="text-sm text-gray-500">
-              Replace{' '}
-              <code className="bg-gray-100 px-2 py-1 rounded">your_company_id</code> with your actual company ID from the dashboard.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to hear from your customers?
-          </h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Start collecting feedback today. It's free to get started.
-          </p>
-          <Link href="/auth/signup">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              Create Free Account <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
-      </div>
+              <Link href="/auth/signup">
+                 <Button size="lg" className="h-14 px-10 text-lg rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-900/20">
+                    Create Free Account
+                 </Button>
+              </Link>
+           </div>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center gap-2.5 text-2xl font-black text-white uppercase tracking-tighter">
-              <AnimatedLogo size={40} />
-              UpVote
+      <footer className="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 py-12 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="col-span-1 md:col-span-2">
+                <div className="flex items-center gap-2.5 text-xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter mb-4">
+                    <AnimatedLogo size={24} />
+                    UpVote
+                </div>
+                <p className="text-zinc-500 dark:text-zinc-400 max-w-xs">
+                    The easiest way to collect and manage customer feedback. Built for modern product teams.
+                </p>
             </div>
-            <p className="text-center md:text-right">
-              © 2024 UpVote. All rights reserved.
-            </p>
-          </div>
+            
+            <div>
+                <h4 className="font-bold text-zinc-900 dark:text-white mb-4">Product</h4>
+                <ul className="space-y-2 text-zinc-500 dark:text-zinc-400">
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Features</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Integrations</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Pricing</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Changelog</Link></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 className="font-bold text-zinc-900 dark:text-white mb-4">Company</h4>
+                <ul className="space-y-2 text-zinc-500 dark:text-zinc-400">
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">About</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Blog</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Careers</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600 transition-colors">Contact</Link></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto pt-8 border-t border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+           <p className="text-zinc-400 text-sm">
+              © {new Date().getFullYear()} UpVote Inc. All rights reserved.
+           </p>
+           <div className="flex gap-4">
+               {/* Social Icons would go here */}
+           </div>
         </div>
       </footer>
     </div>
   );
 }
-
