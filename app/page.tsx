@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import AnimatedLogo from '@/components/animated-logo';
 import HeroSection from '@/components/landing/hero-section';
-import SocialProof from '@/components/landing/social-proof';
 import FeaturesGrid from '@/components/landing/features-grid';
 import InteractiveDemo from '@/components/landing/interactive-demo';
 import PricingSection from '@/components/landing/pricing-section';
@@ -48,7 +47,6 @@ export default function HomePage() {
 
       <main>
         <HeroSection />
-        <SocialProof />
         <FeaturesGrid />
         <InteractiveDemo />
         <PricingSection />
