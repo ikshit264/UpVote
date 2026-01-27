@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { enforceFeedbackLimit, isPlanLimitError, formatLimitErrorResponse } from '@/lib/middleware/enforce-limits';
+import { incrementFeedbackCount } from '@/lib/subscription-service';
 
 export async function GET(request: NextRequest) {
   const applicationId = request.nextUrl.searchParams.get('applicationId');
@@ -53,7 +55,7 @@ export async function GET(request: NextRequest) {
       reply: f.reply ? f.reply.message : null,
     }));
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       feedback: formattedFeedback,
       meta: {
         total,
@@ -82,9 +84,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify application exists
+    // Verify application exists and get company ID
     const app = await prisma.application.findUnique({
-      where: { id: applicationId }
+      where: { id: applicationId },
+      include: { company: true }
     });
 
     if (!app) {
@@ -94,6 +97,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // CRITICAL: Enforce feedback limit before creation
+    try {
+      await enforceFeedbackLimit(app.companyId);
+    } catch (error) {
+      if (isPlanLimitError(error)) {
+        return NextResponse.json(
+          formatLimitErrorResponse(error),
+          { status: 403 } // Forbidden - plan limit reached
+        );
+      }
+      throw error;
+    }
+
+    // Create feedback if limit check passed
     const feedback = await prisma.feedback.create({
       data: {
         applicationId,
@@ -108,6 +125,9 @@ export async function POST(request: NextRequest) {
         tags: true,
       }
     });
+
+    // Track usage after successful creation
+    await incrementFeedbackCount(app.companyId);
 
     return NextResponse.json(
       {

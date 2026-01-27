@@ -6,6 +6,7 @@ interface AnimatedLogoProps {
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number;
     className?: string;
     animated?: boolean;
+    reducedMotion?: boolean; // New prop for performance optimization
 }
 
 const CHARS = {
@@ -41,19 +42,18 @@ const SHAPE = [
     '00111000000000444400000000011100',
     '00111000000000444400000000011100',
     '00111000000000444400000000011100',
+    '00111000000000444400000000011100',
+    '00111000000000444400000000011100',
+    '00111000000000444400000000011100',
     '00111100000000444400000000111100',
-    '00011110000000444400000001111000',
-    '00001111000000444400000011110000',
-    '00000111100000444400000111100000',
-    '00000011110000444400001111000000',
-    '00000001111004444400111100000000',
-    '00000000111111111111111000000000',
-    '00000000011111111111110000000000',
-    '00000000001111111111100000000000',
-    '00000000000111111111000000000000',
-    '00000000000011111110000000000000',
-    '00000000000001111100000000000000',
-    '00000000000000111000000000000000',
+    '00111100000000444400000000111100',
+    '00011100000000444400000000111000',
+    '00011110000004444440000001111000',
+    '0000111100004444444400011110000',
+    '00000111111144444444111111100000',
+    '00000011111444444444411111000000',
+    '00000001111111111111111100000000',
+    '00000000001111111111110000000000',
     '00000000000000000000000000000000',
 ].map(row => row.split('').map(Number));
 
@@ -75,12 +75,15 @@ const SIZE_MAP = {
 export default function AnimatedLogo({
     size = 'md',
     className = '',
-    animated = true
+    animated = true,
+    reducedMotion = false
 }: AnimatedLogoProps) {
     const canvasRef = useRef<HTMLDivElement>(null);
     const cellsRef = useRef<{ el: HTMLDivElement; type: number; row: number; nextChange: number; phase: number }[]>([]);
     const tickRef = useRef(0);
     const animationRef = useRef<number | null>(null);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastUpdateRef = useRef(0);
 
     // Calculate dimensions
     const dims = typeof size === 'number'
@@ -91,11 +94,23 @@ export default function AnimatedLogo({
         const canvas = canvasRef.current;
         if (!canvas) return;
 
+        // Intersection Observer to pause animation when not visible
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+
+        observer.observe(canvas);
+
         // Clear existing
         canvas.innerHTML = '';
         cellsRef.current = [];
 
-        // Create grid
+        // Create grid with optimized rendering
+        const fragment = document.createDocumentFragment();
+        
         for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
                 const cell = document.createElement('div');
@@ -105,6 +120,7 @@ export default function AnimatedLogo({
                     justify-content: center;
                     color: #000;
                     transition: opacity 0.25s ease-out;
+                    will-change: opacity;
                 `;
 
                 const type = SHAPE[r][c];
@@ -124,7 +140,7 @@ export default function AnimatedLogo({
                     cell.style.opacity = '0';
                 }
 
-                canvas.appendChild(cell);
+                fragment.appendChild(cell);
                 cellsRef.current.push({
                     el: cell,
                     type,
@@ -134,11 +150,25 @@ export default function AnimatedLogo({
                 });
             }
         }
+        
+        canvas.appendChild(fragment);
 
-        if (!animated) return;
+        if (!animated || reducedMotion) return;
 
-        // Animation loop
-        const animate = () => {
+        // Animation loop with throttling to 30fps for better performance
+        const animate = (timestamp: number) => {
+            if (!isVisible) {
+                animationRef.current = requestAnimationFrame(animate);
+                return;
+            }
+
+            // Throttle to ~30fps instead of 60fps
+            if (timestamp - lastUpdateRef.current < 33) {
+                animationRef.current = requestAnimationFrame(animate);
+                return;
+            }
+            lastUpdateRef.current = timestamp;
+
             tickRef.current++;
             const time = tickRef.current * 0.06;
 
@@ -186,14 +216,15 @@ export default function AnimatedLogo({
             animationRef.current = requestAnimationFrame(animate);
         };
 
-        animate();
+        animationRef.current = requestAnimationFrame(animate);
 
         return () => {
+            observer.disconnect();
             if (animationRef.current) {
                 cancelAnimationFrame(animationRef.current);
             }
         };
-    }, [animated, size]);
+    }, [animated, size, isVisible, reducedMotion]);
 
     return (
         <div

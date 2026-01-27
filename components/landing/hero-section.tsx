@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 export default function HeroSection() {
     return (
         <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-            {/* Background Gradients */}
+            {/* Background Gradients - Optimized with CSS animations */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl opacity-50 animate-pulse" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl opacity-50 animate-pulse delay-1000" />
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl opacity-50" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl opacity-50" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite' }} />
             </div>
 
             <div className="container px-4 md:px-6 mx-auto">
@@ -113,11 +113,13 @@ export default function HeroSection() {
                                 </div>
                             </div>
 
-                            {/* Floating elements animation */}
+                            {/* Floating elements animation - Optimized */}
                             <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
                                 className="absolute top-10 left-10 bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-lg border border-zinc-100 dark:border-zinc-700 max-w-xs z-10"
+                                style={{ animation: 'float 4s ease-in-out infinite' }}
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
@@ -131,9 +133,11 @@ export default function HeroSection() {
                             </motion.div>
 
                             <motion.div
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 1 }}
                                 className="absolute bottom-10 right-10 bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-lg border border-zinc-100 dark:border-zinc-700 max-w-xs z-10"
+                                style={{ animation: 'float 5s ease-in-out 1s infinite' }}
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
