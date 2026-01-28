@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Plus, MessageCircle, TrendingUp, Calendar, Pencil, Check, X } from 'lucide-react';
+import { Plus, MessageCircle, TrendingUp, Calendar, Pencil, Check, X, LayoutGrid, CreditCard as BillingIcon } from 'lucide-react';
 import {
     Dialog,
     DialogContent,
@@ -18,6 +18,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from '@/components/ui/tabs';
+import BillingContent from '@/components/billing-content';
 
 interface Application {
     id: string;
@@ -33,6 +40,9 @@ interface ApplicationsContentProps {
     canCreateMore: boolean;
     currentPlan: string;
     maxProjects: number;
+    subscription: any;
+    user: any;
+    dodoConfig: any;
 }
 
 export default function ApplicationsContent({
@@ -40,6 +50,9 @@ export default function ApplicationsContent({
     canCreateMore,
     currentPlan,
     maxProjects,
+    subscription,
+    user,
+    dodoConfig,
 }: ApplicationsContentProps) {
     const router = useRouter();
     const [isCreating, setIsCreating] = useState(false);
@@ -126,194 +139,227 @@ export default function ApplicationsContent({
     };
 
     return (
-        <div className="space-y-6">
-            {/* Header */}
-            <div className="flex items-center justify-between">
+        <Tabs defaultValue="apps" className="space-y-8">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-6">
                 <div>
-                    <h1 className="text-3xl font-black tracking-tight">My Applications</h1>
-                    <p className="text-zinc-500 dark:text-zinc-400 mt-1">
-                        Manage your feedback applications
+                    <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-white uppercase italic">Dashboard</h1>
+                    <p className="text-zinc-500 dark:text-zinc-400 mt-1 font-medium">
+                        Manage your products and billing preferences
                     </p>
                 </div>
-                <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-                    <DialogTrigger asChild>
-                        <Button
-                            disabled={!canCreateMore}
-                            className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl"
-                        >
-                            <Plus className="w-4 h-4 mr-2" />
-                            New Application
-                        </Button>
-                    </DialogTrigger>
-                    <DialogContent className="rounded-2xl">
-                        <DialogHeader>
-                            <DialogTitle className="text-2xl font-black">Create New Application</DialogTitle>
-                            <DialogDescription>
-                                Add a new application to collect and manage user feedback.
-                            </DialogDescription>
-                        </DialogHeader>
-                        <div className="space-y-4 py-4">
-                            <div className="space-y-2">
-                                <Label htmlFor="name" className="font-bold">Application Name</Label>
-                                <Input
-                                    id="name"
-                                    placeholder="My Awesome App"
-                                    value={newAppName}
-                                    onChange={(e) => setNewAppName(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === 'Enter' && !isCreating) {
-                                            handleCreateApp();
-                                        }
-                                    }}
-                                    className="rounded-xl"
-                                />
-                            </div>
-                        </div>
-                        <DialogFooter>
-                            <Button
-                                onClick={handleCreateApp}
-                                disabled={isCreating}
-                                className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl"
-                            >
-                                {isCreating ? 'Creating...' : 'Create Application'}
-                            </Button>
-                        </DialogFooter>
-                    </DialogContent>
-                </Dialog>
+                <TabsList className="bg-zinc-100 dark:bg-zinc-900 p-1 rounded-xl h-12">
+                    <TabsTrigger value="apps" className="rounded-lg px-6 font-bold data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all h-full">
+                        <LayoutGrid className="w-4 h-4 mr-2" />
+                        Applications
+                    </TabsTrigger>
+                    <TabsTrigger value="billing" className="rounded-lg px-6 font-bold data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all h-full">
+                        <BillingIcon className="w-4 h-4 mr-2" />
+                        Billing & Plans
+                    </TabsTrigger>
+                </TabsList>
             </div>
 
-            {/* Plan Info */}
-            {!canCreateMore && (
-                <Card className="p-4 bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800 rounded-2xl">
-                    <p className="text-amber-800 dark:text-amber-200 font-bold">
-                        You've reached the limit of {maxProjects} applications on the {currentPlan} plan.
-                        Upgrade to create more applications.
-                    </p>
-                </Card>
-            )}
+            <TabsContent value="apps" className="space-y-6 mt-0 focus-visible:outline-none">
+                <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-black text-zinc-900 dark:text-white">Active Applications ({applications.length})</h2>
+                    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                        <DialogTrigger asChild>
+                            <Button
+                                disabled={!canCreateMore}
+                                className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-11 px-6 shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02]"
+                            >
+                                <Plus className="w-4 h-4 mr-2" />
+                                New Application
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent className="rounded-2xl border-none shadow-2xl">
+                            <DialogHeader>
+                                <DialogTitle className="text-2xl font-black">Create New Application</DialogTitle>
+                                <DialogDescription className="font-medium">
+                                    Add a new application to collect and manage user feedback.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="space-y-4 py-6">
+                                <div className="space-y-2">
+                                    <Label htmlFor="name" className="font-bold text-zinc-700 dark:text-zinc-300">Application Name</Label>
+                                    <Input
+                                        id="name"
+                                        placeholder="e.g. My Awesome SaaS"
+                                        value={newAppName}
+                                        onChange={(e) => setNewAppName(e.target.value)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' && !isCreating) {
+                                                handleCreateApp();
+                                            }
+                                        }}
+                                        className="rounded-xl h-12 bg-zinc-50 dark:bg-zinc-800 border-none focus-visible:ring-indigo-500"
+                                    />
+                                </div>
+                            </div>
+                            <DialogFooter>
+                                <Button
+                                    onClick={handleCreateApp}
+                                    disabled={isCreating}
+                                    className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-12 w-full shadow-lg shadow-indigo-500/20"
+                                >
+                                    {isCreating ? 'Creating Application...' : 'Create Application'}
+                                </Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+                </div>
 
-            {/* Applications Grid */}
-            {applications.length === 0 ? (
-                <Card className="p-12 text-center bg-white dark:bg-zinc-900 border-none shadow-sm rounded-2xl">
-                    <div className="max-w-md mx-auto space-y-4">
-                        <div className="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center mx-auto">
-                            <MessageCircle className="w-8 h-8 text-zinc-400" />
+                {!canCreateMore && (
+                    <Card className="p-4 bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800 rounded-2xl flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0">
+                            <Plus className="w-5 h-5 text-amber-600 dark:text-amber-400 rotate-45" />
                         </div>
-                        <h3 className="text-xl font-black">No Applications Yet</h3>
-                        <p className="text-zinc-500 dark:text-zinc-400">
-                            Create your first application to start collecting user feedback.
+                        <p className="text-amber-800 dark:text-amber-200 font-bold text-sm">
+                            You've reached the limit of {maxProjects} applications on the {currentPlan} plan.
+                            <button className="underline ml-1 hover:text-amber-900 transition-colors">Upgrade to unlock more.</button>
                         </p>
-                    </div>
-                </Card>
-            ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {applications.map((app) => (
-                        <Card
-                            key={app.id}
-                            className="p-6 border-none shadow-sm hover:shadow-md transition-all cursor-pointer bg-white dark:bg-zinc-900 rounded-2xl group"
-                            onClick={() => router.push(`/dashboard/${app.id}/analytics`)}
-                        >
-                            <div className="space-y-4">
-                                <div className="flex items-start justify-between gap-2">
-                                    {editingId === app.id ? (
-                                        <div className="flex-1 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                                            <Input
-                                                value={editingName}
-                                                onChange={(e) => setEditingName(e.target.value)}
-                                                className="flex-1 font-black text-lg rounded-xl"
-                                                autoFocus
-                                                onKeyDown={(e) => {
-                                                    if (e.key === 'Enter' && !isUpdating) {
-                                                        saveAppName(app.id, e as any);
-                                                    } else if (e.key === 'Escape') {
-                                                        cancelEditing(e as any);
-                                                    }
-                                                }}
-                                            />
-                                            <Button
-                                                size="sm"
-                                                variant="ghost"
-                                                className="h-8 w-8 p-0 bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:hover:bg-green-900/50"
-                                                onClick={(e) => saveAppName(app.id, e)}
-                                                disabled={isUpdating}
-                                            >
-                                                <Check className="w-4 h-4 text-green-600 dark:text-green-400" />
-                                            </Button>
-                                            <Button
-                                                size="sm"
-                                                variant="ghost"
-                                                className="h-8 w-8 p-0 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-900/50"
-                                                onClick={cancelEditing}
-                                                disabled={isUpdating}
-                                            >
-                                                <X className="w-4 h-4 text-red-600 dark:text-red-400" />
-                                            </Button>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <div className="flex items-center gap-2 flex-1 min-w-0">
-                                                <h3 className="text-xl font-black tracking-tight group-hover:text-indigo-600 transition-colors truncate">
-                                                    {app.name}
-                                                </h3>
+                    </Card>
+                )}
+
+                {applications.length === 0 ? (
+                    <Card className="p-16 text-center bg-white dark:bg-zinc-900 border-none shadow-sm rounded-3xl">
+                        <div className="max-w-md mx-auto space-y-6">
+                            <div className="w-20 h-20 bg-zinc-50 dark:bg-zinc-800 rounded-3xl flex items-center justify-center mx-auto ring-1 ring-zinc-100 dark:ring-zinc-800">
+                                <MessageCircle className="w-10 h-10 text-zinc-300 dark:text-zinc-600" />
+                            </div>
+                            <div className="space-y-2">
+                                <h3 className="text-2xl font-black">No Applications Yet</h3>
+                                <p className="text-zinc-500 dark:text-zinc-400 font-medium">
+                                    Start your journey with UpVote by creating your first application.
+                                </p>
+                            </div>
+                            <Button
+                                onClick={() => setDialogOpen(true)}
+                                className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-12 px-8"
+                            >
+                                <Plus className="w-4 h-4 mr-2" />
+                                Create My First App
+                            </Button>
+                        </div>
+                    </Card>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {applications.map((app) => (
+                            <Card
+                                key={app.id}
+                                className="p-6 border-none shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer bg-white dark:bg-zinc-900 rounded-3xl group"
+                                onClick={() => router.push(`/dashboard/${app.id}/analytics`)}
+                            >
+                                <div className="space-y-5">
+                                    <div className="flex items-start justify-between gap-3">
+                                        {editingId === app.id ? (
+                                            <div className="flex-1 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                                                <Input
+                                                    value={editingName}
+                                                    onChange={(e) => setEditingName(e.target.value)}
+                                                    className="flex-1 font-black text-lg rounded-xl h-10 bg-zinc-50 border-none focus-visible:ring-indigo-500"
+                                                    autoFocus
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter' && !isUpdating) {
+                                                            saveAppName(app.id, e as any);
+                                                        } else if (e.key === 'Escape') {
+                                                            cancelEditing(e as any);
+                                                        }
+                                                    }}
+                                                />
                                                 <Button
                                                     size="sm"
                                                     variant="ghost"
-                                                    className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
-                                                    onClick={(e) => startEditing(app, e)}
+                                                    className="h-8 w-8 p-0 bg-green-50 hover:bg-green-100 dark:bg-green-900/20"
+                                                    onClick={(e) => saveAppName(app.id, e)}
+                                                    disabled={isUpdating}
                                                 >
-                                                    <Pencil className="w-3 h-3 text-zinc-400 hover:text-indigo-600" />
+                                                    <Check className="w-4 h-4 text-green-600" />
+                                                </Button>
+                                                <Button
+                                                    size="sm"
+                                                    variant="ghost"
+                                                    className="h-8 w-8 p-0 bg-red-50 hover:bg-red-100 dark:bg-red-900/20"
+                                                    onClick={cancelEditing}
+                                                    disabled={isUpdating}
+                                                >
+                                                    <X className="w-4 h-4 text-red-600" />
                                                 </Button>
                                             </div>
-                                            <Badge className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-400 border-none font-bold shrink-0">
-                                                Active
-                                            </Badge>
-                                        </>
-                                    )}
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="bg-zinc-50 dark:bg-zinc-800 p-3 rounded-xl">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <MessageCircle className="w-4 h-4 text-blue-500" />
-                                            <span className="text-xs font-black text-zinc-400 uppercase tracking-wider">
-                                                Feedback
-                                            </span>
-                                        </div>
-                                        <p className="text-2xl font-black">{app._count.feedback}</p>
+                                        ) : (
+                                            <>
+                                                <div className="flex items-center gap-2 flex-1 min-w-0">
+                                                    <h3 className="text-xl font-black tracking-tight group-hover:text-indigo-600 transition-colors truncate">
+                                                        {app.name}
+                                                    </h3>
+                                                    <Button
+                                                        size="sm"
+                                                        variant="ghost"
+                                                        className="h-7 w-7 p-0 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 bg-zinc-50 dark:bg-zinc-800"
+                                                        onClick={(e) => startEditing(app, e)}
+                                                    >
+                                                        <Pencil className="w-3.5 h-3.5 text-zinc-400 hover:text-indigo-600" />
+                                                    </Button>
+                                                </div>
+                                                <Badge className="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400 border-none font-black text-[10px] uppercase tracking-wider shrink-0 px-2 py-0.5">
+                                                    Live
+                                                </Badge>
+                                            </>
+                                        )}
                                     </div>
 
-                                    <div className="bg-zinc-50 dark:bg-zinc-800 p-3 rounded-xl">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <Calendar className="w-4 h-4 text-purple-500" />
-                                            <span className="text-xs font-black text-zinc-400 uppercase tracking-wider">
-                                                Created
-                                            </span>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl border border-zinc-100/50 dark:border-zinc-800/50">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                                                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">
+                                                    Feedback
+                                                </span>
+                                            </div>
+                                            <p className="text-2xl font-black text-zinc-900 dark:text-white">{app._count.feedback}</p>
                                         </div>
-                                        <p className="text-sm font-bold">
-                                            {new Date(app.createdAt).toLocaleDateString('en-US', {
-                                                month: 'short',
-                                                day: 'numeric',
-                                            })}
-                                        </p>
-                                    </div>
-                                </div>
 
-                                <Button
-                                    variant="outline"
-                                    className="w-full border-none bg-zinc-50 dark:bg-zinc-800 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-indigo-900/20 dark:hover:text-indigo-400 font-bold rounded-xl transition-all"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        router.push(`/dashboard/${app.id}/analytics`);
-                                    }}
-                                >
-                                    <TrendingUp className="w-4 h-4 mr-2" />
-                                    View Dashboard
-                                </Button>
-                            </div>
-                        </Card>
-                    ))}
-                </div>
-            )}
-        </div>
+                                        <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl border border-zinc-100/50 dark:border-zinc-800/50">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <div className="w-2 h-2 rounded-full bg-purple-500" />
+                                                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">
+                                                    Created
+                                                </span>
+                                            </div>
+                                            <p className="text-sm font-black text-zinc-700 dark:text-zinc-300">
+                                                {new Date(app.createdAt).toLocaleDateString('en-US', {
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                }).toUpperCase()}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <Button
+                                        variant="outline"
+                                        className="w-full border-none bg-zinc-100/50 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white font-black rounded-2xl transition-all h-12 text-sm shadow-sm group/btn"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            router.push(`/dashboard/${app.id}/analytics`);
+                                        }}
+                                    >
+                                        Manage App
+                                        <TrendingUp className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                                    </Button>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                )}
+            </TabsContent>
+
+            <TabsContent value="billing" className="mt-0 focus-visible:outline-none">
+                <BillingContent
+                    subscription={subscription}
+                    user={user}
+                    dodoConfig={dodoConfig}
+                />
+            </TabsContent>
+        </Tabs>
     );
 }

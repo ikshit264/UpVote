@@ -16,20 +16,6 @@ export default function HeroSection() {
 
             <div className="container px-4 md:px-6 mx-auto">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center space-x-2 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 rounded-full px-3 py-1 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                    >
-                        <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-                        <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                            New: AI-Powered Analysis
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-zinc-400" />
-                    </motion.div>
-
                     {/* Headline */}
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

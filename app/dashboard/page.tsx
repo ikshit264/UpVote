@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import { getCompanySession } from '@/lib/auth';
 import prisma from '@/lib/prisma';
 import { canCreateProject, getOrCreateSubscription } from '@/lib/subscription-service';
-import { PLAN_CONFIG } from '@/lib/payment-config';
+import { PLAN_CONFIG, DODO_CONFIG } from '@/lib/payment-config';
 import ApplicationsContent from './applications-content';
 
 /**
@@ -49,6 +49,9 @@ export default async function DashboardPage() {
           canCreateMore={canCreate}
           currentPlan={subscription.plan}
           maxProjects={limits.projects}
+          subscription={subscription}
+          user={session.user}
+          dodoConfig={DODO_CONFIG}
         />
       </div>
     </div>
