@@ -7,6 +7,8 @@ import AnimatedLogo from '@/components/animated-logo';
 import HeroSection from '@/components/landing/hero-section';
 import FeaturesGrid from '@/components/landing/features-grid';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { UserAccountNav } from '@/components/user-account-nav';
+import { useSession } from 'next-auth/react';
 
 // Lazy load heavy components for better performance
 const InteractiveDemo = dynamic(() => import('@/components/landing/interactive-demo'), {
@@ -26,6 +28,9 @@ const PerformanceMonitor = dynamic(() => import('@/components/performance-monito
 
 
 export default function HomePage() {
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === 'authenticated';
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -49,14 +54,20 @@ export default function HomePage() {
             <span className="hidden sm:inline">UpVote</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/auth/login">
-              <Button variant="ghost" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Sign in</Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button className="bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-full px-6">
-                Get Started
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <UserAccountNav />
+            ) : (
+              <>
+                <Link href="/auth/login">
+                  <Button variant="ghost" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Sign in</Button>
+                </Link>
+                <Link href="/auth/signup">
+                  <Button className="bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-full px-6">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

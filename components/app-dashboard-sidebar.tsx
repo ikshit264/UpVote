@@ -14,8 +14,8 @@ import {
     CreditCard
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { signOut } from 'next-auth/react';
 import AnimatedLogo from '@/components/animated-logo';
+import { UserAccountNav } from '@/components/user-account-nav';
 
 interface Company {
     id: string;
@@ -101,18 +101,13 @@ export default function AppDashboardSidebar({
             </nav>
 
             <div className="p-4 mt-auto border-t border-zinc-100 dark:border-zinc-800">
-                <div className="mb-4 px-3">
-                    <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest truncate">{company.name}</p>
-                    <p className="text-[10px] text-zinc-500 truncate">{company.email}</p>
+                <div className="flex items-center gap-3 px-2">
+                    <UserAccountNav align="start" side="right" />
+                    <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100 truncate">{company.name}</p>
+                        <p className="text-[10px] text-zinc-500 truncate">{company.email}</p>
+                    </div>
                 </div>
-                <Button
-                    variant="ghost"
-                    className="w-full justify-start text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
-                    onClick={() => signOut({ callbackUrl: '/auth/login' })}
-                >
-                    <LogOut className="w-4 h-4 mr-3" />
-                    Sign Out
-                </Button>
             </div>
         </div>
     );
