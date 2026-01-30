@@ -54,7 +54,15 @@ export default function HomePage() {
             <AnimatedLogo size={32} reducedMotion />
             <span className="hidden sm:inline">UpVote</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+            <Link
+              href="/blogs"
+              className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Blog
+            </Link>
+            <div className="h-4 w-px bg-zinc-200 dark:bg-zinc-800 hidden sm:block" />
+
             {isAuthenticated ? (
               <UserAccountNav />
             ) : (
@@ -125,10 +133,10 @@ export default function HomePage() {
           <div>
             <h4 className="font-bold text-zinc-900 dark:text-white mb-4">Company</h4>
             <ul className="space-y-2 text-zinc-500 dark:text-zinc-400">
+              <li><Link href="/blogs" className="hover:text-blue-600 transition-colors">Blog</Link></li>
               <li><Link href="/ifo" className="hover:text-blue-600 transition-colors">Information</Link></li>
               <li><Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link></li>
               <li><Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="hover:text-blue-600 transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
