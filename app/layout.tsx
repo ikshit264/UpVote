@@ -116,6 +116,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1NL0M3HH0"></script>
       <body className={`font-sans antialiased`}>
         <Providers>
           {children}
