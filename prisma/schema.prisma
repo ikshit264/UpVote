@@ -132,3 +132,10 @@ model UsageMetrics {
   @@index([periodStart])
   @@index([companyId])
 }
+
+model Support {
+  id        String   @id @default(cuid())
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}

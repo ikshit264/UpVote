@@ -105,7 +105,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                         ? plan.config.price.display
                         : (plan.config.price.display as any)[interval];
 
-                    const handleUpgrade = () => {
+                    const handleUpgrade = async () => {
                         console.log('Upgrade clicked for plan:', plan.id);
                         if (!canUpgrade) {
                             console.log('Cannot upgrade to this plan.');
@@ -113,7 +113,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                         }
 
                         if (plan.id === PLANS.ENTERPRISE) {
-                            window.location.href = `mailto:sales@upvote.com?subject=Enterprise Plan Inquiry`;
+                            window.location.href = `mailto:ikshit.talera@gmail.com?subject=Enterprise Plan Inquiry`;
                             return;
                         }
 
@@ -125,27 +125,31 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                         console.log('Using product ID:', productId);
 
                         try {
+                            console.log('Creating checkout session...');
+
+                            const response = await fetch('/api/payments', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ productId }),
+                            });
+
+                            if (!response.ok) {
+                                throw new Error('Failed to create checkout session');
+                            }
+
+                            const { checkout_url } = await response.json();
+
                             console.log('Dodo SDK found, initializing...');
 
-                            // Initialize once (can be done outside if needed, but here is safe)
+                            // Initialize
                             DodoPayments.Initialize({
                                 mode: 'test',
                             });
 
-                            DodoPayments.Checkout.open({
-                                products: [
-                                    {
-                                        productId: productId,
-                                        quantity: 1,
-                                    }
-                                ],
-                                customer: {
-                                    email: user?.email,
-                                    name: user?.name,
-                                },
-                                metadata: {
-                                    companyId: user?.id,
-                                },
+                            (DodoPayments.Checkout as any).open({
+                                checkoutUrl: checkout_url,
                                 onSuccess: (data: any) => {
                                     console.log('Payment successful', data);
                                     toast.success('Upgrade successful! Your features are being unlocked.');
@@ -157,7 +161,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                             });
                             console.log('Opening checkout...');
                         } catch (err) {
-                            console.error('Dodo initialization error:', err);
+                            console.error('Checkout error:', err);
                             toast.error('Failed to initialize checkout.');
                         }
                     };
@@ -209,7 +213,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                                 </div>
                                 {interval === 'annual' && plan.id === PLANS.PRO && (
                                     <p className="text-[10px] text-green-600 font-bold mt-1">
-                                        Billed annually ($348/year)
+                                        Billed annually (${(Number(priceDisplay.replace('$', '')) * 12).toFixed(0)}/year)
                                     </p>
                                 )}
                             </div>

@@ -54,11 +54,11 @@ export const PLAN_CONFIG = {
         name: 'Pro',
         description: 'For growing startups',
         price: {
-            monthly: 39,
-            annual: 29, // 20% discount on annual
+            monthly: 29,
+            annual: 19, // 20% discount on annual
             display: {
-                monthly: '$39/mo',
-                annual: '$29/mo',
+                monthly: '$29',
+                annual: '$19',
             },
         },
         limits: {
@@ -78,7 +78,7 @@ export const PLAN_CONFIG = {
             'Advanced Analytics',
             'Custom Branding',
         ],
-        trialDays: 14, // 14-day free trial
+        trialDays: 0, // 14-day free trial
     },
     [PLANS.ENTERPRISE]: {
         name: 'Enterprise',

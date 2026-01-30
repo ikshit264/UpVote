@@ -9,6 +9,7 @@ import FeaturesGrid from '@/components/landing/features-grid';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { UserAccountNav } from '@/components/user-account-nav';
 import { useSession } from 'next-auth/react';
+import SupportSection from '@/components/landing/support-section';
 
 // Lazy load heavy components for better performance
 const InteractiveDemo = dynamic(() => import('@/components/landing/interactive-demo'), {
@@ -77,6 +78,7 @@ export default function HomePage() {
         <FeaturesGrid />
         <InteractiveDemo />
         <PricingSection />
+        <SupportSection />
 
         {/* Call to Action Layer */}
         <section className="py-24 px-4 bg-zinc-900 dark:bg-zinc-50 relative overflow-hidden">
@@ -123,9 +125,9 @@ export default function HomePage() {
           <div>
             <h4 className="font-bold text-zinc-900 dark:text-white mb-4">Company</h4>
             <ul className="space-y-2 text-zinc-500 dark:text-zinc-400">
-              <li><Link href="#" className="hover:text-blue-600 transition-colors">About</Link></li>
-              <li><Link href="#" className="hover:text-blue-600 transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-blue-600 transition-colors">Careers</Link></li>
+              <li><Link href="/ifo" className="hover:text-blue-600 transition-colors">Information</Link></li>
+              <li><Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link></li>
+              <li><Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
               <li><Link href="#" className="hover:text-blue-600 transition-colors">Contact</Link></li>
             </ul>
           </div>
