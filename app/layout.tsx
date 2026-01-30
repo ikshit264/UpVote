@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -54,16 +55,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/favicon.ico',
+        sizes: 'any',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/icon.png',
+        type: 'image/png',
+        sizes: '32x32',
       },
     ],
     apple: '/apple-icon.png',
@@ -86,7 +84,7 @@ const jsonLd = {
   '@type': 'Organization',
   name: 'UpVote',
   url: baseUrl,
-  logo: `${baseUrl}/icon.svg`,
+  logo: `${baseUrl}/icon.png`,
   description: 'Customer feedback and feature voting platform for modern product teams.',
   sameAs: [
     'https://twitter.com/upvote',
@@ -116,7 +114,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1NL0M3HH0"></script>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X1NL0M3HH0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-X1NL0M3HH0');
+          `}
+        </Script>
+      </head>
       <body className={`font-sans antialiased`}>
         <Providers>
           {children}
