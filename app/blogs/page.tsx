@@ -13,6 +13,9 @@ export const metadata: Metadata = {
         description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
         type: "website",
     },
+    alternates: {
+        canonical: "https://upvote.entrext.com/blogs",
+    },
 };
 
 export default function BlogsPage() {

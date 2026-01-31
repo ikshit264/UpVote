@@ -50,6 +50,9 @@ export async function generateMetadata(
             description: blog.metadata.description,
             images: [blog.image],
         },
+        alternates: {
+            canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com'}/blogs/${slug}`,
+        },
     };
 }
 
@@ -101,6 +104,35 @@ export default async function BlogDetailPage({ params }: Props) {
                     }}
                 />
             )}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": process.env.NEXT_PUBLIC_APP_URL
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": `${process.env.NEXT_PUBLIC_APP_URL}/blogs`
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": blog.title,
+                                "item": `${process.env.NEXT_PUBLIC_APP_URL}/blogs/${blog.slug}`
+                            }
+                        ]
+                    })
+                }}
+            />
             {/* Article Header */}
             <header className="relative pt-32 pb-16 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
