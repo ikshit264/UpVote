@@ -15,6 +15,7 @@ import {
     Monitor,
     ExternalLink,
     ChevronRight,
+    BoxSelect,
 } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -46,50 +47,81 @@ export default function IntegrationGuide({
         html: {
             name: "HTML/Vanilla JS",
             icon: FileCode,
-            code: `<!-- Add this before closing </body> tag -->
+            code: `<!-- Add this to your main template -->
 <div 
   class="upvote-widget"
   data-application-id="${applicationId}"
-  data-user-id="USER_ID_HERE"
-  data-email="USER_EMAIL_HERE"
+  data-user-id="USER_ID"
+  data-email="USER_EMAIL"
   data-position="${widgetPosition}"
   data-theme="${widgetTheme}">
 </div>
-<script src="${baseUrl}/widget.js"></script>`,
-            description: "Perfect for static websites and simple integrations",
+<script src="${baseUrl}/widget.js"></script>
+
+<!-- FOR DYNAMIC APPS: 
+To refresh on login/logout without a page reload, 
+simply update the 'data-email' attribute of the div above. 
+The script will automatically detect the change and show/hide the widget. -->`,
+            description: "Standard integration. For SPAS, simply update div attributes to trigger the widget.",
         },
         react: {
             name: "React",
             icon: Code2,
-            code: `import { useEffect } from 'react';
+            code: `// components/UpvoteWidget.tsx
+import { useEffect, useState } from 'react';
 
-function App() {
+/**
+ * AI-PROOF UNIVERSAL REACT WRAPPER
+ * Handles its own session, cleanup, and keyed remounting.
+ */
+export default function UpvoteWidget() {
+  const [userData, setUserData] = useState(null);
+
   useEffect(() => {
-    // Load widget script
-    const script = document.createElement('script');
-    script.src = '${baseUrl}/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const checkAuth = async () => {
+      // { cache: 'no-store' } prevents stale auth states
+      const res = await fetch('/api/auth/session', { cache: 'no-store' });
+      const data = await res.json();
+      setUserData(data?.user?.email ? data.user : null);
+    };
 
-    // Configure widget
-    const widgetDiv = document.createElement('div');
-    widgetDiv.className = 'upvote-widget';
-    widgetDiv.setAttribute('data-application-id', '${applicationId}');
-    widgetDiv.setAttribute('data-user-id', 'YOUR_USER_ID');
-    widgetDiv.setAttribute('data-email', 'YOUR_USER_EMAIL');
-    widgetDiv.setAttribute('data-position', '${widgetPosition}');
-    widgetDiv.setAttribute('data-theme', '${widgetTheme}');
-    document.body.appendChild(widgetDiv);
-
+    checkAuth();
+    window.addEventListener('popstate', checkAuth);
+    window.addEventListener('focus', checkAuth);
     return () => {
-      document.body.removeChild(script);
-      document.body.removeChild(widgetDiv);
+      window.removeEventListener('popstate', checkAuth);
+      window.removeEventListener('focus', checkAuth);
     };
   }, []);
 
-  return <div>Your App</div>;
+  useEffect(() => {
+    // "NUCLEAR" CLEANUP: Destroy all widget remnants on logout
+    if (!userData?.email) {
+      const selectors = ['.upvote-widget-container', '#upvote-widget-root', 'iframe[src*="upvote"]'];
+      selectors.forEach(s => document.querySelectorAll(s).forEach(el => el.remove()));
+      // @ts-ignore
+      if (window.UpVote) delete window.UpVote;
+    }
+  }, [userData]);
+
+  if (!userData?.email) return null;
+
+  return (
+    <>
+      <div 
+        key={userData.email} // Forces fresh mount when user changes
+        className="upvote-widget"
+        data-application-id="${applicationId}"
+        data-user-id={userData.id}
+        data-email={userData.email}
+        data-position="${widgetPosition}"
+        data-theme="${widgetTheme}"
+      />
+      <script src="${baseUrl}/widget.js" async />
+    </>
+  );
 }`,
-            description: "Integrate seamlessly into your React application",
+            description: "Self-handling React component with 'Nuclear' cleanup and keyed remounting.",
         },
         nextjs: {
             name: "Next.js",
@@ -97,31 +129,149 @@ function App() {
             code: `// components/UpvoteWidget.tsx
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 
-export default function UpvoteWidget({ userId, email }: { userId: string; email: string }) {
-  useEffect(() => {
-    const widgetDiv = document.createElement('div');
-    widgetDiv.className = 'upvote-widget';
-    widgetDiv.setAttribute('data-application-id', '${applicationId}');
-    widgetDiv.setAttribute('data-user-id', userId);
-    widgetDiv.setAttribute('data-email', email);
-    widgetDiv.setAttribute('data-position', '${widgetPosition}');
-    widgetDiv.setAttribute('data-theme', '${widgetTheme}');
-    document.body.appendChild(widgetDiv);
+/**
+ * AI-PROOF UNIVERSAL NEXT.JS WIDGET
+ * Features Cache Bypass, Nuclear Cleanup, and Keyed Remounting.
+ */
+export default function UpvoteWidget() {
+    const [userData, setUserData] = useState<{ id: string; email: string } | null>(null);
+    const [loading, setLoading] = useState(true);
+    const pathname = usePathname();
 
-    return () => {
-      document.body.removeChild(widgetDiv);
+    const fetchSession = async () => {
+        try {
+            // { cache: 'no-store' } is CRITICAL for accurate login/logout states
+            const res = await fetch('/api/auth/session', { cache: 'no-store' });
+            if (res.ok) {
+                const data = await res.json();
+                if (data.user?.email) {
+                    setUserData({ id: data.user.id || '', email: data.user.email });
+                    return;
+                }
+            }
+            setUserData(null);
+        } catch {
+            setUserData(null);
+        } finally {
+            setLoading(false);
+        }
     };
-  }, [userId, email]);
 
-  return <Script src="${baseUrl}/widget.js" strategy="lazyOnload" />;
-}
+    useEffect(() => {
+        // Listen for manual auth events and window focus
+        window.addEventListener('auth-change', fetchSession);
+        window.addEventListener('focus', fetchSession);
+        return () => {
+            window.removeEventListener('auth-change', fetchSession);
+            window.removeEventListener('focus', fetchSession);
+        };
+    }, [pathname]);
 
-// In your layout.tsx or page.tsx:
-// <UpvoteWidget userId={session?.user?.id} email={session?.user?.email} />`,
-            description: "Optimized for Next.js with Script component",
+    useEffect(() => {
+        // NUCLEAR CLEANUP: Clear every trace of the widget on logout
+        if (!userData?.email) {
+            const selectors = ['.upvote-widget-container', '#upvote-widget-root', 'iframe[src*="upvote"]'];
+            selectors.forEach(s => document.querySelectorAll(s).forEach(el => el.remove()));
+            // @ts-ignore
+            if (window.UpVote) delete window.UpVote;
+        }
+    }, [userData]); 
+
+    if (loading || !userData?.email) return null;
+
+    return (
+        <>
+            <div 
+                key={userData.email} // Forces fresh mount on user change
+                className="upvote-widget"
+                data-application-id="${applicationId}"
+                data-user-id={userData.id}
+                data-email={userData.email}
+                data-position="${widgetPosition}"
+                data-theme="${widgetTheme}"
+            />
+            <Script src="${baseUrl}/widget.js" strategy="afterInteractive" />
+        </>
+    );
+}`,
+            description: "The definitive 'Silver Bullet' snippet for Next.js. AI-Proof lifecycle management.",
+        },
+        angular: {
+            name: "Angular",
+            icon: BoxSelect,
+            code: `// upvote-widget.component.ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Component({
+  selector: 'app-upvote-widget',
+  template: \`
+    <div *ngIf="user?.email"
+         class="upvote-widget"
+         data-application-id="${applicationId}"
+         [attr.data-user-id]="user.id"
+         [attr.data-email]="user.email"
+         data-position="${widgetPosition}"
+         data-theme="${widgetTheme}">
+    </div>
+  \`
+})
+export class UpvoteWidgetComponent implements OnInit, OnDestroy {
+  user: any = null;
+  private script: any = null;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.refreshSession();
+    window.addEventListener('focus', () => this.refreshSession());
+  }
+
+  refreshSession() {
+    // Cache bypass via headers
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    });
+
+    this.http.get('/api/auth/session', { headers }).subscribe((data: any) => {
+      this.user = data?.user?.email ? data.user : null;
+      if (this.user) {
+        this.loadScript();
+      } else {
+        this.cleanup();
+      }
+    });
+  }
+
+  loadScript() {
+    if (this.script) return;
+    this.script = document.createElement('script');
+    this.script.src = '${baseUrl}/widget.js';
+    this.script.async = true;
+    document.body.appendChild(this.script);
+  }
+
+  cleanup() {
+    if (this.script) this.script.remove();
+    this.script = null;
+    
+    // NUCLEAR CLEANUP: Scan and destroy injected remnants
+    const selectors = ['.upvote-widget-container', '#upvote-widget-root', 'iframe[src*="upvote"]'];
+    selectors.forEach(s => document.querySelectorAll(s).forEach(el => el.remove()));
+    // @ts-ignore
+    if (window.UpVote) delete window.UpVote;
+  }
+
+  ngOnDestroy() {
+    this.cleanup();
+  }
+}`,
+            description: "Robust Angular component with 'Nuclear' cleanup and cache-invariant session fetching.",
         },
     };
 
@@ -234,7 +384,7 @@ export default function UpvoteWidget({ userId, email }: { userId: string; email:
                     </div>
 
                     <Tabs value={activeFramework} onValueChange={setActiveFramework} className="w-full">
-                        <TabsList className="grid grid-cols-3 w-full max-w-md bg-zinc-100 dark:bg-zinc-800 p-1 rounded-xl">
+                        <TabsList className="grid grid-cols-4 w-full max-w-xl bg-zinc-100 dark:bg-zinc-800 p-1 rounded-xl">
                             {Object.entries(frameworks).map(([key, framework]) => {
                                 const Icon = framework.icon;
                                 return (

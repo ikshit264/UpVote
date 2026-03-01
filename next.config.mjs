@@ -12,7 +12,7 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizeCss: true, // Enable CSS optimization
+    optimizeCss: false, // Disable CSS optimization as it requires 'critters' package
   },
 }
 
