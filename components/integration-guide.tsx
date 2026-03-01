@@ -51,6 +51,7 @@ export default function IntegrationGuide({
   class="upvote-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID_HERE"
+  data-email="USER_EMAIL_HERE"
   data-position="${widgetPosition}"
   data-theme="${widgetTheme}">
 </div>
@@ -75,6 +76,7 @@ function App() {
     widgetDiv.className = 'upvote-widget';
     widgetDiv.setAttribute('data-application-id', '${applicationId}');
     widgetDiv.setAttribute('data-user-id', 'YOUR_USER_ID');
+    widgetDiv.setAttribute('data-email', 'YOUR_USER_EMAIL');
     widgetDiv.setAttribute('data-position', '${widgetPosition}');
     widgetDiv.setAttribute('data-theme', '${widgetTheme}');
     document.body.appendChild(widgetDiv);
@@ -98,12 +100,13 @@ function App() {
 import { useEffect } from 'react';
 import Script from 'next/script';
 
-export default function UpvoteWidget({ userId }: { userId: string }) {
+export default function UpvoteWidget({ userId, email }: { userId: string; email: string }) {
   useEffect(() => {
     const widgetDiv = document.createElement('div');
     widgetDiv.className = 'upvote-widget';
     widgetDiv.setAttribute('data-application-id', '${applicationId}');
     widgetDiv.setAttribute('data-user-id', userId);
+    widgetDiv.setAttribute('data-email', email);
     widgetDiv.setAttribute('data-position', '${widgetPosition}');
     widgetDiv.setAttribute('data-theme', '${widgetTheme}');
     document.body.appendChild(widgetDiv);
@@ -111,13 +114,13 @@ export default function UpvoteWidget({ userId }: { userId: string }) {
     return () => {
       document.body.removeChild(widgetDiv);
     };
-  }, [userId]);
+  }, [userId, email]);
 
   return <Script src="${baseUrl}/widget.js" strategy="lazyOnload" />;
 }
 
 // In your layout.tsx or page.tsx:
-// <UpvoteWidget userId={session?.user?.id || "anonymous"} />`,
+// <UpvoteWidget userId={session?.user?.id} email={session?.user?.email} />`,
             description: "Optimized for Next.js with Script component",
         },
     };
@@ -137,8 +140,8 @@ export default function UpvoteWidget({ userId }: { userId: string }) {
         },
         {
             number: "3",
-            title: "Replace User ID",
-            description: "Replace USER_ID_HERE with your actual user identifier",
+            title: "Replace User ID & Email",
+            description: "Replace USER_ID_HERE and USER_EMAIL_HERE with actual values",
             icon: Rocket,
         },
         {
@@ -294,7 +297,7 @@ export default function UpvoteWidget({ userId }: { userId: string }) {
                                 Replace User ID
                             </h4>
                             <p className="text-xs text-amber-800 dark:text-amber-200 leading-relaxed">
-                                Make sure to replace <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_ID_HERE</code> with your actual user's unique identifier from your authentication system. This ensures feedback is properly attributed.
+                                Make sure to replace <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_ID_HERE</code> with your user's unique identifier and <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_EMAIL_HERE</code> with their email address. Both are required for feedback attribution and support queries.
                             </p>
                         </div>
                     </div>

@@ -115,6 +115,10 @@ export async function getOrCreateUsageMetrics(companyId: string) {
  * Enforces project limit for FREE plan (1 project max)
  */
 export async function canCreateProject(companyId: string): Promise<boolean> {
+    // Bypass limits for Entrext team users
+    const company = await prisma.company.findUnique({ where: { id: companyId } });
+    if (company?.isEntrextTeam) return true;
+
     const subscription = await getOrCreateSubscription(companyId);
     const limits = PLAN_CONFIG[subscription.plan].limits;
 
@@ -136,6 +140,10 @@ export async function canCreateProject(companyId: string): Promise<boolean> {
  * Enforces monthly feedback limit for FREE plan (50/month)
  */
 export async function canCreateFeedback(companyId: string): Promise<boolean> {
+    // Bypass limits for Entrext team users
+    const company = await prisma.company.findUnique({ where: { id: companyId } });
+    if (company?.isEntrextTeam) return true;
+
     const subscription = await getOrCreateSubscription(companyId);
     const limits = PLAN_CONFIG[subscription.plan].limits;
 

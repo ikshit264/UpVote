@@ -39,11 +39,12 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     // Generate embed code with implemented options
     const generateEmbedCode = () => {
         const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.yourdomain.com';
-        return `<!-- UpVote Feedback Widget -->
+        return `<!-- UpVote Feedback & Support Widget -->
 <div 
   class="upvote-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID_FROM_YOUR_APP"
+  data-email="USER_EMAIL_FROM_YOUR_APP"
   data-position="${widgetPosition}"
   data-theme="${widgetTheme}">
 </div>
@@ -161,7 +162,7 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     ⚠️ Identity Setup
                                 </h4>
                                 <p className="text-xs text-amber-800 dark:text-amber-200 leading-relaxed">
-                                    Replace <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_ID_FROM_YOUR_APP</code> with a unique identifier for your current user. This ensures feedback is correctly attributed.
+                                    Replace <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_ID_FROM_YOUR_APP</code> with your user's unique identifier, and <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_EMAIL_FROM_YOUR_APP</code> with their email address. Both are needed for feedback attribution and support.
                                 </p>
                             </div>
                             <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900/50">
@@ -173,9 +174,21 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                         <span className="font-mono">data-application-id</span>
                                         <span className="font-semibold">Required</span>
                                     </div>
-                                    <div className="flex justify-between">
+                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
                                         <span className="font-mono">data-user-id</span>
                                         <span className="font-semibold">Required</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                        <span className="font-mono">data-email</span>
+                                        <span className="font-semibold">Required</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                        <span className="font-mono">data-position</span>
+                                        <span className="text-blue-600 dark:text-blue-400">left | right</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="font-mono">data-theme</span>
+                                        <span className="text-blue-600 dark:text-blue-400">light | dark</span>
                                     </div>
                                 </div>
                             </div>

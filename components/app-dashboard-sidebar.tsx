@@ -11,7 +11,8 @@ import {
     ChevronRight,
     ChevronLeft,
     Folder,
-    CreditCard
+    CreditCard,
+    HelpCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedLogo from '@/components/animated-logo';
@@ -41,6 +42,7 @@ export default function AppDashboardSidebar({
     const navItems = [
         { name: 'Analytics', href: `/dashboard/${appId}/analytics`, icon: LayoutDashboard },
         { name: 'Feedback', href: `/dashboard/${appId}/feedback`, icon: MessageSquare },
+        { name: 'Support', href: `/dashboard/${appId}/support`, icon: HelpCircle },
         { name: 'Users', href: `/dashboard/${appId}/users`, icon: Users },
         { name: 'Settings', href: `/dashboard/${appId}/settings`, icon: Settings },
     ];

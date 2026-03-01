@@ -44,6 +44,7 @@ interface ApplicationsContentProps {
     subscription: any;
     user: any;
     dodoConfig: any;
+    isEntrextTeam: boolean;
 }
 
 export default function ApplicationsContent({
@@ -54,6 +55,7 @@ export default function ApplicationsContent({
     subscription,
     user,
     dodoConfig,
+    isEntrextTeam,
 }: ApplicationsContentProps) {
     const router = useRouter();
     const [isCreating, setIsCreating] = useState(false);
@@ -154,10 +156,18 @@ export default function ApplicationsContent({
                             <LayoutGrid className="w-4 h-4 mr-2" />
                             Applications
                         </TabsTrigger>
-                        <TabsTrigger value="billing" className="rounded-lg px-6 font-bold data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all h-full">
-                            <BillingIcon className="w-4 h-4 mr-2" />
-                            Billing & Plans
-                        </TabsTrigger>
+                        {isEntrextTeam ? (
+                            <div className="flex items-center gap-2 px-6 py-2 rounded-lg cursor-not-allowed opacity-50 relative">
+                                <BillingIcon className="w-4 h-4" />
+                                <span className="font-bold text-sm line-through">Billing & Plans</span>
+                                <X className="w-4 h-4 text-red-500" />
+                            </div>
+                        ) : (
+                            <TabsTrigger value="billing" className="rounded-lg px-6 font-bold data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all h-full">
+                                <BillingIcon className="w-4 h-4 mr-2" />
+                                Billing & Plans
+                            </TabsTrigger>
+                        )}
                     </TabsList>
                     <div className="pl-2 border-l border-zinc-200 dark:border-zinc-800 h-8 flex items-center">
                         <UserAccountNav />

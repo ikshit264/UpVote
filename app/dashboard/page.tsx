@@ -24,6 +24,10 @@ export default async function DashboardPage() {
   const canCreate = await canCreateProject(companyId);
   const limits = PLAN_CONFIG[subscription.plan].limits;
 
+  // Check if Entrext team user
+  const company = await prisma.company.findUnique({ where: { id: companyId } });
+  const isEntrextTeam = company?.isEntrextTeam ?? false;
+
   // Fetch all applications with feedback count
   const applications = await prisma.application.findMany({
     where: { companyId },
@@ -52,6 +56,7 @@ export default async function DashboardPage() {
           subscription={subscription}
           user={session.user}
           dodoConfig={DODO_CONFIG}
+          isEntrextTeam={isEntrextTeam}
         />
       </div>
     </div>

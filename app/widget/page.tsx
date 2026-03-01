@@ -16,7 +16,11 @@ import {
   ChevronRight,
   TrendingUp,
   Info,
-  Loader2
+  Loader2,
+  MessageSquare,
+  Headphones,
+  ArrowLeft,
+  CheckCircle2
 } from 'lucide-react';
 import AnimatedLogo from '@/components/animated-logo';
 import { Badge } from '@/components/ui/badge';
@@ -46,11 +50,18 @@ const PREDEFINED_TAGS = ['Feature', 'Bug', 'Improvement', 'UI/UX', 'Performance'
 const ITEM_HEIGHT = 140; // Estimated height for virtualization
 const BUFFER = 5; // Items to buffer above/below viewport
 
+type WidgetMode = 'selector' | 'feedback' | 'support';
+
 function WidgetContent() {
   const searchParams = useSearchParams();
   const applicationId = searchParams.get('applicationId');
   const userId = searchParams.get('userId');
+  const userEmail = searchParams.get('email') || '';
   const theme = searchParams.get('theme') || 'light';
+  const initialMode = searchParams.get('mode') as WidgetMode | null;
+
+  // Widget mode: selector, feedback, support
+  const [widgetMode, setWidgetMode] = useState<WidgetMode>(initialMode === 'feedback' || initialMode === 'support' ? initialMode : 'selector');
 
   const [feedback, setFeedback] = useState<Feedback[]>([]);
   const [title, setTitle] = useState('');
@@ -60,6 +71,11 @@ function WidgetContent() {
   const [submitting, setSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
+
+  // Support state
+  const [supportMessage, setSupportMessage] = useState('');
+  const [supportSubmitting, setSupportSubmitting] = useState(false);
+  const [supportSubmitted, setSupportSubmitted] = useState(false);
 
   // Pagination & Virtualization states
   const [page, setPage] = useState(1);
@@ -96,10 +112,12 @@ function WidgetContent() {
   }, [applicationId, userId, activeTab]);
 
   useEffect(() => {
-    setPage(1);
-    setHasMore(true);
-    fetchFeedback(1, true);
-  }, [fetchFeedback]);
+    if (widgetMode === 'feedback') {
+      setPage(1);
+      setHasMore(true);
+      fetchFeedback(1, true);
+    }
+  }, [fetchFeedback, widgetMode]);
 
   // Infinite Scroll Observer
   const lastElementRef = useCallback((node: HTMLDivElement) => {
@@ -160,6 +178,34 @@ function WidgetContent() {
       console.error('Failed to submit feedback:', error);
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const handleSupportSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!supportMessage.trim()) return;
+
+    setSupportSubmitting(true);
+    try {
+      const res = await fetch('/api/widget/support', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          applicationId,
+          userId,
+          email: userEmail,
+          message: supportMessage,
+        }),
+      });
+
+      if (res.ok) {
+        setSupportSubmitted(true);
+        setSupportMessage('');
+      }
+    } catch (error) {
+      console.error('Failed to submit support query:', error);
+    } finally {
+      setSupportSubmitting(false);
     }
   };
 
@@ -264,6 +310,199 @@ function WidgetContent() {
     );
   }
 
+  // ==================== SELECTOR SCREEN ====================
+  if (widgetMode === 'selector') {
+    return (
+      <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+        {/* Background Animated Logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.07]">
+          <AnimatedLogo size={400} />
+        </div>
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
+          <span className="font-black text-lg tracking-tight">UpVote</span>
+          <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
+
+        {/* Selector Cards */}
+        <div className="flex-1 flex flex-col items-center justify-center px-6 gap-6 relative z-10">
+          <div className="text-center mb-4">
+            <h2 className="text-xl font-black tracking-tight mb-1">How can we help?</h2>
+            <p className="text-sm text-zinc-500">Choose an option below</p>
+          </div>
+
+          {/* Feedback Option */}
+          <button
+            onClick={() => setWidgetMode('feedback')}
+            className="w-full max-w-sm p-6 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-950/20 dark:to-zinc-900 border border-indigo-100/50 dark:border-indigo-900/20 rounded-3xl text-left hover:shadow-lg hover:shadow-indigo-100/50 dark:hover:shadow-none transition-all group animate-in slide-in-from-bottom-4 duration-300"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <MessageSquare className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-black text-base mb-0.5">Feedback</h3>
+                <p className="text-xs text-zinc-500">Share ideas, report bugs, or suggest improvements</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+
+          {/* Support Option */}
+          <button
+            onClick={() => setWidgetMode('support')}
+            className="w-full max-w-sm p-6 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/20 dark:to-zinc-900 border border-emerald-100/50 dark:border-emerald-900/20 rounded-3xl text-left hover:shadow-lg hover:shadow-emerald-100/50 dark:hover:shadow-none transition-all group animate-in slide-in-from-bottom-4 duration-500"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Headphones className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-black text-base mb-0.5">Support</h3>
+                <p className="text-xs text-zinc-500">Need help? Send us a support query</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+            </div>
+          </button>
+        </div>
+
+        {/* Brand Footer */}
+        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Live Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ==================== SUPPORT SCREEN ====================
+  if (widgetMode === 'support') {
+    return (
+      <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+        {/* Background Animated Logo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.07]">
+          <AnimatedLogo size={400} />
+        </div>
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
+          <div className="flex items-center gap-3">
+            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+            <span className="font-black text-lg tracking-tight">Support</span>
+          </div>
+          <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
+
+        {/* Support Content */}
+        <div className="flex-1 overflow-y-auto px-6 py-6 relative z-10">
+          {supportSubmitted ? (
+            <div className="flex flex-col items-center justify-center h-full text-center animate-in fade-in zoom-in-95 duration-300">
+              <div className="w-16 h-16 rounded-3xl bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500" />
+              </div>
+              <h2 className="text-xl font-black mb-2">Query Submitted!</h2>
+              <p className="text-sm text-zinc-500 mb-6 max-w-xs">
+                We've received your support query and will get back to you soon.
+              </p>
+              <div className="flex gap-3">
+                <Button variant="outline" onClick={() => { setSupportSubmitted(false); }} className="rounded-xl">
+                  Send Another
+                </Button>
+                <Button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="rounded-xl bg-emerald-600 hover:bg-emerald-700">
+                  Back to Home
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-300">
+              <div className="p-5 bg-gradient-to-br from-emerald-50/50 to-white dark:from-emerald-950/10 dark:to-zinc-900 rounded-3xl border border-emerald-100/50 dark:border-emerald-900/20">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                    <Headphones className="w-6 h-6 text-emerald-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm">Need assistance?</h3>
+                    <p className="text-xs text-zinc-500">Send us your query and we'll help you out.</p>
+                  </div>
+                </div>
+              </div>
+
+              <form onSubmit={handleSupportSubmit} className="space-y-4">
+                {/* Email Field (Non-editable) */}
+                <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-zinc-400 ml-1">Your Email</label>
+                  <Input
+                    value={userEmail}
+                    disabled
+                    className="bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl h-11 text-sm font-medium cursor-not-allowed opacity-70"
+                  />
+                </div>
+
+                {/* Support Message */}
+                <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase font-bold text-zinc-400 ml-1">Support Query</label>
+                  <textarea
+                    placeholder="Describe your issue or question..."
+                    value={supportMessage}
+                    onChange={(e) => setSupportMessage(e.target.value)}
+                    className="w-full text-sm px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-none focus:outline-none focus:ring-2 focus:ring-emerald-500 h-36 transition-all resize-none"
+                    disabled={supportSubmitting}
+                    autoFocus
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 h-11 rounded-xl font-bold"
+                  disabled={!supportMessage.trim() || supportSubmitting}
+                >
+                  {supportSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Sending...
+                    </span>
+                  ) : (
+                    'Submit Query'
+                  )}
+                </Button>
+              </form>
+            </div>
+          )}
+        </div>
+
+        {/* Brand Footer */}
+        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Live Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ==================== FEEDBACK SCREEN (Original) ====================
   return (
     <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
       {/* Background Animated Logo - Translucent */}
@@ -271,9 +510,14 @@ function WidgetContent() {
         <AnimatedLogo size={400} />
       </div>
 
-      {/* Header - Simplified */}
+      {/* Header - with back button */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
-        <span className="font-black text-lg tracking-tight">UpVote</span>
+        <div className="flex items-center gap-3">
+          <button onClick={() => setWidgetMode('selector')} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+          </button>
+          <span className="font-black text-lg tracking-tight">Feedback</span>
+        </div>
         <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
           <X className="w-4 h-4" />
         </Button>
@@ -342,8 +586,8 @@ function WidgetContent() {
                             type="button"
                             onClick={() => toggleTag(tag)}
                             className={`text-[10px] px-3 py-1 rounded-full border transition-all ${selectedTags.includes(tag)
-                                ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-600/20'
-                                : 'bg-transparent border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:border-zinc-300'
+                              ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-600/20'
+                              : 'bg-transparent border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:border-zinc-300'
                               }`}
                           >
                             {tag}
