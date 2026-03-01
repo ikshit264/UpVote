@@ -97,8 +97,8 @@ model Subscription {
   status    SubscriptionStatus @default(ACTIVE)
 
   // DODO Payments fields
-  dodoCustomerId     String? @unique
-  dodoSubscriptionId String? @unique
+  dodoCustomerId     String?
+  dodoSubscriptionId String?
   dodoProductId      String?
 
   // Billing cycle - subscription anniversary based
