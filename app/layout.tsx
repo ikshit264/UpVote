@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: 'Collect customer feedback with a beautiful embeddable widget. Let your users upvote ideas and help you prioritize.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/logo-dark.png',
         width: 1200,
         height: 630,
         alt: 'UpVote Platform Preview',
@@ -49,22 +49,30 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UpVote - Customer Feedback & Feature Voting Platform',
     description: 'The easiest way to collect, manage and prioritize customer feedback.',
-    images: ['/og-image.png'],
+    images: ['/logo-dark.png'],
     creator: '@upvote',
   },
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
-        sizes: 'any',
+        url: '/logo-dark.png',
+        media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon.png',
-        type: 'image/png',
-        sizes: '32x32',
-      },
+        url: '/logo-light.png',
+        media: '(prefers-color-scheme: dark)',
+      }
     ],
-    apple: '/apple-icon.png',
+    apple: [
+      {
+        url: '/logo-dark.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/logo-light.png',
+        media: '(prefers-color-scheme: dark)',
+      }
+    ],
   },
   robots: {
     index: true,
@@ -84,7 +92,7 @@ const jsonLd = {
   '@type': 'Organization',
   name: 'UpVote',
   url: baseUrl,
-  logo: `${baseUrl}/icon.png`,
+  logo: `${baseUrl}/logo-dark.png`,
   description: 'Customer feedback and feature voting platform for modern product teams.',
   sameAs: [
     'https://twitter.com/upvote',
@@ -115,8 +123,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-X1NL0M3HH0"
           strategy="afterInteractive"

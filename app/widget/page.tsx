@@ -73,9 +73,15 @@ function WidgetContent() {
   const [activeTab, setActiveTab] = useState('home');
 
   // Support state
+  const [supportEmail, setSupportEmail] = useState(userEmail);
   const [supportMessage, setSupportMessage] = useState('');
   const [supportSubmitting, setSupportSubmitting] = useState(false);
   const [supportSubmitted, setSupportSubmitted] = useState(false);
+
+  // Update supportEmail when userEmail from searchParams changes
+  useEffect(() => {
+    if (userEmail) setSupportEmail(userEmail);
+  }, [userEmail]);
 
   // Pagination & Virtualization states
   const [page, setPage] = useState(1);
@@ -183,7 +189,7 @@ function WidgetContent() {
 
   const handleSupportSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!supportMessage.trim()) return;
+    if (!supportMessage.trim() || !supportEmail.trim()) return;
 
     setSupportSubmitting(true);
     try {
@@ -192,8 +198,8 @@ function WidgetContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           applicationId,
-          userId,
-          email: userEmail,
+          userId: userId || 'anonymous',
+          email: supportEmail,
           message: supportMessage,
         }),
       });
@@ -295,7 +301,7 @@ function WidgetContent() {
     </Card>
   );
 
-  if (!applicationId || !userId) {
+  if (!applicationId) {
     return (
       <div className={`flex flex-col h-screen items-center justify-center p-8 text-center ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans`}>
         <div className="w-16 h-16 rounded-3xl bg-red-50 dark:bg-red-950/20 flex items-center justify-center mb-6">
@@ -303,7 +309,7 @@ function WidgetContent() {
         </div>
         <h1 className="text-xl font-bold mb-2">Configuration Error</h1>
         <p className="text-sm text-zinc-500 mb-8 max-w-xs">
-          This widget is missing mandatory parameters. Please ensure <code className="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">applicationId</code> and <code className="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">userId</code> are provided.
+          This widget is missing the mandatory <code className="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">applicationId</code> parameter.
         </p>
         <Button variant="outline" onClick={closeWidget} className="rounded-xl">Close Widget</Button>
       </div>
@@ -330,55 +336,57 @@ function WidgetContent() {
         {/* Selector Cards */}
         <div className="flex-1 flex flex-col items-center justify-center px-6 gap-6 relative z-10">
           <div className="text-center mb-4">
-            <h2 className="text-xl font-black tracking-tight mb-1">How can we help?</h2>
-            <p className="text-sm text-zinc-500">Choose an option below</p>
+            <h2 className="text-2xl font-black tracking-tight mb-1">How can we help?</h2>
+            <p className="text-sm text-zinc-500">Choose an option below to get started</p>
           </div>
 
-          {/* Feedback Option */}
-          <button
-            onClick={() => setWidgetMode('feedback')}
-            className="w-full max-w-sm p-6 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-950/20 dark:to-zinc-900 border border-indigo-100/50 dark:border-indigo-900/20 rounded-3xl text-left hover:shadow-lg hover:shadow-indigo-100/50 dark:hover:shadow-none transition-all group animate-in slide-in-from-bottom-4 duration-300"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <MessageSquare className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+          {/* Feedback Option - Only if userId exists */}
+          {userId && (
+            <button
+              onClick={() => setWidgetMode('feedback')}
+              className="w-full max-w-sm p-6 bg-linear-to-br from-indigo-50 to-white dark:from-indigo-950/20 dark:to-zinc-900 border border-indigo-100/50 dark:border-indigo-900/20 rounded-[32px] text-left hover:shadow-2xl hover:shadow-indigo-200/50 dark:hover:shadow-none transition-all group scale-100 active:scale-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] animate-in slide-in-from-bottom-8"
+            >
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <MessageSquare className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-lg mb-1">Feedback</h3>
+                  <p className="text-xs text-zinc-500 leading-relaxed">Share ideas, report bugs, or suggest improvements to our team</p>
+                </div>
+                <ChevronRight className="w-6 h-6 text-zinc-300 group-hover:text-indigo-500 group-hover:translate-x-2 transition-all duration-500" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-black text-base mb-0.5">Feedback</h3>
-                <p className="text-xs text-zinc-500">Share ideas, report bugs, or suggest improvements</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" />
-            </div>
-          </button>
+            </button>
+          )}
 
           {/* Support Option */}
           <button
             onClick={() => setWidgetMode('support')}
-            className="w-full max-w-sm p-6 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/20 dark:to-zinc-900 border border-emerald-100/50 dark:border-emerald-900/20 rounded-3xl text-left hover:shadow-lg hover:shadow-emerald-100/50 dark:hover:shadow-none transition-all group animate-in slide-in-from-bottom-4 duration-500"
+            className="w-full max-w-sm p-6 bg-linear-to-br from-emerald-50 to-white dark:from-emerald-950/20 dark:to-zinc-900 border border-emerald-100/50 dark:border-emerald-900/20 rounded-[32px] text-left hover:shadow-2xl hover:shadow-emerald-200/50 dark:hover:shadow-none transition-all group scale-100 active:scale-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] animate-in slide-in-from-bottom-8 delay-150"
           >
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Headphones className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+            <div className="flex items-center gap-5">
+              <div className="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+                <Headphones className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div className="flex-1">
-                <h3 className="font-black text-base mb-0.5">Support</h3>
-                <p className="text-xs text-zinc-500">Need help? Send us a support query</p>
+                <h3 className="font-black text-lg mb-1">Support</h3>
+                <p className="text-xs text-zinc-500 leading-relaxed">Need help? Send us a support query and we&apos;ll get back to you</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="w-6 h-6 text-zinc-300 group-hover:text-emerald-500 group-hover:translate-x-2 transition-all duration-500" />
             </div>
           </button>
         </div>
 
         {/* Brand Footer */}
-        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+        <div className="px-6 py-5 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
-              <div className="w-2 h-2 rounded-full bg-indigo-600" />
-              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+            <div className="flex items-center gap-2 opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default group">
+              <div className="w-2.5 h-2.5 rounded-full bg-indigo-600 group-hover:animate-ping" />
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Powered by UpVote</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Live Session</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-tight">Active</span>
             </div>
           </div>
         </div>
@@ -391,76 +399,84 @@ function WidgetContent() {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.07]">
-          <AnimatedLogo size={400} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.05]">
+          <AnimatedLogo size={500} />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
-          <div className="flex items-center gap-3">
-            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
+        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md">
+          <div className="flex items-center gap-4">
+            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90 duration-200">
+              <ArrowLeft className="w-5 h-5" />
             </button>
-            <span className="font-black text-lg tracking-tight">Support</span>
+            <span className="font-black text-xl tracking-tight">Support</span>
           </div>
-          <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
-            <X className="w-4 h-4" />
+          <Button variant="ghost" size="icon" className="rounded-full h-10 w-10 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all active:scale-90 duration-200" onClick={closeWidget}>
+            <X className="w-5 h-5" />
           </Button>
         </div>
 
         {/* Support Content */}
-        <div className="flex-1 overflow-y-auto px-6 py-6 relative z-10">
+        <div className="flex-1 overflow-y-auto px-6 py-8 relative z-10 no-scrollbar">
           {supportSubmitted ? (
-            <div className="flex flex-col items-center justify-center h-full text-center animate-in fade-in zoom-in-95 duration-300">
-              <div className="w-16 h-16 rounded-3xl bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mb-6">
-                <CheckCircle2 className="w-8 h-8 text-emerald-500" />
+            <div className="flex flex-col items-center justify-center h-full text-center animate-in fade-in zoom-in-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+              <div className="w-20 h-20 rounded-[40px] bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mb-8 shadow-inner shadow-emerald-200/50">
+                <CheckCircle2 className="w-10 h-10 text-emerald-500" />
               </div>
-              <h2 className="text-xl font-black mb-2">Query Submitted!</h2>
-              <p className="text-sm text-zinc-500 mb-6 max-w-xs">
-                We've received your support query and will get back to you soon.
+              <h2 className="text-2xl font-black mb-3 tracking-tight">Query Submitted!</h2>
+              <p className="text-sm text-zinc-500 mb-8 max-w-xs leading-relaxed">
+                We&apos;ve received your message and our team will get back to you at <b>{supportEmail}</b> as soon as possible.
               </p>
-              <div className="flex gap-3">
-                <Button variant="outline" onClick={() => { setSupportSubmitted(false); }} className="rounded-xl">
-                  Send Another
-                </Button>
-                <Button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="rounded-xl bg-emerald-600 hover:bg-emerald-700">
+              <div className="flex flex-col w-full gap-3">
+                <Button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="w-full rounded-2xl bg-emerald-600 hover:bg-emerald-700 h-12 font-black text-base shadow-lg shadow-emerald-600/20 transition-all active:scale-95">
                   Back to Home
+                </Button>
+                <Button variant="ghost" onClick={() => { setSupportSubmitted(false); }} className="w-full rounded-2xl h-12 font-bold text-zinc-500 hover:text-emerald-600 transition-all">
+                  Send Another Message
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-300">
-              <div className="p-5 bg-gradient-to-br from-emerald-50/50 to-white dark:from-emerald-950/10 dark:to-zinc-900 rounded-3xl border border-emerald-100/50 dark:border-emerald-900/20">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                    <Headphones className="w-6 h-6 text-emerald-600" />
+            <div className="space-y-8 animate-in slide-in-from-bottom-12 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+              <div className="p-6 bg-linear-to-br from-emerald-50/50 to-white dark:from-emerald-950/10 dark:to-zinc-900 rounded-[32px] border border-emerald-100/50 dark:border-emerald-900/20 shadow-sm">
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shadow-inner">
+                    <Headphones className="w-7 h-7 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm">Need assistance?</h3>
-                    <p className="text-xs text-zinc-500">Send us your query and we'll help you out.</p>
+                    <h3 className="font-black text-base mb-0.5">Need assistance?</h3>
+                    <p className="text-xs text-zinc-500 leading-relaxed">Our support team typically responds within a few hours.</p>
                   </div>
                 </div>
               </div>
 
-              <form onSubmit={handleSupportSubmit} className="space-y-4">
-                {/* Email Field (Non-editable) */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] uppercase font-bold text-zinc-400 ml-1">Your Email</label>
+              <form onSubmit={handleSupportSubmit} className="space-y-6">
+                {/* Email Field */}
+                <div className="space-y-2">
+                  <label className="text-[11px] uppercase font-black tracking-widest text-zinc-400 ml-1">Your Email</label>
                   <Input
-                    value={userEmail}
-                    disabled
-                    className="bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl h-11 text-sm font-medium cursor-not-allowed opacity-70"
+                    type="email"
+                    placeholder="name@company.com"
+                    value={supportEmail}
+                    onChange={(e) => setSupportEmail(e.target.value)}
+                    required
+                    className={`bg-zinc-50 dark:bg-zinc-900 border-none rounded-2xl h-14 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-emerald-500 transition-all ${userEmail ? 'opacity-70 cursor-not-allowed select-none' : ''}`}
+                    readOnly={!!userEmail}
                   />
+                  {!userEmail && (
+                    <p className="text-[10px] text-zinc-400 ml-1 italic font-medium">Please enter your email so we can reply to you.</p>
+                  )}
                 </div>
 
                 {/* Support Message */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] uppercase font-bold text-zinc-400 ml-1">Support Query</label>
+                <div className="space-y-2">
+                  <label className="text-[11px] uppercase font-black tracking-widest text-zinc-400 ml-1">Support Query</label>
                   <textarea
-                    placeholder="Describe your issue or question..."
+                    placeholder="How can we help you today?"
                     value={supportMessage}
                     onChange={(e) => setSupportMessage(e.target.value)}
-                    className="w-full text-sm px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-none focus:outline-none focus:ring-2 focus:ring-emerald-500 h-36 transition-all resize-none"
+                    required
+                    className="w-full text-sm font-semibold px-5 py-4 rounded-[24px] bg-zinc-50 dark:bg-zinc-900 border-none focus:outline-none focus:ring-2 focus:ring-emerald-500 h-44 transition-all resize-none shadow-sm"
                     disabled={supportSubmitting}
                     autoFocus
                   />
@@ -468,16 +484,16 @@ function WidgetContent() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 h-11 rounded-xl font-bold"
-                  disabled={!supportMessage.trim() || supportSubmitting}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-xl shadow-emerald-600/20 h-14 rounded-2xl font-black text-base transition-all active:scale-[0.98] disabled:opacity-50"
+                  disabled={!supportMessage.trim() || !supportEmail.trim() || supportSubmitting}
                 >
                   {supportSubmitting ? (
                     <span className="flex items-center gap-2">
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin" />
                       Sending...
                     </span>
                   ) : (
-                    'Submit Query'
+                    'Submit Message'
                   )}
                 </Button>
               </form>
@@ -605,7 +621,7 @@ function WidgetContent() {
                   </form>
                 </Card>
               ) : (
-                <div className="p-6 bg-gradient-to-br from-indigo-50/50 to-white dark:from-indigo-950/10 dark:to-zinc-900 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
+                <div className="p-6 bg-linear-to-br from-indigo-50/50 to-white dark:from-indigo-950/10 dark:to-zinc-900 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm">
                       <TrendingUp className="w-6 h-6 text-indigo-500" />

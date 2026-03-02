@@ -16,12 +16,19 @@ export default function Logo({ className = '', size = 32, animated = false }: Lo
             style={{ width: size, height: size }}
         >
             {/* Container with a base scale-up to handle image transparency/whitespace */}
-            <div className="relative w-[115%] h-[115%] flex-shrink-0 transition-transform duration-500">
+            <div className="relative w-[115%] h-[115%] shrink-0 transition-transform duration-500">
                 <Image
-                    src="/icon.png"
+                    src="/logo-dark.png"
                     alt="UpVote Logo"
                     fill
-                    className="object-contain"
+                    className="object-contain dark:hidden"
+                    priority
+                />
+                <Image
+                    src="/logo-light.png"
+                    alt="UpVote Logo"
+                    fill
+                    className="object-contain hidden dark:block"
                     priority
                 />
             </div>
