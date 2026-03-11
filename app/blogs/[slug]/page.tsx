@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from 'react-markdown';
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import Footer from "@/components/landing/footer";
 
 interface Props {
     params: { slug: string };
@@ -239,6 +240,7 @@ export default async function BlogDetailPage({ params }: Props) {
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

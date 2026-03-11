@@ -14,6 +14,8 @@ export default function robots(): MetadataRoute.Robots {
                 '/widget-loading',
                 '/_next/',
                 '/static/',
+                '/auth/signup',
+                '/auth/login',
             ],
         },
         sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/feed.xml`],

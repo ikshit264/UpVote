@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: 'UpVote - Customer Feedback & Feature Voting Platform',
-    template: '%s | UpVote'
+    template: '%s | UpVote Blog'
   },
   description: 'The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.',
   keywords: [
@@ -123,21 +123,38 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script id="google-tag-manager" strategy="beforeInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-NNR59M22');
+          `}
+        </Script>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-X1NL0M3HH0"
+          src="https://www.googletagmanager.com/gtag/js?id=G-4CWBFGCWQW"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-X1NL0M3HH0');
+            gtag('config', 'G-4CWBFGCWQW');
           `}
         </Script>
       </head>
       <body className={`font-sans antialiased`}>
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NNR59M22"
+            height="0" 
+            width="0" 
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Providers>
           {children}
           <Toaster position="top-center" richColors />

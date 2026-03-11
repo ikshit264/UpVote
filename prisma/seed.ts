@@ -10,6 +10,8 @@ const TEAM_USERS = [
   { name: 'Team 3', email: 'team3@entrext.com', password: 'team3pass' },
   { name: 'Team 4', email: 'team4@entrext.com', password: 'team4pass' },
   { name: 'Team 5', email: 'team5@entrext.com', password: 'team5pass' },
+  { name: 'Team 6', email: 'team6@entrext.com', password: 'team6pass' },
+  { name: 'Team 7', email: 'team7@entrext.com', password: 'team7pass' },
 ];
 
 async function main() {

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Info, ChevronLeft, Globe, Zap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Footer from '@/components/landing/footer';
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com';
 
@@ -109,6 +110,7 @@ export default function InfoPage() {
                     </Link>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

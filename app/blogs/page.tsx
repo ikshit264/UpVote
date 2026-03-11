@@ -2,14 +2,15 @@ import { getAllBlogs } from "@/lib/blogs";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import Footer from "@/components/landing/footer";
 
 export const metadata: Metadata = {
-    title: "Upvote Blog | Product Management, Feedback & Growth",
+    title: "Product Management, Feedback & Growth",
     description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS. Read the latest from the Upvote team.",
     keywords: ["product management blog", "customer feedback strategies", "SaaS growth tips", "feature prioritization", "Upvote"],
     authors: [{ name: "Upvote Team" }],
     openGraph: {
-        title: "Upvote Blog | Product Management & Growth",
+        title: "Product Management & Growth",
         description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
         type: "website",
     },
@@ -113,6 +114,7 @@ export default function BlogsPage() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     );
 }
