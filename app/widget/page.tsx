@@ -22,7 +22,7 @@ import {
   ArrowLeft,
   CheckCircle2
 } from 'lucide-react';
-import AnimatedLogo from '@/components/animated-logo';
+import Logo from '@/components/logo';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -321,8 +321,8 @@ function WidgetContent() {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.07]">
-          <AnimatedLogo size={400} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.1]">
+          <Logo size={200} />
         </div>
 
         {/* Header */}
@@ -399,8 +399,8 @@ function WidgetContent() {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.05]">
-          <AnimatedLogo size={500} />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.08]">
+          <Logo size={250} />
         </div>
 
         {/* Header */}
@@ -522,8 +522,8 @@ function WidgetContent() {
   return (
     <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
       {/* Background Animated Logo - Translucent */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.07]">
-        <AnimatedLogo size={400} />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.1]">
+        <Logo size={200} />
       </div>
 
       {/* Header - with back button */}
@@ -718,7 +718,7 @@ function WidgetContent() {
 
                 <div className="p-6 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
                   <div className="w-10 h-10 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
-                    <AnimatedLogo size={32} />
+                    <Logo size={32} />
                   </div>
                   <h3 className="font-bold text-base mb-2">About UpVote</h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">

@@ -14,6 +14,11 @@ export const metadata: Metadata = {
         description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
         type: "website",
     },
+    twitter: {
+        card: "summary_large_image",
+        title: "Product Management & Growth",
+        description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
+    },
     alternates: {
         canonical: "https://upvote.entrext.com/blogs",
     },

@@ -44,7 +44,7 @@ const features = [
 
 export default function FeaturesGrid() {
     return (
-        <section className="py-24 bg-zinc-50 dark:bg-zinc-900/50">
+        <section id="features" className="py-24 bg-zinc-50 dark:bg-zinc-900/50">
             <div className="container px-4 md:px-6 mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <motion.h2

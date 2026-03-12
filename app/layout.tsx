@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     url: baseUrl,
     siteName: 'UpVote',
     title: 'UpVote - Customer Feedback & Feature Voting Platform',
-    description: 'Collect customer feedback with a beautiful embeddable widget. Let your users upvote ideas and help you prioritize.',
+    description: 'The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.',
     images: [
       {
-        url: '/logo-dark.png',
+        url: '/favicon.png',
         width: 1200,
         height: 630,
         alt: 'UpVote Platform Preview',
@@ -48,29 +48,19 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'UpVote - Customer Feedback & Feature Voting Platform',
-    description: 'The easiest way to collect, manage and prioritize customer feedback.',
-    images: ['/logo-dark.png'],
+    description: 'The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.',
+    images: ['/favicon.png'],
     creator: '@upvote',
   },
   icons: {
     icon: [
       {
-        url: '/logo-dark.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/logo-light.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/favicon.png',
       }
     ],
     apple: [
       {
-        url: '/logo-dark.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/logo-light.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/favicon.png',
       }
     ],
   },
@@ -92,7 +82,7 @@ const jsonLd = {
   '@type': 'Organization',
   name: 'UpVote',
   url: baseUrl,
-  logo: `${baseUrl}/logo-dark.png`,
+  logo: `${baseUrl}/favicon.png`,
   description: 'Customer feedback and feature voting platform for modern product teams.',
   sameAs: [
     'https://twitter.com/upvote',

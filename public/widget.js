@@ -93,10 +93,7 @@
     button = document.createElement('button');
     button.id = 'upvote-widget-button';
     button.innerHTML = `
-      <picture style="display:block;">
-        <source srcset="${scriptUrl}/logo-light.png" media="(prefers-color-scheme: dark)">
-        <img src="${scriptUrl}/logo-dark.png" alt="UpVote" style="width: 60px; height: 60px; border-radius: 50%;display:block;margin:auto;object-fit:contain;">
-      </picture>
+      <img src="${scriptUrl}/favicon.png" alt="UpVote" style="width: 60px; height: 60px; border-radius: 50%;display:block;margin:auto;object-fit:contain;">
     `;
     button.style.cssText = `
       position: fixed;

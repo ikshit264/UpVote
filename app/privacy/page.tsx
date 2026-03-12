@@ -15,9 +15,14 @@ export const metadata = {
     ],
     openGraph: {
         title: 'Privacy Policy - UpVote Platform',
-        description: 'How we protect your data while you build better products.',
+        description: 'Read the UpVote Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
         url: `${baseUrl}/privacy`,
         type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Privacy Policy - UpVote Platform',
+        description: 'Read the UpVote Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
     },
     alternates: {
         canonical: `${baseUrl}/privacy`,

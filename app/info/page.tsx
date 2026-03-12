@@ -20,6 +20,11 @@ export const metadata = {
         url: `${baseUrl}/info`,
         type: 'website',
     },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Platform Information - UpVote Mission',
+        description: 'The mission and vision for the future of product feedback.',
+    },
     alternates: {
         canonical: `${baseUrl}/info`,
     },

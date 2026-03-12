@@ -55,7 +55,7 @@ export default function HeroSection() {
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
-                        <Link href="/demo">
+                        <Link href="#demo">
                             <Button size="lg" variant="outline" className="h-12 px-8 text-lg rounded-full border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800">
                                 View Live Demo
                             </Button>

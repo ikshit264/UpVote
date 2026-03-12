@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
-import AnimatedLogo from '@/components/animated-logo';
+import Logo from '@/components/logo';
 import HeroSection from '@/components/landing/hero-section';
 import FeaturesGrid from '@/components/landing/features-grid';
 import { motion, useScroll, useSpring } from 'framer-motion';
@@ -52,7 +52,7 @@ export default function HomePage() {
       <nav className="fixed top-0 left-0 right-0 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800 z-50 transition-all">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5 text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter">
-            <AnimatedLogo size={32} reducedMotion />
+            <Logo size={32} animated />
             <span className="hidden sm:inline">UpVote</span>
           </div>
           <div className="flex items-center gap-6">
@@ -68,8 +68,8 @@ export default function HomePage() {
               <UserAccountNav />
             ) : (
               <>
-                <Link href="/auth/login">
-                  <Button variant="ghost" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Sign in</Button>
+                <Link href="#pricing">
+                  <Button variant="ghost" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Pricing</Button>
                 </Link>
                 <Link href="/auth/signup">
                   <Button className="bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 rounded-full px-6">
@@ -87,7 +87,7 @@ export default function HomePage() {
         <FeaturesGrid />
         <InteractiveDemo />
         <PricingSection />
-        <SupportSection />
+        {/* <SupportSection /> */}
 
         {/* Call to Action Layer */}
         <section className="py-24 px-4 bg-zinc-900 dark:bg-zinc-50 relative overflow-hidden">

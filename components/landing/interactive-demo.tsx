@@ -36,7 +36,7 @@ export default function InteractiveDemo() {
     };
 
     return (
-        <section className="py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
+        <section id="demo" className="py-24 px-4 overflow-hidden bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-950 dark:to-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
             <div className="container mx-auto max-w-6xl">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Side: Explainer */}

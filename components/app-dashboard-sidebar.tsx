@@ -15,7 +15,7 @@ import {
     HelpCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import AnimatedLogo from '@/components/animated-logo';
+import Logo from '@/components/logo';
 import { UserAccountNav } from '@/components/user-account-nav';
 
 interface Company {
@@ -51,7 +51,7 @@ export default function AppDashboardSidebar({
         <div className="w-64 h-full bg-white dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 flex flex-col">
             <div className="p-6">
                 <div className="flex items-center gap-2.5 font-black text-xl italic text-zinc-900 dark:text-white uppercase tracking-tighter">
-                    <AnimatedLogo size="xs" />
+                    <Logo size={32} />
                     UpVote
                 </div>
             </div>

@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import AnimatedLogo from '@/components/animated-logo';
+import Logo from '@/components/logo';
 
 export default function Loading() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-zinc-950 font-sans">
-      <AnimatedLogo size="lg" />
+      <Logo size={64} animated />
 
       <div className="mt-8 text-center space-y-4">
         <h2 className="text-xl font-black tracking-tight text-zinc-900 dark:text-white uppercase italic">

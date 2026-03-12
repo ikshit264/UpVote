@@ -18,17 +18,10 @@ export default function Logo({ className = '', size = 32, animated = false }: Lo
             {/* Container with a base scale-up to handle image transparency/whitespace */}
             <div className="relative w-[115%] h-[115%] shrink-0 transition-transform duration-500">
                 <Image
-                    src="/logo-dark.png"
+                    src="/favicon.png"
                     alt="UpVote Logo"
                     fill
-                    className="object-contain dark:hidden"
-                    priority
-                />
-                <Image
-                    src="/logo-light.png"
-                    alt="UpVote Logo"
-                    fill
-                    className="object-contain hidden dark:block"
+                    className="object-contain"
                     priority
                 />
             </div>
