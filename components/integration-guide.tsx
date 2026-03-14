@@ -24,12 +24,18 @@ interface IntegrationGuideProps {
     applicationId: string;
     widgetPosition: string;
     widgetTheme: string;
+    widgetLogoUrl?: string;
+    productOverview?: string;
+    aboutText?: string;
 }
 
 export default function IntegrationGuide({
     applicationId,
     widgetPosition,
     widgetTheme,
+    widgetLogoUrl = '',
+    productOverview = '',
+    aboutText = '',
 }: IntegrationGuideProps) {
     const [copied, setCopied] = useState<string>("");
     const [activeFramework, setActiveFramework] = useState("html");
@@ -53,7 +59,12 @@ export default function IntegrationGuide({
   data-application-id="${applicationId}"
   data-user-id="USER_ID" // Optional: enabled Feedback
   data-email="USER_EMAIL" // Optional: for attribution
-  data-position="${widgetPosition}">
+  data-position="${widgetPosition}"
+  data-theme="${widgetTheme}"
+  data-logo-url="YOUR_LOGO_URL"     // Optional: custom logo
+  data-product-overview="YOUR_DESCRIPTION"  // Optional
+  data-about-text="YOUR_ABOUT_TEXT">  // Optional
+  data-faqs='[{"question":"Your Q?","answer":"Your A."}]'>  // ⚠️ Required for FAQs (no defaults)
 </div>
 <script src="${baseUrl}/widget.js"></script>
 `,
@@ -81,7 +92,12 @@ export default function UpvoteWidget({ userId, email }) {
            data-application-id="${applicationId}"
            data-user-id={userId || ''}
            data-email={email || ''}
-           data-position="${widgetPosition}" />
+           data-position="${widgetPosition}"
+           data-theme="${widgetTheme}"
+           data-logo-url="/logo.png"         // Optional: your logo
+           data-product-overview="..."       // Optional
+           data-about-text="..."             // Optional
+           data-faqs='[{"question":"Q?","answer":"A."}]'>  // ⚠️ Required for FAQs
       <script src="${baseUrl}/widget.js" async />
     </div>
   );
@@ -139,7 +155,12 @@ export default function UpvoteWidget() {
            data-application-id="${applicationId}"
            data-user-id={userData?.id || ''}
            data-email={userData?.email || ''}
-           data-position="${widgetPosition}" />
+           data-position="${widgetPosition}"
+           data-theme="${widgetTheme}"
+           data-logo-url="/logo.png"         // Optional: your logo
+           data-product-overview="..."       // Optional
+           data-about-text="..."             // Optional
+           data-faqs='[{"question":"Q?","answer":"A."}]'>  // ⚠️ Required for FAQs
       <Script src="${baseUrl}/widget.js" strategy="afterInteractive" />
     </div>
   );
@@ -159,7 +180,12 @@ import { Component, OnInit } from '@angular/core';
          data-application-id="${applicationId}"
          [attr.data-user-id]="user?.id || ''"
          [attr.data-email]="user?.email || ''"
-         data-position="\${widgetPosition}">
+         data-position="\${widgetPosition}"
+         data-theme="\${widgetTheme}"
+         data-logo-url="/logo.png"         <!-- Optional -->
+         data-product-overview="..."       <!-- Optional -->
+         data-about-text="..."             <!-- Optional -->
+         data-faqs='[{"question":"Q?","answer":"A."}]'>  <!-- ⚠️ Required for FAQs -->
     </div>
   \`
 })
@@ -243,7 +269,7 @@ export class UpvoteWidgetComponent implements OnInit {
                         <div className="hidden lg:block">
                             <div className="relative">
                                 <div className="w-48 h-48 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-700 p-4 flex items-center justify-center">
-                                    <div className="text-center space-y-3">
+                                    <div className="text-center space-y-2 text-xs">
                                         <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
                                             <span className="font-mono">data-user-id</span>
                                             <span className="text-zinc-500 font-medium italic">Optional</span>
@@ -251,6 +277,14 @@ export class UpvoteWidgetComponent implements OnInit {
                                         <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
                                             <span className="font-mono">data-email</span>
                                             <span className="text-zinc-500 font-medium italic">Optional</span>
+                                        </div>
+                                        <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                            <span className="font-mono">data-logo-url</span>
+                                            <span className="text-zinc-500 font-medium italic">Optional</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="font-mono">+3 more</span>
+                                            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">See below</span>
                                         </div>
                                     </div>
                                 </div>
@@ -351,6 +385,80 @@ export class UpvoteWidgetComponent implements OnInit {
                 </div>
             </Card>
 
+            {/* Widget Configuration Options */}
+            <Card className="p-6 border-none shadow-sm bg-white dark:bg-zinc-900 rounded-2xl">
+                <div className="space-y-6">
+                    <div>
+                        <h3 className="text-xl font-black mb-2">🎨 Widget Configuration Options</h3>
+                        <p className="text-sm text-zinc-500">
+                            Customize your widget with these optional data attributes
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl border border-indigo-200 dark:border-indigo-900/50">
+                            <h4 className="font-bold text-sm mb-2 text-indigo-900 dark:text-indigo-100 flex items-center gap-2">
+                                🖼️ Custom Logo
+                            </h4>
+                            <code className="text-xs bg-indigo-100 dark:bg-indigo-900/50 px-2 py-1.5 rounded block mb-2">data-logo-url="YOUR_LOGO_URL"</code>
+                            <p className="text-xs text-indigo-800 dark:text-indigo-200">
+                                Display your product logo on the widget button and FAQ header. Falls back to default favicon if not provided.
+                            </p>
+                        </div>
+
+                        <div className="p-4 bg-purple-50 dark:bg-purple-950/20 rounded-xl border border-purple-200 dark:border-purple-900/50">
+                            <h4 className="font-bold text-sm mb-2 text-purple-900 dark:text-purple-100 flex items-center gap-2">
+                                📄 Product Overview
+                            </h4>
+                            <code className="text-xs bg-purple-100 dark:bg-purple-900/50 px-2 py-1.5 rounded block mb-2">data-product-overview="..."</code>
+                            <p className="text-xs text-purple-800 dark:text-purple-200">
+                                Custom description of your product shown in the FAQ tab. Replaces default text when provided.
+                            </p>
+                        </div>
+
+                        <div className="p-4 bg-pink-50 dark:bg-pink-950/20 rounded-xl border border-pink-200 dark:border-pink-900/50">
+                            <h4 className="font-bold text-sm mb-2 text-pink-900 dark:text-pink-100 flex items-center gap-2">
+                                ℹ️ About Section
+                            </h4>
+                            <code className="text-xs bg-pink-100 dark:bg-pink-900/50 px-2 py-1.5 rounded block mb-2">data-about-text="..."</code>
+                            <p className="text-xs text-pink-800 dark:text-pink-200">
+                                Information about your company or team. Displays in the FAQ tab alongside your logo.
+                            </p>
+                        </div>
+
+                        <div className="p-4 bg-amber-50 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50">
+                            <h4 className="font-bold text-sm mb-2 text-amber-900 dark:text-amber-100 flex items-center gap-2">
+                                ❓ Custom FAQs
+                            </h4>
+                            <code className="text-xs bg-amber-100 dark:bg-amber-900/50 px-2 py-1.5 rounded block mb-2">data-faqs='[...]'</code>
+                            <p className="text-xs text-amber-800 dark:text-amber-200">
+                                JSON array of FAQ objects. Each FAQ has a question and answer. ⚠️ <strong>No default FAQs</strong> - you must provide your own questions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900/50">
+                        <h4 className="font-bold text-sm mb-3 text-blue-900 dark:text-blue-100">Complete Configuration Example:</h4>
+                        <pre className="text-xs font-mono bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg overflow-x-auto text-blue-900 dark:text-blue-100">
+{`<div class="upvote-widget"
+  data-application-id="${applicationId}"
+  data-user-id="USER_ID"           <!-- Optional -->
+  data-email="user@example.com"    <!-- Optional -->
+  data-position="${widgetPosition}"
+  data-theme="${widgetTheme}"
+  data-logo-url="/logo.png"        <!-- Optional -->
+  data-product-overview="..."      <!-- Optional -->
+  data-about-text="..."            <!-- Optional -->
+  data-faqs='[{"question":"Q?","answer":"A."}]'>  <!-- ⚠️ Required for FAQs -->
+</div>`}
+                        </pre>
+                        <p className="text-xs text-blue-700 dark:text-blue-300 mt-2 flex items-center gap-1">
+                            ⚠️ <strong>Note:</strong> FAQs are completely customizable. No default questions are shown.
+                        </p>
+                    </div>
+                </div>
+            </Card>
+
             {/* Important Notes */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="p-5 border-2 border-amber-200 dark:border-amber-900/50 bg-amber-50 dark:bg-amber-950/20 rounded-2xl">
@@ -367,15 +475,15 @@ export class UpvoteWidgetComponent implements OnInit {
                     </div>
                 </Card>
 
-                <Card className="p-5 border-2 border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/20 rounded-2xl">
+                <Card className="p-5 border-2 border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/20 rounded-2xl">
                     <div className="flex items-start gap-3">
-                        <div className="text-2xl">💡</div>
+                        <div className="text-2xl">❗</div>
                         <div className="flex-1">
-                            <h4 className="font-bold text-sm mb-2 text-blue-900 dark:text-blue-100">
-                                Test Locally First
+                            <h4 className="font-bold text-sm mb-2 text-red-900 dark:text-red-100">
+                                ⚠️ No Default FAQs
                             </h4>
-                            <p className="text-xs text-blue-800 dark:text-blue-200 leading-relaxed">
-                                The widget works on localhost during development. Test thoroughly before deploying to production to ensure everything is configured correctly.
+                            <p className="text-xs text-red-800 dark:text-red-200 leading-relaxed">
+                                The widget no longer shows default FAQ questions. You <strong>must</strong> provide your own FAQs using the <code className="bg-red-100 dark:bg-red-900/50 px-1.5 py-0.5 rounded font-mono">data-faqs</code> attribute. If you don't provide any FAQs, the FAQ section will be empty.
                             </p>
                         </div>
                     </div>

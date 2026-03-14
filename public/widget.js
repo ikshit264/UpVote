@@ -32,7 +32,12 @@
       userId: div.getAttribute('data-user-id'),
       email: div.getAttribute('data-email') || '',
       position: div.getAttribute('data-position') || 'right',
-      theme: 'light' // Default to light mode
+      theme: div.getAttribute('data-theme') || 'light',
+      // Custom widget configuration
+      logoUrl: div.getAttribute('data-logo-url') || '',
+      productOverview: div.getAttribute('data-product-overview') || '',
+      aboutText: div.getAttribute('data-about-text') || '',
+      faqs: div.getAttribute('data-faqs') ? JSON.parse(div.getAttribute('data-faqs')) : []
     };
   }
 
@@ -51,40 +56,45 @@
     style = document.createElement('style');
     style.id = 'upvote-widget-styles';
     style.textContent = `
-      @keyframes upvote-pop-in {
-        0% { opacity: 0; transform: scale(0.3) translateY(40px) rotate(-10deg); }
-        50% { opacity: 1; transform: scale(1.1) translateY(-10px) rotate(5deg); }
-        70% { transform: scale(0.95) translateY(2px) rotate(-2deg); }
-        100% { opacity: 1; transform: scale(1) translateY(0) rotate(0); }
+      @keyframes upvote-fade-in {
+        0% { opacity: 0; transform: scale(0.95); }
+        100% { opacity: 1; transform: scale(1); }
       }
-      @keyframes upvote-slide-feedback {
-        0% { opacity: 0; transform: scale(0) translateY(20px); filter: blur(10px); }
-        100% { opacity: 1; transform: scale(1) translateY(-75px); filter: blur(0); }
+      @keyframes upvote-slide-up-feedback {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(-75px); }
       }
-      @keyframes upvote-slide-support {
-        0% { opacity: 0; transform: scale(0) translateY(20px); filter: blur(10px); }
-        100% { opacity: 1; transform: scale(1) translateY(var(--upvote-supp-pos, -75px)); filter: blur(0); }
+      @keyframes upvote-slide-up-support {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(var(--upvote-supp-pos, -75px)); }
       }
-      @keyframes upvote-slide-out {
-        0% { opacity: 1; transform: scale(1) translateY(var(--y-pos)); filter: blur(0); }
-        100% { opacity: 0; transform: scale(0) translateY(0); filter: blur(10px); }
+      @keyframes upvote-fade-out {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(10px); }
       }
-      @keyframes upvote-label-fade {
-        0% { opacity: 0; transform: translateX(${isLeft ? '-20px' : '20px'}) scale(0.8); filter: blur(5px); }
-        100% { opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
+      @keyframes upvote-label-appear {
+        0% { opacity: 0; transform: translateX(${isLeft ? '-10px' : '10px'}); }
+        100% { opacity: 1; transform: translateX(0); }
       }
-      @keyframes upvote-genie-in {
-        0% { opacity: 0; transform: scale(0.1) translateY(40px); border-radius: 100px; }
-        60% { transform: scale(1.02) translateY(-10px); border-radius: 40px; }
-        100% { opacity: 1; transform: scale(1) translateY(0); border-radius: 28px; }
+      @keyframes upvote-container-enter {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes upvote-orbit {
+        0% { 
+          transform: rotate(0deg) translateX(28px) rotate(0deg);
+        }
+        100% { 
+          transform: rotate(360deg) translateX(28px) rotate(-360deg);
+        }
       }
       #upvote-widget-button:hover {
-        transform: scale(1.1) !important;
-        box-shadow: 0 15px 35px -5px rgba(79, 70, 229, 0.45) !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3) !important;
       }
       .upvote-sub-btn:hover {
-        transform: scale(1.15) !important;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25) !important;
+        transform: scale(1.08) !important;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
       }
     `;
     document.head.appendChild(style);
@@ -92,27 +102,31 @@
     // ============== MAIN BUTTON ==============
     button = document.createElement('button');
     button.id = 'upvote-widget-button';
+    const logoSrc = config.logoUrl || `${scriptUrl}/favicon.png`;
     button.innerHTML = `
-      <img src="${scriptUrl}/favicon.png" alt="UpVote" style="width: 60px; height: 60px; border-radius: 50%;display:block;margin:auto;object-fit:contain;">
+      <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <span style="position: absolute; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4); z-index: 1; animation: upvote-orbit 3s linear infinite; "></span>
+        <img src="${logoSrc}" alt="Widget" style="width: 32px; height: 32px; border-radius: 50%;display:block;margin:auto;object-fit:contain;">
+      </div>
     `;
     button.style.cssText = `
       position: fixed;
       bottom: 24px;
       ${positionSide}: 24px;
       z-index: 999999;
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       background: linear-gradient(135deg, #6366f1, #4f46e5);
-      border: none;
+      border: 2px solid rgba(255, 255, 255, 0.9);
       cursor: pointer;
       padding: 0;
-      border-radius: 10%;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.4), 0 0 0 1px rgba(255,255,255,0.15) inset;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      animation: upvote-pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
+      transition: all 0.2s ease-out;
+      animation: upvote-fade-in 0.25s ease-out;
     `;
 
     // ============== SUB BUTTONS ==============
@@ -125,11 +139,11 @@
         z-index: 999998;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         flex-direction: ${isLeft ? 'row' : 'row-reverse'};
         opacity: 0;
         pointer-events: none;
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: all 0.2s ease-out;
       `;
       wrapper.className = className;
 
@@ -137,18 +151,18 @@
       btn.className = 'upvote-sub-btn';
       btn.innerHTML = emoji;
       btn.style.cssText = `
-        width: 52px;
-        height: 52px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, ${colorFrom}, ${colorTo});
-        border: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: white;
+        border: 2px solid ${colorFrom};
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 22px;
-        box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        font-size: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s ease-out;
       `;
 
       const labelEl = document.createElement('span');
@@ -157,15 +171,16 @@
         background: white;
         color: #18181b;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 8px 16px;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px -3px rgba(0,0,0,0.12);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         white-space: nowrap;
         opacity: 0;
         pointer-events: none;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease-out;
+        border: 1px solid rgba(0,0,0,0.06);
       `;
 
       wrapper.appendChild(btn);
@@ -182,16 +197,16 @@
         document.body.appendChild(feedbackSub.wrapper);
         feedbackSub.btn.onclick = (e) => { e.stopPropagation(); openWidget('feedback'); };
         feedbackSub.labelEl.onclick = (e) => { e.stopPropagation(); openWidget('feedback'); };
-        if (menuOpen) showMenu(true);
+        if (menuOpen) hideMenu(true);
       } else if (!hasUserId && feedbackSub) {
         if (menuOpen) {
-          feedbackSub.wrapper.style.animation = 'upvote-slide-out 0.3s cubic-bezier(0.34, 0, 0.64, 1) forwards';
+          feedbackSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
           setTimeout(() => {
             if (feedbackSub) {
               feedbackSub.wrapper.remove();
               feedbackSub = null;
             }
-          }, 300);
+          }, 200);
         } else {
           feedbackSub.wrapper.remove();
           feedbackSub = null;
@@ -206,20 +221,20 @@
       position: fixed;
       bottom: 100px;
       ${positionSide}: 24px;
-      width: 440px;
+      width: 420px;
       max-width: calc(100vw - 48px);
-      height: 760px;
-      max-height: calc(100vh - 140px);
+      height: 720px;
+      max-height: calc(100vh - 120px);
       z-index: 1000000;
       background: #fff;
-      border-radius: 32px;
-      box-shadow: 0 35px 85px -15px rgba(0,0,0,0.3), 0 0 1px 0 rgba(0,0,0,0.1);
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06);
+      transition: all 0.25s ease-out;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(40px) scale(0.9);
+      transform: translateY(20px);
       pointer-events: none;
-      border: 1px solid rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.08);
     `;
 
     iframe = document.createElement('iframe');
@@ -288,31 +303,30 @@
     if (hasUserId) {
       feedbackSub.wrapper.style.pointerEvents = 'auto';
       feedbackSub.wrapper.style.opacity = '1';
-      feedbackSub.wrapper.style.animation = 'upvote-slide-feedback 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+      feedbackSub.wrapper.style.animation = 'upvote-slide-up-feedback 0.25s ease-out forwards';
     }
 
-    supportSub.wrapper.style.setProperty('--upvote-supp-pos', hasUserId ? '-145px' : '-75px');
+    supportSub.wrapper.style.setProperty('--upvote-supp-pos', hasUserId ? '-135px' : '-65px');
     supportSub.wrapper.style.pointerEvents = 'auto';
     supportSub.wrapper.style.opacity = '1';
-    supportSub.wrapper.style.animation = 'upvote-slide-support 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+    supportSub.wrapper.style.animation = 'upvote-slide-up-support 0.25s ease-out forwards';
 
     if (!isRefresh) {
       setTimeout(() => {
         if (hasUserId) {
           feedbackSub.labelEl.style.opacity = '1';
-          feedbackSub.labelEl.style.animation = 'upvote-label-fade 0.4s ease forwards';
+          feedbackSub.labelEl.style.animation = 'upvote-label-appear 0.2s ease-out forwards';
           feedbackSub.labelEl.style.pointerEvents = 'auto';
         }
-      }, 300);
+      }, 150);
       setTimeout(() => {
         supportSub.labelEl.style.opacity = '1';
-        supportSub.labelEl.style.animation = 'upvote-label-fade 0.4s ease forwards';
+        supportSub.labelEl.style.animation = 'upvote-label-appear 0.2s ease-out forwards';
         supportSub.labelEl.style.pointerEvents = 'auto';
-      }, hasUserId ? 380 : 300);
+      }, hasUserId ? 200 : 150);
 
-      // button.style.transform = 'rotate(135deg)';
       button.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-      button.style.boxShadow = '0 10px 30px -5px rgba(239, 68, 68, 0.4)';
+      button.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.25)';
     }
   }
 
@@ -329,21 +343,20 @@
     supportSub.labelEl.style.animation = 'none';
     supportSub.labelEl.style.pointerEvents = 'none';
 
-    supportSub.wrapper.style.setProperty('--y-pos', hasUserId ? '-145px' : '-75px');
-    supportSub.wrapper.style.animation = 'upvote-slide-out 0.3s cubic-bezier(0.34, 0, 0.64, 1) forwards';
+    supportSub.wrapper.style.setProperty('--y-pos', hasUserId ? '-135px' : '-65px');
+    supportSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
     supportSub.wrapper.style.pointerEvents = 'none';
 
     setTimeout(() => {
       if (feedbackSub) {
-        feedbackSub.wrapper.style.setProperty('--y-pos', '-75px');
-        feedbackSub.wrapper.style.animation = 'upvote-slide-out 0.3s cubic-bezier(0.34, 0, 0.64, 1) forwards';
+        feedbackSub.wrapper.style.setProperty('--y-pos', '-65px');
+        feedbackSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
         feedbackSub.wrapper.style.pointerEvents = 'none';
       }
-    }, hasUserId ? 60 : 0);
+    }, hasUserId ? 40 : 0);
 
-    button.style.transform = 'rotate(0deg)';
     button.style.background = 'linear-gradient(135deg, #6366f1, #4f46e5)';
-    button.style.boxShadow = '0 10px 30px -5px rgba(79, 70, 229, 0.4)';
+    button.style.boxShadow = '0 4px 12px rgba(79, 70, 229, 0.25)';
   }
 
   function openWidget(mode) {
@@ -355,28 +368,33 @@
       userId: config.userId || '',
       email: config.email,
       theme: config.theme,
-      mode: mode
+      mode: mode,
+      // Pass custom widget configuration
+      logoUrl: config.logoUrl || '',
+      productOverview: config.productOverview || '',
+      aboutText: config.aboutText || '',
+      faqs: config.faqs ? JSON.stringify(config.faqs) : ''
     });
     iframe.src = `${scriptUrl}/widget?${params.toString()}`;
 
     setTimeout(() => {
       container.style.opacity = '1';
-      container.style.transform = 'translateY(0) scale(1)';
-      container.style.animation = 'upvote-genie-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      container.style.transform = 'translateY(0)';
+      container.style.animation = 'upvote-container-enter 0.3s ease-out forwards';
       container.style.pointerEvents = 'auto';
-      button.style.opacity = '0.5';
-      button.style.transform = 'scale(0.8) translateY(10px) rotate(0deg)';
-    }, 150);
+      button.style.opacity = '0.6';
+      button.style.transform = 'scale(0.9)';
+    }, 100);
   }
 
   function closeWidget() {
     widgetOpen = false;
     container.style.opacity = '0';
-    container.style.transform = 'translateY(40px) scale(0.9)';
+    container.style.transform = 'translateY(20px)';
     container.style.animation = 'none';
     container.style.pointerEvents = 'none';
     button.style.opacity = '1';
-    button.style.transform = 'scale(1) rotate(0deg) translateY(0)';
+    button.style.transform = 'scale(1)';
   }
 
   // ============== INITIALIZE ==============
@@ -404,9 +422,17 @@
         const url = new URL(iframe.src);
         const currentUserId = url.searchParams.get('userId');
         const currentMode = url.searchParams.get('mode') || 'feedback';
+        const currentLogoUrl = config.logoUrl;
+        const currentProductOverview = config.productOverview;
+        const currentAboutText = config.aboutText;
+        const currentFaqs = config.faqs ? JSON.stringify(config.faqs) : '';
 
-        // Refresh iframe if user ID changed
-        if (currentUserId !== (config.userId || '')) {
+        // Refresh iframe if user ID or configuration changed
+        if (currentUserId !== (config.userId || '') || 
+            currentLogoUrl !== config.logoUrl ||
+            currentProductOverview !== config.productOverview ||
+            currentAboutText !== config.aboutText ||
+            currentFaqs !== (config.faqs ? JSON.stringify(config.faqs) : '')) {
           openWidget(currentMode);
         }
       }

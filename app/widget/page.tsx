@@ -46,6 +46,11 @@ interface Feedback {
   reply: string | null;
 }
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
 const PREDEFINED_TAGS = ['Feature', 'Bug', 'Improvement', 'UI/UX', 'Performance'];
 const ITEM_HEIGHT = 140; // Estimated height for virtualization
 const BUFFER = 5; // Items to buffer above/below viewport
@@ -59,6 +64,13 @@ function WidgetContent() {
   const userEmail = searchParams.get('email') || '';
   const theme = searchParams.get('theme') || 'light';
   const initialMode = searchParams.get('mode') as WidgetMode | null;
+
+  // Custom widget configuration
+  const logoUrl = searchParams.get('logoUrl') || '';
+  const productOverview = searchParams.get('productOverview') || '';
+  const aboutText = searchParams.get('aboutText') || '';
+  const faqsString = searchParams.get('faqs') || '';
+  const customFaqs: FAQ[] = faqsString ? JSON.parse(faqsString) : [];
 
   // Widget mode: selector, feedback, support
   const [widgetMode, setWidgetMode] = useState<WidgetMode>(initialMode === 'feedback' || initialMode === 'support' ? initialMode : 'selector');
@@ -261,27 +273,27 @@ function WidgetContent() {
   }, [feedback]);
 
   const FeedbackCard = ({ item }: { item: Feedback }) => (
-    <Card className="p-0 border-none shadow-[0_2px_10px_rgba(0,0,0,0.02)] bg-zinc-50/50 dark:bg-zinc-900/30 hover:bg-white dark:hover:bg-zinc-900 transition-all rounded-2xl group overflow-hidden h-[120px]">
+    <Card className="p-0 border border-zinc-200 dark:border-zinc-800 shadow-sm bg-white dark:bg-zinc-900/50 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all duration-200 rounded-xl group overflow-hidden h-[120px]">
       <div className="flex h-full">
-        <div className="flex flex-col items-center justify-center p-3 gap-1 bg-white dark:bg-zinc-900/50 border-r border-zinc-100 dark:border-zinc-800 w-12 shrink-0">
+        <div className="flex flex-col items-center justify-center p-3 gap-1 bg-zinc-50 dark:bg-zinc-900/30 border-r border-zinc-100 dark:border-zinc-800 w-12 shrink-0">
           <button
-            className={`transition-all ${item.userVoteType === 'UPVOTE' ? 'text-indigo-600 scale-110' : 'text-zinc-400 hover:text-zinc-600'}`}
+            className={`transition-all duration-200 ${item.userVoteType === 'UPVOTE' ? 'text-indigo-600' : 'text-zinc-400 hover:text-zinc-600'}`}
             onClick={() => handleVote(item.id, 'UPVOTE')}
           >
             <ArrowUp className="w-5 h-5" />
           </button>
-          <span className="font-bold text-xs">{item.voteCount}</span>
+          <span className="font-semibold text-xs">{item.voteCount}</span>
         </div>
         <div className="flex-1 p-4 overflow-hidden flex flex-col justify-center">
           <div className="flex items-start justify-between gap-2 mb-1">
-            <h4 className="font-semibold text-sm leading-snug truncate">{item.title}</h4>
+            <h4 className="font-semibold text-sm">{item.title}</h4>
             {item.isAuthor && <Badge variant="secondary" className="text-[8px] h-3 px-1 shrink-0">You</Badge>}
           </div>
-          <p className="text-xs text-zinc-500 line-clamp-1 mb-2 leading-relaxed">{item.description}</p>
+          <p className="text-xs text-zinc-500 mb-2">{item.description}</p>
           <div className="flex items-center justify-between mt-auto">
             <div className="flex gap-1 flex-wrap overflow-hidden h-4">
-              {item.tags.slice(0, 2).map(tag => (
-                <span key={tag} className="text-[9px] bg-zinc-200/50 dark:bg-zinc-800 px-2 py-0.5 rounded-full font-medium text-zinc-500">
+              {item.tags.map(tag => (
+                <span key={tag} className="text-[9px] bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-md font-medium text-zinc-500">
                   {tag}
                 </span>
               ))}
@@ -291,8 +303,8 @@ function WidgetContent() {
             </span>
           </div>
           {item.reply && (
-            <div className="mt-2 p-1.5 bg-indigo-50/50 dark:bg-indigo-950/20 rounded-lg text-[9px] border border-indigo-100/50 dark:border-indigo-900/20 truncate">
-              <span className="font-bold text-indigo-600 dark:text-indigo-400 mr-1">Reply:</span>
+            <div className="mt-2 p-1.5 bg-indigo-50 dark:bg-indigo-950/20 rounded-md text-[9px] border border-indigo-100 dark:border-indigo-900/20 truncate">
+              <span className="font-semibold text-indigo-600 dark:text-indigo-400 mr-1">Reply:</span>
               <span className="text-zinc-600 dark:text-zinc-400">{item.reply}</span>
             </div>
           )}
@@ -321,40 +333,45 @@ function WidgetContent() {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.1]">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
           <Logo size={200} />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
-          <span className="font-black text-lg tracking-tight">UpVote</span>
-          <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
+        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            {logoUrl && (
+              <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-md object-contain" />
+            )}
+            <span className="font-semibold text-base tracking-tight">UpVote</span>
+          </div>
+          <Button variant="ghost" size="icon" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
             <X className="w-4 h-4" />
           </Button>
         </div>
 
         {/* Selector Cards */}
-        <div className="flex-1 flex flex-col items-center justify-center px-6 gap-6 relative z-10">
-          <div className="text-center mb-4">
-            <h2 className="text-2xl font-black tracking-tight mb-1">How can we help?</h2>
-            <p className="text-sm text-zinc-500">Choose an option below to get started</p>
+        <div className="flex-1 flex flex-col items-center justify-center px-6 gap-4 relative z-10">
+          <div className="text-center mb-2">
+            <h2 className="text-xl font-semibold tracking-tight mb-1">How can we help?</h2>
+            <p className="text-sm text-zinc-500">Choose an option below</p>
           </div>
 
           {/* Feedback Option - Only if userId exists */}
           {userId && (
             <button
               onClick={() => setWidgetMode('feedback')}
-              className="w-full max-w-sm p-6 bg-linear-to-br from-indigo-50 to-white dark:from-indigo-950/20 dark:to-zinc-900 border border-indigo-100/50 dark:border-indigo-900/20 rounded-[32px] text-left hover:shadow-2xl hover:shadow-indigo-200/50 dark:hover:shadow-none transition-all group scale-100 active:scale-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] animate-in slide-in-from-bottom-8"
+              className="w-full max-w-sm p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-left hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-800 transition-all duration-200 group animate-in fade-in slide-in-from-bottom-4"
             >
-              <div className="flex items-center gap-5">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                  <MessageSquare className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 flex items-center justify-center shrink-0">
+                  <MessageSquare className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-lg mb-1">Feedback</h3>
-                  <p className="text-xs text-zinc-500 leading-relaxed">Share ideas, report bugs, or suggest improvements to our team</p>
+                  <h3 className="font-semibold text-base mb-0.5">Feedback</h3>
+                  <p className="text-xs text-zinc-500 leading-relaxed">Share ideas and suggestions</p>
                 </div>
-                <ChevronRight className="w-6 h-6 text-zinc-300 group-hover:text-indigo-500 group-hover:translate-x-2 transition-all duration-500" />
+                <ChevronRight className="w-5 h-5 text-zinc-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all duration-200" />
               </div>
             </button>
           )}
@@ -362,31 +379,31 @@ function WidgetContent() {
           {/* Support Option */}
           <button
             onClick={() => setWidgetMode('support')}
-            className="w-full max-w-sm p-6 bg-linear-to-br from-emerald-50 to-white dark:from-emerald-950/20 dark:to-zinc-900 border border-emerald-100/50 dark:border-emerald-900/20 rounded-[32px] text-left hover:shadow-2xl hover:shadow-emerald-200/50 dark:hover:shadow-none transition-all group scale-100 active:scale-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] animate-in slide-in-from-bottom-8 delay-150"
+            className="w-full max-w-sm p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-left hover:shadow-lg hover:border-emerald-200 dark:hover:border-emerald-800 transition-all duration-200 group animate-in fade-in slide-in-from-bottom-4"
           >
-            <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
-                <Headphones className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+                <Headphones className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div className="flex-1">
-                <h3 className="font-black text-lg mb-1">Support</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">Need help? Send us a support query and we&apos;ll get back to you</p>
+                <h3 className="font-semibold text-base mb-0.5">Support</h3>
+                <p className="text-xs text-zinc-500 leading-relaxed">Send us a message</p>
               </div>
-              <ChevronRight className="w-6 h-6 text-zinc-300 group-hover:text-emerald-500 group-hover:translate-x-2 transition-all duration-500" />
+              <ChevronRight className="w-5 h-5 text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all duration-200" />
             </div>
           </button>
         </div>
 
         {/* Brand Footer */}
-        <div className="px-6 py-5 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default group">
-              <div className="w-2.5 h-2.5 rounded-full bg-indigo-600 group-hover:animate-ping" />
-              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Powered by UpVote</p>
+            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-tight">Active</span>
+              <div className="w-1 h-1 rounded-full bg-green-500" />
+              <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Active</span>
             </div>
           </div>
         </div>
@@ -399,19 +416,19 @@ function WidgetContent() {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.08]">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
           <Logo size={250} />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
           <div className="flex items-center gap-4">
-            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-90 duration-200">
+            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 active:scale-95">
               <ArrowLeft className="w-5 h-5" />
             </button>
-            <span className="font-black text-xl tracking-tight">Support</span>
+            <span className="font-semibold text-lg tracking-tight">Support</span>
           </div>
-          <Button variant="ghost" size="icon" className="rounded-full h-10 w-10 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all active:scale-90 duration-200" onClick={closeWidget}>
+          <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-200 active:scale-95" onClick={closeWidget}>
             <X className="w-5 h-5" />
           </Button>
         </div>
@@ -419,48 +436,48 @@ function WidgetContent() {
         {/* Support Content */}
         <div className="flex-1 overflow-y-auto px-6 py-8 relative z-10 no-scrollbar">
           {supportSubmitted ? (
-            <div className="flex flex-col items-center justify-center h-full text-center animate-in fade-in zoom-in-95 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
-              <div className="w-20 h-20 rounded-[40px] bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mb-8 shadow-inner shadow-emerald-200/50">
-                <CheckCircle2 className="w-10 h-10 text-emerald-500" />
+            <div className="flex flex-col items-center justify-center h-full text-center animate-in fade-in zoom-in-95 duration-300 ease-out">
+              <div className="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mb-6 shadow-sm">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500" />
               </div>
-              <h2 className="text-2xl font-black mb-3 tracking-tight">Query Submitted!</h2>
-              <p className="text-sm text-zinc-500 mb-8 max-w-xs leading-relaxed">
-                We&apos;ve received your message and our team will get back to you at <b>{supportEmail}</b> as soon as possible.
+              <h2 className="text-xl font-semibold mb-2 tracking-tight">Query Submitted!</h2>
+              <p className="text-sm text-zinc-500 mb-6 max-w-xs leading-relaxed">
+                We&apos;ve received your message and our team will get back to you at <b>{supportEmail}</b> shortly.
               </p>
               <div className="flex flex-col w-full gap-3">
-                <Button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="w-full rounded-2xl bg-emerald-600 hover:bg-emerald-700 h-12 font-black text-base shadow-lg shadow-emerald-600/20 transition-all active:scale-95">
+                <Button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="w-full rounded-lg bg-emerald-600 hover:bg-emerald-700 h-11 font-semibold text-base shadow-sm transition-all duration-200 active:scale-98">
                   Back to Home
                 </Button>
-                <Button variant="ghost" onClick={() => { setSupportSubmitted(false); }} className="w-full rounded-2xl h-12 font-bold text-zinc-500 hover:text-emerald-600 transition-all">
+                <Button variant="ghost" onClick={() => { setSupportSubmitted(false); }} className="w-full rounded-lg h-11 font-medium text-zinc-500 hover:text-emerald-600 transition-all duration-200">
                   Send Another Message
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="space-y-8 animate-in slide-in-from-bottom-12 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
-              <div className="p-6 bg-linear-to-br from-emerald-50/50 to-white dark:from-emerald-950/10 dark:to-zinc-900 rounded-[32px] border border-emerald-100/50 dark:border-emerald-900/20 shadow-sm">
-                <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shadow-inner">
-                    <Headphones className="w-7 h-7 text-emerald-600" />
+            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300 ease-out">
+              <div className="p-5 bg-emerald-50/50 dark:bg-emerald-950/10 rounded-lg border border-emerald-100 dark:border-emerald-900/20 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shadow-sm">
+                    <Headphones className="w-6 h-6 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="font-black text-base mb-0.5">Need assistance?</h3>
-                    <p className="text-xs text-zinc-500 leading-relaxed">Our support team typically responds within a few hours.</p>
+                    <h3 className="font-semibold text-sm mb-0.5">Need assistance?</h3>
+                    <p className="text-xs text-zinc-500 leading-relaxed">Our team typically responds within a few hours.</p>
                   </div>
                 </div>
               </div>
 
-              <form onSubmit={handleSupportSubmit} className="space-y-6">
+              <form onSubmit={handleSupportSubmit} className="space-y-5">
                 {/* Email Field */}
                 <div className="space-y-2">
-                  <label className="text-[11px] uppercase font-black tracking-widest text-zinc-400 ml-1">Your Email</label>
+                  <label className="text-[10px] uppercase font-semibold tracking-wide text-zinc-400 ml-1">Your Email</label>
                   <Input
                     type="email"
                     placeholder="name@company.com"
                     value={supportEmail}
                     onChange={(e) => setSupportEmail(e.target.value)}
                     required
-                    className={`bg-zinc-50 dark:bg-zinc-900 border-none rounded-2xl h-14 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-emerald-500 transition-all ${userEmail ? 'opacity-70 cursor-not-allowed select-none' : ''}`}
+                    className={`bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg h-11 text-sm font-medium focus-visible:ring-2 focus-visible:ring-emerald-500 transition-all duration-200 ${userEmail ? 'opacity-70 cursor-not-allowed select-none' : ''}`}
                     readOnly={!!userEmail}
                   />
                   {!userEmail && (
@@ -470,13 +487,13 @@ function WidgetContent() {
 
                 {/* Support Message */}
                 <div className="space-y-2">
-                  <label className="text-[11px] uppercase font-black tracking-widest text-zinc-400 ml-1">Support Query</label>
+                  <label className="text-[10px] uppercase font-semibold tracking-wide text-zinc-400 ml-1">Support Query</label>
                   <textarea
                     placeholder="How can we help you today?"
                     value={supportMessage}
                     onChange={(e) => setSupportMessage(e.target.value)}
                     required
-                    className="w-full text-sm font-semibold px-5 py-4 rounded-[24px] bg-zinc-50 dark:bg-zinc-900 border-none focus:outline-none focus:ring-2 focus:ring-emerald-500 h-44 transition-all resize-none shadow-sm"
+                    className="w-full text-sm font-medium px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 h-40 transition-all duration-200 resize-none shadow-sm"
                     disabled={supportSubmitting}
                     autoFocus
                   />
@@ -484,12 +501,12 @@ function WidgetContent() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-xl shadow-emerald-600/20 h-14 rounded-2xl font-black text-base transition-all active:scale-[0.98] disabled:opacity-50"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 shadow-sm h-11 rounded-lg font-semibold text-base transition-all duration-200 active:scale-98 disabled:opacity-50"
                   disabled={!supportMessage.trim() || !supportEmail.trim() || supportSubmitting}
                 >
                   {supportSubmitting ? (
                     <span className="flex items-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" />
                       Sending...
                     </span>
                   ) : (
@@ -506,11 +523,11 @@ function WidgetContent() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
               <div className="w-2 h-2 rounded-full bg-indigo-600" />
-              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Live Session</span>
+              <div className="w-1 h-1 rounded-full bg-green-500" />
+              <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Live Session</span>
             </div>
           </div>
         </div>
@@ -522,64 +539,64 @@ function WidgetContent() {
   return (
     <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
       {/* Background Animated Logo - Translucent */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.1]">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
         <Logo size={200} />
       </div>
-
+    
       {/* Header - with back button */}
-      <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm">
+      <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
         <div className="flex items-center gap-3">
-          <button onClick={() => setWidgetMode('selector')} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+          <button onClick={() => setWidgetMode('selector')} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200">
             <ArrowLeft className="w-4 h-4" />
           </button>
-          <span className="font-black text-lg tracking-tight">Feedback</span>
+          <span className="font-semibold text-base tracking-tight">Feedback</span>
         </div>
-        <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors" onClick={closeWidget}>
+        <Button variant="ghost" size="icon" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
           <X className="w-4 h-4" />
         </Button>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col min-h-0 relative z-10">
         <div className="px-6 py-2 shrink-0">
-          <TabsList className="w-full bg-zinc-100/80 dark:bg-zinc-900/80 p-1 rounded-xl h-11">
-            <TabsTrigger value="home" className="flex-1 gap-2 rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
+          <TabsList className="w-full bg-zinc-100/80 dark:bg-zinc-900/80 p-1 rounded-lg h-10">
+            <TabsTrigger value="home" className="flex-1 gap-2 rounded-md data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
               <Home className="w-3.5 h-3.5" />
-              <span className="text-xs font-semibold">Home</span>
+              <span className="text-xs font-medium">Home</span>
             </TabsTrigger>
-            <TabsTrigger value="all" className="flex-1 gap-2 rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
+            <TabsTrigger value="all" className="flex-1 gap-2 rounded-md data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
               <List className="w-3.5 h-3.5" />
-              <span className="text-xs font-semibold">Feed</span>
+              <span className="text-xs font-medium">Feed</span>
             </TabsTrigger>
-            <TabsTrigger value="faq" className="flex-1 gap-2 rounded-lg data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
+            <TabsTrigger value="faq" className="flex-1 gap-2 rounded-md data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 data-[state=active]:shadow-sm transition-all duration-200">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span className="text-xs font-semibold">FAQ</span>
+              <span className="text-xs font-medium">FAQ</span>
             </TabsTrigger>
           </TabsList>
         </div>
 
         <div className="flex-1 overflow-y-auto no-scrollbar" onScroll={handleScroll} ref={scrollRef}>
-          <TabsContent value="home" className="m-0 p-6 space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <TabsContent value="home" className="m-0 p-6 space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-200">
             {/* New Feedback Section */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">Add Feedback</h2>
+                <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Add Feedback</h2>
                 {!showForm && (
-                  <Button variant="ghost" size="sm" onClick={() => setShowForm(true)} className="text-indigo-600 text-xs font-bold hover:bg-indigo-50/50">
+                  <Button variant="ghost" size="sm" onClick={() => setShowForm(true)} className="text-indigo-600 text-xs font-medium hover:bg-indigo-50/50 transition-colors duration-200">
                     <Plus className="w-3.5 h-3.5 mr-1" /> New Idea
                   </Button>
                 )}
               </div>
 
               {showForm ? (
-                <Card className="p-5 border border-zinc-100 dark:border-zinc-800 shadow-xl shadow-zinc-200/20 dark:shadow-none transition-all rounded-3xl">
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                <Card className="p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm bg-white dark:bg-zinc-900 transition-all duration-200 rounded-lg">
+                  <form onSubmit={handleSubmit} className="space-y-3">
                     <div className="space-y-1.5">
                       <Input
                         placeholder="What's your idea?"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         disabled={submitting}
-                        className="bg-zinc-50 dark:bg-zinc-900 border-none focus-visible:ring-indigo-500 rounded-xl h-11"
+                        className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-indigo-500 rounded-lg h-10"
                         autoFocus
                       />
                     </div>
@@ -588,21 +605,21 @@ function WidgetContent() {
                         placeholder="Add some details..."
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        className="w-full text-sm px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-none focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 transition-all resize-none"
+                        className="w-full text-sm px-3 py-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 transition-all duration-200 resize-none"
                         disabled={submitting}
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase font-bold text-zinc-400 ml-1">Tags</label>
+                      <label className="text-[10px] uppercase font-semibold text-zinc-400 ml-1">Tags</label>
                       <div className="flex flex-wrap gap-2">
                         {PREDEFINED_TAGS.map(tag => (
                           <button
                             key={tag}
                             type="button"
                             onClick={() => toggleTag(tag)}
-                            className={`text-[10px] px-3 py-1 rounded-full border transition-all ${selectedTags.includes(tag)
-                              ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-600/20'
+                            className={`text-[10px] px-2.5 py-1 rounded-md border transition-all duration-200 ${selectedTags.includes(tag)
+                              ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
                               : 'bg-transparent border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:border-zinc-300'
                               }`}
                           >
@@ -612,26 +629,26 @@ function WidgetContent() {
                       </div>
                     </div>
 
-                    <div className="flex gap-2 pt-2">
-                      <Button type="submit" className="flex-1 bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 h-11 rounded-xl" disabled={!title.trim() || submitting}>
+                    <div className="flex gap-2 pt-1">
+                      <Button type="submit" className="flex-1 bg-indigo-600 hover:bg-indigo-700 shadow-sm h-10 rounded-lg transition-all duration-200 active:scale-98" disabled={!title.trim() || submitting}>
                         {submitting ? 'Sharing...' : 'Share Idea'}
                       </Button>
-                      <Button variant="ghost" type="button" onClick={() => setShowForm(false)} className="h-11 rounded-xl px-4">Cancel</Button>
+                      <Button variant="ghost" type="button" onClick={() => setShowForm(false)} className="h-10 rounded-lg px-3 transition-all duration-200">Cancel</Button>
                     </div>
                   </form>
                 </Card>
               ) : (
-                <div className="p-6 bg-linear-to-br from-indigo-50/50 to-white dark:from-indigo-950/10 dark:to-zinc-900 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
+                <div className="p-5 bg-indigo-50/50 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20 transition-all duration-200">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm">
-                      <TrendingUp className="w-6 h-6 text-indigo-500" />
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm">
+                      <TrendingUp className="w-5 h-5 text-indigo-500" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-sm">Have a suggestion?</h3>
+                      <h3 className="font-semibold text-sm">Have a suggestion?</h3>
                       <p className="text-xs text-zinc-500">Help us build the perfect product.</p>
                     </div>
                   </div>
-                  <Button onClick={() => setShowForm(true)} className="w-full mt-4 h-11 bg-white dark:bg-zinc-800 text-indigo-600 hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-indigo-100/50 dark:border-indigo-900/20 shadow-sm rounded-xl">
+                  <Button onClick={() => setShowForm(true)} className="w-full mt-3 h-10 bg-white dark:bg-zinc-800 text-indigo-600 hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-indigo-100 dark:border-indigo-900/20 shadow-sm rounded-lg transition-all duration-200">
                     Get Started
                   </Button>
                 </div>
@@ -641,15 +658,15 @@ function WidgetContent() {
             {/* Top Feedbacks */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">Featured Ideas</h2>
-                <button onClick={() => setActiveTab('all')} className="text-indigo-600 text-xs font-bold flex items-center gap-1 hover:underline">
+                <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Featured Ideas</h2>
+                <button onClick={() => setActiveTab('all')} className="text-indigo-600 text-xs font-medium flex items-center gap-1 hover:underline transition-all duration-200">
                   View All <ChevronRight className="w-3 h-3" />
                 </button>
               </div>
 
               <div className="grid gap-3">
                 {loading ? (
-                  [1, 2, 3].map(i => <div key={i} className="h-24 bg-zinc-50 dark:bg-zinc-900 animate-pulse rounded-2xl" />)
+                  [1, 2, 3].map(i => <div key={i} className="h-24 bg-zinc-50 dark:bg-zinc-900 animate-pulse rounded-lg" />)
                 ) : topFeedback.length === 0 ? (
                   <div className="text-center py-10 opacity-50">
                     <p className="text-xs">No ideas yet. Be the first!</p>
@@ -661,14 +678,14 @@ function WidgetContent() {
             </div>
           </TabsContent>
 
-          <TabsContent value="all" className="m-0 p-6 space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <TabsContent value="all" className="m-0 p-6 space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-lg font-bold tracking-tight">Public Feed</h2>
+                  <h2 className="text-base font-semibold tracking-tight">Public Feed</h2>
                   <p className="text-xs text-zinc-500">All suggestions from our community.</p>
                 </div>
-                <Badge variant="secondary" className="bg-zinc-100 dark:bg-zinc-800">{feedback.length}</Badge>
+                <Badge variant="secondary" className="bg-zinc-100 dark:bg-zinc-800 text-xs font-medium">{feedback.length}</Badge>
               </div>
 
               {/* Virtualized Container */}
@@ -690,66 +707,98 @@ function WidgetContent() {
 
               {/* Infinite Scroll Trigger */}
               {hasMore && (
-                <div ref={lastElementRef} className="py-8 flex justify-center">
-                  <Loader2 className="w-6 h-6 text-indigo-500 animate-spin" />
+                <div ref={lastElementRef} className="py-6 flex justify-center">
+                  <Loader2 className="w-5 h-5 text-indigo-500 animate-spin" />
                 </div>
               )}
 
               {loading && feedback.length === 0 && (
                 <div className="grid gap-4">
-                  {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-24 bg-zinc-50 dark:bg-zinc-900 animate-pulse rounded-2xl" />)}
+                  {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-24 bg-zinc-50 dark:bg-zinc-900 animate-pulse rounded-lg" />)}
                 </div>
               )}
             </div>
           </TabsContent>
 
-          <TabsContent value="faq" className="m-0 p-6 space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <TabsContent value="faq" className="m-0 p-6 space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="space-y-6">
-              <div className="grid gap-4">
-                <div className="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-3xl border border-zinc-100 dark:border-zinc-800">
-                  <div className="w-10 h-10 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4">
+              {/* Custom Product Overview */}
+              {productOverview && (
+                <div className="p-5 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4">
                     <TrendingUp className="w-5 h-5 text-indigo-500" />
                   </div>
-                  <h3 className="font-bold text-base mb-2">Product Overview</h3>
+                  <h3 className="font-semibold text-base mb-2">Product Overview</h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">
-                    This product is integrated with UpVote to ensure your voice is heard. We prioritize our roadmap based on the feedback you provide here.
+                    {productOverview}
                   </p>
                 </div>
+              )}
 
-                <div className="p-6 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
-                  <div className="w-10 h-10 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
-                    <Logo size={32} />
+              {/* Custom About Section */}
+              {aboutText && (
+                <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
+                    {logoUrl ? (
+                      <img src={logoUrl} alt="Logo" className="w-6 h-6 object-contain" />
+                    ) : (
+                      <Logo size={32} />
+                    )}
                   </div>
-                  <h3 className="font-bold text-base mb-2">About UpVote</h3>
+                  <h3 className="font-semibold text-base mb-2">About</h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">
-                    UpVote is a feedback management platform that helps companies listen to their customers and prioritize development based on real user interest.
+                    {aboutText}
                   </p>
                 </div>
-              </div>
+              )}
 
-              <div className="space-y-4">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-400">Common Questions</h3>
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="item-1" className="border-b-zinc-100 dark:border-b-zinc-800">
-                    <AccordionTrigger className="text-sm font-semibold hover:no-underline">How does voting work?</AccordionTrigger>
-                    <AccordionContent className="text-xs text-zinc-500 leading-relaxed">
-                      You can upvote features you want to see built. This helps the product team understand what matters most to their users. You can only vote once per item.
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-2" className="border-b-zinc-100 dark:border-b-zinc-800">
-                    <AccordionTrigger className="text-sm font-semibold hover:no-underline">Will I be notified of updates?</AccordionTrigger>
-                    <AccordionContent className="text-xs text-zinc-500 leading-relaxed">
-                      If the company replies to your feedback, you'll see it right here in the widget. Keep an eye on the "OWNER" badge for your own posts.
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-3" className="border-b-zinc-100 dark:border-b-zinc-800">
-                    <AccordionTrigger className="text-sm font-semibold hover:no-underline">Can I suggest anything?</AccordionTrigger>
-                    <AccordionContent className="text-xs text-zinc-500 leading-relaxed">
-                      Absolutely! Whether it's a bug report, a UI improvement, or a brand new feature idea, the team wants to hear from you.
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
+              {/* Default sections (shown only if no custom content) */}
+              {!productOverview && !aboutText && (
+                <div className="grid gap-4">
+                  <div className="p-5 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4">
+                      <TrendingUp className="w-5 h-5 text-indigo-500" />
+                    </div>
+                    <h3 className="font-semibold text-base mb-2">Product Overview</h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      This product is integrated with UpVote to ensure your voice is heard. We prioritize our roadmap based on the feedback you provide here.
+                    </p>
+                  </div>
+
+                  <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
+                      {logoUrl ? (
+                        <img src={logoUrl} alt="Logo" className="w-6 h-6 object-contain" />
+                      ) : (
+                        <Logo size={32} />
+                      )}
+                    </div>
+                    <h3 className="font-semibold text-base mb-2">About UpVote</h3>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      UpVote is a feedback management platform that helps companies listen to their customers and prioritize development based on real user interest.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Custom FAQs */}
+              {customFaqs.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Frequently Asked Questions</h3>
+                  <Accordion type="single" collapsible className="w-full">
+                    {customFaqs.map((faq, index) => (
+                      <AccordionItem key={index} value={`faq-${index}`} className="border-b-zinc-100 dark:border-b-zinc-800">
+                        <AccordionTrigger className="text-sm font-medium hover:no-underline">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-xs text-zinc-500 leading-relaxed">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
             </div>
           </TabsContent>
         </div>
@@ -759,11 +808,11 @@ function WidgetContent() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
               <div className="w-2 h-2 rounded-full bg-indigo-600" />
-              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Live Session</span>
+              <div className="w-1 h-1 rounded-full bg-green-500" />
+              <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Live Session</span>
             </div>
           </div>
         </div>

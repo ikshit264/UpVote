@@ -10,7 +10,7 @@ export default function PricingSection() {
     const [isAnnual, setIsAnnual] = useState(true);
 
     return (
-        <section id="pricing" className="py-24 bg-[#F8FAFC] dark:bg-zinc-950 relative border-t border-zinc-100 dark:border-zinc-900">
+        <section id="pricing" className="py-24 bg-[#F8FAFC] dark:bg-zinc-950 relative ">
             <div className="container px-4 md:px-6 mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <motion.h2

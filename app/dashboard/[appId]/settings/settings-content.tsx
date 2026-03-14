@@ -28,6 +28,9 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     // Widget configuration options (synchronized with public/widget.js implementation)
     const [widgetPosition, setWidgetPosition] = useState('right');
     const [widgetTheme, setWidgetTheme] = useState('light');
+    const [widgetLogoUrl, setWidgetLogoUrl] = useState('');
+    const [productOverview, setProductOverview] = useState('');
+    const [aboutText, setAboutText] = useState('');
 
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
@@ -46,7 +49,10 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
   data-user-id="USER_ID"     <!-- Optional: enables Feedback -->
   data-email="USER_EMAIL"   <!-- Optional: for attribution -->
   data-position="${widgetPosition}"
-  data-theme="${widgetTheme}">
+  data-theme="${widgetTheme}"
+  data-logo-url="YOUR_LOGO_URL"     <!-- Optional: custom logo -->
+  data-product-overview="YOUR_PRODUCT_DESCRIPTION"  <!-- Optional -->
+  data-about-text="YOUR_ABOUT_TEXT">  <!-- Optional -->
 </div>
 <script src="${baseUrl}/widget.js"></script>`;
     };
@@ -287,6 +293,9 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                         applicationId={applicationId}
                         widgetPosition={widgetPosition}
                         widgetTheme={widgetTheme}
+                        widgetLogoUrl={widgetLogoUrl}
+                        productOverview={productOverview}
+                        aboutText={aboutText}
                     />
                 </TabsContent>
             </Tabs>

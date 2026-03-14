@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Widget Demo - UpVote</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      background: white;
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section {
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .demo-description {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background: #1f2937;
+      color: #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .code-block .tag {
+      color: #f472b6;
+    }
+
+    .code-block .attr {
+      color: #93c5fd;
+    }
+
+    .code-block .value {
+      color: #a7f3d0;
+    }
+
+    .code-block .comment {
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .feature-list li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #374151;
+    }
+
+    .feature-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .info-box strong {
+      color: #1e40af;
+    }
+
+    .info-box p {
+      color: #1e3a8a;
+      margin: 0;
+    }
+
+    .button-demo {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .button-demo:hover {
+      transform: translateY(-2px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .card p {
+      color: #6b7280;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Custom Widget Demo</h1>
+    <p class="subtitle">See how to customize your UpVote widget with logo, FAQs, and product information</p>
+
+    <!-- Configuration Example -->
+    <div class="demo-section">
+      <h2 class="demo-title">Complete Widget Configuration</h2>
+      <p class="demo-description">
+        This is a fully configured widget with custom logo, product overview, about text, and FAQs. 
+        Simply copy this code and customize it for your product:
+      </p>
+
+      <div class="code-block">
+<span class="comment">&lt;!-- Custom Widget Configuration --&gt;</span>
+<span class="tag">&lt;div</span> 
+  <span class="attr">class</span>=<span class="value">"upvote-widget"</span>
+  <span class="attr">data-application-id</span>=<span class="value">"69a41f203a9a405a41b02afc"</span>
+  <span class="attr">data-user-id</span>=<span class="value">"user_123"</span>
+  <span class="attr">data-email</span>=<span class="value">"john@example.com"</span>
+  <span class="attr">data-position</span>=<span class="value">"right"</span>
+  <span class="attr">data-theme</span>=<span class="value">"light"</span>
+  
+  <span class="comment">&lt;!-- Custom Logo (appears on button & header) --&gt;</span>
+  <span class="attr">data-logo-url</span>=<span class="value">"https://yourdomain.com/logo.png"</span>
+  
+  <span class="comment">&lt;!-- Custom Product Overview --&gt;</span>
+  <span class="attr">data-product-overview</span>=<span class="value">"Our platform helps teams collaborate effectively and ship projects faster."</span>
+  
+  <span class="comment">&lt;!-- Custom About Text --&gt;</span>
+  <span class="attr">data-about-text</span>=<span class="value">"We're a team of passionate developers building tools for modern teams."</span>
+  
+  <span class="comment">&lt;!-- Custom FAQs (JSON array) --&gt;</span>
+  <span class="attr">data-faqs</span>=<span class="value">'[
+    {
+      "question": "How does the free trial work?",
+      "answer": "You get full access to all features for 14 days!"
+    },
+    {
+      "question": "Can I cancel anytime?",
+      "answer": "Yes! Cancel anytime from your account settings."
+    },
+    {
+      "question": "Do you offer discounts?",
+      "answer": "We offer 50% off for students and non-profits."
+    }
+  ]'</span>
+<span class="tag">&gt;&lt;/div&gt;</span>
+
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"http://localhost:3000/widget.js"</span><span class="tag">&gt;&lt;/script&gt;</span></div>
+
+      <div class="info-box">
+        <strong>💡 Pro Tip:</strong> The widget automatically detects configuration changes and updates in real-time!
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="demo-section">
+      <h2 class="demo-title">✨ What You Can Customize</h2>
+      <ul class="feature-list">
+        <li><strong>Custom Logo:</strong> Display your product logo on the widget button and in the FAQ header</li>
+        <li><strong>Product Overview:</strong> Tell users what your product does and why feedback matters</li>
+        <li><strong>About Section:</strong> Share information about your company or team</li>
+        <li><strong>Custom FAQs:</strong> Add unlimited FAQs specific to your product</li>
+        <li><strong>Position:</strong> Choose left or right side placement</li>
+        <li><strong>Theme:</strong> Light or dark mode to match your brand</li>
+      </ul>
+    </div>
+
+    <!-- FAQ Format -->
+    <div class="demo-section">
+      <h2 class="demo-title">📝 FAQ JSON Format</h2>
+      <p class="demo-description">Your FAQs must be formatted as a JSON array. Here's the structure:</p>
+
+      <div class="code-block">
+<span class="attr">data-faqs</span>=<span class="value">'[
+  {
+    "question": "Your question here?",
+    "answer": "Your answer here..."
+  },
+  {
+    "question": "Another question?",
+    "answer": "Another answer..."
+  }
+]'</span></div>
+
+      <div class="info-box">
+        <strong>⚠️ Important:</strong> Make sure your JSON is valid. Use single quotes for the outer attribute and double quotes inside the JSON.
+      </div>
+    </div>
+
+    <!-- Implementation Cards -->
+    <div class="grid">
+      <div class="card">
+        <h3>🖼️ Logo Requirements</h3>
+        <p>Use square images (128x128px or larger). Supported formats: PNG, JPG, SVG, WebP. Always use HTTPS URLs.</p>
+      </div>
+
+      <div class="card">
+        <h3>📊 Best Practices</h3>
+        <p>Keep FAQs concise (2-3 sentences). Write clear product descriptions. Test all configurations before deploying.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔄 Dynamic Updates</h3>
+        <p>Update data attributes via JavaScript and the widget will automatically refresh with new configuration.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Default Fallbacks</h3>
+        <p>If no custom logo is provided, the default UpVote favicon is used. Default FAQs show when none are specified.</p>
+      </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div style="margin-top: 3rem; text-align: center;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Ready to Customize?</h2>
+      <p style="color: #6b7280; margin-bottom: 2rem;">
+        Copy the configuration above and add it to your website. The widget will appear instantly!
+      </p>
+      <a href="/dashboard" class="button-demo">Go to Dashboard →</a>
+    </div>
+  </div>
+
+  <!-- WIDGET CONFIGURATION - Replace with your own values -->
+  <div 
+    class="upvote-widget"
+    data-application-id="69a41f203a9a405a41b02afc"
+    data-user-id="user_123"
+    data-email="john@example.com"
+    data-position="right"
+    data-theme="light"
+    data-logo-url="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+    data-product-overview="This demo product showcases team collaboration features with real-time updates and powerful analytics to help your team ship faster."
+    data-about-text="We're a passionate team building the future of project management. Founded in 2024, we believe in making work more enjoyable and productive."
+    data-faqs='[
+      {
+        "question": "How does the free trial work?",
+        "answer": "You get full access to all premium features for 14 days. No credit card required to start!"
+      },
+      {
+        "question": "Can I upgrade or downgrade later?",
+        "answer": "Absolutely! You can change your plan at any time from your account settings. Changes take effect immediately."
+      },
+      {
+        "question": "Do you offer team discounts?",
+        "answer": "Yes! We offer special pricing for teams of 10+ members. Contact our sales team for a custom quote."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards (Visa, MasterCard, Amex), PayPal, and bank transfers for annual plans."
+      }
+    ]'
+  ></div>
+  <script src="http://localhost:3000/widget.js"></script>
+</body>
+</html>
