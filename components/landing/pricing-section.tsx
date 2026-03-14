@@ -10,21 +10,38 @@ export default function PricingSection() {
     const [isAnnual, setIsAnnual] = useState(true);
 
     return (
-        <section id="pricing" className="py-24 bg-zinc-50 dark:bg-zinc-900/30">
+        <section id="pricing" className="py-24 bg-[#F8FAFC] dark:bg-zinc-950 relative border-t border-zinc-100 dark:border-zinc-900">
             <div className="container px-4 md:px-6 mx-auto">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6">
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-6"
+                    >
                         Simple, transparent pricing
-                    </h2>
-                    <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.1 }}
+                        className="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal leading-relaxed"
+                    >
                         Choose the perfect plan for your needs. Always free to get started.
-                    </p>
+                    </motion.p>
 
-                    <div className="flex items-center justify-center gap-4 mb-8">
-                        <span className={`text-sm font-medium ${!isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>Monthly</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.2 }}
+                        className="flex items-center justify-center gap-4 mb-8"
+                    >
+                        <span className={`text-sm font-medium transition-colors ${!isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>Monthly</span>
                         <button
                             onClick={() => setIsAnnual(!isAnnual)}
-                            className="cursor-pointer relative w-14 h-7 bg-zinc-200 dark:bg-zinc-700 rounded-full p-1 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-600 focus:outline-none"
+                            className="cursor-pointer relative w-14 h-7 bg-zinc-200 dark:bg-zinc-800 rounded-full p-1 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:outline-none shadow-inner"
                         >
                             <motion.div
                                 animate={{ x: isAnnual ? 28 : 0 }}
@@ -32,104 +49,116 @@ export default function PricingSection() {
                                 className="w-5 h-5 bg-white rounded-full shadow-sm"
                             />
                         </button>
-                        <span className={`text-sm font-medium ${isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>
-                            Yearly <span className="text-green-600 text-xs font-bold ml-1">(Save 20%)</span>
+                        <span className={`text-sm font-medium transition-colors ${isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>
+                            Yearly <span className="text-green-600 dark:text-green-400 text-xs font-bold ml-1 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded-full">(Save 20%)</span>
                         </span>
-                    </div>
+                    </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
                     {/* Free Plan */}
                     <motion.div
-                        whileHover={{ y: -5 }}
-                        className="p-8 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.1 }}
+                        className="p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 shadow-soft transition-shadow hover:shadow-soft-lg"
                     >
-                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">Hobby</h3>
-                        <p className="text-zinc-500 text-sm mb-6">For personal projects</p>
-                        <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-6">
-                            $0 <span className="text-lg font-normal text-zinc-500">/mo</span>
+                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Hobby</h3>
+                        <p className="text-zinc-500 text-sm mb-8">Perfect for side projects and personal sites.</p>
+                        <div className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-8">
+                            $0 <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/mo</span>
                         </div>
-                        <ul className="space-y-4 mb-8">
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
+                        <ul className="space-y-4 mb-10">
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
                                 1 Project
                             </li>
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
                                 50 Feedbacks / mo
                             </li>
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
                                 Basic Analytics
                             </li>
                         </ul>
                         <Link href="/auth/signup">
-                            <Button variant="outline" className="w-full">Get Started</Button>
+                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Get Started</Button>
                         </Link>
                     </motion.div>
 
                     {/* Pro Plan */}
                     <motion.div
-                        whileHover={{ y: -5 }}
-                        className="relative p-8 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-xl scale-105 z-10"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.2 }}
+                        className="relative p-8 md:p-10 rounded-3xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 shadow-soft-lg md:-my-6 z-10 overflow-hidden"
                     >
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                        {/* Decorative background element for Pro */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl uppercase tracking-wider shadow-sm">
                             Most Popular
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Pro</h3>
-                        <p className="text-zinc-400 dark:text-zinc-500 text-sm mb-6">For growing startups</p>
-                        <div className="text-4xl font-bold mb-6">
-                            ${isAnnual ? "29" : "39"} <span className="text-lg font-normal text-zinc-400 dark:text-zinc-500">/mo</span>
+                        <h3 className="text-2xl font-bold mb-2 mt-2">Pro</h3>
+                        <p className="text-zinc-400 dark:text-zinc-500 text-sm mb-8">For growing startups and SaaS teams.</p>
+                        <div className="text-5xl font-extrabold tracking-tight mb-8">
+                            ${isAnnual ? "29" : "39"} <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/mo</span>
                         </div>
-                        <ul className="space-y-4 mb-8">
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-blue-400 dark:text-blue-600" />
+                        <ul className="space-y-4 mb-10">
+                            <li className="flex items-center gap-3 font-medium">
+                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
                                 Unlimited Projects
                             </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-blue-400 dark:text-blue-600" />
+                            <li className="flex items-center gap-3 font-medium">
+                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
                                 Unlimited Feedback
                             </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-blue-400 dark:text-blue-600" />
+                            <li className="flex items-center gap-3 font-medium">
+                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
                                 Advanced Analytics
                             </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-blue-400 dark:text-blue-600" />
-                                Custom Branding
+                            <li className="flex items-center gap-3 font-medium">
+                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
+                                Custom Branding & Domains
                             </li>
                         </ul>
                         <Link href="/auth/signup">
-                            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white border-0">Start Free Trial</Button>
+                            <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white border-0 text-base font-medium shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]">Start Free Trial</Button>
                         </Link>
                     </motion.div>
 
                     {/* Enterprise Plan */}
                     <motion.div
-                        whileHover={{ y: -5 }}
-                        className="p-8 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ delay: 0.3 }}
+                        className="p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 shadow-soft transition-shadow hover:shadow-soft-lg"
                     >
-                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">Enterprise</h3>
-                        <p className="text-zinc-500 text-sm mb-6">For large teams</p>
-                        <div className="text-4xl font-bold text-zinc-900 dark:text-white mb-6">
+                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Enterprise</h3>
+                        <p className="text-zinc-500 text-sm mb-8">For large teams demanding more security.</p>
+                        <div className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-8">
                             Custom
                         </div>
-                        <ul className="space-y-4 mb-8">
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
+                        <ul className="space-y-4 mb-10">
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
                                 SSO & Advanced Security
                             </li>
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
-                                Dedicated Support
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
+                                Dedicated Success Manager
                             </li>
-                            <li className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
-                                <Check className="w-4 h-4 text-zinc-900 dark:text-white" />
-                                SLA Guarantee
+                            <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
+                                <Check className="w-5 h-5 text-blue-500" />
+                                99.9% Uptime SLA
                             </li>
                         </ul>
                         <Link href="mailto:sales@upvote.com">
-                            <Button variant="outline" className="w-full">Contact Sales</Button>
+                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Contact Sales</Button>
                         </Link>
                     </motion.div>
                 </div>

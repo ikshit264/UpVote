@@ -126,6 +126,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
 
                         try {
                             console.log('Creating checkout session...');
+                            console.log('Product ID:', productId);
 
                             const response = await fetch('/api/payments', {
                                 method: 'POST',
@@ -135,15 +136,25 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                                 body: JSON.stringify({ productId }),
                             });
 
+                            const responseData = await response.json();
+                            console.log('API Response:', JSON.stringify(responseData, null, 2));
+
                             if (!response.ok) {
-                                throw new Error('Failed to create checkout session');
+                                const errorMsg = typeof responseData.details === 'object' 
+                                    ? JSON.stringify(responseData.details) 
+                                    : responseData.details || responseData.error || 'Failed to create checkout session';
+                                throw new Error(errorMsg);
                             }
 
-                            const { checkout_url } = await response.json();
+                            const { checkout_url } = responseData;
 
-                            console.log('Dodo SDK found, initializing...');
+                            if (!checkout_url) {
+                                throw new Error('No checkout URL returned from payment provider');
+                            }
 
-                            // Initialize
+                            console.log('Checkout URL:', checkout_url);
+
+                            // Initialize Dodo Payments
                             DodoPayments.Initialize({
                                 mode: 'test',
                             });
@@ -162,7 +173,12 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                             console.log('Opening checkout...');
                         } catch (err) {
                             console.error('Checkout error:', err);
-                            toast.error('Failed to initialize checkout.');
+                            const errorMessage = err instanceof Error 
+                                ? err.message 
+                                : typeof err === 'object' 
+                                    ? JSON.stringify(err) 
+                                    : 'Failed to initialize checkout.';
+                            toast.error(errorMessage);
                         }
                     };
 

@@ -27,7 +27,6 @@ export async function POST(req: Request) {
         console.log(`Creating Dodo Payment for company ${companyId}, product ${productId}`);
 
         // Dodo Payments API URL
-        // User suggested: ${process.env.NEXT_PUBLIC_DODO_TEST_API}/payments
         const dodoBaseUrl = process.env.NEXT_PUBLIC_DODO_TEST_API || "https://test.dodopayments.com";
         const apiUrl = `${dodoBaseUrl}/payments`;
 

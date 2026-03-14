@@ -90,21 +90,29 @@ export default function HomePage() {
         {/* <SupportSection /> */}
 
         {/* Call to Action Layer */}
-        <section className="py-24 px-4 bg-zinc-900 dark:bg-zinc-50 relative overflow-hidden">
+        <section className="py-24 px-4 bg-zinc-950 dark:bg-zinc-50 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-          <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-zinc-900 mb-6 max-w-2xl mx-auto">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto text-center relative z-10 flex flex-col items-center"
+          >
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white dark:text-zinc-950 mb-6 max-w-3xl mx-auto">
               Ready to build what your users actually want?
             </h2>
-            <p className="text-zinc-400 dark:text-zinc-600 mb-10 text-lg max-w-xl mx-auto">
-              Join thousands of product teams collecting feedback with UpVote.
+            <p className="text-zinc-400 dark:text-zinc-500 mb-10 text-xl font-medium max-w-xl mx-auto leading-relaxed">
+              Join thousands of product teams collecting, prioritizing, and acting on feedback with UpVote.
             </p>
             <Link href="/auth/signup">
-              <Button size="lg" className="h-14 px-10 text-lg rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-900/20">
+              <Button size="lg" className="h-16 px-12 text-xl font-bold rounded-2xl bg-blue-600 hover:bg-blue-500 text-white shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98]">
                 Create Free Account
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </section>
       </main>
 

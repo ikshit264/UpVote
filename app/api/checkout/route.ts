@@ -31,7 +31,7 @@ export async function POST(req: Request) {
             ? DODO_CONFIG.environment.live
             : DODO_CONFIG.environment.test;
 
-        const apiUrl = `${baseUrl}/v1/payments`;
+        const apiUrl = `${baseUrl}/payments`;
 
         const response = await fetch(apiUrl, {
             method: 'POST',
