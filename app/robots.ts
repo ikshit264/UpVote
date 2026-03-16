@@ -18,6 +18,6 @@ export default function robots(): MetadataRoute.Robots {
                 '/auth/login',
             ],
         },
-        sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/feed.xml`],
+        sitemap: [`${baseUrl}/sitemap.xml`],
     };
 }
