@@ -143,6 +143,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNR59M22"
+          height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         <Providers>
           {children}
           <Toaster position="top-center" richColors />

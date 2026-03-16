@@ -9,7 +9,7 @@ interface LogoProps {
     animated?: boolean;
 }
 
-export default function Logo({ className = '', size = 32, animated = false }: LogoProps) {
+export default function Logo({ className = '', size = 100, animated = false }: LogoProps) {
     return (
         <div
             className={`relative flex items-center justify-center shrink-0 ${className} animate-zoom-in ${animated ? 'animate-logo-pulse' : ''}`}
