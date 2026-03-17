@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
@@ -14,6 +14,12 @@ export default function HeroSection() {
   const smoothY = useSpring(mouseY, { stiffness: 80, damping: 20 });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isIdle, setIsIdle] = useState(true); // Start as idle so animation begins immediately
+  const idleTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-animation values for idle state - initialized with LEFT corner position
+  const autoX = useMotionValue(typeof window !== 'undefined' ? 200 : 200);
+  const autoY = useMotionValue(typeof window !== 'undefined' ? 200 : 200);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -25,15 +31,59 @@ export default function HeroSection() {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      
+      // Reset idle state on mouse move
+      setIsIdle(false);
+      if (idleTimeoutRef.current) {
+        clearTimeout(idleTimeoutRef.current);
+      }
+      
+      // Set idle after 3 seconds of no movement
+      idleTimeoutRef.current = setTimeout(() => {
+        setIsIdle(true);
+      }, 3000);
     };
+
+    // Start in idle mode immediately for instant animation
+    setIsIdle(true);
 
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", checkMobile);
+      if (idleTimeoutRef.current) {
+        clearTimeout(idleTimeoutRef.current);
+      }
     };
   }, [mouseX, mouseY, isMobile]);
+
+  // Automatic floating animation when idle - starts immediately
+  useEffect(() => {
+    if (!isIdle || isMobile) return;
+
+    let animationFrameId: number;
+    let time = 0;
+
+    const animate = () => {
+      time += 0.015;
+      
+      // Create smooth figure-8 pattern starting from left corner
+      const newX = 200 + Math.sin(time) * 200 + Math.sin(time * 0.5) * 100;
+      const newY = 200 + Math.cos(time * 0.8) * 150 + Math.sin(time * 0.3) * 80;
+      
+      autoX.set(newX);
+      autoY.set(newY);
+      
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isIdle, isMobile, autoX, autoY]);
 
   return (
     <section className="relative overflow-hidden pt-28 pb-20 md:pt-44 md:pb-32 bg-white dark:bg-black">
@@ -69,14 +119,14 @@ export default function HeroSection() {
           className="absolute -bottom-40 -right-40 w-[650px] h-[650px] bg-purple-400/40 rounded-full blur-[200px] mix-blend-multiply"
         />
 
-        {/* mouse attractor cloud */}
+        {/* mouse attractor cloud with auto-idle */}
         {!isMobile && (
           <motion.div
             style={{
-              left: smoothX,
-              top: smoothY,
+              left: isIdle ? autoX : smoothX,
+              top: isIdle ? autoY : smoothY,
             }}
-            className="absolute w-[450px] h-[450px] rounded-full bg-indigo-400/50 blur-[160px] mix-blend-multiply -translate-x-1/2 -translate-y-1/2"
+            className="absolute w-[500px] h-[500px] rounded-full bg-indigo-500/70 blur-[120px] mix-blend-multiply -translate-x-1/2 -translate-y-1/2"
           />
         )}
 
