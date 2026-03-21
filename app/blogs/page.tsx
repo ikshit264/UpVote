@@ -2,7 +2,12 @@ import { getAllBlogs } from "@/lib/blogs";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import Footer from "@/components/landing/footer";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("@/components/landing/footer"), {
+    loading: () => <div className="h-32 bg-zinc-900" />,
+    ssr: true
+});
 
 export const metadata: Metadata = {
     title: "Product Management, Feedback & Growth",
