@@ -126,28 +126,6 @@ export default function HeroSection() {
           style={{ willChange: "transform", contain: "layout paint style" }}
         />
 
-        {/* mouse attractor cloud with auto-idle */}
-        {!isMobile && (
-          <m.div
-            transformTemplate={(_, generatedTransform) => `${generatedTransform} translateZ(0)`}
-            style={{
-              x: isIdle ? autoX : smoothX,
-              y: isIdle ? autoY : smoothY,
-              willChange: "transform",
-              contain: "layout paint style",
-            }}
-            className="absolute left-0 top-0"
-          >
-            <div
-              className="-translate-x-1/2 -translate-y-1/2"
-            >
-              <div
-                className="w-[500px] h-[500px] rounded-full bg-indigo-500/70 blur-[120px] mix-blend-multiply"
-                style={{ contain: "layout paint style" }}
-              />
-            </div>
-          </m.div>
-        )}
 
       </div>
 
