@@ -40,13 +40,17 @@ export default function PricingSection() {
                     >
                         <span className={`text-sm font-medium transition-colors ${!isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>Monthly</span>
                         <button
+                            type="button"
                             onClick={() => setIsAnnual(!isAnnual)}
+                            aria-label={isAnnual ? "Switch to monthly billing" : "Switch to yearly billing"}
+                            aria-pressed={isAnnual}
                             className="cursor-pointer relative w-14 h-7 bg-zinc-200 dark:bg-zinc-800 rounded-full p-1 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:outline-none shadow-inner"
                         >
                             <m.div
                                 animate={{ x: isAnnual ? 28 : 0 }}
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                                 className="w-5 h-5 bg-white rounded-full shadow-sm"
+                                style={{ transform: "translateZ(0)", willChange: "transform" }}
                             />
                         </button>
                         <span className={`text-sm font-medium transition-colors ${isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>

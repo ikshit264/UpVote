@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -76,14 +74,19 @@ export const metadata: Metadata = {
     ],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    nocache: true,
     googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": 0,
+      "max-image-preview": "none",
+      "max-snippet": 0,
     },
   },
 };
@@ -152,7 +155,6 @@ export default function RootLayout({
             <Toaster position="top-center" richColors />
           </MotionProvider>
         </Providers>
-        <Analytics />
       </body>
     </html>
   );

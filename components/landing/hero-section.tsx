@@ -89,10 +89,14 @@ export default function HeroSection() {
     <section className="relative overflow-hidden pt-28 pb-20 md:pt-44 md:pb-32 bg-white dark:bg-black">
 
       {/* CLOUD LAYER */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        style={{ contain: "layout paint style" }}
+      >
 
         {/* floating cloud */}
         <m.div
+          transformTemplate={(_, generatedTransform) => `${generatedTransform} translateZ(0)`}
           animate={{
             x: [0, 80, -60, 0],
             y: [0, -60, 80, 0],
@@ -103,10 +107,12 @@ export default function HeroSection() {
             ease: "easeInOut",
           }}
           className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-blue-400/40 rounded-full blur-[180px] mix-blend-multiply"
+          style={{ willChange: "transform", contain: "layout paint style" }}
         />
 
         {/* second cloud */}
         <m.div
+          transformTemplate={(_, generatedTransform) => `${generatedTransform} translateZ(0)`}
           animate={{
             x: [0, -80, 100, 0],
             y: [0, 100, -60, 0],
@@ -117,17 +123,30 @@ export default function HeroSection() {
             ease: "easeInOut",
           }}
           className="absolute -bottom-40 -right-40 w-[650px] h-[650px] bg-purple-400/40 rounded-full blur-[200px] mix-blend-multiply"
+          style={{ willChange: "transform", contain: "layout paint style" }}
         />
 
         {/* mouse attractor cloud with auto-idle */}
         {!isMobile && (
           <m.div
+            transformTemplate={(_, generatedTransform) => `${generatedTransform} translateZ(0)`}
             style={{
-              left: isIdle ? autoX : smoothX,
-              top: isIdle ? autoY : smoothY,
+              x: isIdle ? autoX : smoothX,
+              y: isIdle ? autoY : smoothY,
+              willChange: "transform",
+              contain: "layout paint style",
             }}
-            className="absolute w-[500px] h-[500px] rounded-full bg-indigo-500/70 blur-[120px] mix-blend-multiply -translate-x-1/2 -translate-y-1/2"
-          />
+            className="absolute left-0 top-0"
+          >
+            <div
+              className="-translate-x-1/2 -translate-y-1/2"
+            >
+              <div
+                className="w-[500px] h-[500px] rounded-full bg-indigo-500/70 blur-[120px] mix-blend-multiply"
+                style={{ contain: "layout paint style" }}
+              />
+            </div>
+          </m.div>
         )}
 
       </div>

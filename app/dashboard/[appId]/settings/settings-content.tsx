@@ -279,6 +279,7 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     variant="outline"
                                     size="icon"
                                     onClick={() => copyToClipboard(applicationId)}
+                                    aria-label={copied ? "Application ID copied" : "Copy application ID"}
                                     className="rounded-xl border-zinc-200 dark:border-zinc-700 h-10 w-10 shrink-0"
                                 >
                                     {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}

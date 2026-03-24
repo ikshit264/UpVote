@@ -12,7 +12,7 @@ export function Footer() {
               <span>UpVote</span>
             </div>
 
-            <p className="text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
               UpVote is the easiest way to collect, manage, and prioritize customer feedback.
               Built for modern product teams that care about their users&apos; voice, our platform helps you
               make data-driven decisions and build products your customers love. Join thousands of teams
@@ -21,28 +21,28 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white">
               Quick Links
-            </h4>
+            </p>
 
-            <ul className="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
+            <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
-                <Link href="/blogs" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                <Link href="/blogs" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                <Link href="/#pricing" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/info" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                <Link href="/info" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                <Link href="/dashboard" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
                   Dashboard
                 </Link>
               </li>
@@ -51,18 +51,18 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-zinc-200/60 pt-8 dark:border-zinc-800/60 md:flex-row">
-          <p className="text-center text-sm text-zinc-400 dark:text-zinc-600 md:text-left">
+          <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 md:text-left">
             {"\u00A9"} {new Date().getFullYear()} UpVote Inc. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-6 text-sm text-zinc-400 dark:text-zinc-500">
-            <Link href="/privacy" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+          <div className="flex items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400">
+            <Link href="/privacy" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
               Privacy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+            <Link href="/terms" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
               Terms
             </Link>
-            <Link href="/contact" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+            <Link href="/contact" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
               Contact
             </Link>
           </div>

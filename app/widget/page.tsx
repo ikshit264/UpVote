@@ -345,7 +345,7 @@ function WidgetContent() {
             )}
             <span className="font-semibold text-base tracking-tight">UpVote</span>
           </div>
-          <Button variant="ghost" size="icon" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
+          <Button variant="ghost" size="icon" aria-label="Close widget" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
             <X className="w-4 h-4" />
           </Button>
         </div>
@@ -423,12 +423,12 @@ function WidgetContent() {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
           <div className="flex items-center gap-4">
-            <button onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 active:scale-95">
+            <button aria-label="Back to widget home" onClick={() => { setWidgetMode('selector'); setSupportSubmitted(false); }} className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-200 active:scale-95">
               <ArrowLeft className="w-5 h-5" />
             </button>
             <span className="font-semibold text-lg tracking-tight">Support</span>
           </div>
-          <Button variant="ghost" size="icon" className="rounded-lg h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-200 active:scale-95" onClick={closeWidget}>
+          <Button variant="ghost" size="icon" aria-label="Close widget" className="rounded-lg h-9 w-9 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-200 active:scale-95" onClick={closeWidget}>
             <X className="w-5 h-5" />
           </Button>
         </div>
@@ -546,12 +546,12 @@ function WidgetContent() {
       {/* Header - with back button */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
         <div className="flex items-center gap-3">
-          <button onClick={() => setWidgetMode('selector')} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200">
+          <button aria-label="Back to widget home" onClick={() => setWidgetMode('selector')} className="p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-200">
             <ArrowLeft className="w-4 h-4" />
           </button>
           <span className="font-semibold text-base tracking-tight">Feedback</span>
         </div>
-        <Button variant="ghost" size="icon" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
+        <Button variant="ghost" size="icon" aria-label="Close widget" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
           <X className="w-4 h-4" />
         </Button>
       </div>
