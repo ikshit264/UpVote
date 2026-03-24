@@ -112,6 +112,7 @@ const websiteJsonLd = {
 };
 
 import { Providers } from "@/components/providers";
+import { MotionProvider } from "@/components/motion-provider";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
@@ -146,8 +147,10 @@ export default function RootLayout({
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNR59M22"
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         <Providers>
-          {children}
-          <Toaster position="top-center" richColors />
+          <MotionProvider>
+            {children}
+            <Toaster position="top-center" richColors />
+          </MotionProvider>
         </Providers>
         <Analytics />
       </body>

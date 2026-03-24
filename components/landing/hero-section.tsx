@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { m, useMotionValue, useSpring } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -92,7 +92,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
         {/* floating cloud */}
-        <motion.div
+        <m.div
           animate={{
             x: [0, 80, -60, 0],
             y: [0, -60, 80, 0],
@@ -106,7 +106,7 @@ export default function HeroSection() {
         />
 
         {/* second cloud */}
-        <motion.div
+        <m.div
           animate={{
             x: [0, -80, 100, 0],
             y: [0, 100, -60, 0],
@@ -121,7 +121,7 @@ export default function HeroSection() {
 
         {/* mouse attractor cloud with auto-idle */}
         {!isMobile && (
-          <motion.div
+          <m.div
             style={{
               left: isIdle ? autoX : smoothX,
               top: isIdle ? autoY : smoothY,

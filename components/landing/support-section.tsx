@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Send, Mail, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
 
 export default function SupportSection() {
     const [email, setEmail] = useState("");
@@ -16,6 +15,7 @@ export default function SupportSection() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const { toast } = await import("sonner");
         if (!email || !message) {
             toast.error("Please fill in all fields");
             return;
@@ -47,7 +47,7 @@ export default function SupportSection() {
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     {/* Left Side: Message Area */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -74,10 +74,10 @@ export default function SupportSection() {
                                 />
                             </div>
                         </div>
-                    </motion.div>
+                    </m.div>
 
                     {/* Right Side: Email & Send Button */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -124,15 +124,15 @@ export default function SupportSection() {
                         </div>
 
                         {isSubmitted && (
-                            <motion.p
+                            <m.p
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="text-center text-green-600 dark:text-green-400 font-medium"
                             >
                                 Thanks! We've received your message.
-                            </motion.p>
+                            </m.p>
                         )}
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </section>

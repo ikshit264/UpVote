@@ -19,7 +19,6 @@ import {
     TabsList,
     TabsTrigger,
 } from '@/components/ui/tabs';
-import { toast } from 'sonner';
 import IntegrationGuide from '@/components/integration-guide';
 
 export default function SettingsContent({ applicationId }: { applicationId: string }) {
@@ -32,9 +31,10 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     const [productOverview, setProductOverview] = useState('');
     const [aboutText, setAboutText] = useState('');
 
-    const copyToClipboard = (text: string) => {
+    const copyToClipboard = async (text: string) => {
         navigator.clipboard.writeText(text);
         setCopied(true);
+        const { toast } = await import('sonner');
         toast.success('Copied to clipboard!');
         setTimeout(() => setCopied(false), 2000);
     };

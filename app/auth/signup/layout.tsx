@@ -1,4 +1,6 @@
+import { redirect } from 'next/navigation';
 import { Metadata } from 'next';
+import { getCompanySession } from '@/lib/auth';
 
 export const metadata: Metadata = {
     title: 'Create an Account',
@@ -15,10 +17,16 @@ export const metadata: Metadata = {
     },
 };
 
-export default function SignupLayout({
+export default async function SignupLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const session = await getCompanySession();
+
+    if (session) {
+        redirect('/dashboard');
+    }
+
     return <>{children}</>;
 }

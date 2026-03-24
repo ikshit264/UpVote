@@ -1,12 +1,8 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { Button } from '@/components/ui/button';
-import Logo from '@/components/logo';
 import HeroSection from '@/components/landing/hero-section';
 import Navbar from '@/components/landing/navbar';
-import { motion } from 'framer-motion';
-import { UserAccountNav } from '@/components/user-account-nav';
 import { useSession } from 'next-auth/react';
 import { Section } from '@/components/ui/section';
 
@@ -42,6 +38,11 @@ const FeaturesGrid = dynamic(() => import('@/components/landing/features-grid'),
       </div>
     </div>
   ),
+  ssr: true
+});
+
+const FAQSection = dynamic(() => import('@/components/landing/faq-section'), {
+  loading: () => <div className="py-24 flex items-center justify-center">Loading...</div>,
   ssr: true
 });
 
@@ -90,6 +91,8 @@ export default function HomePage() {
         {/* <Section bg="bg-zinc-50" toColor="to-white"> */}
           <PricingSection />
         {/* </Section> */}
+
+        <FAQSection />
 
       </main>
 

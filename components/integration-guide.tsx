@@ -17,8 +17,7 @@ import {
     ChevronRight,
     BoxSelect,
 } from "lucide-react";
-import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface IntegrationGuideProps {
     applicationId: string;
@@ -42,9 +41,10 @@ export default function IntegrationGuide({
 
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
-    const copyToClipboard = (text: string, id: string) => {
+    const copyToClipboard = async (text: string, id: string) => {
         navigator.clipboard.writeText(text);
         setCopied(id);
+        const { toast } = await import("sonner");
         toast.success("Copied to clipboard!");
         setTimeout(() => setCopied(""), 2000);
     };
@@ -300,7 +300,7 @@ export class UpvoteWidgetComponent implements OnInit {
             {/* Quick Steps */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {steps.map((step, index) => (
-                    <motion.div
+                    <m.div
                         key={step.number}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export class UpvoteWidgetComponent implements OnInit {
                                 </div>
                             </div>
                         </Card>
-                    </motion.div>
+                    </m.div>
                 ))}
             </div>
 

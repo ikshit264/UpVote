@@ -18,7 +18,7 @@ export default function Logo({ className = '', size = 100, animated = false }: L
             {/* Container with a base scale-up to handle image transparency/whitespace */}
             <div className="relative w-[115%] h-[115%] shrink-0 transition-transform duration-500">
                 <Image
-                    src="/favicon.webp"
+                    src="/favicon-body.webp"
                     alt="UpVote Logo"
                     fill
                     className="object-contain"

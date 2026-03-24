@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   MessageCircle,
   TrendingUp,
@@ -66,6 +66,14 @@ export default function DashboardPreview() {
     <section className="md:py-24 pb-10 bg-zinc-50 overflow-hidden">
 
       <div className="container sm:mx-auto md:px-4">
+        <div className="text-center max-w-4xl mx-auto mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6">
+            Turn feedback into product decisions faster.
+          </h2>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl">
+            A focused dashboard for spotting demand, tracking requests, and acting on customer insight quickly.
+          </p>
+        </div>
 
         <div className="flex justify-center items-center">
 
@@ -77,7 +85,7 @@ export default function DashboardPreview() {
             }}
           >
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -277,7 +285,7 @@ export default function DashboardPreview() {
 
               </div>
 
-            </motion.div>
+            </m.div>
 
           </div>
 

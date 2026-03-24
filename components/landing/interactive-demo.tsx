@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState } from "react";
 import { ArrowUp, MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,8 +10,8 @@ export default function InteractiveDemo() {
     const [hasUpvoted, setHasUpvoted] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [comments, setComments] = useState([
-        { id: 1, text: "This would be a game changer for our workflow!", author: "Alice", time: "2h ago" },
-        { id: 2, text: "Yes please! I've been waiting for this.", author: "Bob", time: "5h ago" },
+        { id: 1, text: "This would be a game changer for our workflow!", author: "Jenila", time: "2h ago" },
+        { id: 2, text: "Yes please! I've been waiting for this.", author: "James", time: "5h ago" },
     ]);
 
     const handleUpvote = () => {
@@ -41,16 +41,16 @@ export default function InteractiveDemo() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Side: Explainer */}
                     <div className="space-y-8">
-                        <motion.h2
+                        <m.h2
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white"
                         >
-                            Try it yourself.<br />
-                            <span className="text-blue-600 dark:text-blue-500">It's that simple.</span>
-                        </motion.h2>
-                        <motion.p
+                            Try it live.<br />
+                            <span className="text-blue-600 dark:text-blue-500">Embed it in seconds.</span>
+                        </m.h2>
+                        <m.p
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -58,9 +58,9 @@ export default function InteractiveDemo() {
                             className="text-lg text-zinc-600 dark:text-zinc-400"
                         >
                             Your users can upvote features, leave comments, and engage with your product roadmap without ever leaving your site.
-                        </motion.p>
+                        </m.p>
 
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -70,22 +70,22 @@ export default function InteractiveDemo() {
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm">
                                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">1</div>
                                 <div>
-                                    <h4 className="font-semibold">Embed with one line</h4>
-                                    <p className="text-sm text-zinc-500">Copy-paste into any HTML, Next.js, or React app.</p>
+                                    <h4 className="font-semibold">Embed with one line of code.</h4>
+                                    <p className="text-sm text-zinc-500">Works with HTML, Next.js, React, and more.</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm">
                                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold">2</div>
                                 <div>
-                                    <h4 className="font-semibold">Customize to match brand</h4>
-                                    <p className="text-sm text-zinc-500">Colors, fonts, and styles are fully themeable.</p>
+                                    <h4 className="font-semibold">Fully customizable</h4>
+                                    <p className="text-sm text-zinc-500">Match your brand with colors, fonts, and styles.</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
 
                     {/* Right Side: Live Demo Widget */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -107,7 +107,7 @@ export default function InteractiveDemo() {
                                         <span className="text-xs font-bold">{upvotes}</span>
                                     </button>
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-900 dark:text-white">Dark Mode Support</h3>
+                                        <h3 className="text-lg font-bold text-zinc-900 dark:text-white">Dark Mode Ready</h3>
                                         <p className="text-sm text-zinc-500">Please add native dark mode support for the dashboard.</p>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@ export default function InteractiveDemo() {
                             {/* Simulated Comments */}
                             <div className="p-6 bg-white dark:bg-zinc-900 max-h-[300px] overflow-y-auto space-y-4">
                                 {comments.map((comment) => (
-                                    <motion.div
+                                    <m.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         key={comment.id}
@@ -132,7 +132,7 @@ export default function InteractiveDemo() {
                                             </div>
                                             <p className="text-sm text-zinc-700 dark:text-zinc-300">{comment.text}</p>
                                         </div>
-                                    </motion.div>
+                                    </m.div>
                                 ))}
                             </div>
 
@@ -152,7 +152,7 @@ export default function InteractiveDemo() {
                                 </form>
                             </div>
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </section>

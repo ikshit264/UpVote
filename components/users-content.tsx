@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Users, Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
 
 interface User {
     userId: string;
@@ -37,6 +36,7 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
             }
         } catch (error) {
             console.error('Failed to fetch users:', error);
+            const { toast } = await import('sonner');
             toast.error('Failed to load users');
         } finally {
             setLoading(false);
