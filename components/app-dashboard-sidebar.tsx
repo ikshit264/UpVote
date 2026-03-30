@@ -43,7 +43,7 @@ export default function AppDashboardSidebar({
         { name: 'Analytics', href: `/dashboard/${appId}/analytics`, icon: LayoutDashboard },
         { name: 'Feedback', href: `/dashboard/${appId}/feedback`, icon: MessageSquare },
         { name: 'Support', href: `/dashboard/${appId}/support`, icon: HelpCircle },
-        { name: 'Users', href: `/dashboard/${appId}/users`, icon: Users },
+        { name: 'Voters', href: `/dashboard/${appId}/voters`, icon: Users },
         { name: 'Settings', href: `/dashboard/${appId}/settings`, icon: Settings },
     ];
 
