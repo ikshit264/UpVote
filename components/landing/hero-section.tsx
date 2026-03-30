@@ -134,15 +134,13 @@ export default function HeroSection() {
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
 
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
-            Make Customer Feedback
+            Customer Feedback Widget for SaaS & Mobile Apps
             <br />
-            <span className="text-blue-600">Your Superpower</span>
+            <span className="text-blue-600">Collect, Analyze, Act</span>
           </h1>
 
           <p className="text-lg md:text-2xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-            Collect, analyze, and act on user feedback with our beautiful widget.
-            Turn passive users into active contributors and build what they
-            actually want.
+            Turn passive users into active contributors with our lightweight, embeddable feedback widget. Built for SaaS platforms, mobile apps, and fintech teams — collect feature requests, prioritize improvements, and build what users actually want.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
