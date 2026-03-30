@@ -51,7 +51,7 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
         <div className="p-8 space-y-6 max-w-7xl mx-auto">
             <header className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-black tracking-tight">Users</h1>
+                    <h1 className="text-3xl font-black tracking-tight">Voters</h1>
                     <p className="text-zinc-500 dark:text-zinc-400 mt-1">
                         Manage and view all users who have left feedback
                     </p>
