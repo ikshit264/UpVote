@@ -4,7 +4,17 @@ import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, HelpCircle, Mail, Clock, User } from 'lucide-react';
+import { Search, HelpCircle, Mail, Clock, User, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { DateRangePicker } from '@/components/date-range-picker';
+import { DateRange } from 'react-day-picker';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 
 interface SupportQuery {
     id: string;
@@ -23,17 +33,27 @@ export default function SupportContent({ applicationId }: SupportContentProps) {
     const [supportQueries, setSupportQueries] = useState<SupportQuery[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
+    const [totalCount, setTotalCount] = useState(0);
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
     useEffect(() => {
         fetchSupport();
-    }, [applicationId]);
+    }, [applicationId, page, limit, dateRange]);
 
     const fetchSupport = async () => {
+        setLoading(true);
         try {
-            const res = await fetch(`/api/dashboard/support?applicationId=${applicationId}`);
+            let url = `/api/dashboard/support?applicationId=${applicationId}&page=${page}&limit=${limit}`;
+            if (dateRange?.from) url += `&startDate=${dateRange.from.toISOString()}`;
+            if (dateRange?.to) url += `&endDate=${dateRange.to.toISOString()}`;
+
+            const res = await fetch(url);
             if (res.ok) {
                 const data = await res.json();
                 setSupportQueries(data.support || []);
+                setTotalCount(data.totalCount || 0);
             }
         } catch (error) {
             console.error('Failed to fetch support queries:', error);
@@ -61,9 +81,12 @@ export default function SupportContent({ applicationId }: SupportContentProps) {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    <Badge variant="secondary" className="bg-zinc-100 dark:bg-zinc-800 font-bold text-xs">
-                        {filteredQueries.length} {filteredQueries.length === 1 ? 'Query' : 'Queries'}
-                    </Badge>
+                    <div className="flex items-center gap-3 w-full md:w-auto">
+                        <Badge variant="secondary" className="bg-zinc-100 dark:bg-zinc-800 font-bold text-xs h-9 px-3">
+                            {totalCount} {totalCount === 1 ? 'Query' : 'Queries'}
+                        </Badge>
+                        <DateRangePicker date={dateRange} setDate={setDateRange} className="flex-1" />
+                    </div>
                 </div>
             </Card>
 
@@ -117,6 +140,51 @@ export default function SupportContent({ applicationId }: SupportContentProps) {
                             </div>
                         </Card>
                     ))}
+                </div>
+            )}
+
+            {!loading && totalCount > 0 && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 pt-6">
+                    <div className="flex items-center gap-2">
+                        <span className="text-sm text-zinc-500 font-bold">Rows per page:</span>
+                        <Select value={limit.toString()} onValueChange={(v) => { setLimit(Number(v)); setPage(1); }}>
+                            <SelectTrigger className="w-20 bg-zinc-50 dark:bg-zinc-800 border-none font-bold rounded-xl h-9">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {[10, 20, 50, 100].map(l => (
+                                    <SelectItem key={l} value={l.toString()}>{l}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                        <span className="text-sm font-bold text-zinc-500">
+                            Page {page} of {Math.ceil(totalCount / limit)} 
+                            <span className="ml-2 font-normal">({totalCount} total)</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => Math.max(1, p - 1))}
+                                disabled={page === 1}
+                            >
+                                <ChevronLeft className="h-4 w-4" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => p + 1)}
+                                disabled={page >= Math.ceil(totalCount / limit)}
+                            >
+                                <ChevronRight className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 import { UserAccountNav } from '@/components/user-account-nav';
 import { useSession } from 'next-auth/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
+      <m.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -108,14 +108,14 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </motion.nav>
+      </m.nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -125,7 +125,7 @@ export default function Navbar() {
             />
             
             {/* Mobile Menu Panel */}
-            <motion.div
+            <m.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -168,7 +168,7 @@ export default function Navbar() {
                   )}
                 </nav>
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

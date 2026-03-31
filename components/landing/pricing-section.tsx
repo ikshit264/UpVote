@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Check, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -12,26 +12,26 @@ export default function PricingSection() {
     return (
         <section id="pricing" className="py-24 bg-[#F8FAFC] dark:bg-zinc-950 relative ">
             <div className="container px-4 md:px-6 mx-auto">
-                <div className="text-center max-w-3xl mx-auto mb-20">
-                    <motion.h2
+                <div className="text-center max-w-4xl mx-auto mb-20">
+                    <m.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         className="text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-6"
                     >
-                        Simple, transparent pricing
-                    </motion.h2>
-                    <motion.p
+                        Simple, transparent pricing - start Free
+                    </m.h2>
+                    <m.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ delay: 0.1 }}
                         className="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal leading-relaxed"
                     >
-                        Choose the perfect plan for your needs. Always free to get started.
-                    </motion.p>
+                        Start collecting user feedback today. <span className="font-bold italic">No credit card required.</span>
+                    </m.p>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -40,34 +40,38 @@ export default function PricingSection() {
                     >
                         <span className={`text-sm font-medium transition-colors ${!isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>Monthly</span>
                         <button
+                            type="button"
                             onClick={() => setIsAnnual(!isAnnual)}
+                            aria-label={isAnnual ? "Switch to monthly billing" : "Switch to yearly billing"}
+                            aria-pressed={isAnnual}
                             className="cursor-pointer relative w-14 h-7 bg-zinc-200 dark:bg-zinc-800 rounded-full p-1 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700 focus:outline-none shadow-inner"
                         >
-                            <motion.div
+                            <m.div
                                 animate={{ x: isAnnual ? 28 : 0 }}
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                                 className="w-5 h-5 bg-white rounded-full shadow-sm"
+                                style={{ transform: "translateZ(0)", willChange: "transform" }}
                             />
                         </button>
                         <span className={`text-sm font-medium transition-colors ${isAnnual ? "text-zinc-900 dark:text-white" : "text-zinc-500"}`}>
                             Yearly <span className="text-green-600 dark:text-green-400 text-xs font-bold ml-1 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded-full">(Save 20%)</span>
                         </span>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
                     {/* Free Plan */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ delay: 0.1 }}
                         className="p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 shadow-soft transition-shadow hover:shadow-soft-lg"
                     >
-                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Hobby</h3>
-                        <p className="text-zinc-500 text-sm mb-8">Perfect for side projects and personal sites.</p>
+                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Hobby Plan</h3>
+                        <p className="text-zinc-500 text-sm mb-8">Perfect for side projects and personal sites - Free Forever.</p>
                         <div className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-8">
-                            $0 <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/mo</span>
+                            $0 <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/ Month</span>
                         </div>
                         <ul className="space-y-4 mb-10">
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
@@ -76,7 +80,7 @@ export default function PricingSection() {
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
                                 <Check className="w-5 h-5 text-blue-500" />
-                                50 Feedbacks / mo
+                                50 Feedbacks / month
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
                                 <Check className="w-5 h-5 text-blue-500" />
@@ -86,10 +90,10 @@ export default function PricingSection() {
                         <Link href="/auth/signup">
                             <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Get Started</Button>
                         </Link>
-                    </motion.div>
+                    </m.div>
 
                     {/* Pro Plan */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -102,10 +106,10 @@ export default function PricingSection() {
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl uppercase tracking-wider shadow-sm">
                             Most Popular
                         </div>
-                        <h3 className="text-2xl font-bold mb-2 mt-2">Pro</h3>
+                        <h3 className="text-2xl font-bold mb-2 mt-2">Pro Plan</h3>
                         <p className="text-zinc-400 dark:text-zinc-500 text-sm mb-8">For growing startups and SaaS teams.</p>
                         <div className="text-5xl font-extrabold tracking-tight mb-8">
-                            ${isAnnual ? "29" : "39"} <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/mo</span>
+                            ${isAnnual ? "29" : "39"} <span className="text-lg font-medium text-zinc-400 dark:text-zinc-500">/ Month</span>
                         </div>
                         <ul className="space-y-4 mb-10">
                             <li className="flex items-center gap-3 font-medium">
@@ -128,17 +132,17 @@ export default function PricingSection() {
                         <Link href="/auth/signup">
                             <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white border-0 text-base font-medium shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]">Start Free Trial</Button>
                         </Link>
-                    </motion.div>
+                    </m.div>
 
                     {/* Enterprise Plan */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ delay: 0.3 }}
                         className="p-8 md:p-10 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 shadow-soft transition-shadow hover:shadow-soft-lg"
                     >
-                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Enterprise</h3>
+                        <h3 className="text-2xl font-bold text-zinc-950 dark:text-white mb-2">Enterprise Plan</h3>
                         <p className="text-zinc-500 text-sm mb-8">For large teams demanding more security.</p>
                         <div className="text-5xl font-extrabold tracking-tight text-zinc-950 dark:text-white mb-8">
                             Custom
@@ -160,7 +164,7 @@ export default function PricingSection() {
                         <Link href="mailto:sales@upvote.com">
                             <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Contact Sales</Button>
                         </Link>
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </section>

@@ -11,13 +11,23 @@ export async function GET(request: NextRequest) {
         }
 
         const applicationId = request.nextUrl.searchParams.get('applicationId');
+        const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
+        const limit = parseInt(request.nextUrl.searchParams.get('limit') || '10');
+        const startDate = request.nextUrl.searchParams.get('startDate');
+        const endDate = request.nextUrl.searchParams.get('endDate');
 
-        const appWhere = {
+        const appWhere: any = {
             application: {
                 companyId: (session.user as any).id,
                 id: applicationId || undefined
             }
         };
+
+        if (startDate || endDate) {
+            appWhere.createdAt = {};
+            if (startDate) appWhere.createdAt.gte = new Date(startDate);
+            if (endDate) appWhere.createdAt.lte = new Date(endDate);
+        }
 
         // Get all unique user IDs from feedback and votes
         const feedbackUsers = await prisma.feedback.groupBy({
@@ -29,12 +39,7 @@ export async function GET(request: NextRequest) {
 
         const voteUsers = await prisma.vote.groupBy({
             by: ['userId'],
-            where: {
-                application: {
-                    companyId: (session.user as any).id,
-                    id: applicationId || undefined
-                }
-            },
+            where: appWhere,
             _count: { id: true },
             _max: { createdAt: true }
         });
@@ -68,13 +73,17 @@ export async function GET(request: NextRequest) {
             }
         });
 
-        const users = Array.from(userMap.values()).sort((a, b) => {
+        const allUsers = Array.from(userMap.values()).sort((a, b) => {
             if (!a.lastActive) return 1;
             if (!b.lastActive) return -1;
             return b.lastActive.getTime() - a.lastActive.getTime();
         });
 
-        return NextResponse.json({ users });
+        const totalCount = allUsers.length;
+        const skip = (page - 1) * limit;
+        const users = allUsers.slice(skip, skip + limit);
+
+        return NextResponse.json({ users, totalCount });
     } catch (error) {
         console.error('Users API error:', error);
         return NextResponse.json(

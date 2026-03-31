@@ -1,14 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, CreditCard, Star, Rocket, ShieldCheck } from 'lucide-react';
 import { PLAN_CONFIG, PLANS, Plan } from '@/lib/payment-config';
-import { toast } from 'sonner';
-
-import { DodoPayments } from 'dodopayments-checkout';
 
 interface BillingContentProps {
     subscription: any;
@@ -17,6 +15,7 @@ interface BillingContentProps {
 }
 
 export default function BillingContent({ subscription, user, dodoConfig }: BillingContentProps) {
+    const router = useRouter();
     const [interval, setInterval] = useState<'monthly' | 'annual'>('monthly');
     const currentPlan = (subscription?.plan as Plan) || PLANS.FREE;
 
@@ -122,64 +121,15 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                             ? dodoConfig.productIds.PRO_MONTHLY
                             : dodoConfig.productIds.PRO_ANNUAL;
 
-                        console.log('Using product ID:', productId);
-
-                        try {
-                            console.log('Creating checkout session...');
-                            console.log('Product ID:', productId);
-
-                            const response = await fetch('/api/payments', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify({ productId }),
-                            });
-
-                            const responseData = await response.json();
-                            console.log('API Response:', JSON.stringify(responseData, null, 2));
-
-                            if (!response.ok) {
-                                const errorMsg = typeof responseData.details === 'object' 
-                                    ? JSON.stringify(responseData.details) 
-                                    : responseData.details || responseData.error || 'Failed to create checkout session';
-                                throw new Error(errorMsg);
-                            }
-
-                            const { checkout_url } = responseData;
-
-                            if (!checkout_url) {
-                                throw new Error('No checkout URL returned from payment provider');
-                            }
-
-                            console.log('Checkout URL:', checkout_url);
-
-                            // Initialize Dodo Payments
-                            DodoPayments.Initialize({
-                                mode: 'test',
-                            });
-
-                            (DodoPayments.Checkout as any).open({
-                                checkoutUrl: checkout_url,
-                                onSuccess: (data: any) => {
-                                    console.log('Payment successful', data);
-                                    toast.success('Upgrade successful! Your features are being unlocked.');
-                                },
-                                onError: (error: any) => {
-                                    console.error('Payment error', error);
-                                    toast.error('Something went wrong. Please try again.');
-                                }
-                            });
-                            console.log('Opening checkout...');
-                        } catch (err) {
-                            console.error('Checkout error:', err);
-                            const errorMessage = err instanceof Error 
-                                ? err.message 
-                                : typeof err === 'object' 
-                                    ? JSON.stringify(err) 
-                                    : 'Failed to initialize checkout.';
-                            toast.error(errorMessage);
+                        if (!productId) {
+                            const { toast } = await import('sonner');
+                            toast.error('This plan is not configured for checkout yet.');
+                            return;
                         }
+
+                        router.push(
+                            `/checkout?productId=${encodeURIComponent(productId)}&plan=${encodeURIComponent(plan.id)}&interval=${encodeURIComponent(interval)}`
+                        );
                     };
 
                     return (

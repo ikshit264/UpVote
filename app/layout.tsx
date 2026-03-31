@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -76,14 +74,19 @@ export const metadata: Metadata = {
     ],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    nocache: true,
     googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": 0,
+      "max-image-preview": "none",
+      "max-snippet": 0,
     },
   },
 };
@@ -112,6 +115,7 @@ const websiteJsonLd = {
 };
 
 import { Providers } from "@/components/providers";
+import { MotionProvider } from "@/components/motion-provider";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
@@ -146,10 +150,11 @@ export default function RootLayout({
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNR59M22"
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         <Providers>
-          {children}
-          <Toaster position="top-center" richColors />
+          <MotionProvider>
+            {children}
+            <Toaster position="top-center" richColors />
+          </MotionProvider>
         </Providers>
-        <Analytics />
       </body>
     </html>
   );

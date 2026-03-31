@@ -13,6 +13,10 @@ export async function GET(request: NextRequest) {
     const applicationId = request.nextUrl.searchParams.get('applicationId');
     const status = request.nextUrl.searchParams.get('status');
     const sort = request.nextUrl.searchParams.get('sort') || 'recent';
+    const page = parseInt(request.nextUrl.searchParams.get('page') || '1');
+    const limit = parseInt(request.nextUrl.searchParams.get('limit') || '10');
+    const startDate = request.nextUrl.searchParams.get('startDate');
+    const endDate = request.nextUrl.searchParams.get('endDate');
 
     // Ensure the application belongs to the company
     const app = await prisma.application.findFirst({
@@ -26,27 +30,42 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Application not found' }, { status: 404 });
     }
 
-    const feedback = await prisma.feedback.findMany({
-      where: {
-        applicationId: applicationId || {
-          in: (await prisma.application.findMany({
-            where: { companyId: (session.user as any).id },
-            select: { id: true }
-          })).map((a: any) => a.id)
-        },
-        status: status || undefined,
+    const whereClause: any = {
+      applicationId: applicationId || {
+        in: (await prisma.application.findMany({
+          where: { companyId: (session.user as any).id },
+          select: { id: true }
+        })).map((a: any) => a.id)
       },
-      include: {
-        _count: {
-          select: { votes: true }
+      status: status || undefined,
+    };
+
+    if (startDate || endDate) {
+      whereClause.createdAt = {};
+      if (startDate) whereClause.createdAt.gte = new Date(startDate);
+      if (endDate) whereClause.createdAt.lte = new Date(endDate);
+    }
+
+    const skip = (page - 1) * limit;
+
+    const [feedback, totalCount] = await Promise.all([
+      prisma.feedback.findMany({
+        where: whereClause,
+        include: {
+          _count: {
+            select: { votes: true }
+          },
+          tags: true,
+          reply: true,
         },
-        tags: true,
-        reply: true,
-      },
-      orderBy: sort === 'upvotes'
-        ? { votes: { _count: 'desc' } }
-        : { createdAt: 'desc' }
-    });
+        orderBy: sort === 'upvotes'
+          ? { votes: { _count: 'desc' } }
+          : { createdAt: 'desc' },
+        skip,
+        take: limit,
+      }),
+      prisma.feedback.count({ where: whereClause })
+    ]);
 
     const formattedFeedback = feedback.map((f: any) => ({
       id: f.id,
@@ -61,7 +80,7 @@ export async function GET(request: NextRequest) {
       reply: f.reply ? f.reply.message : null,
     }));
 
-    return NextResponse.json({ feedback: formattedFeedback });
+    return NextResponse.json({ feedback: formattedFeedback, totalCount });
   } catch (error) {
     console.error('Fetch dashboard feedback error:', error);
     return NextResponse.json(

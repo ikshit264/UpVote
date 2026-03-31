@@ -17,7 +17,6 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
 import {
     Tabs,
     TabsContent,
@@ -66,6 +65,7 @@ export default function ApplicationsContent({
     const [isUpdating, setIsUpdating] = useState(false);
 
     const handleCreateApp = async () => {
+        const { toast } = await import('sonner');
         if (!newAppName.trim()) {
             toast.error('Please enter an application name');
             return;
@@ -111,6 +111,7 @@ export default function ApplicationsContent({
 
     const saveAppName = async (appId: string, e: React.MouseEvent) => {
         e.stopPropagation();
+        const { toast } = await import('sonner');
 
         if (!editingName.trim()) {
             toast.error('Application name cannot be empty');
