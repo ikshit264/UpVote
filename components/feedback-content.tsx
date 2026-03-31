@@ -11,7 +11,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { ArrowUp, MessageCircle, Tag as TagIcon, Search, Filter } from 'lucide-react';
+import { ArrowUp, MessageCircle, Tag as TagIcon, Search, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { DateRangePicker } from '@/components/date-range-picker';
+import { DateRange } from 'react-day-picker';
 import { Input } from '@/components/ui/input';
 
 interface Feedback {
@@ -37,17 +39,27 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
     const [filterStatus, setFilterStatus] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
     const [updatingId, setUpdatingId] = useState<string | null>(null);
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
+    const [totalCount, setTotalCount] = useState(0);
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
     useEffect(() => {
         fetchFeedback();
-    }, [applicationId]);
+    }, [applicationId, page, limit, dateRange]);
 
     const fetchFeedback = async () => {
+        setLoading(true);
         try {
-            const res = await fetch(`/api/dashboard/feedback?applicationId=${applicationId}`);
+            let url = `/api/dashboard/feedback?applicationId=${applicationId}&page=${page}&limit=${limit}`;
+            if (dateRange?.from) url += `&startDate=${dateRange.from.toISOString()}`;
+            if (dateRange?.to) url += `&endDate=${dateRange.to.toISOString()}`;
+            
+            const res = await fetch(url);
             if (res.ok) {
                 const data = await res.json();
                 setFeedback(data.feedback || []);
+                setTotalCount(data.totalCount || 0);
             }
         } catch (error) {
             console.error('Failed to fetch feedback:', error);
@@ -126,7 +138,7 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
                     <div className="flex items-center gap-3 w-full md:w-auto">
                         <Filter className="w-4 h-4 text-zinc-400" />
                         <Select value={filterStatus} onValueChange={setFilterStatus}>
-                            <SelectTrigger className="w-full md:w-48 bg-zinc-50 dark:bg-zinc-800 border-none rounded-xl">
+                            <SelectTrigger className="w-full md:w-36 bg-zinc-50 dark:bg-zinc-800 border-none rounded-xl">
                                 <SelectValue placeholder="All Statuses" />
                             </SelectTrigger>
                             <SelectContent>
@@ -137,6 +149,7 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
                                 <SelectItem value="Completed">Completed</SelectItem>
                             </SelectContent>
                         </Select>
+                        <DateRangePicker date={dateRange} setDate={setDateRange} className="flex-1" />
                     </div>
                 </div>
             </Card>
@@ -235,6 +248,51 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
                             </div>
                         </Card>
                     ))}
+                </div>
+            )}
+
+            {!loading && totalCount > 0 && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 pt-6">
+                    <div className="flex items-center gap-2">
+                        <span className="text-sm text-zinc-500 font-bold">Rows per page:</span>
+                        <Select value={limit.toString()} onValueChange={(v) => { setLimit(Number(v)); setPage(1); }}>
+                            <SelectTrigger className="w-20 bg-zinc-50 dark:bg-zinc-800 border-none font-bold rounded-xl h-9">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {[10, 20, 50, 100].map(l => (
+                                    <SelectItem key={l} value={l.toString()}>{l}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                        <span className="text-sm font-bold text-zinc-500">
+                            Page {page} of {Math.ceil(totalCount / limit)} 
+                            <span className="ml-2 font-normal">({totalCount} total)</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => Math.max(1, p - 1))}
+                                disabled={page === 1}
+                            >
+                                <ChevronLeft className="h-4 w-4" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => p + 1)}
+                                disabled={page >= Math.ceil(totalCount / limit)}
+                            >
+                                <ChevronRight className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

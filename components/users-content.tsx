@@ -5,7 +5,16 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Users, Loader2 } from 'lucide-react';
+import { Users, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { DateRangePicker } from '@/components/date-range-picker';
+import { DateRange } from 'react-day-picker';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 
 interface User {
     userId: string;
@@ -22,17 +31,27 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
+    const [totalCount, setTotalCount] = useState(0);
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
     useEffect(() => {
         fetchUsers();
-    }, [applicationId]);
+    }, [applicationId, page, limit, dateRange]);
 
     const fetchUsers = async () => {
+        setLoading(true);
         try {
-            const res = await fetch(`/api/dashboard/users?applicationId=${applicationId}`);
+            let url = `/api/dashboard/users?applicationId=${applicationId}&page=${page}&limit=${limit}`;
+            if (dateRange?.from) url += `&startDate=${dateRange.from.toISOString()}`;
+            if (dateRange?.to) url += `&endDate=${dateRange.to.toISOString()}`;
+
+            const res = await fetch(url);
             if (res.ok) {
                 const data = await res.json();
                 setUsers(data.users || []);
+                setTotalCount(data.totalCount || 0);
             }
         } catch (error) {
             console.error('Failed to fetch users:', error);
@@ -60,16 +79,21 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
 
             {/* Search */}
             <Card className="p-4 border-none shadow-sm bg-white dark:bg-zinc-900 rounded-2xl">
-                <Label htmlFor="search" className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2 block">
-                    Search Users
-                </Label>
-                <Input
-                    id="search"
-                    placeholder="Search by user ID..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none"
-                />
+                <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <div className="relative w-full md:w-96">
+                        <Label htmlFor="search" className="sr-only">Search Users</Label>
+                        <Input
+                            id="search"
+                            placeholder="Search by user ID..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none"
+                        />
+                    </div>
+                    <div className="flex items-center gap-3 w-full md:w-auto">
+                        <DateRangePicker date={dateRange} setDate={setDateRange} className="flex-1" />
+                    </div>
+                </div>
             </Card>
 
             {/* Users List */}
@@ -133,11 +157,56 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-sm font-bold text-indigo-800 dark:text-indigo-200">Total Active Users</p>
-                        <p className="text-3xl font-black text-indigo-900 dark:text-indigo-100 mt-1">{users.length}</p>
+                        <p className="text-3xl font-black text-indigo-900 dark:text-indigo-100 mt-1">{totalCount}</p>
                     </div>
                     <Users className="w-12 h-12 text-indigo-400" />
                 </div>
             </Card>
+
+            {!loading && totalCount > 0 && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                    <div className="flex items-center gap-2">
+                        <span className="text-sm text-zinc-500 font-bold">Rows per page:</span>
+                        <Select value={limit.toString()} onValueChange={(v) => { setLimit(Number(v)); setPage(1); }}>
+                            <SelectTrigger className="w-20 bg-zinc-50 dark:bg-zinc-800 border-none font-bold rounded-xl h-9">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {[10, 20, 50, 100].map(l => (
+                                    <SelectItem key={l} value={l.toString()}>{l}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                        <span className="text-sm font-bold text-zinc-500">
+                            Page {page} of {Math.ceil(totalCount / limit)} 
+                            <span className="ml-2 font-normal">({totalCount} total)</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => Math.max(1, p - 1))}
+                                disabled={page === 1}
+                            >
+                                <ChevronLeft className="h-4 w-4" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="h-9 w-9 border-none bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+                                onClick={() => setPage(p => p + 1)}
+                                disabled={page >= Math.ceil(totalCount / limit)}
+                            >
+                                <ChevronRight className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-white px-4 py-14 dark:bg-zinc-950 md:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col items-center justify-around gap-12 md:flex-row">
+        <div className="mb-12 flex flex-col items-start justify-around gap-12 md:flex-row md:items-center">
           <div className="max-w-3xl space-y-6">
             <div className="flex items-center gap-2.5 text-xl font-black tracking-tighter text-zinc-950 dark:text-white md:text-2xl">
               <Logo size={28} />
