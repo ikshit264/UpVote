@@ -154,7 +154,7 @@ export default function RootLayout({
           <MotionProvider>
             {children}
             <Toaster position="top-center" richColors />
-            <UpvoteWidget />
+            {/* <UpvoteWidget /> */}
           </MotionProvider>
         </Providers>
       </body>
