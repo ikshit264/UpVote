@@ -11,6 +11,7 @@ import { Card } from '@/components/ui/card';
 import { AlertCircle } from 'lucide-react';
 
 import { signIn } from 'next-auth/react';
+import { syncUpvoteLogin } from '@/lib/upvote-sync';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -36,7 +37,15 @@ export default function LoginPage() {
         return;
       }
 
-      router.push('/dashboard');
+      if (result?.ok) {
+        // Fetch session manually or use result if user data is there
+        const res = await fetch('/api/auth/session');
+        const session = await res.json();
+        if (session?.user) {
+          syncUpvoteLogin(session.user);
+        }
+        router.push('/dashboard');
+      }
     } catch (err) {
       setError('An error occurred during login');
     } finally {

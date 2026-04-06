@@ -38,7 +38,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/info" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
-                  About Us
+                  Info
                 </Link>
               </li>
               <li>

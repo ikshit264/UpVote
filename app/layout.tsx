@@ -9,7 +9,7 @@ const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://upvote.com";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "UpVote - Customer Feedback & Feature Voting Platform",
+    default: "Customer Feedback & Feature Voting Platform - UpVote by Entrext",
     template: "%s | UpVote Blog",
   },
   description:
@@ -117,6 +117,7 @@ const websiteJsonLd = {
 import { Providers } from "@/components/providers";
 import { MotionProvider } from "@/components/motion-provider";
 import { Toaster } from "sonner";
+import UpvoteWidget from "@/components/UpvoteWidget";
 
 export default function RootLayout({
   children,
@@ -153,6 +154,7 @@ export default function RootLayout({
           <MotionProvider>
             {children}
             <Toaster position="top-center" richColors />
+            <UpvoteWidget />
           </MotionProvider>
         </Providers>
       </body>

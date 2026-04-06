@@ -1,6 +1,7 @@
 'use client'
 
 import { signOut, useSession } from 'next-auth/react'
+import { syncUpvoteLogout } from '@/lib/upvote-sync'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -68,6 +69,7 @@ export function UserAccountNav({
                     className="rounded-lg focus:bg-red-50 dark:focus:bg-red-900/20 text-red-600 dark:text-red-400 transition-colors cursor-pointer my-1 px-2 py-1.5"
                     onSelect={(event) => {
                         event.preventDefault()
+                        syncUpvoteLogout()
                         signOut({
                             callbackUrl: `${window.location.origin}/auth/login`,
                         })
