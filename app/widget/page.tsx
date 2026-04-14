@@ -360,13 +360,11 @@ function WidgetContent() {
       <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
         <ThemeOverrides />
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-          {logoUrl ? (
+        {logoUrl && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
             <img src={logoUrl} alt="Logo" width={200} height={200} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
-          ) : (
-            <Logo size={200} />
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 shrink-0 relative z-10 bg-white/90 backdrop-blur-md">
@@ -374,10 +372,7 @@ function WidgetContent() {
             {logoUrl ? (
               <img src={logoUrl} alt="Logo" className="w-32 max-h-6 object-contain object-left" />
             ) : (
-              <>
-                <Logo size={24} />
-                <span className="font-semibold text-base tracking-tight">UpVote</span>
-              </>
+              <span className="font-semibold text-base tracking-tight">Feedback</span>
             )}
           </div>
           <Button variant="ghost" size="icon" aria-label="Close widget" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
@@ -452,13 +447,11 @@ function WidgetContent() {
       <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
         <ThemeOverrides />
         {/* Background Animated Logo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-          {logoUrl ? (
+        {logoUrl && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
             <img src={logoUrl} alt="Logo" width={250} height={250} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
-          ) : (
-            <Logo size={250} />
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
@@ -580,13 +573,11 @@ function WidgetContent() {
     <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
       <ThemeOverrides />
       {/* Background Animated Logo - Translucent */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-          {logoUrl ? (
-            <img src={logoUrl} alt="Logo" width={200} height={200} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
-          ) : (
-            <Logo size={200} />
-          )}
-      </div>
+      {logoUrl && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
+          <img src={logoUrl} alt="Logo" width={200} height={200} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
+        </div>
+      )}
     
       {/* Header - with back button */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
@@ -783,13 +774,11 @@ function WidgetContent() {
               {/* Custom About Section */}
               {aboutText && (
                 <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
-                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
-                    {logoUrl ? (
+                  {logoUrl && (
+                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
                       <img src={logoUrl} alt="Logo" className="w-6 h-6 object-contain" />
-                    ) : (
-                      <Logo size={32} />
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <h3 className="font-semibold text-base mb-2">About</h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">
                     {aboutText}
@@ -811,13 +800,11 @@ function WidgetContent() {
                   </div>
 
                   <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
-                    <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
-                      {logoUrl ? (
+                    {logoUrl && (
+                      <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
                         <img src={logoUrl} alt="Logo" className="w-6 h-6 object-contain" />
-                      ) : (
-                        <Logo size={32} />
-                      )}
-                    </div>
+                      </div>
+                    )}
                     <h3 className="font-semibold text-base mb-2">About UpVote</h3>
                     <p className="text-sm text-zinc-500 leading-relaxed">
                       UpVote is a feedback management platform that helps companies listen to their customers and prioritize development based on real user interest.

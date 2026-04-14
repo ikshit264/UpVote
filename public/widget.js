@@ -27,13 +27,21 @@
 
   function updateConfig(div) {
     if (!div) return;
+    
+    let resolvedLogo = div.getAttribute('data-logo-url') || '';
+    if (resolvedLogo && !resolvedLogo.startsWith('http') && !resolvedLogo.startsWith('data:')) {
+      try {
+        resolvedLogo = new URL(resolvedLogo, window.location.href).href;
+      } catch(e) {}
+    }
+
     config = {
       applicationId: div.getAttribute('data-application-id'),
       userId: div.getAttribute('data-user-id') || null,
       email: div.getAttribute('data-email') || null,
       position: div.getAttribute('data-position') || 'right',
       // Custom widget configuration
-      logoUrl: div.getAttribute('data-logo-url') || '',
+      logoUrl: resolvedLogo,
       productOverview: div.getAttribute('data-product-overview') || '',
       aboutText: div.getAttribute('data-about-text') || '',
       faqs: div.getAttribute('data-faqs') ? JSON.parse(div.getAttribute('data-faqs')) : [],
