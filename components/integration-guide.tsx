@@ -29,6 +29,8 @@ interface IntegrationGuideProps {
     secondaryColor?: string;
     bgColor?: string;
     textColor?: string;
+    launcherColor?: string;
+    launcherActiveColor?: string;
 }
 
 export default function IntegrationGuide({
@@ -41,6 +43,8 @@ export default function IntegrationGuide({
     secondaryColor = '#6366f1',
     bgColor = '#ffffff',
     textColor = '#18181b',
+    launcherColor = '#4f46e5',
+    launcherActiveColor = '#ef4444',
 }: IntegrationGuideProps) {
     const [copied, setCopied] = useState<string>("");
     const [activeFramework, setActiveFramework] = useState("html");
@@ -70,6 +74,8 @@ export default function IntegrationGuide({
   data-secondary-color="${secondaryColor}"
   data-bg-color="${bgColor}"
   data-text-color="${textColor}"
+  data-launcher-color="${launcherColor}"
+  data-launcher-active-color="${launcherActiveColor}"
   data-logo-url="YOUR_LOGO_URL"     // Optional: custom logo
   data-product-overview="YOUR_DESCRIPTION"  // Optional
   data-about-text="YOUR_ABOUT_TEXT">  // Optional
@@ -192,6 +198,8 @@ import { Component, OnInit } from '@angular/core';
          data-secondary-color="\${secondaryColor}"
          data-bg-color="\${bgColor}"
          data-text-color="\${textColor}"
+         data-launcher-color="\${launcherColor}"
+         data-launcher-active-color="\${launcherActiveColor}"
          data-logo-url="/logo.png"         <!-- Optional -->
          data-product-overview="..."       <!-- Optional -->
          data-about-text="..."             <!-- Optional -->

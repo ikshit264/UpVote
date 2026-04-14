@@ -41,6 +41,8 @@
       secondaryColor: div.getAttribute('data-secondary-color') || '#6366f1',
       bgColor: div.getAttribute('data-bg-color') || '#ffffff',
       textColor: div.getAttribute('data-text-color') || '#18181b',
+      launcherColor: div.getAttribute('data-launcher-color') || '#4f46e5',
+      launcherActiveColor: div.getAttribute('data-launcher-active-color') || '#ef4444',
     };
   }
 
@@ -119,7 +121,7 @@
       z-index: 999999;
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, var(--btn-color-2, #6366f1), var(--btn-color-1, #4f46e5));
+      background: ${config.launcherColor};
       border: 2px solid rgba(255, 255, 255, 0.9);
       cursor: pointer;
       padding: 0;
@@ -127,14 +129,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px ${config.launcherColor}66, 0 0 0 1px rgba(0,0,0,0.05);
       transition: all 0.2s ease-out;
       animation: upvote-fade-in 0.25s ease-out;
     `;
-
-    // Apply exact brand colors if provided dynamically to the button
-    button.style.setProperty('--btn-color-1', config.primaryColor);
-    button.style.setProperty('--btn-color-2', config.secondaryColor);
 
     // ============== SUB BUTTONS ==============
     function createSubButton(label, emoji, colorFrom, colorTo, className) {
@@ -332,8 +330,8 @@
         supportSub.labelEl.style.pointerEvents = 'auto';
       }, hasUserId ? 200 : 150);
 
-      button.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-      button.style.boxShadow = '0 4px 12px rgba(239, 68, 68, 0.25)';
+      button.style.background = config.launcherActiveColor;
+      button.style.boxShadow = `0 4px 12px ${config.launcherActiveColor}66`;
     }
   }
 
@@ -360,10 +358,11 @@
         feedbackSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
         feedbackSub.wrapper.style.pointerEvents = 'none';
       }
+      supportSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
     }, hasUserId ? 40 : 0);
 
-    button.style.background = 'linear-gradient(135deg, #6366f1, #4f46e5)';
-    button.style.boxShadow = '0 4px 12px rgba(79, 70, 229, 0.25)';
+    button.style.background = config.launcherColor;
+    button.style.boxShadow = `0 4px 12px ${config.launcherColor}66, 0 0 0 1px rgba(0,0,0,0.05)`;
   }
 
   function openWidget(mode) {

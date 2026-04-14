@@ -36,6 +36,9 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     const [bgColor, setBgColor] = useState('#ffffff'); // white
     const [textColor, setTextColor] = useState('#18181b'); // zinc-900
 
+    const [launcherColor, setLauncherColor] = useState('#4f46e5'); // indigo-600
+    const [launcherActiveColor, setLauncherActiveColor] = useState('#ef4444'); // red-500
+
     const copyToClipboard = async (text: string) => {
         navigator.clipboard.writeText(text);
         setCopied(true);
@@ -58,6 +61,8 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
   data-secondary-color="${secondaryColor}"
   data-bg-color="${bgColor}"
   data-text-color="${textColor}"
+  data-launcher-color="${launcherColor}"
+  data-launcher-active-color="${launcherActiveColor}"
   data-logo-url="YOUR_LOGO_URL"     <!-- Optional: custom logo -->
   data-product-overview="YOUR_PRODUCT_DESCRIPTION"  <!-- Optional -->
   data-about-text="YOUR_ABOUT_TEXT">  <!-- Optional -->
@@ -328,6 +333,8 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                         secondaryColor={secondaryColor}
                         bgColor={bgColor}
                         textColor={textColor}
+                        launcherColor={launcherColor}
+                        launcherActiveColor={launcherActiveColor}
                     />
                 </TabsContent>
             </Tabs>
