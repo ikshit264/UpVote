@@ -26,6 +26,10 @@ interface IntegrationGuideProps {
     widgetLogoUrl?: string;
     productOverview?: string;
     aboutText?: string;
+    primaryColor?: string;
+    secondaryColor?: string;
+    bgColor?: string;
+    textColor?: string;
 }
 
 export default function IntegrationGuide({
@@ -35,6 +39,10 @@ export default function IntegrationGuide({
     widgetLogoUrl = '',
     productOverview = '',
     aboutText = '',
+    primaryColor = '#4f46e5',
+    secondaryColor = '#6366f1',
+    bgColor = '#ffffff',
+    textColor = '#18181b',
 }: IntegrationGuideProps) {
     const [copied, setCopied] = useState<string>("");
     const [activeFramework, setActiveFramework] = useState("html");
@@ -61,6 +69,10 @@ export default function IntegrationGuide({
   data-email="USER_EMAIL" // Optional: for attribution
   data-position="${widgetPosition}"
   data-theme="${widgetTheme}"
+  data-primary-color="${primaryColor}"
+  data-secondary-color="${secondaryColor}"
+  data-bg-color="${bgColor}"
+  data-text-color="${textColor}"
   data-logo-url="YOUR_LOGO_URL"     // Optional: custom logo
   data-product-overview="YOUR_DESCRIPTION"  // Optional
   data-about-text="YOUR_ABOUT_TEXT">  // Optional
@@ -182,6 +194,10 @@ import { Component, OnInit } from '@angular/core';
          [attr.data-email]="user?.email || ''"
          data-position="\${widgetPosition}"
          data-theme="\${widgetTheme}"
+         data-primary-color="\${primaryColor}"
+         data-secondary-color="\${secondaryColor}"
+         data-bg-color="\${bgColor}"
+         data-text-color="\${textColor}"
          data-logo-url="/logo.png"         <!-- Optional -->
          data-product-overview="..."       <!-- Optional -->
          data-about-text="..."             <!-- Optional -->

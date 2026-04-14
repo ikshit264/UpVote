@@ -72,6 +72,29 @@ function WidgetContent() {
   const faqsString = searchParams.get('faqs') || '';
   const customFaqs: FAQ[] = faqsString ? JSON.parse(faqsString) : [];
 
+  // Custom colors
+  const primaryColor = searchParams.get('primaryColor') || '#4f46e5';
+  const secondaryColor = searchParams.get('secondaryColor') || '#6366f1';
+  const bgColor = searchParams.get('bgColor') || '#ffffff';
+  const textColor = searchParams.get('textColor') || '#18181b';
+
+  const ThemeOverrides = () => (
+    <style dangerouslySetInnerHTML={{
+      __html: `
+        .bg-indigo-600 { background-color: ${primaryColor} !important; border-color: ${primaryColor} !important; }
+        .hover\\:bg-indigo-700:hover { background-color: ${secondaryColor} !important; }
+        .text-indigo-600 { color: ${primaryColor} !important; }
+        .text-indigo-500 { color: ${secondaryColor} !important; }
+        .border-indigo-600 { border-color: ${primaryColor} !important; }
+        .bg-indigo-50 { background-color: ${primaryColor}1A !important; }
+        .group-hover\\:text-indigo-500:hover { color: ${primaryColor} !important; }
+        ${bgColor !== '#ffffff' ? `.bg-white { background-color: ${bgColor} !important; }` : ''}
+        ${bgColor !== '#ffffff' ? `.bg-zinc-50 { background-color: ${bgColor} !important; filter: brightness(0.97); }` : ''}
+        ${textColor !== '#18181b' ? `.text-zinc-900 { color: ${textColor} !important; }` : ''}
+      `
+    }} />
+  );
+
   // Widget mode: selector, feedback, support
   const [widgetMode, setWidgetMode] = useState<WidgetMode>(initialMode === 'feedback' || initialMode === 'support' ? initialMode : 'selector');
 
@@ -316,6 +339,7 @@ function WidgetContent() {
   if (!applicationId) {
     return (
       <div className={`flex flex-col h-screen items-center justify-center p-8 text-center ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans`}>
+        <ThemeOverrides />
         <div className="w-16 h-16 rounded-3xl bg-red-50 dark:bg-red-950/20 flex items-center justify-center mb-6">
           <Info className="w-8 h-8 text-red-500" />
         </div>
@@ -332,6 +356,7 @@ function WidgetContent() {
   if (widgetMode === 'selector') {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+        <ThemeOverrides />
         {/* Background Animated Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
           <Logo size={200} />
@@ -415,6 +440,7 @@ function WidgetContent() {
   if (widgetMode === 'support') {
     return (
       <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+        <ThemeOverrides />
         {/* Background Animated Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
           <Logo size={250} />
@@ -538,6 +564,7 @@ function WidgetContent() {
   // ==================== FEEDBACK SCREEN (Original) ====================
   return (
     <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+      <ThemeOverrides />
       {/* Background Animated Logo - Translucent */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
         <Logo size={200} />

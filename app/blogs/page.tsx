@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import Navbar from "@/components/landing/navbar";
 
 const Footer = dynamic(() => import("@/components/landing/footer"), {
     loading: () => <div className="h-32 bg-zinc-900" />,
@@ -34,6 +35,7 @@ export default function BlogsPage() {
 
     return (
         <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-blue-500/30">
+            <Navbar />
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />

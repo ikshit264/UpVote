@@ -31,6 +31,12 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     const [productOverview, setProductOverview] = useState('');
     const [aboutText, setAboutText] = useState('');
 
+    // Theme Customization options
+    const [primaryColor, setPrimaryColor] = useState('#4f46e5'); // indigo-600
+    const [secondaryColor, setSecondaryColor] = useState('#6366f1'); // indigo-500
+    const [bgColor, setBgColor] = useState('#ffffff'); // white
+    const [textColor, setTextColor] = useState('#18181b'); // zinc-900
+
     const copyToClipboard = async (text: string) => {
         navigator.clipboard.writeText(text);
         setCopied(true);
@@ -50,6 +56,10 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
   data-email="USER_EMAIL"   <!-- Optional: for attribution -->
   data-position="${widgetPosition}"
   data-theme="${widgetTheme}"
+  data-primary-color="${primaryColor}"
+  data-secondary-color="${secondaryColor}"
+  data-bg-color="${bgColor}"
+  data-text-color="${textColor}"
   data-logo-url="YOUR_LOGO_URL"     <!-- Optional: custom logo -->
   data-product-overview="YOUR_PRODUCT_DESCRIPTION"  <!-- Optional -->
   data-about-text="YOUR_ABOUT_TEXT">  <!-- Optional -->
@@ -120,6 +130,41 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     </SelectContent>
                                 </Select>
                                 <p className="text-xs text-zinc-500">The appearance of the widget interface</p>
+                            </div>
+                        </div>
+
+                        {/* Theme Customization Colors */}
+                        <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 space-y-4">
+                            <h4 className="font-bold text-sm">Color Customization</h4>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="primaryColor" className="text-xs font-semibold">Primary Color</Label>
+                                    <div className="flex gap-2">
+                                        <Input type="color" id="primaryColor" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} className="w-10 h-10 p-1 border border-zinc-200 rounded shrink-0 cursor-pointer" />
+                                        <Input type="text" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} className="w-full h-10 text-xs font-mono" />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="secondaryColor" className="text-xs font-semibold">Secondary</Label>
+                                    <div className="flex gap-2">
+                                        <Input type="color" id="secondaryColor" value={secondaryColor} onChange={(e) => setSecondaryColor(e.target.value)} className="w-10 h-10 p-1 border border-zinc-200 rounded shrink-0 cursor-pointer" />
+                                        <Input type="text" value={secondaryColor} onChange={(e) => setSecondaryColor(e.target.value)} className="w-full h-10 text-xs font-mono" />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="bgColor" className="text-xs font-semibold">Background</Label>
+                                    <div className="flex gap-2">
+                                        <Input type="color" id="bgColor" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="w-10 h-10 p-1 border border-zinc-200 rounded shrink-0 cursor-pointer" />
+                                        <Input type="text" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="w-full h-10 text-xs font-mono" />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="textColor" className="text-xs font-semibold">Text Color</Label>
+                                    <div className="flex gap-2">
+                                        <Input type="color" id="textColor" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="w-10 h-10 p-1 border border-zinc-200 rounded shrink-0 cursor-pointer" />
+                                        <Input type="text" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="w-full h-10 text-xs font-mono" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </Card>
@@ -297,6 +342,10 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                         widgetLogoUrl={widgetLogoUrl}
                         productOverview={productOverview}
                         aboutText={aboutText}
+                        primaryColor={primaryColor}
+                        secondaryColor={secondaryColor}
+                        bgColor={bgColor}
+                        textColor={textColor}
                     />
                 </TabsContent>
             </Tabs>

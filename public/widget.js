@@ -37,7 +37,11 @@
       logoUrl: div.getAttribute('data-logo-url') || '',
       productOverview: div.getAttribute('data-product-overview') || '',
       aboutText: div.getAttribute('data-about-text') || '',
-      faqs: div.getAttribute('data-faqs') ? JSON.parse(div.getAttribute('data-faqs')) : []
+      faqs: div.getAttribute('data-faqs') ? JSON.parse(div.getAttribute('data-faqs')) : [],
+      primaryColor: div.getAttribute('data-primary-color') || '#4f46e5',
+      secondaryColor: div.getAttribute('data-secondary-color') || '#6366f1',
+      bgColor: div.getAttribute('data-bg-color') || '#ffffff',
+      textColor: div.getAttribute('data-text-color') || '#18181b',
     };
   }
 
@@ -116,7 +120,7 @@
       z-index: 999999;
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, var(--btn-color-2, #6366f1), var(--btn-color-1, #4f46e5));
       border: 2px solid rgba(255, 255, 255, 0.9);
       cursor: pointer;
       padding: 0;
@@ -128,6 +132,10 @@
       transition: all 0.2s ease-out;
       animation: upvote-fade-in 0.25s ease-out;
     `;
+
+    // Apply exact brand colors if provided dynamically to the button
+    button.style.setProperty('--btn-color-1', config.primaryColor);
+    button.style.setProperty('--btn-color-2', config.secondaryColor);
 
     // ============== SUB BUTTONS ==============
     function createSubButton(label, emoji, colorFrom, colorTo, className) {
@@ -373,7 +381,11 @@
       logoUrl: config.logoUrl || '',
       productOverview: config.productOverview || '',
       aboutText: config.aboutText || '',
-      faqs: config.faqs ? JSON.stringify(config.faqs) : ''
+      faqs: config.faqs ? JSON.stringify(config.faqs) : '',
+      primaryColor: config.primaryColor,
+      secondaryColor: config.secondaryColor,
+      bgColor: config.bgColor,
+      textColor: config.textColor
     });
     iframe.src = `${scriptUrl}/widget?${params.toString()}`;
 
@@ -426,13 +438,21 @@
         const currentProductOverview = config.productOverview;
         const currentAboutText = config.aboutText;
         const currentFaqs = config.faqs ? JSON.stringify(config.faqs) : '';
+        const currentPrimaryColor = config.primaryColor;
+        const currentSecondaryColor = config.secondaryColor;
+        const currentBgColor = config.bgColor;
+        const currentTextColor = config.textColor;
 
         // Refresh iframe if user ID or configuration changed
         if (currentUserId !== (config.userId || '') || 
             currentLogoUrl !== config.logoUrl ||
             currentProductOverview !== config.productOverview ||
             currentAboutText !== config.aboutText ||
-            currentFaqs !== (config.faqs ? JSON.stringify(config.faqs) : '')) {
+            currentFaqs !== (config.faqs ? JSON.stringify(config.faqs) : '') ||
+            currentPrimaryColor !== url.searchParams.get('primaryColor') ||
+            currentSecondaryColor !== url.searchParams.get('secondaryColor') ||
+            currentBgColor !== url.searchParams.get('bgColor') ||
+            currentTextColor !== url.searchParams.get('textColor')) {
           openWidget(currentMode);
         }
       }

@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import Footer from "@/components/landing/footer";
+import Navbar from "@/components/landing/navbar";
 
 interface Props {
     params: { slug: string };
@@ -68,6 +69,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
     return (
         <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-blue-500/30">
+            <Navbar />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
