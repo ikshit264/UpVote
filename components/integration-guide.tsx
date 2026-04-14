@@ -22,7 +22,6 @@ import { m } from "framer-motion";
 interface IntegrationGuideProps {
     applicationId: string;
     widgetPosition: string;
-    widgetTheme: string;
     widgetLogoUrl?: string;
     productOverview?: string;
     aboutText?: string;
@@ -35,7 +34,6 @@ interface IntegrationGuideProps {
 export default function IntegrationGuide({
     applicationId,
     widgetPosition,
-    widgetTheme,
     widgetLogoUrl = '',
     productOverview = '',
     aboutText = '',
@@ -68,7 +66,6 @@ export default function IntegrationGuide({
   data-user-id="USER_ID" // Optional: enabled Feedback
   data-email="USER_EMAIL" // Optional: for attribution
   data-position="${widgetPosition}"
-  data-theme="${widgetTheme}"
   data-primary-color="${primaryColor}"
   data-secondary-color="${secondaryColor}"
   data-bg-color="${bgColor}"
@@ -105,7 +102,6 @@ export default function UpvoteWidget({ userId, email }) {
            data-user-id={userId || ''}
            data-email={email || ''}
            data-position="${widgetPosition}"
-           data-theme="${widgetTheme}"
            data-logo-url="/logo.png"         // Optional: your logo
            data-product-overview="..."       // Optional
            data-about-text="..."             // Optional
@@ -168,7 +164,6 @@ export default function UpvoteWidget() {
            data-user-id={userData?.id || ''}
            data-email={userData?.email || ''}
            data-position="${widgetPosition}"
-           data-theme="${widgetTheme}"
            data-logo-url="/logo.png"         // Optional: your logo
            data-product-overview="..."       // Optional
            data-about-text="..."             // Optional
@@ -193,7 +188,6 @@ import { Component, OnInit } from '@angular/core';
          [attr.data-user-id]="user?.id || ''"
          [attr.data-email]="user?.email || ''"
          data-position="\${widgetPosition}"
-         data-theme="\${widgetTheme}"
          data-primary-color="\${primaryColor}"
          data-secondary-color="\${secondaryColor}"
          data-bg-color="\${bgColor}"

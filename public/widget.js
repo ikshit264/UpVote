@@ -29,10 +29,9 @@
     if (!div) return;
     config = {
       applicationId: div.getAttribute('data-application-id'),
-      userId: div.getAttribute('data-user-id'),
-      email: div.getAttribute('data-email') || '',
+      userId: div.getAttribute('data-user-id') || null,
+      email: div.getAttribute('data-email') || null,
       position: div.getAttribute('data-position') || 'right',
-      theme: div.getAttribute('data-theme') || 'light',
       // Custom widget configuration
       logoUrl: div.getAttribute('data-logo-url') || '',
       productOverview: div.getAttribute('data-product-overview') || '',
@@ -374,8 +373,7 @@
     const params = new URLSearchParams({
       applicationId: config.applicationId,
       userId: config.userId || '',
-      email: config.email,
-      theme: config.theme,
+      email: config.email || '',
       mode: mode,
       // Pass custom widget configuration
       logoUrl: config.logoUrl || '',

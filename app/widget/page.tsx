@@ -62,7 +62,6 @@ function WidgetContent() {
   const applicationId = searchParams.get('applicationId');
   const userId = searchParams.get('userId');
   const userEmail = searchParams.get('email') || '';
-  const theme = searchParams.get('theme') || 'light';
   const initialMode = searchParams.get('mode') as WidgetMode | null;
 
   // Custom widget configuration
@@ -338,7 +337,7 @@ function WidgetContent() {
 
   if (!applicationId) {
     return (
-      <div className={`flex flex-col h-screen items-center justify-center p-8 text-center ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans`}>
+      <div className="flex flex-col h-screen items-center justify-center p-8 text-center bg-white text-zinc-900 font-sans">
         <ThemeOverrides />
         <div className="w-16 h-16 rounded-3xl bg-red-50 dark:bg-red-950/20 flex items-center justify-center mb-6">
           <Info className="w-8 h-8 text-red-500" />
@@ -355,11 +354,15 @@ function WidgetContent() {
   // ==================== SELECTOR SCREEN ====================
   if (widgetMode === 'selector') {
     return (
-      <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+      <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
         <ThemeOverrides />
         {/* Background Animated Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-          <Logo size={200} />
+          {logoUrl ? (
+            <img src={logoUrl} alt="Logo" width={200} height={200} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
+          ) : (
+            <Logo size={200} />
+          )}
         </div>
 
         {/* Header */}
@@ -439,11 +442,15 @@ function WidgetContent() {
   // ==================== SUPPORT SCREEN ====================
   if (widgetMode === 'support') {
     return (
-      <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+      <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
         <ThemeOverrides />
         {/* Background Animated Logo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-          <Logo size={250} />
+          {logoUrl ? (
+            <img src={logoUrl} alt="Logo" width={250} height={250} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
+          ) : (
+            <Logo size={250} />
+          )}
         </div>
 
         {/* Header */}
@@ -563,11 +570,15 @@ function WidgetContent() {
 
   // ==================== FEEDBACK SCREEN (Original) ====================
   return (
-    <div className={`flex flex-col h-screen ${theme === 'dark' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-900'} font-sans antialiased relative overflow-hidden`}>
+    <div className="flex flex-col h-screen bg-white text-zinc-900 font-sans antialiased relative overflow-hidden">
       <ThemeOverrides />
       {/* Background Animated Logo - Translucent */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-[0.06]">
-        <Logo size={200} />
+          {logoUrl ? (
+            <img src={logoUrl} alt="Logo" width={200} height={200} style={{ objectFit: 'contain', filter: 'grayscale(100%)' }} />
+          ) : (
+            <Logo size={200} />
+          )}
       </div>
     
       {/* Header - with back button */}

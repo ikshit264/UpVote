@@ -26,7 +26,6 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
 
     // Widget configuration options (synchronized with public/widget.js implementation)
     const [widgetPosition, setWidgetPosition] = useState('right');
-    const [widgetTheme, setWidgetTheme] = useState('light');
     const [widgetLogoUrl, setWidgetLogoUrl] = useState('');
     const [productOverview, setProductOverview] = useState('');
     const [aboutText, setAboutText] = useState('');
@@ -55,7 +54,6 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
   data-user-id="USER_ID"     <!-- Optional: enables Feedback -->
   data-email="USER_EMAIL"   <!-- Optional: for attribution -->
   data-position="${widgetPosition}"
-  data-theme="${widgetTheme}"
   data-primary-color="${primaryColor}"
   data-secondary-color="${secondaryColor}"
   data-bg-color="${bgColor}"
@@ -115,21 +113,6 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     </SelectContent>
                                 </Select>
                                 <p className="text-xs text-zinc-500">Where the floating button will anchor on your page</p>
-                            </div>
-
-                            {/* Theme */}
-                            <div className="space-y-2">
-                                <Label htmlFor="theme" className="font-bold text-sm">Theme</Label>
-                                <Select value={widgetTheme} onValueChange={setWidgetTheme}>
-                                    <SelectTrigger id="theme" className="rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none outline-none focus:ring-2 focus:ring-indigo-500">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="light">Light</SelectItem>
-                                        <SelectItem value="dark">Dark</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <p className="text-xs text-zinc-500">The appearance of the widget interface</p>
                             </div>
                         </div>
 
@@ -338,7 +321,6 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                     <IntegrationGuide
                         applicationId={applicationId}
                         widgetPosition={widgetPosition}
-                        widgetTheme={widgetTheme}
                         widgetLogoUrl={widgetLogoUrl}
                         productOverview={productOverview}
                         aboutText={aboutText}
