@@ -86,10 +86,13 @@ function WidgetContent() {
         .text-indigo-500 { color: ${secondaryColor} !important; }
         .border-indigo-600 { border-color: ${primaryColor} !important; }
         .bg-indigo-50 { background-color: ${primaryColor}1A !important; }
+        .bg-indigo-50\\/30 { background-color: ${primaryColor}1A !important; }
+        .bg-indigo-100 { background-color: ${primaryColor}33 !important; }
+        .border-indigo-100 { border-color: ${primaryColor}33 !important; }
         .group-hover\\:text-indigo-500:hover { color: ${primaryColor} !important; }
         ${bgColor !== '#ffffff' ? `.bg-white { background-color: ${bgColor} !important; }` : ''}
         ${bgColor !== '#ffffff' ? `.bg-zinc-50 { background-color: ${bgColor} !important; filter: brightness(0.97); }` : ''}
-        ${textColor !== '#18181b' ? `.text-zinc-900 { color: ${textColor} !important; }` : ''}
+        ${textColor !== '#18181b' ? `.text-zinc-900 { color: ${textColor} !important; text-shadow: none !important; }` : ''}
       `
     }} />
   );
@@ -366,12 +369,16 @@ function WidgetContent() {
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
+        <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-100 shrink-0 relative z-10 bg-white/90 backdrop-blur-md">
           <div className="flex items-center gap-2">
-            {logoUrl && (
-              <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-md object-contain" />
+            {logoUrl ? (
+              <img src={logoUrl} alt="Logo" className="w-32 max-h-6 object-contain object-left" />
+            ) : (
+              <>
+                <Logo size={24} />
+                <span className="font-semibold text-base tracking-tight">UpVote</span>
+              </>
             )}
-            <span className="font-semibold text-base tracking-tight">UpVote</span>
           </div>
           <Button variant="ghost" size="icon" aria-label="Close widget" className="rounded-lg h-8 w-8 bg-zinc-100/50 dark:bg-zinc-800/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200" onClick={closeWidget}>
             <X className="w-4 h-4" />
@@ -423,12 +430,12 @@ function WidgetContent() {
         </div>
 
         {/* Brand Footer */}
-        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+        <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-indigo-600" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
-            </div>
+            </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />
               <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Active</span>
@@ -552,12 +559,12 @@ function WidgetContent() {
         </div>
 
         {/* Brand Footer */}
-        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0 relative z-10">
+        <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-indigo-600" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
-            </div>
+            </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />
               <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Live Session</span>
@@ -842,12 +849,12 @@ function WidgetContent() {
         </div>
 
         {/* Brand Footer */}
-        <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800 shrink-0">
+        <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-default">
+            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-indigo-600" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
-            </div>
+            </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />
               <span className="text-[9px] font-semibold text-zinc-400 uppercase tracking-tight">Live Session</span>
