@@ -71,17 +71,18 @@ function WidgetContent() {
   const faqsString = searchParams.get('faqs') || '';
   const customFaqs: FAQ[] = faqsString ? JSON.parse(faqsString) : [];
 
-  // Handle caching issues with widget.js where relative URLs aren't resolved before iframe injection
-  const [resolvedLogoUrl, setResolvedLogoUrl] = useState(logoUrl);
-
-  useEffect(() => {
-    if (logoUrl && !logoUrl.startsWith('http') && !logoUrl.startsWith('data:')) {
-      if (typeof document !== 'undefined' && document.referrer) {
-        try {
-          setResolvedLogoUrl(new URL(logoUrl, document.referrer).href);
-        } catch (e) { }
-      }
+  // Resolve logoUrl - widget.js already converts relative paths to absolute URLs,
+  // but we keep a fallback just in case.
+  const resolvedLogoUrl = useMemo(() => {
+    if (!logoUrl) return '';
+    if (logoUrl.startsWith('http') || logoUrl.startsWith('data:')) return logoUrl;
+    // Fallback: try resolving against the parent page's origin
+    if (typeof document !== 'undefined' && document.referrer) {
+      try {
+        return new URL(logoUrl, document.referrer).href;
+      } catch (e) { }
     }
+    return logoUrl;
   }, [logoUrl]);
 
   // Custom colors
