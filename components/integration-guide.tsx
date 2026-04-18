@@ -463,7 +463,6 @@ export class UpvoteWidgetComponent implements OnInit {
   data-user-id="USER_ID"           <!-- Optional -->
   data-email="user@example.com"    <!-- Optional -->
   data-position="${widgetPosition}"
-  data-theme="${widgetTheme}"
   data-logo-url="/logo.png"        <!-- Optional -->
   data-product-overview="..."      <!-- Optional -->
   data-about-text="..."            <!-- Optional -->

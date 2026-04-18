@@ -104,6 +104,20 @@ function WidgetContent() {
         .bg-indigo-100 { background-color: ${primaryColor}33 !important; }
         .border-indigo-100 { border-color: ${primaryColor}33 !important; }
         .group-hover\\:text-indigo-500:hover { color: ${primaryColor} !important; }
+        .bg-emerald-600 { background-color: ${primaryColor} !important; border-color: ${primaryColor} !important; }
+        .hover\\:bg-emerald-700:hover { background-color: ${secondaryColor} !important; }
+        .text-emerald-600 { color: ${primaryColor} !important; }
+        .text-emerald-500 { color: ${secondaryColor} !important; }
+        .border-emerald-600 { border-color: ${primaryColor} !important; }
+        .bg-emerald-50 { background-color: ${primaryColor}1A !important; }
+        .bg-emerald-50\\/50 { background-color: ${primaryColor}1A !important; }
+        .bg-emerald-100 { background-color: ${primaryColor}33 !important; }
+        .border-emerald-100 { border-color: ${primaryColor}33 !important; }
+        .hover\\:border-emerald-200:hover { border-color: ${primaryColor}4D !important; }
+        .group-hover\\:text-emerald-500 { color: ${primaryColor} !important; }
+        .focus\\:ring-emerald-500:focus { --tw-ring-color: ${primaryColor} !important; }
+        .focus-visible\\:ring-emerald-500:focus-visible { --tw-ring-color: ${primaryColor} !important; }
+        .hover\\:text-emerald-600:hover { color: ${primaryColor} !important; }
         ${bgColor !== '#ffffff' ? `.bg-white { background-color: ${bgColor} !important; }` : ''}
         ${bgColor !== '#ffffff' ? `.bg-zinc-50 { background-color: ${bgColor} !important; filter: brightness(0.97); }` : ''}
         ${textColor !== '#18181b' ? `.text-zinc-900 { color: ${textColor} !important; text-shadow: none !important; }` : ''}
