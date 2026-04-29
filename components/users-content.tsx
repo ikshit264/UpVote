@@ -122,8 +122,8 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
                         >
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center">
-                                        <Users className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                                    <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-950/30 rounded-full flex items-center justify-center">
+                                        <Users className="w-6 h-6 text-zinc-700 dark:text-zinc-400" />
                                     </div>
                                     <div>
                                         <p className="font-black text-lg">{user.userId}</p>
@@ -138,7 +138,7 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
                                 </div>
                                 <div className="flex gap-6">
                                     <div className="text-center">
-                                        <p className="text-2xl font-black text-blue-500">{user.feedbackCount || 0}</p>
+                                        <p className="text-2xl font-black text-zinc-500">{user.feedbackCount || 0}</p>
                                         <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Feedback</p>
                                     </div>
                                     <div className="text-center">
@@ -153,13 +153,13 @@ export default function UsersContent({ applicationId }: UsersContentProps) {
             )}
 
             {/* Stats Summary */}
-            <Card className="p-6 border-none shadow-sm bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800 rounded-2xl">
+            <Card className="p-6 border-none shadow-sm bg-zinc-50 dark:bg-zinc-950/20 border-zinc-200 dark:border-zinc-900 rounded-2xl">
                 <div className="flex items-center justify-between">
                     <div>
-                        <p className="text-sm font-bold text-indigo-800 dark:text-indigo-200">Total Active Users</p>
-                        <p className="text-3xl font-black text-indigo-900 dark:text-indigo-100 mt-1">{totalCount}</p>
+                        <p className="text-sm font-bold text-zinc-900 dark:text-zinc-200">Total Active Users</p>
+                        <p className="text-3xl font-black text-zinc-950 dark:text-zinc-100 mt-1">{totalCount}</p>
                     </div>
-                    <Users className="w-12 h-12 text-indigo-400" />
+                    <Users className="w-12 h-12 text-zinc-400" />
                 </div>
             </Card>
 

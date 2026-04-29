@@ -27,22 +27,22 @@ export function Footer() {
 
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
-                <Link href="/blogs" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+                <Link href="/blogs" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+                <Link href="/#pricing" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/info" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+                <Link href="/info" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
                   Info
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+                <Link href="/dashboard" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
                   Dashboard
                 </Link>
               </li>
@@ -56,13 +56,13 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400">
-            <Link href="/privacy" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+            <Link href="/privacy" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+            <Link href="/terms" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
               Terms
             </Link>
-            <Link href="/contact" className="text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400">
+            <Link href="/contact" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
               Contact
             </Link>
           </div>

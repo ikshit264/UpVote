@@ -62,7 +62,7 @@ export default function HomePage() {
   const isAuthenticated = status === 'authenticated';
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 selection:bg-zinc-100 selection:text-zinc-950">
       {/* Navigation Bar - Priority Load */}
       <Navbar />
 

@@ -16,9 +16,9 @@ export default function Logo({ className = '', size = 100, animated = false }: L
             style={{ width: size, height: size }}
         >
             {/* Container with a base scale-up to handle image transparency/whitespace */}
-            <div className="relative w-[115%] h-[115%] shrink-0 transition-transform duration-500">
+            <div className="relative w-[270%] h-[270%] shrink-0 transition-transform duration-500">
                 <Image
-                    src="/favicon-body.svg"
+                    src="/new-logo-removebg-preview.png"
                     alt="UpVote Logo"
                     fill
                     className="object-contain"
@@ -28,7 +28,7 @@ export default function Logo({ className = '', size = 100, animated = false }: L
             </div>
 
             {animated && (
-                <div className="absolute inset-0 bg-indigo-500/10 blur-2xl rounded-full animate-logo-glow -z-10" />
+                <div className="absolute inset-0 bg-zinc-500/10 blur-2xl rounded-full animate-logo-glow -z-10" />
             )}
         </div>
     );

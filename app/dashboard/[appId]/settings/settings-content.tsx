@@ -31,12 +31,12 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
     const [aboutText, setAboutText] = useState('');
 
     // Theme Customization options
-    const [primaryColor, setPrimaryColor] = useState('#4f46e5'); // indigo-600
-    const [secondaryColor, setSecondaryColor] = useState('#6366f1'); // indigo-500
+    const [primaryColor, setPrimaryColor] = useState('#4f46e5'); // zinc-700
+    const [secondaryColor, setSecondaryColor] = useState('#000000'); // zinc-500
     const [bgColor, setBgColor] = useState('#ffffff'); // white
     const [textColor, setTextColor] = useState('#18181b'); // zinc-900
 
-    const [launcherColor, setLauncherColor] = useState('#4f46e5'); // indigo-600
+    const [launcherColor, setLauncherColor] = useState('#4f46e5'); // zinc-700
     const [launcherActiveColor, setLauncherActiveColor] = useState('#ef4444'); // red-500
 
     const copyToClipboard = async (text: string) => {
@@ -95,8 +95,8 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                     {/* Widget Configuration */}
                     <Card className="p-6 space-y-6 border-none shadow-sm bg-white dark:bg-zinc-900 rounded-2xl">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                                <Settings2 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                            <div className="p-2 bg-zinc-100 dark:bg-zinc-950/30 rounded-lg">
+                                <Settings2 className="w-5 h-5 text-zinc-700 dark:text-zinc-400" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg">Widget Configuration</h3>
@@ -109,7 +109,7 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                             <div className="space-y-2">
                                 <Label htmlFor="position" className="font-bold text-sm">Widget Position</Label>
                                 <Select value={widgetPosition} onValueChange={setWidgetPosition}>
-                                    <SelectTrigger id="position" className="rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <SelectTrigger id="position" className="rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none outline-none focus:ring-2 focus:ring-zinc-500">
                                         <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -204,30 +204,30 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     Include <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_ID_FROM_YOUR_APP</code> and <code className="bg-amber-100 dark:bg-amber-900/50 px-1.5 py-0.5 rounded font-mono">USER_EMAIL_FROM_YOUR_APP</code> for personalized feedback. These are now <strong>optional</strong>; if missing, the widget will still show the Support option for anonymous users.
                                 </p>
                             </div>
-                            <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900/50">
-                                <h4 className="font-bold text-sm mb-2 text-blue-900 dark:text-blue-100 flex items-center gap-2">
+                            <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
+                                <h4 className="font-bold text-sm mb-2 text-zinc-950 dark:text-zinc-100 flex items-center gap-2">
                                     ℹ️ Documentation
                                 </h4>
-                                <div className="space-y-2 text-xs text-blue-800 dark:text-blue-200">
-                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                <div className="space-y-2 text-xs text-zinc-900 dark:text-zinc-200">
+                                    <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                         <span className="font-mono">data-application-id</span>
                                         <span className="font-semibold">Required</span>
                                     </div>
-                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                    <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                         <span className="font-mono">data-user-id</span>
                                         <span className="text-zinc-500 font-medium italic">Optional</span>
                                     </div>
-                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                    <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                         <span className="font-mono">data-email</span>
                                         <span className="text-zinc-500 font-medium italic">Optional</span>
                                     </div>
-                                    <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                    <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                         <span className="font-mono">data-position</span>
-                                        <span className="text-blue-600 dark:text-blue-400">left | right</span>
+                                        <span className="text-zinc-700 dark:text-zinc-400">left | right</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span className="font-mono">data-theme</span>
-                                        <span className="text-blue-600 dark:text-blue-400">light | dark</span>
+                                        <span className="text-zinc-700 dark:text-zinc-400">light | dark</span>
                                     </div>
                                 </div>
                             </div>
@@ -237,8 +237,8 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                     {/* Replying to Users */}
                     <Card className="p-6 space-y-6 border-none shadow-sm bg-white dark:bg-zinc-900 rounded-2xl">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                                <MessageSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                            <div className="p-2 bg-zinc-100 dark:bg-zinc-950/30 rounded-lg">
+                                <MessageSquare className="w-5 h-5 text-zinc-700 dark:text-zinc-400" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg">Responding to Feedback</h3>
@@ -252,15 +252,15 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     <h4 className="font-bold text-sm mb-3">How to reply:</h4>
                                     <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                                         <li className="flex gap-2">
-                                            <span className="shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-[10px] font-bold">1</span>
+                                            <span className="shrink-0 w-5 h-5 rounded-full bg-zinc-100 dark:bg-zinc-950/50 text-zinc-700 dark:text-zinc-400 flex items-center justify-center text-[10px] font-bold">1</span>
                                             <span>Go to the <strong>Feedback</strong> tab in this dashboard.</span>
                                         </li>
                                         <li className="flex gap-2">
-                                            <span className="shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-[10px] font-bold">2</span>
+                                            <span className="shrink-0 w-5 h-5 rounded-full bg-zinc-100 dark:bg-zinc-950/50 text-zinc-700 dark:text-zinc-400 flex items-center justify-center text-[10px] font-bold">2</span>
                                             <span>Select the feedback item you want to address.</span>
                                         </li>
                                         <li className="flex gap-2">
-                                            <span className="shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-[10px] font-bold">3</span>
+                                            <span className="shrink-0 w-5 h-5 rounded-full bg-zinc-100 dark:bg-zinc-950/50 text-zinc-700 dark:text-zinc-400 flex items-center justify-center text-[10px] font-bold">3</span>
                                             <span>Type your response in the reply box and save.</span>
                                         </li>
                                     </ul>
@@ -269,14 +269,14 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
 
                             <div className="space-y-4">
                                 <div className="p-5 bg-zinc-900 text-zinc-100 rounded-xl border border-zinc-700">
-                                    <h4 className="font-bold text-sm mb-3 text-indigo-400 flex items-center gap-2">
+                                    <h4 className="font-bold text-sm mb-3 text-zinc-400 flex items-center gap-2">
                                         🚀 Programmatic Response (API)
                                     </h4>
                                     <p className="text-xs text-zinc-400 mb-4 italic">
                                         Use our API to automate responses from your own backend:
                                     </p>
                                     <pre className="text-[10px] font-mono leading-relaxed bg-black/30 p-3 rounded-lg border border-white/5">
-                                        <span className="text-purple-400">PATCH</span> /api/dashboard/feedback
+                                        <span className="text-zinc-400">PATCH</span> /api/dashboard/feedback
                                         {`
 {
   "id": "feedback_unique_id",
@@ -306,7 +306,7 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
                                     id="appId"
                                     value={applicationId}
                                     readOnly
-                                    className="font-mono text-sm rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-indigo-500"
+                                    className="font-mono text-sm rounded-xl bg-zinc-50 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-zinc-500"
                                 />
                                 <Button
                                     variant="outline"

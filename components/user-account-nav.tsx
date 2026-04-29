@@ -37,9 +37,9 @@ export function UserAccountNav({
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="outline-none focus:outline-none">
-                <Avatar className="h-9 w-9 border border-zinc-200 dark:border-zinc-800 hover:ring-2 hover:ring-blue-500/20 transition-all cursor-pointer">
+                <Avatar className="h-9 w-9 border border-zinc-200 dark:border-zinc-800 hover:ring-2 hover:ring-zinc-500/20 transition-all cursor-pointer">
                     <AvatarImage src={user.image || undefined} alt={user.name || ''} />
-                    <AvatarFallback className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 font-medium text-xs">
+                    <AvatarFallback className="bg-zinc-100 text-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-400 font-medium text-xs">
                         {initials}
                     </AvatarFallback>
                 </Avatar>

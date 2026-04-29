@@ -110,8 +110,8 @@ export default function SupportContent({ applicationId }: SupportContentProps) {
                             <div className="space-y-4">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/20 flex items-center justify-center shrink-0">
-                                            <HelpCircle className="w-5 h-5 text-indigo-500" />
+                                        <div className="w-10 h-10 rounded-xl bg-zinc-50 dark:bg-black/20 flex items-center justify-center shrink-0">
+                                            <HelpCircle className="w-5 h-5 text-zinc-500" />
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-2">

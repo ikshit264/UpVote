@@ -183,7 +183,7 @@ export default function ApplicationsContent({
                         <DialogTrigger asChild>
                             <Button
                                 disabled={!canCreateMore}
-                                className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-11 px-6 shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02]"
+                                className="bg-zinc-700 hover:bg-zinc-800 font-bold rounded-xl h-11 px-6 shadow-lg shadow-zinc-500/20 transition-all hover:scale-[1.02]"
                             >
                                 <Plus className="w-4 h-4 mr-2" />
                                 New Application
@@ -209,7 +209,7 @@ export default function ApplicationsContent({
                                                 handleCreateApp();
                                             }
                                         }}
-                                        className="rounded-xl h-12 bg-zinc-50 dark:bg-zinc-800 border-none focus-visible:ring-indigo-500"
+                                        className="rounded-xl h-12 bg-zinc-50 dark:bg-zinc-800 border-none focus-visible:ring-zinc-500"
                                     />
                                 </div>
                             </div>
@@ -217,7 +217,7 @@ export default function ApplicationsContent({
                                 <Button
                                     onClick={handleCreateApp}
                                     disabled={isCreating}
-                                    className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-12 w-full shadow-lg shadow-indigo-500/20"
+                                    className="bg-zinc-700 hover:bg-zinc-800 font-bold rounded-xl h-12 w-full shadow-lg shadow-zinc-500/20"
                                 >
                                     {isCreating ? 'Creating Application...' : 'Create Application'}
                                 </Button>
@@ -252,7 +252,7 @@ export default function ApplicationsContent({
                             </div>
                             <Button
                                 onClick={() => setDialogOpen(true)}
-                                className="bg-indigo-600 hover:bg-indigo-700 font-bold rounded-xl h-12 px-8"
+                                className="bg-zinc-700 hover:bg-zinc-800 font-bold rounded-xl h-12 px-8"
                             >
                                 <Plus className="w-4 h-4 mr-2" />
                                 Create My First App
@@ -274,7 +274,7 @@ export default function ApplicationsContent({
                                                 <Input
                                                     value={editingName}
                                                     onChange={(e) => setEditingName(e.target.value)}
-                                                    className="flex-1 font-black text-lg rounded-xl h-10 bg-zinc-50 border-none focus-visible:ring-indigo-500"
+                                                    className="flex-1 font-black text-lg rounded-xl h-10 bg-zinc-50 border-none focus-visible:ring-zinc-500"
                                                     autoFocus
                                                     onKeyDown={(e) => {
                                                         if (e.key === 'Enter' && !isUpdating) {
@@ -306,7 +306,7 @@ export default function ApplicationsContent({
                                         ) : (
                                             <>
                                                 <div className="flex items-center gap-2 flex-1 min-w-0">
-                                                    <h3 className="text-xl font-black tracking-tight group-hover:text-indigo-600 transition-colors truncate">
+                                                    <h3 className="text-xl font-black tracking-tight group-hover:text-zinc-700 transition-colors truncate">
                                                         {app.name}
                                                     </h3>
                                                     <Button
@@ -315,10 +315,10 @@ export default function ApplicationsContent({
                                                         className="h-7 w-7 p-0 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 bg-zinc-50 dark:bg-zinc-800"
                                                         onClick={(e) => startEditing(app, e)}
                                                     >
-                                                        <Pencil className="w-3.5 h-3.5 text-zinc-400 hover:text-indigo-600" />
+                                                        <Pencil className="w-3.5 h-3.5 text-zinc-400 hover:text-zinc-700" />
                                                     </Button>
                                                 </div>
-                                                <Badge className="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400 border-none font-black text-[10px] uppercase tracking-wider shrink-0 px-2 py-0.5">
+                                                <Badge className="bg-zinc-50 text-zinc-700 dark:bg-zinc-950/20 dark:text-zinc-400 border-none font-black text-[10px] uppercase tracking-wider shrink-0 px-2 py-0.5">
                                                     Live
                                                 </Badge>
                                             </>
@@ -328,7 +328,7 @@ export default function ApplicationsContent({
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl border border-zinc-100/50 dark:border-zinc-800/50">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                                                <div className="w-2 h-2 rounded-full bg-zinc-500" />
                                                 <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">
                                                     Feedback
                                                 </span>
@@ -338,7 +338,7 @@ export default function ApplicationsContent({
 
                                         <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl border border-zinc-100/50 dark:border-zinc-800/50">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <div className="w-2 h-2 rounded-full bg-purple-500" />
+                                                <div className="w-2 h-2 rounded-full bg-zinc-500" />
                                                 <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">
                                                     Created
                                                 </span>
@@ -354,7 +354,7 @@ export default function ApplicationsContent({
 
                                     <Button
                                         variant="outline"
-                                        className="w-full border-none bg-zinc-100/50 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white font-black rounded-2xl transition-all h-12 text-sm shadow-sm group/btn"
+                                        className="w-full border-none bg-zinc-100/50 dark:bg-zinc-800 hover:bg-zinc-700 hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white font-black rounded-2xl transition-all h-12 text-sm shadow-sm group/btn"
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             router.push(`/dashboard/${app.id}/analytics`);

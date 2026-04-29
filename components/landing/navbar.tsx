@@ -34,19 +34,19 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-6">
               <Link
                 href="/blogs"
-                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Blogs
               </Link>
               <Link
                 href="#features"
-                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Features
               </Link>
               <Link
                 href="#pricing"
-                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Pricing
               </Link>
@@ -56,19 +56,19 @@ export default function Navbar() {
             <div className="flex md:hidden items-center gap-4">
               <Link
                 href="/blogs"
-                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Blogs
               </Link>
               <Link
                 href="#features"
-                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Features
               </Link>
               <Link
                 href="#pricing"
-                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Pricing
               </Link>
@@ -137,21 +137,21 @@ export default function Navbar() {
                   <Link
                     href="/blogs"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
                   >
                     Blogs
                   </Link>
                   <Link
                     href="#features"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
                   >
                     Features
                   </Link>
                   <Link
                     href="#pricing"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
                   >
                     Pricing
                   </Link>

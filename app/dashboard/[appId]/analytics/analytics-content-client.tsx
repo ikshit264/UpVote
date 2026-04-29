@@ -66,8 +66,8 @@ export default function AnalyticsContentClient({
       label: 'Total Feedback',
       value: stats.totalFeedback,
       icon: MessageSquare,
-      color: 'text-blue-500',
-      bg: 'bg-blue-50 dark:bg-blue-950/20',
+      color: 'text-zinc-500',
+      bg: 'bg-zinc-50 dark:bg-black/20',
     },
     {
       label: 'Total Upvotes',
@@ -80,8 +80,8 @@ export default function AnalyticsContentClient({
       label: 'Unique Users',
       value: stats.uniqueUsers,
       icon: Users,
-      color: 'text-purple-500',
-      bg: 'bg-purple-50 dark:bg-purple-950/20',
+      color: 'text-zinc-500',
+      bg: 'bg-zinc-50 dark:bg-black/20',
     },
     {
       label: 'Top Tag',
@@ -124,7 +124,7 @@ export default function AnalyticsContentClient({
         <Card className="rounded-3xl border-none bg-white p-8 shadow-sm dark:bg-zinc-900 lg:col-span-2">
           <div className="mb-8 flex items-center justify-between">
             <h3 className="flex items-center gap-2 text-lg font-bold">
-              <TrendingUp className="h-5 w-5 text-indigo-500" />
+              <TrendingUp className="h-5 w-5 text-zinc-500" />
               Feedback Trend
             </h3>
             <span className="rounded bg-zinc-100 px-2 py-1 text-xs font-bold uppercase text-zinc-400 dark:bg-zinc-800">
@@ -136,8 +136,8 @@ export default function AnalyticsContentClient({
               <AreaChart data={stats.feedbackTrend}>
                 <defs>
                   <linearGradient id="colorTrend" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#000000" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#000000" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
@@ -158,7 +158,7 @@ export default function AnalyticsContentClient({
                 <Area
                   type="monotone"
                   dataKey="count"
-                  stroke="#6366f1"
+                  stroke="#000000"
                   strokeWidth={4}
                   fillOpacity={1}
                   fill="url(#colorTrend)"
@@ -180,7 +180,7 @@ export default function AnalyticsContentClient({
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
                     <div
-                      className="h-full bg-indigo-500 transition-all duration-1000"
+                      className="h-full bg-zinc-500 transition-all duration-1000"
                       style={{ width: `${(tag.count / stats.totalFeedback) * 100}%` }}
                     />
                   </div>

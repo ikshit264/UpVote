@@ -23,12 +23,12 @@ export default function ContactPage() {
           {/* Email */}
           <Card className="p-6 border-none shadow-sm bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-xl flex items-center justify-center">
-                <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-950/50 rounded-xl flex items-center justify-center">
+                <Mail className="w-6 h-6 text-zinc-700 dark:text-zinc-400" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-zinc-900 dark:text-white mb-1">Email Us</h3>
-                <a href="mailto:hello@upvote.com" rel="nofollow" className="text-blue-600 dark:text-blue-400 hover:underline">
+                <a href="mailto:hello@upvote.com" rel="nofollow" className="text-zinc-700 dark:text-zinc-400 hover:underline">
                   hello@upvote.com
                 </a>
               </div>
@@ -38,8 +38,8 @@ export default function ContactPage() {
           {/* Location */}
           <Card className="p-6 border-none shadow-sm bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-xl flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-950/50 rounded-xl flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-zinc-700 dark:text-zinc-400" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-zinc-900 dark:text-white mb-1">Location</h3>
@@ -75,14 +75,14 @@ export default function ContactPage() {
           <div className="flex items-center justify-center gap-4 pt-4">
             <Link 
               href="/" 
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+              className="text-zinc-700 dark:text-zinc-400 hover:underline font-medium"
             >
               Back to Home
             </Link>
             <span className="text-zinc-300 dark:text-zinc-700">•</span>
             <Link 
               href="/blogs" 
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+              className="text-zinc-700 dark:text-zinc-400 hover:underline font-medium"
             >
               Visit Blog
             </Link>

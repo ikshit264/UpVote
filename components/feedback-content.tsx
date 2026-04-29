@@ -116,9 +116,9 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
     });
 
     const statusColors: { [key: string]: string } = {
-        'Open': 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
+        'Open': 'bg-zinc-100 text-zinc-900 dark:bg-zinc-950/30 dark:text-zinc-400',
         'Planned': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400',
-        'In Progress': 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400',
+        'In Progress': 'bg-zinc-100 text-zinc-900 dark:bg-zinc-950/30 dark:text-zinc-400',
         'Completed': 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
     };
 
@@ -175,7 +175,7 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
                                     <div className="flex items-start justify-between">
                                         <div>
                                             <div className="flex items-center gap-2 mb-1">
-                                                <h3 className="text-xl font-black tracking-tight group-hover:text-indigo-600 transition-colors">
+                                                <h3 className="text-xl font-black tracking-tight group-hover:text-zinc-700 transition-colors">
                                                     {item.title}
                                                 </h3>
                                                 <Badge className={`${statusColors[item.status]} border-none font-bold uppercase text-[10px]`}>
@@ -194,7 +194,7 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
 
                                     <div className="flex flex-wrap items-center gap-4 text-xs font-bold">
                                         <div className="flex items-center gap-1.5 text-zinc-400">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                                            <div className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
                                             USER ID: <span className="text-zinc-600 dark:text-zinc-300 font-mono">{item.userId}</span>
                                         </div>
                                         <div className="flex items-center gap-1.5 text-zinc-400">
@@ -214,7 +214,7 @@ export default function FeedbackContent({ applicationId }: FeedbackContentProps)
                                     <div className="pt-4 border-t border-zinc-50 dark:border-zinc-800/50">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-2 block">Company Reply</label>
                                         <textarea
-                                            className="w-full bg-zinc-50 dark:bg-zinc-800 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-indigo-500 transition-all min-h-[80px]"
+                                            className="w-full bg-zinc-50 dark:bg-zinc-800 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-zinc-500 transition-all min-h-[80px]"
                                             placeholder="Type your response here..."
                                             defaultValue={item.reply || ''}
                                             onBlur={(e) => handleReply(item.id, e.target.value)}

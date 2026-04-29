@@ -106,7 +106,7 @@ export default function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-blue-400/40 rounded-full blur-[180px] mix-blend-multiply"
+          className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-zinc-400/40 rounded-full blur-[180px] mix-blend-multiply"
           style={{ willChange: "transform", contain: "layout paint style" }}
         />
 
@@ -122,7 +122,7 @@ export default function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -bottom-40 -right-40 w-[650px] h-[650px] bg-purple-400/40 rounded-full blur-[200px] mix-blend-multiply"
+          className="absolute -bottom-40 -right-40 w-[650px] h-[650px] bg-zinc-400/40 rounded-full blur-[200px] mix-blend-multiply"
           style={{ willChange: "transform", contain: "layout paint style" }}
         />
 
@@ -136,7 +136,7 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
             Collect, Analyze, Act
             <br />
-            <span className="text-blue-600 text-4xl md:text-4xl">Customer Feedback Widget for SaaS & Mobile Apps</span>
+            <span className="text-zinc-700 text-4xl md:text-4xl">Customer Feedback Widget for SaaS & Mobile Apps</span>
           </h1>
 
           <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
@@ -148,7 +148,7 @@ export default function HeroSection() {
             <Link href="/auth/signup">
               <Button
                 size="lg"
-                className="h-14 px-8 text-lg rounded-xl bg-blue-600 hover:bg-blue-700 text-white"
+                className="h-14 px-8 text-lg rounded-xl bg-zinc-700 hover:bg-zinc-800 text-white"
               >
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />

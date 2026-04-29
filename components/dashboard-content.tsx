@@ -68,7 +68,7 @@ export default function DashboardContent({ company }: DashboardContentProps) {
           </div>
           <Button
             onClick={handleCopy}
-            className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+            className="bg-zinc-700 hover:bg-zinc-800 text-white flex items-center gap-2"
           >
             {copied ? (
               <>

@@ -34,11 +34,11 @@ export default function BlogsPage() {
     const blogs = getAllBlogs();
 
     return (
-        <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-blue-500/30">
+        <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-zinc-500/30">
             <Navbar />
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-zinc-700/10 blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -60,7 +60,7 @@ export default function BlogsPage() {
                             <Link
                                 key={blog.slug}
                                 href={`/blogs/${blog.slug}`}
-                                className="group block relative bg-zinc-900/50 border border-zinc-800 rounded-3xl overflow-hidden hover:bg-zinc-800/50 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/30"
+                                className="group block relative bg-zinc-900/50 border border-zinc-800 rounded-3xl overflow-hidden hover:bg-zinc-800/50 transition-all duration-300 hover:scale-[1.02] hover:border-zinc-500/30"
                             >
                                 <div className="relative aspect-16/10 overflow-hidden">
                                     <Image
@@ -70,7 +70,7 @@ export default function BlogsPage() {
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute top-4 left-4">
-                                        <span className="px-3 py-1 text-xs font-medium bg-blue-600/90 text-white rounded-full backdrop-blur-sm">
+                                        <span className="px-3 py-1 text-xs font-medium bg-zinc-700/90 text-white rounded-full backdrop-blur-sm">
                                             {blog.category}
                                         </span>
                                     </div>
@@ -83,7 +83,7 @@ export default function BlogsPage() {
                                         <span>{blog.author}</span>
                                     </div>
 
-                                    <h2 className="text-2xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors line-clamp-2">
+                                    <h2 className="text-2xl font-bold text-zinc-100 group-hover:text-zinc-400 transition-colors line-clamp-2">
                                         {blog.title}
                                     </h2>
 
@@ -91,7 +91,7 @@ export default function BlogsPage() {
                                         {blog.description}
                                     </p>
 
-                                    <div className="pt-4 flex items-center text-blue-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                                    <div className="pt-4 flex items-center text-zinc-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
                                         Read more
                                         <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -107,7 +107,7 @@ export default function BlogsPage() {
             {/* Newsletter Section */}
             <section className="py-20 bg-zinc-900/30 border-y border-zinc-800">
                 <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-[2.5rem] bg-linear-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/20 relative overflow-hidden text-center space-y-8">
+                    <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-[2.5rem] bg-linear-to-br from-zinc-700/20 to-zinc-700/20 border border-zinc-500/20 relative overflow-hidden text-center space-y-8">
                         <div className="relative z-10 space-y-4">
                             <h2 className="text-3xl md:text-4xl font-bold">Never miss an update</h2>
                             <p className="text-zinc-400 max-w-md mx-auto">Get the latest product management insights and Upvote news delivered to your inbox.</p>
@@ -116,9 +116,9 @@ export default function BlogsPage() {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="flex-1 px-6 py-4 rounded-2xl bg-zinc-900/80 border border-zinc-700 focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="flex-1 px-6 py-4 rounded-2xl bg-zinc-900/80 border border-zinc-700 focus:outline-none focus:border-zinc-500 transition-colors"
                                 />
-                                <button className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all shadow-lg shadow-blue-600/20">
+                                <button className="px-8 py-4 rounded-2xl bg-zinc-700 hover:bg-zinc-500 font-semibold transition-all shadow-lg shadow-zinc-700/20">
                                     Subscribe
                                 </button>
                             </form>

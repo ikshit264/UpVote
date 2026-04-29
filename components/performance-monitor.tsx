@@ -92,7 +92,7 @@ export default function PerformanceMonitor() {
                     )}
                     {metrics.lcp && (
                         <div>
-                            <span className="text-blue-400">LCP:</span>{' '}
+                            <span className="text-zinc-400">LCP:</span>{' '}
                             <span className={metrics.lcp < 2500 ? 'text-green-400' : metrics.lcp < 4000 ? 'text-yellow-400' : 'text-red-400'}>
                                 {metrics.lcp.toFixed(0)}ms
                             </span>

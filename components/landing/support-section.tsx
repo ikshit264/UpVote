@@ -63,11 +63,11 @@ export default function SupportSection() {
                         </div>
 
                         <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+                            <div className="absolute -inset-0.5 bg-linear-to-r from-zinc-500 to-zinc-700 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
                             <div className="relative">
                                 <Textarea
                                     placeholder="Your message..."
-                                    className="min-h-[200px] bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                                    className="min-h-[200px] bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 text-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent transition-all resize-none"
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     disabled={isLoading || isSubmitted}
@@ -95,7 +95,7 @@ export default function SupportSection() {
                                 <Input
                                     type="email"
                                     placeholder="your@email.com"
-                                    className="h-14 bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-full px-6 text-lg focus:ring-2 focus:ring-blue-500"
+                                    className="h-14 bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 rounded-full px-6 text-lg focus:ring-2 focus:ring-zinc-500"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     disabled={isLoading || isSubmitted}
@@ -104,7 +104,7 @@ export default function SupportSection() {
                                 <Button
                                     onClick={handleSubmit}
                                     disabled={isLoading || isSubmitted}
-                                    className="w-full h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 group transition-all"
+                                    className="w-full h-14 rounded-full bg-zinc-700 hover:bg-zinc-800 text-white text-lg font-semibold shadow-xl shadow-zinc-500/20 flex items-center justify-center gap-2 group transition-all"
                                 >
                                     {isLoading ? (
                                         <Loader2 className="w-5 h-5 animate-spin" />

@@ -33,10 +33,10 @@ export default function TermsPage() {
             <nav className="fixed top-0 left-0 right-0 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800 z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
-                        <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-blue-600 transition-colors" />
+                        <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
                         <span className="font-bold tracking-tight">UpVote</span>
                     </Link>
-                    <Shield className="w-5 h-5 text-blue-600" />
+                    <Shield className="w-5 h-5 text-zinc-700" />
                 </div>
             </nav>
 

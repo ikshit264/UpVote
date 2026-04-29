@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       "The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.",
     images: [
       {
-        url: "/favicon.png",
+        url: "/new-logo.png",
         width: 1200,
         height: 630,
         alt: "UpVote Platform Preview",
@@ -58,18 +58,18 @@ export const metadata: Metadata = {
     title: "UpVote - Customer Feedback & Feature Voting Platform",
     description:
       "The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.",
-    images: ["/favicon.png"],
+    images: ["/new-logo.png"],
     creator: "@upvote",
   },
   icons: {
     icon: [
       {
-        url: "/favicon.png",
+        url: "/new-logo.png",
       },
     ],
     apple: [
       {
-        url: "/favicon.png",
+        url: "/new-logo.png",
       },
     ],
   },
@@ -96,7 +96,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "UpVote",
   url: baseUrl,
-  logo: `${baseUrl}/favicon.png`,
+  logo: `${baseUrl}/new-logo.png`,
   description:
     "Customer feedback and feature voting platform for modern product teams.",
   sameAs: ["https://twitter.com/upvote", "https://github.com/upvote"],

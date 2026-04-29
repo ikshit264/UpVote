@@ -67,7 +67,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md p-8 bg-white shadow-lg border-0">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -117,7 +117,7 @@ export default function LoginPage() {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-zinc-700 hover:bg-zinc-800 text-white"
           >
             {loading ? 'Signing in...' : 'Sign in'}
           </Button>
@@ -161,7 +161,7 @@ export default function LoginPage() {
 
         <div className="mt-6 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link href="/auth/signup" className="text-blue-600 hover:text-blue-700 font-medium">
+          <Link href="/auth/signup" className="text-zinc-700 hover:text-zinc-800 font-medium">
             Sign up
           </Link>
         </div>

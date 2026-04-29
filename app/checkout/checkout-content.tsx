@@ -117,7 +117,7 @@ export default function CheckoutContent({
       <Card className="w-full rounded-3xl border-none bg-white p-8 shadow-xl dark:bg-zinc-900">
         <div className="mb-8 flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-indigo-600">
+            <p className="text-sm font-bold uppercase tracking-widest text-zinc-700">
               Checkout
             </p>
             <h1 className="mt-2 text-3xl font-black text-zinc-900 dark:text-white">
@@ -127,12 +127,12 @@ export default function CheckoutContent({
               We are preparing your {interval} checkout session.
             </p>
           </div>
-          <CreditCard className="h-10 w-10 text-indigo-500" />
+          <CreditCard className="h-10 w-10 text-zinc-500" />
         </div>
 
         {status !== 'error' ? (
           <div className="flex flex-col items-center justify-center gap-4 rounded-2xl bg-zinc-50 px-6 py-12 text-center dark:bg-zinc-800/60">
-            <Loader2 className="h-8 w-8 animate-spin text-indigo-500" />
+            <Loader2 className="h-8 w-8 animate-spin text-zinc-500" />
             <p className="text-lg font-bold text-zinc-900 dark:text-white">
               {status === 'redirecting'
                 ? 'Opening secure checkout...'

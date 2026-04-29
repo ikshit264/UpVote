@@ -68,7 +68,7 @@ export default async function BlogDetailPage({ params }: Props) {
     }
 
     return (
-        <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-blue-500/30">
+        <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-zinc-500/30">
             <Navbar />
             <script
                 type="application/ld+json"
@@ -138,7 +138,7 @@ export default async function BlogDetailPage({ params }: Props) {
             />
             {/* Article Header */}
             <header className="relative pt-32 pb-16 overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-zinc-700/10 blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto space-y-8">
@@ -153,7 +153,7 @@ export default async function BlogDetailPage({ params }: Props) {
                         </Link>
 
                         <div className="space-y-4">
-                            <span className="px-3 py-1 text-xs font-medium bg-blue-600/90 text-white rounded-full">
+                            <span className="px-3 py-1 text-xs font-medium bg-zinc-700/90 text-white rounded-full">
                                 {blog.category}
                             </span>
                             <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white">
@@ -161,7 +161,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             </h1>
                             <div className="flex items-center gap-4 text-zinc-400">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-blue-400 border border-zinc-700">
+                                    <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-400 border border-zinc-700">
                                         UT
                                     </div>
                                     <span className="font-medium text-zinc-200">{blog.author}</span>
@@ -191,10 +191,10 @@ export default async function BlogDetailPage({ params }: Props) {
                         <article className="prose prose-invert prose-zinc prose-lg max-w-none 
               prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white
               prose-p:text-zinc-400 prose-p:leading-relaxed
-              prose-strong:text-zinc-200 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-zinc-200 prose-a:text-zinc-400 prose-a:no-underline hover:prose-a:underline
               prose-img:rounded-3xl prose-img:border prose-img:border-zinc-800
               prose-hr:border-zinc-800
-              prose-blockquote:border-l-blue-600 prose-blockquote:bg-zinc-900/50 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:text-zinc-300
+              prose-blockquote:border-l-zinc-700 prose-blockquote:bg-zinc-900/50 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:text-zinc-300
             ">
                             <ReactMarkdown>{blog.content}</ReactMarkdown>
                         </article>
@@ -216,7 +216,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
                         {/* CTA Section */}
                         <div className="mt-20 p-10 rounded-[2.5rem] bg-zinc-900/50 border border-zinc-800 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 blur-[80px] rounded-full group-hover:bg-blue-600/20 transition-colors" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-700/10 blur-[80px] rounded-full group-hover:bg-zinc-700/20 transition-colors" />
                             <div className="relative z-10 space-y-6">
                                 <h3 className="text-3xl font-bold">Ready to automate your feedback loop?</h3>
                                 <p className="text-zinc-400 text-lg">Join hundreds of early-stage SaaS teams who use Upvote to build better products, faster.</p>
@@ -224,14 +224,14 @@ export default async function BlogDetailPage({ params }: Props) {
                                     {session ? (
                                         <Link
                                             href="/dashboard"
-                                            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all shadow-lg shadow-blue-600/20"
+                                            className="px-8 py-4 rounded-2xl bg-zinc-700 hover:bg-zinc-500 font-semibold transition-all shadow-lg shadow-zinc-700/20"
                                         >
                                             Go to Dashboard
                                         </Link>
                                     ) : (
                                         <Link
                                             href="/auth/signup"
-                                            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all shadow-lg shadow-blue-600/20"
+                                            className="px-8 py-4 rounded-2xl bg-zinc-700 hover:bg-zinc-500 font-semibold transition-all shadow-lg shadow-zinc-700/20"
                                         >
                                             Start Free Trial
                                         </Link>

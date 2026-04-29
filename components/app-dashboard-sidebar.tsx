@@ -65,14 +65,14 @@ export default function AppDashboardSidebar({
                     <ChevronLeft className="w-4 h-4" />
                     <span>All Applications</span>
                 </Link>
-                <div className="mt-2 px-3 py-2 bg-indigo-50 dark:bg-indigo-950/20 rounded-lg">
+                <div className="mt-2 px-3 py-2 bg-zinc-50 dark:bg-black/20 rounded-lg">
                     <div className="flex items-center gap-2">
-                        <Folder className="w-4 h-4 text-indigo-600" />
+                        <Folder className="w-4 h-4 text-zinc-700" />
                         <div className="flex-1 min-w-0">
-                            <p className="text-xs font-bold text-indigo-900 dark:text-indigo-100 truncate">
+                            <p className="text-xs font-bold text-zinc-950 dark:text-zinc-100 truncate">
                                 {application.name}
                             </p>
-                            <p className="text-[10px] text-indigo-600 dark:text-indigo-400">
+                            <p className="text-[10px] text-zinc-700 dark:text-zinc-400">
                                 Current App
                             </p>
                         </div>
@@ -88,12 +88,12 @@ export default function AppDashboardSidebar({
                             key={item.href}
                             href={item.href}
                             className={`flex items-center justify-between px-3 py-2 rounded-lg transition-all group ${isActive
-                                ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 font-bold'
+                                ? 'bg-zinc-50 dark:bg-black/20 text-zinc-700 dark:text-zinc-400 font-bold'
                                 : 'text-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <item.icon className={`w-5 h-5 ${isActive ? 'text-indigo-600' : 'text-zinc-400 group-hover:text-zinc-600'}`} />
+                                <item.icon className={`w-5 h-5 ${isActive ? 'text-zinc-700' : 'text-zinc-400 group-hover:text-zinc-600'}`} />
                                 {item.name}
                             </div>
                             {isActive && <ChevronRight className="w-4 h-4" />}

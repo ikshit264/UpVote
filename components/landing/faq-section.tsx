@@ -57,8 +57,8 @@ export default function FAQSection() {
           className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-950 p-8 text-center shadow-[0_30px_80px_rgba(15,23,42,0.45)] dark:bg-zinc-900 md:p-16"
         >
           <div className="pointer-events-none absolute inset-[1px] rounded-[2.35rem] bg-gradient-to-br from-white/8 via-transparent to-white/5" />
-          <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/35 blur-[100px]" />
-          <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 -translate-x-1/2 translate-y-1/2 rounded-full bg-purple-600/25 blur-[100px]" />
+          <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-zinc-700/35 blur-[100px]" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-96 w-96 -translate-x-1/2 translate-y-1/2 rounded-full bg-zinc-700/25 blur-[100px]" />
           <div className="pointer-events-none absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
           <div className="relative z-10 mx-auto max-w-3xl">
@@ -78,7 +78,7 @@ export default function FAQSection() {
                   >
                     <AccordionItem
                       value={`item-${index}`}
-                      className="rounded-2xl border border-white/10 bg-white/8 px-6 shadow-[0_12px_30px_rgba(15,23,42,0.18)] backdrop-blur-md transition-all hover:border-blue-400/40 hover:bg-white/12"
+                      className="rounded-2xl border border-white/10 bg-white/8 px-6 shadow-[0_12px_30px_rgba(15,23,42,0.18)] backdrop-blur-md transition-all hover:border-zinc-400/40 hover:bg-white/12"
                     >
                       <AccordionTrigger className="group py-6 hover:no-underline">
                         <h3 className="text-left text-lg font-bold text-zinc-100 transition-colors group-hover:text-white md:text-xl">
@@ -98,7 +98,7 @@ export default function FAQSection() {
               <Link href="/auth/signup">
                 <Button
                   size="lg"
-                  className="h-14 rounded-2xl border-0 bg-blue-600 px-10 text-lg font-bold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-[1.02] hover:bg-blue-700 active:scale-[0.98]"
+                  className="h-14 rounded-2xl border-0 bg-zinc-700 px-10 text-lg font-bold text-white shadow-lg shadow-zinc-500/25 transition-all hover:scale-[1.02] hover:bg-zinc-800 active:scale-[0.98]"
                 >
                   Start Your Free Trial
                   <ArrowRight className="ml-2 h-5 w-5" />

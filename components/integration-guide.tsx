@@ -40,7 +40,7 @@ export default function IntegrationGuide({
     productOverview = '',
     aboutText = '',
     primaryColor = '#4f46e5',
-    secondaryColor = '#6366f1',
+    secondaryColor = '#000000',
     bgColor = '#ffffff',
     textColor = '#18181b',
     launcherColor = '#4f46e5',
@@ -263,14 +263,14 @@ export class UpvoteWidgetComponent implements OnInit {
     return (
         <div className="space-y-8">
             {/* Header with Preview */}
-            <Card className="p-8 border-none shadow-lg bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/20 dark:via-purple-950/20 dark:to-pink-950/20 rounded-3xl overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-200/30 dark:bg-indigo-800/20 rounded-full blur-3xl -mr-32 -mt-32" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200/30 dark:bg-purple-800/20 rounded-full blur-3xl -ml-32 -mb-32" />
+            <Card className="p-8 border-none shadow-lg bg-linear-to-br from-zinc-50 via-zinc-50 to-zinc-50 dark:from-black/20 dark:via-black/20 dark:to-black/20 rounded-3xl overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-200/30 dark:bg-zinc-900/20 rounded-full blur-3xl -mr-32 -mt-32" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-zinc-200/30 dark:bg-zinc-900/20 rounded-full blur-3xl -ml-32 -mb-32" />
 
                 <div className="relative z-10">
                     <div className="flex items-start justify-between gap-8">
                         <div className="space-y-4 flex-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/50 rounded-full text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 dark:bg-zinc-950/50 rounded-full text-zinc-800 dark:text-zinc-300 text-xs font-bold">
                                 <Rocket className="w-3 h-3" />
                                 Integration Guide
                             </div>
@@ -288,21 +288,21 @@ export class UpvoteWidgetComponent implements OnInit {
                             <div className="relative">
                                 <div className="w-48 h-48 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-700 p-4 flex items-center justify-center">
                                     <div className="text-center space-y-2 text-xs">
-                                        <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                        <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                             <span className="font-mono">data-user-id</span>
                                             <span className="text-zinc-500 font-medium italic">Optional</span>
                                         </div>
-                                        <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                        <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                             <span className="font-mono">data-email</span>
                                             <span className="text-zinc-500 font-medium italic">Optional</span>
                                         </div>
-                                        <div className="flex justify-between border-b border-blue-100 dark:border-blue-900 pb-1">
+                                        <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-950 pb-1">
                                             <span className="font-mono">data-logo-url</span>
                                             <span className="text-zinc-500 font-medium italic">Optional</span>
                                         </div>
                                         <div className="flex justify-between">
                                             <span className="font-mono">+3 more</span>
-                                            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">See below</span>
+                                            <span className="text-zinc-700 dark:text-zinc-400 font-semibold">See below</span>
                                         </div>
                                     </div>
                                 </div>
@@ -326,7 +326,7 @@ export class UpvoteWidgetComponent implements OnInit {
                     >
                         <Card className="p-5 border-none shadow-sm hover:shadow-md transition-all bg-white dark:bg-zinc-900 rounded-2xl h-full">
                             <div className="flex items-start gap-3">
-                                <div className="shrink-0 w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl flex items-center justify-center font-black text-indigo-600 dark:text-indigo-400">
+                                <div className="shrink-0 w-10 h-10 bg-zinc-100 dark:bg-zinc-950/50 rounded-xl flex items-center justify-center font-black text-zinc-700 dark:text-zinc-400">
                                     {step.number}
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -414,32 +414,32 @@ export class UpvoteWidgetComponent implements OnInit {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-4 bg-indigo-50 dark:bg-indigo-950/20 rounded-xl border border-indigo-200 dark:border-indigo-900/50">
-                            <h4 className="font-bold text-sm mb-2 text-indigo-900 dark:text-indigo-100 flex items-center gap-2">
+                        <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
+                            <h4 className="font-bold text-sm mb-2 text-zinc-950 dark:text-zinc-100 flex items-center gap-2">
                                 🖼️ Custom Logo
                             </h4>
-                            <code className="text-xs bg-indigo-100 dark:bg-indigo-900/50 px-2 py-1.5 rounded block mb-2">data-logo-url="YOUR_LOGO_URL"</code>
-                            <p className="text-xs text-indigo-800 dark:text-indigo-200">
+                            <code className="text-xs bg-zinc-100 dark:bg-zinc-950/50 px-2 py-1.5 rounded block mb-2">data-logo-url="YOUR_LOGO_URL"</code>
+                            <p className="text-xs text-zinc-900 dark:text-zinc-200">
                                 Display your product logo on the widget button and FAQ header. Falls back to default favicon if not provided.
                             </p>
                         </div>
 
-                        <div className="p-4 bg-purple-50 dark:bg-purple-950/20 rounded-xl border border-purple-200 dark:border-purple-900/50">
-                            <h4 className="font-bold text-sm mb-2 text-purple-900 dark:text-purple-100 flex items-center gap-2">
+                        <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
+                            <h4 className="font-bold text-sm mb-2 text-zinc-950 dark:text-zinc-100 flex items-center gap-2">
                                 📄 Product Overview
                             </h4>
-                            <code className="text-xs bg-purple-100 dark:bg-purple-900/50 px-2 py-1.5 rounded block mb-2">data-product-overview="..."</code>
-                            <p className="text-xs text-purple-800 dark:text-purple-200">
+                            <code className="text-xs bg-zinc-100 dark:bg-zinc-950/50 px-2 py-1.5 rounded block mb-2">data-product-overview="..."</code>
+                            <p className="text-xs text-zinc-900 dark:text-zinc-200">
                                 Custom description of your product shown in the FAQ tab. Replaces default text when provided.
                             </p>
                         </div>
 
-                        <div className="p-4 bg-pink-50 dark:bg-pink-950/20 rounded-xl border border-pink-200 dark:border-pink-900/50">
-                            <h4 className="font-bold text-sm mb-2 text-pink-900 dark:text-pink-100 flex items-center gap-2">
+                        <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
+                            <h4 className="font-bold text-sm mb-2 text-zinc-950 dark:text-zinc-100 flex items-center gap-2">
                                 ℹ️ About Section
                             </h4>
-                            <code className="text-xs bg-pink-100 dark:bg-pink-900/50 px-2 py-1.5 rounded block mb-2">data-about-text="..."</code>
-                            <p className="text-xs text-pink-800 dark:text-pink-200">
+                            <code className="text-xs bg-zinc-100 dark:bg-zinc-950/50 px-2 py-1.5 rounded block mb-2">data-about-text="..."</code>
+                            <p className="text-xs text-zinc-900 dark:text-zinc-200">
                                 Information about your company or team. Displays in the FAQ tab alongside your logo.
                             </p>
                         </div>
@@ -455,9 +455,9 @@ export class UpvoteWidgetComponent implements OnInit {
                         </div>
                     </div>
 
-                    <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900/50">
-                        <h4 className="font-bold text-sm mb-3 text-blue-900 dark:text-blue-100">Complete Configuration Example:</h4>
-                        <pre className="text-xs font-mono bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg overflow-x-auto text-blue-900 dark:text-blue-100">
+                    <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
+                        <h4 className="font-bold text-sm mb-3 text-zinc-950 dark:text-zinc-100">Complete Configuration Example:</h4>
+                        <pre className="text-xs font-mono bg-zinc-100 dark:bg-zinc-950/30 p-3 rounded-lg overflow-x-auto text-zinc-950 dark:text-zinc-100">
 {`<div class="upvote-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID"           <!-- Optional -->
@@ -469,7 +469,7 @@ export class UpvoteWidgetComponent implements OnInit {
   data-faqs='[{"question":"Q?","answer":"A."}]'>  <!-- ⚠️ Required for FAQs -->
 </div>`}
                         </pre>
-                        <p className="text-xs text-blue-700 dark:text-blue-300 mt-2 flex items-center gap-1">
+                        <p className="text-xs text-zinc-800 dark:text-zinc-300 mt-2 flex items-center gap-1">
                             ⚠️ <strong>Note:</strong> FAQs are completely customizable. No default questions are shown.
                         </p>
                     </div>
@@ -508,7 +508,7 @@ export class UpvoteWidgetComponent implements OnInit {
             </div>
 
             {/* Centralized Auth Sync Flow Note */}
-            <Card className="p-6 border-none shadow-md bg-linear-to-r from-blue-600 to-indigo-700 text-white rounded-3xl overflow-hidden relative">
+            <Card className="p-6 border-none shadow-md bg-linear-to-r from-zinc-700 to-zinc-800 text-white rounded-3xl overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32" />
                 <div className="relative z-10 flex items-start gap-4">
                     <div className="p-3 bg-white/20 rounded-2xl">
@@ -516,21 +516,21 @@ export class UpvoteWidgetComponent implements OnInit {
                     </div>
                     <div className="space-y-2">
                         <h4 className="text-lg font-bold">Standard Pro Implementation Flow</h4>
-                        <p className="text-sm text-blue-50/90 leading-relaxed max-w-2xl">
+                        <p className="text-sm text-zinc-50/90 leading-relaxed max-w-2xl">
                             For the best experience, we recommend using a <strong>Centralized Auth Sync</strong> pattern.
                             This ensures your AI and your application code always work in harmony:
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-white/10">
                             <div className="space-y-1">
-                                <div className="text-xs font-black uppercase tracking-wider text-blue-200">Step 1</div>
+                                <div className="text-xs font-black uppercase tracking-wider text-zinc-200">Step 1</div>
                                 <p className="text-xs font-medium">Define <code className="bg-black/20 px-1 rounded">syncUpvoteLogin</code> in your Auth Utility.</p>
                             </div>
                             <div className="space-y-1">
-                                <div className="text-xs font-black uppercase tracking-wider text-blue-200">Step 2</div>
+                                <div className="text-xs font-black uppercase tracking-wider text-zinc-200">Step 2</div>
                                 <p className="text-xs font-medium">Call it immediately after your <code className="bg-black/20 px-1 rounded">login()</code> or <code className="bg-black/20 px-1 rounded">signIn()</code> success.</p>
                             </div>
                             <div className="space-y-1">
-                                <div className="text-xs font-black uppercase tracking-wider text-blue-200">Step 3</div>
+                                <div className="text-xs font-black uppercase tracking-wider text-zinc-200">Step 3</div>
                                 <p className="text-xs font-medium">The widget component (listening to events) will hard-remount and clear all cache instantly.</p>
                             </div>
                         </div>
@@ -576,17 +576,17 @@ export class UpvoteWidgetComponent implements OnInit {
                                 </div>
                                 After Integration
                             </div>
-                            <div className="aspect-video bg-linear-to-br from-indigo-100 to-purple-100 dark:from-indigo-950 dark:to-purple-950 rounded-xl border-2 border-indigo-300 dark:border-indigo-700 flex items-center justify-center relative overflow-hidden">
+                            <div className="aspect-video bg-linear-to-br from-zinc-100 to-zinc-100 dark:from-black dark:to-black rounded-xl border-2 border-zinc-300 dark:border-zinc-800 flex items-center justify-center relative overflow-hidden">
                                 <div className="text-center space-y-2 z-10">
-                                    <Monitor className="w-12 h-12 mx-auto text-indigo-600 dark:text-indigo-400" />
-                                    <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100">Your Website</p>
-                                    <div className="inline-flex items-center gap-1 px-2 py-1 bg-indigo-600 text-white rounded-full text-xs font-bold">
+                                    <Monitor className="w-12 h-12 mx-auto text-zinc-700 dark:text-zinc-400" />
+                                    <p className="text-sm font-semibold text-zinc-950 dark:text-zinc-100">Your Website</p>
+                                    <div className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-700 text-white rounded-full text-xs font-bold">
                                         <PlayCircle className="w-3 h-3" />
                                         Widget Active
                                     </div>
                                 </div>
                                 {/* Widget Button Simulation */}
-                                <div className="absolute bottom-4 right-4 w-14 h-14 bg-indigo-600 rounded-full shadow-lg flex items-center justify-center animate-pulse">
+                                <div className="absolute bottom-4 right-4 w-14 h-14 bg-zinc-700 rounded-full shadow-lg flex items-center justify-center animate-pulse">
                                     <Smartphone className="w-7 h-7 text-white" />
                                 </div>
                             </div>
@@ -607,7 +607,7 @@ export class UpvoteWidgetComponent implements OnInit {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 rounded-full text-indigo-400 text-xs font-bold ring-1 ring-indigo-500/50">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-500/20 rounded-full text-zinc-400 text-xs font-bold ring-1 ring-zinc-500/50">
                             <PlayCircle className="w-3 h-3" />
                             Interactive Walkthrough
                         </div>
@@ -627,7 +627,7 @@ export class UpvoteWidgetComponent implements OnInit {
                                 "Get replies from you in real-time"
                             ].map((text, i) => (
                                 <li key={i} className="flex items-center gap-3 text-sm text-zinc-300">
-                                    <div className="w-5 h-5 rounded-full bg-indigo-500/10 border border-indigo-500/50 flex items-center justify-center text-[10px] font-bold text-indigo-400">
+                                    <div className="w-5 h-5 rounded-full bg-zinc-500/10 border border-zinc-500/50 flex items-center justify-center text-[10px] font-bold text-zinc-400">
                                         {i + 1}
                                     </div>
                                     {text}
@@ -639,7 +639,7 @@ export class UpvoteWidgetComponent implements OnInit {
                     <div className="relative aspect-video rounded-2xl bg-black border border-zinc-800 shadow-2xl overflow-hidden group">
                         <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/60 z-10" />
                         <div className="absolute inset-0 flex items-center justify-center z-20 transition-transform duration-500 group-hover:scale-110">
-                            <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center shadow-xl ring-4 ring-indigo-600/20">
+                            <div className="w-16 h-16 bg-zinc-700 rounded-full flex items-center justify-center shadow-xl ring-4 ring-zinc-700/20">
                                 <PlayCircle className="w-8 h-8 text-white" />
                             </div>
                         </div>
@@ -649,8 +649,8 @@ export class UpvoteWidgetComponent implements OnInit {
                             <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-800 rounded-full mb-2" />
                             <div className="w-2/3 h-2 bg-zinc-100 dark:bg-zinc-800 rounded-full mb-4" />
                             <div className="space-y-2 text-zinc-900">
-                                <div className="w-full h-8 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg flex items-center px-2">
-                                    <div className="w-3 h-3 bg-indigo-600 rounded-full" />
+                                <div className="w-full h-8 bg-zinc-50 dark:bg-zinc-950/20 rounded-lg flex items-center px-2">
+                                    <div className="w-3 h-3 bg-zinc-700 rounded-full" />
                                 </div>
                                 <div className="w-full h-8 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg" />
                             </div>
@@ -665,17 +665,17 @@ export class UpvoteWidgetComponent implements OnInit {
             </Card>
 
             {/* Next Steps */}
-            <Card className="p-6 border-none shadow-sm bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-2xl">
+            <Card className="p-6 border-none shadow-sm bg-linear-to-r from-zinc-700 to-zinc-700 text-white rounded-2xl">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div>
                         <h3 className="text-xl font-black mb-1">Ready to Go Live?</h3>
-                        <p className="text-indigo-100 text-sm">
+                        <p className="text-zinc-100 text-sm">
                             Your application ID is already configured in the code above.
                         </p>
                     </div>
                     <Button
                         size="lg"
-                        className="bg-white text-indigo-600 hover:bg-indigo-50 rounded-xl font-bold shadow-lg"
+                        className="bg-white text-zinc-700 hover:bg-zinc-50 rounded-xl font-bold shadow-lg"
                         onClick={() => window.open(`${baseUrl}/widget`, "_blank")}
                     >
                         Test Widget

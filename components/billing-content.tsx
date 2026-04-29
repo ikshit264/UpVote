@@ -32,18 +32,18 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
             id: PLANS.PRO,
             config: PLAN_CONFIG[PLANS.PRO],
             icon: Rocket,
-            color: 'text-indigo-600',
-            bg: 'bg-indigo-50/50 dark:bg-indigo-900/10',
-            border: 'border-indigo-200 dark:border-indigo-900/50',
+            color: 'text-zinc-700',
+            bg: 'bg-zinc-50/50 dark:bg-zinc-950/10',
+            border: 'border-zinc-200 dark:border-zinc-950/50',
             popular: true,
         },
         {
             id: PLANS.ENTERPRISE,
             config: PLAN_CONFIG[PLANS.ENTERPRISE],
             icon: ShieldCheck,
-            color: 'text-purple-600',
-            bg: 'bg-purple-50/50 dark:bg-purple-900/10',
-            border: 'border-purple-200 dark:border-purple-900/50',
+            color: 'text-zinc-700',
+            bg: 'bg-zinc-50/50 dark:bg-zinc-950/10',
+            border: 'border-zinc-200 dark:border-zinc-950/50',
         },
     ];
 
@@ -57,7 +57,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
         <div className="space-y-8 max-w-6xl mx-auto py-4">
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-sm uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-zinc-700 dark:text-zinc-400 font-bold text-sm uppercase tracking-widest">
                         <CreditCard className="w-4 h-4" />
                         Billing & Plans
                     </div>
@@ -142,7 +142,7 @@ export default function BillingContent({ subscription, user, dodoConfig }: Billi
                         >
                             {plan.popular && !isActive && (
                                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                    <Badge className="bg-indigo-600 text-white border-none px-2 py-0.5 font-bold uppercase text-[9px] tracking-widest shadow-lg rounded-full">
+                                    <Badge className="bg-zinc-700 text-white border-none px-2 py-0.5 font-bold uppercase text-[9px] tracking-widest shadow-lg rounded-full">
                                         Most Popular
                                     </Badge>
                                 </div>

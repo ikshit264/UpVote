@@ -41,16 +41,16 @@ export default function InfoPage() {
             <nav className="fixed top-0 left-0 right-0 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800 z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
-                        <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-blue-600 transition-colors" />
+                        <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
                         <span className="font-bold tracking-tight">UpVote</span>
                     </Link>
-                    <Info className="w-5 h-5 text-blue-600" />
+                    <Info className="w-5 h-5 text-zinc-700" />
                 </div>
             </nav>
 
             <main className="max-w-3xl mx-auto px-6 pt-32 pb-24">
                 <div className="space-y-4 mb-16">
-                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 border-none px-3 py-1 text-xs">About Us</Badge>
+                    <Badge className="bg-zinc-100 text-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-400 border-none px-3 py-1 text-xs">About Us</Badge>
                     <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Information Hub</h1>
                     <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
                         Everything you need to know about the UpVote platform and our commitment to product excellence.
@@ -61,7 +61,7 @@ export default function InfoPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 space-y-4">
                             <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm">
-                                <Globe className="w-6 h-6 text-blue-500" />
+                                <Globe className="w-6 h-6 text-zinc-500" />
                             </div>
                             <h3 className="text-xl font-bold">Our Mission</h3>
                             <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
@@ -82,7 +82,7 @@ export default function InfoPage() {
 
                     <section className="space-y-6">
                         <h2 className="text-2xl font-bold flex items-center gap-2">
-                            <Users className="w-6 h-6 text-indigo-500" />
+                            <Users className="w-6 h-6 text-zinc-500" />
                             Who We Serve
                         </h2>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -114,7 +114,7 @@ export default function InfoPage() {
                         </Button>
                     </Link>
                     <Link href="/auth/signup">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8">
+                        <Button className="bg-zinc-700 hover:bg-zinc-800 text-white rounded-full px-8">
                             Join Us
                         </Button>
                     </Link>

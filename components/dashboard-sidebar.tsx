@@ -50,12 +50,12 @@ export default function DashboardSidebar({ company }: { company: Company }) {
                             key={item.href}
                             href={item.href}
                             className={`flex items-center justify-between px-3 py-2 rounded-lg transition-all group ${isActive
-                                ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 font-bold'
+                                ? 'bg-zinc-50 dark:bg-black/20 text-zinc-700 dark:text-zinc-400 font-bold'
                                 : 'text-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <item.icon className={`w-5 h-5 ${isActive ? 'text-indigo-600' : 'text-zinc-400 group-hover:text-zinc-600'}`} />
+                                <item.icon className={`w-5 h-5 ${isActive ? 'text-zinc-700' : 'text-zinc-400 group-hover:text-zinc-600'}`} />
                                 {item.name}
                             </div>
                             {isActive && <ChevronRight className="w-4 h-4" />}

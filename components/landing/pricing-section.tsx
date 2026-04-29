@@ -75,15 +75,15 @@ export default function PricingSection() {
                         </div>
                         <ul className="space-y-4 mb-10">
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 1 Project
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 50 Feedbacks / month
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 Basic Analytics
                             </li>
                         </ul>
@@ -101,9 +101,9 @@ export default function PricingSection() {
                         className="relative p-8 md:p-10 rounded-3xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 shadow-soft-lg md:-my-6 z-10 overflow-hidden"
                     >
                         {/* Decorative background element for Pro */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-700/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl uppercase tracking-wider shadow-sm">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-zinc-700 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl uppercase tracking-wider shadow-sm">
                             Most Popular
                         </div>
                         <h3 className="text-2xl font-bold mb-2 mt-2">Pro Plan</h3>
@@ -113,24 +113,24 @@ export default function PricingSection() {
                         </div>
                         <ul className="space-y-4 mb-10">
                             <li className="flex items-center gap-3 font-medium">
-                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
+                                <CheckCircle2 className="w-5 h-5 text-zinc-400 dark:text-zinc-700" />
                                 Unlimited Projects
                             </li>
                             <li className="flex items-center gap-3 font-medium">
-                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
+                                <CheckCircle2 className="w-5 h-5 text-zinc-400 dark:text-zinc-700" />
                                 Unlimited Feedback
                             </li>
                             <li className="flex items-center gap-3 font-medium">
-                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
+                                <CheckCircle2 className="w-5 h-5 text-zinc-400 dark:text-zinc-700" />
                                 Advanced Analytics
                             </li>
                             <li className="flex items-center gap-3 font-medium">
-                                <CheckCircle2 className="w-5 h-5 text-blue-400 dark:text-blue-600" />
+                                <CheckCircle2 className="w-5 h-5 text-zinc-400 dark:text-zinc-700" />
                                 Custom Branding & Domains
                             </li>
                         </ul>
                         <Link href="/auth/signup">
-                            <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white border-0 text-base font-medium shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]">Start Free Trial</Button>
+                            <Button className="w-full h-12 rounded-xl bg-zinc-700 hover:bg-zinc-800 text-white border-0 text-base font-medium shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]">Start Free Trial</Button>
                         </Link>
                     </m.div>
 
@@ -149,15 +149,15 @@ export default function PricingSection() {
                         </div>
                         <ul className="space-y-4 mb-10">
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 SSO & Advanced Security
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 Dedicated Success Manager
                             </li>
                             <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-300 font-medium">
-                                <Check className="w-5 h-5 text-blue-500" />
+                                <Check className="w-5 h-5 text-zinc-500" />
                                 99.9% Uptime SLA
                             </li>
                         </ul>

@@ -87,23 +87,23 @@ function WidgetContent() {
 
   // Custom colors
   const primaryColor = searchParams.get('primaryColor') || '#4f46e5';
-  const secondaryColor = searchParams.get('secondaryColor') || '#6366f1';
+  const secondaryColor = searchParams.get('secondaryColor') || '#000000';
   const bgColor = searchParams.get('bgColor') || '#ffffff';
   const textColor = searchParams.get('textColor') || '#18181b';
 
   const ThemeOverrides = () => (
     <style dangerouslySetInnerHTML={{
       __html: `
-        .bg-indigo-600 { background-color: ${primaryColor} !important; border-color: ${primaryColor} !important; }
-        .hover\\:bg-indigo-700:hover { background-color: ${secondaryColor} !important; }
-        .text-indigo-600 { color: ${primaryColor} !important; }
-        .text-indigo-500 { color: ${secondaryColor} !important; }
-        .border-indigo-600 { border-color: ${primaryColor} !important; }
-        .bg-indigo-50 { background-color: ${primaryColor}1A !important; }
-        .bg-indigo-50\\/30 { background-color: ${primaryColor}1A !important; }
-        .bg-indigo-100 { background-color: ${primaryColor}33 !important; }
-        .border-indigo-100 { border-color: ${primaryColor}33 !important; }
-        .group-hover\\:text-indigo-500:hover { color: ${primaryColor} !important; }
+        .bg-zinc-700 { background-color: ${primaryColor} !important; border-color: ${primaryColor} !important; }
+        .hover\\:bg-zinc-800:hover { background-color: ${secondaryColor} !important; }
+        .text-zinc-700 { color: ${primaryColor} !important; }
+        .text-zinc-500 { color: ${secondaryColor} !important; }
+        .border-zinc-700 { border-color: ${primaryColor} !important; }
+        .bg-zinc-50 { background-color: ${primaryColor}1A !important; }
+        .bg-zinc-50\\/30 { background-color: ${primaryColor}1A !important; }
+        .bg-zinc-100 { background-color: ${primaryColor}33 !important; }
+        .border-zinc-100 { border-color: ${primaryColor}33 !important; }
+        .group-hover\\:text-zinc-500:hover { color: ${primaryColor} !important; }
         .bg-emerald-600 { background-color: ${primaryColor} !important; border-color: ${primaryColor} !important; }
         .hover\\:bg-emerald-700:hover { background-color: ${secondaryColor} !important; }
         .text-emerald-600 { color: ${primaryColor} !important; }
@@ -330,7 +330,7 @@ function WidgetContent() {
       <div className="flex h-full">
         <div className="flex flex-col items-center justify-center p-3 gap-1 bg-zinc-50 dark:bg-zinc-900/30 border-r border-zinc-100 dark:border-zinc-800 w-12 shrink-0">
           <button
-            className={`transition-all duration-200 ${item.userVoteType === 'UPVOTE' ? 'text-indigo-600' : 'text-zinc-400 hover:text-zinc-600'}`}
+            className={`transition-all duration-200 ${item.userVoteType === 'UPVOTE' ? 'text-zinc-700' : 'text-zinc-400 hover:text-zinc-600'}`}
             onClick={() => handleVote(item.id, 'UPVOTE')}
           >
             <ArrowUp className="w-5 h-5" />
@@ -356,8 +356,8 @@ function WidgetContent() {
             </span>
           </div>
           {item.reply && (
-            <div className="mt-2 p-1.5 bg-indigo-50 dark:bg-indigo-950/20 rounded-md text-[9px] border border-indigo-100 dark:border-indigo-900/20 truncate">
-              <span className="font-semibold text-indigo-600 dark:text-indigo-400 mr-1">Reply:</span>
+            <div className="mt-2 p-1.5 bg-zinc-50 dark:bg-black/20 rounded-md text-[9px] border border-zinc-100 dark:border-zinc-950/20 truncate">
+              <span className="font-semibold text-zinc-700 dark:text-zinc-400 mr-1">Reply:</span>
               <span className="text-zinc-600 dark:text-zinc-400">{item.reply}</span>
             </div>
           )}
@@ -419,17 +419,17 @@ function WidgetContent() {
           {userId && (
             <button
               onClick={() => setWidgetMode('feedback')}
-              className="w-full max-w-sm p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-left hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-800 transition-all duration-200 group animate-in fade-in slide-in-from-bottom-4"
+              className="w-full max-w-sm p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-left hover:shadow-lg hover:border-zinc-200 dark:hover:border-zinc-900 transition-all duration-200 group animate-in fade-in slide-in-from-bottom-4"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 flex items-center justify-center shrink-0">
-                  <MessageSquare className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                <div className="w-12 h-12 rounded-lg bg-zinc-50 dark:bg-black/30 flex items-center justify-center shrink-0">
+                  <MessageSquare className="w-6 h-6 text-zinc-700 dark:text-zinc-400" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-base mb-0.5">Feedback</h3>
                   <p className="text-xs text-zinc-500 leading-relaxed">Share ideas and suggestions</p>
                 </div>
-                <ChevronRight className="w-5 h-5 text-zinc-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all duration-200" />
+                <ChevronRight className="w-5 h-5 text-zinc-400 group-hover:text-zinc-500 group-hover:translate-x-1 transition-all duration-200" />
               </div>
             </button>
           )}
@@ -456,7 +456,7 @@ function WidgetContent() {
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
             <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
-              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <div className="w-2 h-2 rounded-full bg-zinc-700" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </a>
             <div className="flex items-center gap-2">
@@ -583,7 +583,7 @@ function WidgetContent() {
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
             <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
-              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <div className="w-2 h-2 rounded-full bg-zinc-700" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </a>
             <div className="flex items-center gap-2">
@@ -645,7 +645,7 @@ function WidgetContent() {
               <div className="flex items-center justify-between">
                 <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Add Feedback</h2>
                 {!showForm && (
-                  <Button variant="ghost" size="sm" onClick={() => setShowForm(true)} className="text-indigo-600 text-xs font-medium hover:bg-indigo-50/50 transition-colors duration-200">
+                  <Button variant="ghost" size="sm" onClick={() => setShowForm(true)} className="text-zinc-700 text-xs font-medium hover:bg-zinc-50/50 transition-colors duration-200">
                     <Plus className="w-3.5 h-3.5 mr-1" /> New Idea
                   </Button>
                 )}
@@ -660,7 +660,7 @@ function WidgetContent() {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         disabled={submitting}
-                        className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-indigo-500 rounded-lg h-10"
+                        className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus-visible:ring-zinc-500 rounded-lg h-10"
                         autoFocus
                       />
                     </div>
@@ -669,7 +669,7 @@ function WidgetContent() {
                         placeholder="Add some details..."
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        className="w-full text-sm px-3 py-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 transition-all duration-200 resize-none"
+                        className="w-full text-sm px-3 py-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500 h-24 transition-all duration-200 resize-none"
                         disabled={submitting}
                       />
                     </div>
@@ -683,7 +683,7 @@ function WidgetContent() {
                             type="button"
                             onClick={() => toggleTag(tag)}
                             className={`text-[10px] px-2.5 py-1 rounded-md border transition-all duration-200 ${selectedTags.includes(tag)
-                              ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                              ? 'bg-zinc-700 border-zinc-700 text-white shadow-sm'
                               : 'bg-transparent border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:border-zinc-300'
                               }`}
                           >
@@ -694,7 +694,7 @@ function WidgetContent() {
                     </div>
 
                     <div className="flex gap-2 pt-1">
-                      <Button type="submit" className="flex-1 bg-indigo-600 hover:bg-indigo-700 shadow-sm h-10 rounded-lg transition-all duration-200 active:scale-98" disabled={!title.trim() || submitting}>
+                      <Button type="submit" className="flex-1 bg-zinc-700 hover:bg-zinc-800 shadow-sm h-10 rounded-lg transition-all duration-200 active:scale-98" disabled={!title.trim() || submitting}>
                         {submitting ? 'Sharing...' : 'Share Idea'}
                       </Button>
                       <Button variant="ghost" type="button" onClick={() => setShowForm(false)} className="h-10 rounded-lg px-3 transition-all duration-200">Cancel</Button>
@@ -702,17 +702,17 @@ function WidgetContent() {
                   </form>
                 </Card>
               ) : (
-                <div className="p-5 bg-indigo-50/50 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20 transition-all duration-200">
+                <div className="p-5 bg-zinc-50/50 dark:bg-black/10 rounded-lg border border-zinc-100 dark:border-zinc-950/20 transition-all duration-200">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm">
-                      <TrendingUp className="w-5 h-5 text-indigo-500" />
+                      <TrendingUp className="w-5 h-5 text-zinc-500" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-sm">Have a suggestion?</h3>
                       <p className="text-xs text-zinc-500">Help us build the perfect product.</p>
                     </div>
                   </div>
-                  <Button onClick={() => setShowForm(true)} className="w-full mt-3 h-10 bg-white dark:bg-zinc-800 text-indigo-600 hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-indigo-100 dark:border-indigo-900/20 shadow-sm rounded-lg transition-all duration-200">
+                  <Button onClick={() => setShowForm(true)} className="w-full mt-3 h-10 bg-white dark:bg-zinc-800 text-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-zinc-100 dark:border-zinc-950/20 shadow-sm rounded-lg transition-all duration-200">
                     Get Started
                   </Button>
                 </div>
@@ -723,7 +723,7 @@ function WidgetContent() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Featured Ideas</h2>
-                <button onClick={() => setActiveTab('all')} className="text-indigo-600 text-xs font-medium flex items-center gap-1 hover:underline transition-all duration-200">
+                <button onClick={() => setActiveTab('all')} className="text-zinc-700 text-xs font-medium flex items-center gap-1 hover:underline transition-all duration-200">
                   View All <ChevronRight className="w-3 h-3" />
                 </button>
               </div>
@@ -772,7 +772,7 @@ function WidgetContent() {
               {/* Infinite Scroll Trigger */}
               {hasMore && (
                 <div ref={lastElementRef} className="py-6 flex justify-center">
-                  <Loader2 className="w-5 h-5 text-indigo-500 animate-spin" />
+                  <Loader2 className="w-5 h-5 text-zinc-500 animate-spin" />
                 </div>
               )}
 
@@ -790,7 +790,7 @@ function WidgetContent() {
               {productOverview && (
                 <div className="p-5 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-100 dark:border-zinc-800">
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4">
-                    <TrendingUp className="w-5 h-5 text-indigo-500" />
+                    <TrendingUp className="w-5 h-5 text-zinc-500" />
                   </div>
                   <h3 className="font-semibold text-base mb-2">Product Overview</h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">
@@ -801,7 +801,7 @@ function WidgetContent() {
 
               {/* Custom About Section */}
               {aboutText && (
-                <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
+                <div className="p-5 bg-zinc-50/30 dark:bg-black/10 rounded-lg border border-zinc-100 dark:border-zinc-950/20">
                   {resolvedLogoUrl && (
                     <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
                       <img src={resolvedLogoUrl} alt="Logo" className="w-6 h-6 object-contain" />
@@ -819,7 +819,7 @@ function WidgetContent() {
                 <div className="grid gap-4">
                   <div className="p-5 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-100 dark:border-zinc-800">
                     <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4">
-                      <TrendingUp className="w-5 h-5 text-indigo-500" />
+                      <TrendingUp className="w-5 h-5 text-zinc-500" />
                     </div>
                     <h3 className="font-semibold text-base mb-2">Product Overview</h3>
                     <p className="text-sm text-zinc-500 leading-relaxed">
@@ -827,7 +827,7 @@ function WidgetContent() {
                     </p>
                   </div>
 
-                  <div className="p-5 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-lg border border-indigo-100 dark:border-indigo-900/20">
+                  <div className="p-5 bg-zinc-50/30 dark:bg-black/10 rounded-lg border border-zinc-100 dark:border-zinc-950/20">
                     {resolvedLogoUrl && (
                       <div className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-800 flex items-center justify-center shadow-sm mb-4 overflow-hidden">
                         <img src={resolvedLogoUrl} alt="Logo" className="w-6 h-6 object-contain" />
@@ -867,7 +867,7 @@ function WidgetContent() {
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0">
           <div className="flex items-center justify-between">
             <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
-              <div className="w-2 h-2 rounded-full bg-indigo-600" />
+              <div className="w-2 h-2 rounded-full bg-zinc-700" />
               <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
             </a>
             <div className="flex items-center gap-2">
