@@ -52,7 +52,7 @@ export default function AppDashboardSidebar({
             <div className="p-6">
                 <div className="flex items-center gap-2.5 font-black text-xl italic text-zinc-900 dark:text-white uppercase tracking-tighter">
                     <Logo size={32} />
-                    UpVote
+                    MonkFeed
                 </div>
             </div>
 

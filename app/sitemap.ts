@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllBlogs } from '@/lib/blogs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
     const blogs = getAllBlogs();
 
     const blogEntries: MetadataRoute.Sitemap = blogs.map((blog) => ({

@@ -1,0 +1,57 @@
+1. Product Basics 
+Name: MonkFeed 
+Tagline: Build What Matters 
+One-Line Description: A customer feedback and prioritization platform that helps product teams collect, analyze, and execute on user feedback with an embeddable voting widget. 
+Category: Feedback Management / Product Prioritization Platform 
+Website: monkfeed.entrext.in 
+
+2. Brand 
+Logo Usage: Modern, clean, and community-drivenÃ¢â‚¬â€designed to feel accessible, efficient, and transparent 
+3-Adjective Brand Voice: Community-led Ã‚Â· Structured Ã‚Â· Actionable 
+Colors / Style: Professional monochrome, high-contrast typography, vibrant accent charts; clean, focused, and data-driven 
+
+3. Ideal Customer Profile (ICP) 
+Role / Industry: Product managers, startup founders, SaaS companies, and software developers 
+Company Size: 1Ã¢â‚¬â€œ500 employees 
+Primary Trigger Event: Overwhelmed by fragmented feedback or building features without user validation 
+
+4. Problem & Value 
+Core Problem: Product teams waste time and resources building features that users don't actually want 
+Solution Gap: Fragmented feedback across Slack, email, and DMs with no clear way to quantify demand 
+User Outcome: A data-backed roadmap, increased user retention, and transparent development cycles 
+
+5. Why This, Why Now 
+Product Purpose: Make product roadmaps democratic, transparent, and driven by real user data 
+Market Shift: Rise of user-centric SaaS development where community buy-in is a competitive necessity 
+
+6. Differentiation 
+Key Differentiator: Lightweight, universal embeddable widget that lives directly within your application 
+Defensible Advantage: Frictionless integration and outcome-focused workflows that turn raw feedback into prioritized tasks 
+
+7. Features 
+Universal Embeddable Widget Ã¢â€ â€™ Collect feedback directly on your site with one line of code 
+Feature Voting System Ã¢â€ â€™ Crowd-sourced prioritization to identify high-impact requests 
+Status Tracking & Roadmap Ã¢â€ â€™ Inform users of progress from "Planned" to "Done" 
+Multi-App Dashboard Ã¢â€ â€™ Centralized interface to manage feedback for all your products 
+Cross-Framework Integration Ã¢â€ â€™ Seamless support for React, Vue, Angular, and Vanilla HTML 
+
+8. Pricing 
+Pricing Model: Subscription-based SaaS 
+Plans + Intended Audience: 
+Hobby (Solo makers & side projects) Ã‚Â· Pro (Growing product teams) Ã‚Â· Enterprise (Large-scale operations) 
+
+9. Use Cases 
+Ã¢â‚¬Â¢ Early-stage founder validating a product roadmap before building 
+Ã¢â‚¬Â¢ SaaS team quantifying feature demand to reduce development waste 
+Ã¢â‚¬Â¢ Open-source maintainer organizing community requests transparently 
+
+10. Automation Messaging 
+Taglines: 
+Ã¢â‚¬Â¢ MonkFeed Ã¢â‚¬â€ Build What Matters 
+Ã¢â‚¬Â¢ Where users and product teams align 
+50-Word Product Description: 
+MonkFeed is a customer feedback platform that bridges the gap between user needs and product execution. It replaces scattered requests with a transparent voting system and centralized roadmapÃ¢â‚¬â€ensuring product teams build features that users actually value while maintaining clear communication throughout the development lifecycle. 
+CTAs: 
+Ã¢â‚¬Â¢ Get the Widget 
+Ã¢â‚¬Â¢ Build With Your Users 
+Ã¢â‚¬Â¢ Start Prioritizing

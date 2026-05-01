@@ -9,21 +9,21 @@ const Footer = dynamic(() => import('@/components/landing/footer'), {
     ssr: true
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
 
 export const metadata = {
-    title: 'Terms of Service | UpVote - Customer Feedback Platform',
-    description: 'Read the terms and conditions for using UpVote. Understand our service agreement, user responsibilities, and legal framework for product feedback management.',
+    title: 'Terms of Service | MonkFeed - Customer Feedback Platform',
+    description: 'Read the terms and conditions for using MonkFeed. Understand our service agreement, user responsibilities, and legal framework for product feedback management.',
     openGraph: {
-        title: 'Terms of Service - UpVote',
-        description: 'The legal framework and terms governing your use of UpVote.',
+        title: 'Terms of Service - MonkFeed',
+        description: 'The legal framework and terms governing your use of MonkFeed.',
         url: `${baseUrl}/terms`,
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Terms of Service - UpVote',
-        description: 'The legal framework and terms governing your use of UpVote.',
+        title: 'Terms of Service - MonkFeed',
+        description: 'The legal framework and terms governing your use of MonkFeed.',
     },
 };
 
@@ -34,7 +34,7 @@ export default function TermsPage() {
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
                         <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
-                        <span className="font-bold tracking-tight">UpVote</span>
+                        <span className="font-bold tracking-tight">MonkFeed</span>
                     </Link>
                     <Shield className="w-5 h-5 text-zinc-700" />
                 </div>
@@ -50,14 +50,14 @@ export default function TermsPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold">1. Agreement to Terms</h2>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                            By accessing or using UpVote, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
+                            By accessing or using MonkFeed, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
                         </p>
                     </section>
 
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold">2. Use of Service</h2>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                            UpVote provides a platform for collecting and managing customer feedback. You are responsible for maintaining the security of your account and any content you post.
+                            MonkFeed provides a platform for collecting and managing customer feedback. You are responsible for maintaining the security of your account and any content you post.
                         </p>
                     </section>
 
@@ -71,7 +71,7 @@ export default function TermsPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold">4. Limitation of Liability</h2>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                            UpVote shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.
+                            MonkFeed shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the service.
                         </p>
                     </section>
 

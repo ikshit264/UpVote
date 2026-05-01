@@ -247,7 +247,7 @@ export default function ApplicationsContent({
                             <div className="space-y-2">
                                 <h3 className="text-2xl font-black">No Applications Yet</h3>
                                 <p className="text-zinc-500 dark:text-zinc-400 font-medium">
-                                    Start your journey with UpVote by creating your first application.
+                                    Start your journey with MonkFeed by creating your first application.
                                 </p>
                             </div>
                             <Button

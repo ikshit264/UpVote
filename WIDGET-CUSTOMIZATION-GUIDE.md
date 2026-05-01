@@ -1,12 +1,12 @@
 # Custom Widget Configuration Guide
 
-The UpVote widget now supports full customization including custom logos, product information, and FAQs through data attributes.
+The MonkFeed widget now supports full customization including custom logos, product information, and FAQs through data attributes.
 
 ## Basic Usage
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-user-id="user-id"
   data-email="user@example.com"
@@ -22,7 +22,7 @@ Add a custom logo to the widget button and header:
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-user-id="user-id"
   data-logo-url="https://yourdomain.com/logo.png"
@@ -30,7 +30,7 @@ Add a custom logo to the widget button and header:
 ```
 
 **Notes:**
-- If no `data-logo-url` is provided, the default UpVote favicon will be used
+- If no `data-logo-url` is provided, the default MonkFeed favicon will be used
 - The logo should be a square image (recommended: 128x128px or larger)
 - Supported formats: PNG, JPG, SVG, WebP
 - The logo appears on both the widget button and in the FAQ section header
@@ -41,7 +41,7 @@ Display custom product information in the FAQ tab:
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-product-overview="Your custom product description here. Explain what your product does and how feedback helps improve it."
 ></div>
@@ -53,7 +53,7 @@ Add custom "About" information:
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-about-text="Tell users about your company, mission, or the team behind the product."
 ></div>
@@ -65,7 +65,7 @@ Add frequently asked questions that appear in the FAQ tab:
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-faqs='[
     {
@@ -89,7 +89,7 @@ Add frequently asked questions that appear in the FAQ tab:
 - Escape any quotes inside the JSON if needed
 - Each FAQ object must have `question` and `answer` properties
 
-**⚠️ Note:** There are **no default FAQs**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will not display any questions. This gives you complete control over what your users see.
+**Ã¢Å¡Â Ã¯Â¸Â Note:** There are **no default FAQs**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will not display any questions. This gives you complete control over what your users see.
 
 ## Complete Example
 
@@ -104,9 +104,9 @@ Here's a fully configured widget with all customizations:
 <body>
   <!-- Your page content -->
   
-  <!-- UpVote Widget Configuration -->
+  <!-- MonkFeed Widget Configuration -->
   <div 
-    class="upvote-widget"
+    class="monkfeed-widget"
     data-application-id="69a41f203a9a405a41b02afc"
     data-user-id="user_123"
     data-email="john@example.com"
@@ -141,7 +141,7 @@ Here's a fully configured widget with all customizations:
 
 | Attribute | Required | Description | Example |
 |-----------|----------|-------------|---------|
-| `data-application-id` | ✅ Yes | Your UpVote application ID | `"69a41f203a9a405a41b02afc"` |
+| `data-application-id` | Ã¢Å“â€¦ Yes | Your MonkFeed application ID | `"69a41f203a9a405a41b02afc"` |
 | `data-user-id` | Optional | Current user's ID (enables feedback feature) | `"user_123"` |
 | `data-email` | Optional | User's email (pre-filled in support form) | `"user@example.com"` |
 | `data-position` | Optional | Widget position: `"left"` or `"right"` | `"right"` |
@@ -171,7 +171,7 @@ Here's a fully configured widget with all customizations:
 The widget automatically detects configuration changes and updates accordingly. If you need to update the widget configuration dynamically (e.g., when a user logs in), simply update the data attributes:
 
 ```javascript
-const widgetDiv = document.querySelector('.upvote-widget');
+const widgetDiv = document.querySelector('.monkfeed-widget');
 widgetDiv.setAttribute('data-user-id', 'new-user-id');
 widgetDiv.setAttribute('data-logo-url', 'https://newlogo.com/logo.png');
 // Widget will automatically refresh with new configuration
@@ -181,7 +181,7 @@ widgetDiv.setAttribute('data-logo-url', 'https://newlogo.com/logo.png');
 
 - **Logo sizing**: The widget automatically scales logos to fit (32px in header, 32px in button)
 - **Image optimization**: Use optimized images for faster load times
-- **Fallback behavior**: If a custom logo fails to load, the default UpVote logo will be used
+- **Fallback behavior**: If a custom logo fails to load, the default MonkFeed logo will be used
 - **Dark mode**: Ensure your logo looks good on both light and dark backgrounds
 
 ## Best Practices
@@ -205,10 +205,10 @@ widgetDiv.setAttribute('data-logo-url', 'https://newlogo.com/logo.png');
 - Check that the JSON is properly escaped in the HTML attribute
 
 ### Widget not updating after config change
-- Ensure you're updating the correct `.upvote-widget` element
+- Ensure you're updating the correct `.monkfeed-widget` element
 - The widget polls every 500ms for changes, so wait a moment
 - Check browser console for any JavaScript errors
 
 ## Support
 
-For additional help or questions, please refer to the main UpVote documentation or contact support.
+For additional help or questions, please refer to the main MonkFeed documentation or contact support.

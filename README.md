@@ -1,28 +1,28 @@
-# UpVote - Customer Feedback Widget Platform
+# MonkFeed - Customer Feedback Widget Platform
 
 A complete, production-ready customer feedback collection platform with a universally embeddable widget. Collect feature requests, let customers vote on ideas, and prioritize development based on real feedback.
 
 ## Features
 
-✨ **Universal Widget**
+Ã¢Å“Â¨ **Universal Widget**
 - Embed anywhere with simple HTML
 - Works with any website framework
 - No dependencies required
 - Responsive and mobile-friendly
 
-📊 **Dashboard**
+Ã°Å¸â€œÅ  **Dashboard**
 - View all customer feedback
 - Track vote counts
 - Manage feedback status
 - Real-time updates
 
-🔐 **Secure**
+Ã°Å¸â€Â **Secure**
 - Company authentication
 - Protected dashboard
 - Session-based security
 - Data isolation
 
-⚡ **Fast**
+Ã¢Å¡Â¡ **Fast**
 - Optimized database queries
 - Minimal widget footprint
 - Iframe-based isolation
@@ -39,7 +39,7 @@ A complete, production-ready customer feedback collection platform with a univer
 ```bash
 # 1. Clone the repository
 git clone <your-repo-url>
-cd upvote
+cd monkfeed
 
 # 2. Install dependencies
 npm install
@@ -72,7 +72,7 @@ Visit `http://localhost:3000` in your browser.
 
 3. **Embed on Your Site**
    ```html
-   <div data-upvote-company-id="your_company_id"></div>
+   <div data-monkfeed-company-id="your_company_id"></div>
    <script src="https://your-domain.com/widget.js"></script>
    ```
 
@@ -89,7 +89,7 @@ Visit `http://localhost:3000` in your browser.
    - Appears instantly in list
 
 2. **Vote on Ideas**
-   - Click upvote button
+   - Click monkfeed button
    - See vote counts
    - Create community around ideas
 
@@ -116,34 +116,34 @@ Visit `http://localhost:3000` in your browser.
 ## File Structure
 
 ```
-upvote/
-├── app/
-│   ├── api/
-│   │   ├── auth/          # Authentication endpoints
-│   │   ├── widget/        # Public widget APIs
-│   │   └── dashboard/     # Protected dashboard APIs
-│   ├── auth/              # Auth pages
-│   ├── dashboard/         # Dashboard page
-│   ├── widget/            # Widget iframe page
-│   ├── page.tsx           # Home page
-│   ├── layout.tsx         # Root layout
-│   └── globals.css        # Global styles
-├── components/
-│   ├── dashboard-content.tsx
-│   ├── feedback-list.tsx
-│   └── ui/                # shadcn/ui components
-├── lib/
-│   ├── db.ts              # Database client
-│   ├── auth.ts            # Authentication utilities
-│   └── utils.ts
-├── public/
-│   ├── widget.js          # Widget script
-│   └── example-integration.html
-├── scripts/
-│   └── init-db.sql        # Database schema
-├── SETUP.md               # Detailed setup guide
-├── QUICKSTART.md          # Quick start guide
-└── README.md              # This file
+monkfeed/
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ app/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ api/
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ auth/          # Authentication endpoints
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ widget/        # Public widget APIs
+Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ dashboard/     # Protected dashboard APIs
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ auth/              # Auth pages
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ dashboard/         # Dashboard page
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ widget/            # Widget iframe page
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ page.tsx           # Home page
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ layout.tsx         # Root layout
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ globals.css        # Global styles
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ components/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ dashboard-content.tsx
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ feedback-list.tsx
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ ui/                # shadcn/ui components
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ lib/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ db.ts              # Database client
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ auth.ts            # Authentication utilities
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ utils.ts
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ public/
+Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ widget.js          # Widget script
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ example-integration.html
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ scripts/
+Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ init-db.sql        # Database schema
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ SETUP.md               # Detailed setup guide
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ QUICKSTART.md          # Quick start guide
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ README.md              # This file
 ```
 
 ## Database Schema
@@ -314,20 +314,20 @@ DATABASE_URL=... npm start
 
 ## Security
 
-- ✅ HTTP-only session cookies
-- ✅ Password hashing (SHA-256)
-- ✅ Company data isolation
-- ✅ Protected dashboard routes
-- ✅ CORS-aware widget script
-- ✅ Input validation and sanitization
+- Ã¢Å“â€¦ HTTP-only session cookies
+- Ã¢Å“â€¦ Password hashing (SHA-256)
+- Ã¢Å“â€¦ Company data isolation
+- Ã¢Å“â€¦ Protected dashboard routes
+- Ã¢Å“â€¦ CORS-aware widget script
+- Ã¢Å“â€¦ Input validation and sanitization
 
 ## Performance
 
-- ✅ Optimized database indexes
-- ✅ Minimal widget script (~600 bytes)
-- ✅ Iframe isolation
-- ✅ Efficient polling for updates
-- ✅ Server-side session validation
+- Ã¢Å“â€¦ Optimized database indexes
+- Ã¢Å“â€¦ Minimal widget script (~600 bytes)
+- Ã¢Å“â€¦ Iframe isolation
+- Ã¢Å“â€¦ Efficient polling for updates
+- Ã¢Å“â€¦ Server-side session validation
 
 ## Development
 
@@ -366,8 +366,8 @@ Modify `/lib/auth.ts` for different password hashing or session management.
 ## Troubleshooting
 
 **Widget not appearing?**
-- Check `data-upvote-company-id` is correct
-- Verify script path in `data-upvote-widget-url`
+- Check `data-monkfeed-company-id` is correct
+- Verify script path in `data-monkfeed-widget-url`
 - Check browser console for errors
 
 **Database connection error?**
@@ -394,10 +394,10 @@ MIT License - feel free to use this in your projects!
 
 ## Support
 
-- 📖 See `SETUP.md` for detailed setup guide
-- ⚡ See `QUICKSTART.md` for quick start
-- 🔗 Visit `/public/example-integration.html` for integration examples
-- 💬 Open an issue for bugs or feature requests
+- Ã°Å¸â€œâ€“ See `SETUP.md` for detailed setup guide
+- Ã¢Å¡Â¡ See `QUICKSTART.md` for quick start
+- Ã°Å¸â€â€” Visit `/public/example-integration.html` for integration examples
+- Ã°Å¸â€™Â¬ Open an issue for bugs or feature requests
 
 ## Roadmap
 
@@ -412,4 +412,4 @@ MIT License - feel free to use this in your projects!
 
 ---
 
-Built with ❤️ using Next.js, React, and PostgreSQL
+Built with Ã¢ÂÂ¤Ã¯Â¸Â using Next.js, React, and PostgreSQL

@@ -1,6 +1,6 @@
 (function () {
-  if (window.__upvote_widget_initialized) return;
-  window.__upvote_widget_initialized = true;
+  if (window.__monkfeed_widget_initialized) return;
+  window.__monkfeed_widget_initialized = true;
 
   let currentWidgetDiv = null;
   let config = {};
@@ -67,33 +67,33 @@
 
     // ============== INJECT KEYFRAMES ==============
     style = document.createElement('style');
-    style.id = 'upvote-widget-styles';
+    style.id = 'monkfeed-widget-styles';
     style.textContent = `
-      @keyframes upvote-fade-in {
+      @keyframes monkfeed-fade-in {
         0% { opacity: 0; transform: scale(0.95); }
         100% { opacity: 1; transform: scale(1); }
       }
-      @keyframes upvote-slide-up-feedback {
+      @keyframes monkfeed-slide-up-feedback {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(-75px); }
       }
-      @keyframes upvote-slide-up-support {
+      @keyframes monkfeed-slide-up-support {
         0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(var(--upvote-supp-pos, -75px)); }
+        100% { opacity: 1; transform: translateY(var(--monkfeed-supp-pos, -75px)); }
       }
-      @keyframes upvote-fade-out {
+      @keyframes monkfeed-fade-out {
         0% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(10px); }
       }
-      @keyframes upvote-label-appear {
+      @keyframes monkfeed-label-appear {
         0% { opacity: 0; transform: translateX(${isLeft ? '-10px' : '10px'}); }
         100% { opacity: 1; transform: translateX(0); }
       }
-      @keyframes upvote-container-enter {
+      @keyframes monkfeed-container-enter {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
       }
-      @keyframes upvote-orbit {
+      @keyframes monkfeed-orbit {
         0% { 
           transform: rotate(0deg) translateX(28px) rotate(0deg);
         }
@@ -101,11 +101,11 @@
           transform: rotate(360deg) translateX(28px) rotate(-360deg);
         }
       }
-      #upvote-widget-button:hover {
+      #monkfeed-widget-button:hover {
         transform: scale(1.05) !important;
         box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3) !important;
       }
-      .upvote-sub-btn:hover {
+      .monkfeed-sub-btn:hover {
         transform: scale(1.08) !important;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
       }
@@ -114,11 +114,11 @@
 
     // ============== MAIN BUTTON ==============
     button = document.createElement('button');
-    button.id = 'upvote-widget-button';
+    button.id = 'monkfeed-widget-button';
     const logoSrc = config.logoUrl || `${scriptUrl}/favicon.png`;
     button.innerHTML = `
       <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-        <span style="position: absolute; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4); z-index: 1; animation: upvote-orbit 3s linear infinite; "></span>
+        <span style="position: absolute; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4); z-index: 1; animation: monkfeed-orbit 3s linear infinite; "></span>
         <img src="${logoSrc}" alt="Widget" style="width: 32px; height: 32px; border-radius: 50%;display:block;margin:auto;object-fit:contain;">
       </div>
     `;
@@ -139,7 +139,7 @@
       justify-content: center;
       box-shadow: 0 4px 12px ${config.launcherColor}66, 0 0 0 1px rgba(0,0,0,0.05);
       transition: all 0.2s ease-out;
-      animation: upvote-fade-in 0.25s ease-out;
+      animation: monkfeed-fade-in 0.25s ease-out;
     `;
 
     // ============== SUB BUTTONS ==============
@@ -161,7 +161,7 @@
       wrapper.className = className;
 
       const btn = document.createElement('button');
-      btn.className = 'upvote-sub-btn';
+      btn.className = 'monkfeed-sub-btn';
       btn.innerHTML = emoji;
       btn.style.cssText = `
         width: 44px;
@@ -201,19 +201,19 @@
       return { wrapper, btn, labelEl };
     }
 
-    supportSub = createSubButton('Support', '🎧', '#34d399', '#10b981', 'upvote-support-btn');
+    supportSub = createSubButton('Support', '🎧', '#34d399', '#10b981', 'monkfeed-support-btn');
 
     function toggleFeedback() {
       const hasUserId = !!config.userId;
       if (hasUserId && !feedbackSub) {
-        feedbackSub = createSubButton('Feedback', '💬', '#818cf8', '#6366f1', 'upvote-feedback-btn');
+        feedbackSub = createSubButton('Feedback', '💬', '#818cf8', '#6366f1', 'monkfeed-feedback-btn');
         document.body.appendChild(feedbackSub.wrapper);
         feedbackSub.btn.onclick = (e) => { e.stopPropagation(); openWidget('feedback'); };
         feedbackSub.labelEl.onclick = (e) => { e.stopPropagation(); openWidget('feedback'); };
         if (menuOpen) hideMenu(true);
       } else if (!hasUserId && feedbackSub) {
         if (menuOpen) {
-          feedbackSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
+          feedbackSub.wrapper.style.animation = 'monkfeed-fade-out 0.2s ease-out forwards';
           setTimeout(() => {
             if (feedbackSub) {
               feedbackSub.wrapper.remove();
@@ -229,7 +229,7 @@
 
     // ============== IFRAME CONTAINER ==============
     container = document.createElement('div');
-    container.id = 'upvote-widget-container';
+    container.id = 'monkfeed-widget-container';
     container.style.cssText = `
       position: fixed;
       bottom: 100px;
@@ -272,7 +272,7 @@
     supportSub.labelEl.onclick = (e) => { e.stopPropagation(); openWidget('support'); };
 
     // Store toggleFeedback globally for the observer
-    window.__upvote_toggleFeedback = toggleFeedback;
+    window.__monkfeed_toggleFeedback = toggleFeedback;
   }
 
   function destroyUI() {
@@ -292,12 +292,12 @@
     }
 
     // Floating element failsafe (search by ID/Class)
-    const root = document.getElementById('upvote-widget-container');
+    const root = document.getElementById('monkfeed-widget-container');
     if (root) root.remove();
-    const btn = document.getElementById('upvote-widget-button');
+    const btn = document.getElementById('monkfeed-widget-button');
     if (btn) btn.remove();
 
-    document.querySelectorAll('.upvote-feedback-btn, .upvote-support-btn').forEach(el => el.remove());
+    document.querySelectorAll('.monkfeed-feedback-btn, .monkfeed-support-btn').forEach(el => el.remove());
 
     isCreated = false;
     menuOpen = false;
@@ -307,7 +307,7 @@
   }
 
   // Global cleanup for SPAs
-  window.__upvote_cleanup = destroyUI;
+  window.__monkfeed_cleanup = destroyUI;
 
   function showMenu(isRefresh = false) {
     menuOpen = true;
@@ -316,25 +316,25 @@
     if (hasUserId) {
       feedbackSub.wrapper.style.pointerEvents = 'auto';
       feedbackSub.wrapper.style.opacity = '1';
-      feedbackSub.wrapper.style.animation = 'upvote-slide-up-feedback 0.25s ease-out forwards';
+      feedbackSub.wrapper.style.animation = 'monkfeed-slide-up-feedback 0.25s ease-out forwards';
     }
 
-    supportSub.wrapper.style.setProperty('--upvote-supp-pos', hasUserId ? '-135px' : '-65px');
+    supportSub.wrapper.style.setProperty('--monkfeed-supp-pos', hasUserId ? '-135px' : '-65px');
     supportSub.wrapper.style.pointerEvents = 'auto';
     supportSub.wrapper.style.opacity = '1';
-    supportSub.wrapper.style.animation = 'upvote-slide-up-support 0.25s ease-out forwards';
+    supportSub.wrapper.style.animation = 'monkfeed-slide-up-support 0.25s ease-out forwards';
 
     if (!isRefresh) {
       setTimeout(() => {
         if (hasUserId) {
           feedbackSub.labelEl.style.opacity = '1';
-          feedbackSub.labelEl.style.animation = 'upvote-label-appear 0.2s ease-out forwards';
+          feedbackSub.labelEl.style.animation = 'monkfeed-label-appear 0.2s ease-out forwards';
           feedbackSub.labelEl.style.pointerEvents = 'auto';
         }
       }, 150);
       setTimeout(() => {
         supportSub.labelEl.style.opacity = '1';
-        supportSub.labelEl.style.animation = 'upvote-label-appear 0.2s ease-out forwards';
+        supportSub.labelEl.style.animation = 'monkfeed-label-appear 0.2s ease-out forwards';
         supportSub.labelEl.style.pointerEvents = 'auto';
       }, hasUserId ? 200 : 150);
 
@@ -357,16 +357,16 @@
     supportSub.labelEl.style.pointerEvents = 'none';
 
     supportSub.wrapper.style.setProperty('--y-pos', hasUserId ? '-135px' : '-65px');
-    supportSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
+    supportSub.wrapper.style.animation = 'monkfeed-fade-out 0.2s ease-out forwards';
     supportSub.wrapper.style.pointerEvents = 'none';
 
     setTimeout(() => {
       if (feedbackSub) {
         feedbackSub.wrapper.style.setProperty('--y-pos', '-65px');
-        feedbackSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
+        feedbackSub.wrapper.style.animation = 'monkfeed-fade-out 0.2s ease-out forwards';
         feedbackSub.wrapper.style.pointerEvents = 'none';
       }
-      supportSub.wrapper.style.animation = 'upvote-fade-out 0.2s ease-out forwards';
+      supportSub.wrapper.style.animation = 'monkfeed-fade-out 0.2s ease-out forwards';
     }, hasUserId ? 40 : 0);
 
     button.style.background = config.launcherColor;
@@ -397,7 +397,7 @@
     setTimeout(() => {
       container.style.opacity = '1';
       container.style.transform = 'translateY(0)';
-      container.style.animation = 'upvote-container-enter 0.3s ease-out forwards';
+      container.style.animation = 'monkfeed-container-enter 0.3s ease-out forwards';
       container.style.pointerEvents = 'auto';
       button.style.opacity = '0.6';
       button.style.transform = 'scale(0.9)';
@@ -433,7 +433,7 @@
       destroyUI();
     } else if (isValid && isCreated) {
       // Dynamic updates
-      if (window.__upvote_toggleFeedback) window.__upvote_toggleFeedback();
+      if (window.__monkfeed_toggleFeedback) window.__monkfeed_toggleFeedback();
 
       if (widgetOpen && iframe) {
         const url = new URL(iframe.src);
@@ -465,7 +465,7 @@
   }
 
   function scanForWidget() {
-    const div = document.querySelector('.upvote-widget');
+    const div = document.querySelector('.monkfeed-widget');
 
     if (div !== currentWidgetDiv) {
       if (widgetObserver) {
@@ -490,7 +490,7 @@
 
   // Global Listeners (Shared)
   window.addEventListener('message', (event) => {
-    if (event.data.type === 'upvote:close') closeWidget();
+    if (event.data.type === 'monkfeed:close') closeWidget();
   });
 
   document.addEventListener('click', (event) => {

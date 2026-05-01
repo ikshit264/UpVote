@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
           tags: true,
           reply: true,
         },
-        orderBy: sort === 'upvotes'
+        orderBy: sort === 'monkfeeds'
           ? { votes: { _count: 'desc' } }
           : { createdAt: 'desc' },
         skip,

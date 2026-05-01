@@ -16,7 +16,7 @@ dotenv.config();
 
 const prisma = new PrismaClient();
 
-// ─── Realistic data pools ────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Realistic data pools Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 
 const FEEDBACK_POOL: { title: string; description: string; status: string; tags: string[] }[] = [
   { title: "Dark mode support", description: "It would be great to have a dark mode option for the dashboard. Working late at night with the bright UI is straining on the eyes.", status: "Open", tags: ["ui", "feature-request"] },
@@ -27,7 +27,7 @@ const FEEDBACK_POOL: { title: string; description: string; status: string; tags:
   { title: "Improve loading speed", description: "The dashboard takes about 4-5 seconds to load when we have more than 200 feedback entries. Performance optimization would be appreciated.", status: "Open", tags: ["performance", "bug"] },
   { title: "Add feedback categories", description: "Currently all feedbacks are in one list. Having categories like 'Bug Report', 'Feature Request', 'Improvement' would help organize better.", status: "Open", tags: ["organization", "feature-request"] },
   { title: "Integrate with Slack", description: "Our team uses Slack heavily. A Slack integration to post new feedback into a channel would streamline our workflow.", status: "Open", tags: ["integration", "feature-request"] },
-  { title: "Voting system improvements", description: "The upvote/downvote UI is not very intuitive. Consider adding vote counts visibly and maybe a 'trending' sort option.", status: "Under Review", tags: ["ui", "improvement"] },
+  { title: "Voting system improvements", description: "The monkfeed/downvote UI is not very intuitive. Consider adding vote counts visibly and maybe a 'trending' sort option.", status: "Under Review", tags: ["ui", "improvement"] },
   { title: "Search and filter feedback", description: "We have hundreds of feedback items. Need a robust search with filters by status, date range, tags, and vote count.", status: "Open", tags: ["search", "feature-request"] },
   { title: "Custom branding for widget", description: "Allow us to fully customize the widget colors, fonts and logo so it matches our product's brand identity.", status: "Open", tags: ["widget", "customization"] },
   { title: "Duplicate detection", description: "Users are submitting similar feedback multiple times. An AI-based duplicate detection would save us time on triaging.", status: "Open", tags: ["ai", "feature-request"] },
@@ -66,7 +66,7 @@ const SUPPORT_POOL: { email: string; message: string }[] = [
   { email: "sarah.k@techstart.io", message: "We're trying to embed the feedback widget on our Next.js app but it's throwing a hydration error. Here's the error: 'Text content does not match server-rendered HTML'. Please advise." },
   { email: "mike@devhouse.co", message: "Is there a way to programmatically submit feedback via your API? I couldn't find API documentation anywhere on the site." },
   { email: "priya.sharma@bigcorp.in", message: "Our subscription was charged twice this month. Order IDs: ORD-4821 and ORD-4823. Please process a refund for the duplicate charge." },
-  { email: "alex.m@startup.dev", message: "Love the product! Quick question — is there a way to white-label the widget so our brand name shows instead of yours?" },
+  { email: "alex.m@startup.dev", message: "Love the product! Quick question Ã¢â‚¬â€ is there a way to white-label the widget so our brand name shows instead of yours?" },
   { email: "laura@designlab.co", message: "The feedback widget is not showing up on our website after following the integration guide. We're using Webflow. Any specific steps for Webflow sites?" },
   { email: "raj.patel@enterprise.com", message: "We need to discuss enterprise pricing for our organization (500+ users). Can someone from your sales team reach out?" },
   { email: "emma.wilson@saas.io", message: "How do I delete a feedback item? I accidentally posted test data and now it's showing up in our public board." },
@@ -84,7 +84,7 @@ const SUPPORT_POOL: { email: string; message: string }[] = [
   { email: "diana@travel.app", message: "We accidentally deleted an application and lost all feedback data. Is there any way to recover it? This happened about 2 hours ago." },
   { email: "hugo@marketplace.com", message: "How do we handle GDPR data deletion requests? If a user asks us to delete their data, how do we remove their feedback from your system?" },
   { email: "fiona@crm.tools", message: "Can we integrate your feedback widget with our CRM? Specifically, we'd like feedback to automatically create tickets in our support system." },
-  { email: "ben@devops.cloud", message: "Getting intermittent timeouts when loading the dashboard. Started happening about 3 days ago. Our team is in the EU region — could this be a latency issue?" },
+  { email: "ben@devops.cloud", message: "Getting intermittent timeouts when loading the dashboard. Started happening about 3 days ago. Our team is in the EU region Ã¢â‚¬â€ could this be a latency issue?" },
   { email: "claire@legal.firm", message: "We need a Data Processing Agreement (DPA) signed before onboarding. Can you send us your standard DPA template?" },
   { email: "omar@retail.co", message: "Is it possible to have different feedback boards for different product lines within the same application? Currently mixing all feedback together." },
 ];
@@ -98,7 +98,7 @@ const USER_IDS = [
   "user_ext_026", "user_ext_027", "user_ext_028", "user_ext_029", "user_ext_030",
 ];
 
-// ─── Helpers ─────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Helpers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 
 function randomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -120,26 +120,26 @@ function randomTimeOnDate(date: Date): Date {
   return d;
 }
 
-// ─── Main ────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Main Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 
 async function main() {
   const applicationId = process.argv[2];
 
   if (!applicationId) {
-    console.error("❌ Usage: npx tsx scripts/seed-feedback-support.ts <applicationId>");
+    console.error("Ã¢ÂÅ’ Usage: npx tsx scripts/seed-feedback-support.ts <applicationId>");
     process.exit(1);
   }
 
   // Verify the application exists
   const app = await prisma.application.findUnique({ where: { id: applicationId } });
   if (!app) {
-    console.error(`❌ Application with ID "${applicationId}" not found.`);
+    console.error(`Ã¢ÂÅ’ Application with ID "${applicationId}" not found.`);
     process.exit(1);
   }
 
-  console.log(`\n🚀 Seeding data for application: "${app.name}" (${applicationId})\n`);
+  console.log(`\nÃ°Å¸Å¡â‚¬ Seeding data for application: "${app.name}" (${applicationId})\n`);
 
-  // Build date range: past 30 days (yesterday → 30 days ago)
+  // Build date range: past 30 days (yesterday Ã¢â€ â€™ 30 days ago)
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -165,10 +165,10 @@ async function main() {
 
     const dateStr = date.toISOString().slice(0, 10);
 
-    // ── Create Feedbacks ──
+    // Ã¢â€â‚¬Ã¢â€â‚¬ Create Feedbacks Ã¢â€â‚¬Ã¢â€â‚¬
     for (let f = 0; f < feedbackCount; f++) {
       if (feedbackPool.length === 0) {
-        console.log("⚠️  Exhausted unique feedback pool, stopping feedback creation.");
+        console.log("Ã¢Å¡Â Ã¯Â¸Â  Exhausted unique feedback pool, stopping feedback creation.");
         break;
       }
 
@@ -210,7 +210,7 @@ async function main() {
               applicationId,
               feedbackId: feedback.id,
               userId: voterId,
-              voteType: Math.random() > 0.2 ? "UPVOTE" : "DOWNVOTE", // 80% upvotes
+              voteType: Math.random() > 0.2 ? "UPVOTE" : "DOWNVOTE", // 80% monkfeeds
               createdAt: new Date(createdAt.getTime() + randomInt(60_000, 86_400_000)), // sometime after
             },
           });
@@ -221,13 +221,13 @@ async function main() {
       }
 
       totalFeedback++;
-      console.log(`  📝 [${dateStr}] Feedback: "${template.title}" (${template.tags.join(", ")})`);
+      console.log(`  Ã°Å¸â€œÂ [${dateStr}] Feedback: "${template.title}" (${template.tags.join(", ")})`);
     }
 
-    // ── Create Support tickets ──
+    // Ã¢â€â‚¬Ã¢â€â‚¬ Create Support tickets Ã¢â€â‚¬Ã¢â€â‚¬
     for (let s = 0; s < supportCount; s++) {
       if (supportPool.length === 0) {
-        console.log("⚠️  Exhausted unique support pool, stopping support creation.");
+        console.log("Ã¢Å¡Â Ã¯Â¸Â  Exhausted unique support pool, stopping support creation.");
         break;
       }
 
@@ -246,21 +246,21 @@ async function main() {
       });
 
       totalSupport++;
-      console.log(`  🎫 [${dateStr}] Support: ${template.email}`);
+      console.log(`  Ã°Å¸Å½Â« [${dateStr}] Support: ${template.email}`);
     }
   }
 
-  console.log("\n✅ Seeding complete!");
-  console.log(`   📝 Feedbacks created : ${totalFeedback}`);
-  console.log(`   🗳️  Votes created     : ${totalVotes}`);
-  console.log(`   🏷️  Tags created      : ${totalTags}`);
-  console.log(`   🎫 Support tickets   : ${totalSupport}`);
-  console.log(`   📅 Date range        : ${dates[dates.length - 1].toISOString().slice(0, 10)} → ${dates[0].toISOString().slice(0, 10)}\n`);
+  console.log("\nÃ¢Å“â€¦ Seeding complete!");
+  console.log(`   Ã°Å¸â€œÂ Feedbacks created : ${totalFeedback}`);
+  console.log(`   Ã°Å¸â€”Â³Ã¯Â¸Â  Votes created     : ${totalVotes}`);
+  console.log(`   Ã°Å¸ÂÂ·Ã¯Â¸Â  Tags created      : ${totalTags}`);
+  console.log(`   Ã°Å¸Å½Â« Support tickets   : ${totalSupport}`);
+  console.log(`   Ã°Å¸â€œâ€¦ Date range        : ${dates[dates.length - 1].toISOString().slice(0, 10)} Ã¢â€ â€™ ${dates[0].toISOString().slice(0, 10)}\n`);
 }
 
 main()
   .catch((e) => {
-    console.error("❌ Error:", e);
+    console.error("Ã¢ÂÅ’ Error:", e);
     process.exit(1);
   })
   .finally(() => prisma.$disconnect());

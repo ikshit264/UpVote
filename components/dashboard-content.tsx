@@ -20,7 +20,7 @@ interface DashboardContentProps {
 export default function DashboardContent({ company }: DashboardContentProps) {
   const router = useRouter();
   const [copied, setCopied] = useState(false);
-  const widgetCode = `<div data-upvote-company-id="${company.id}"></div>
+  const widgetCode = `<div data-monkfeed-company-id="${company.id}"></div>
 <script src="${typeof window !== 'undefined' ? window.location.origin : ''}/widget.js"></script>`;
 
   const handleLogout = async () => {

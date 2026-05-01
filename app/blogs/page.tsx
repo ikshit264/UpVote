@@ -12,9 +12,9 @@ const Footer = dynamic(() => import("@/components/landing/footer"), {
 
 export const metadata: Metadata = {
     title: "Product Management, Feedback & Growth",
-    description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS. Read the latest from the Upvote team.",
-    keywords: ["product management blog", "customer feedback strategies", "SaaS growth tips", "feature prioritization", "Upvote"],
-    authors: [{ name: "Upvote Team" }],
+    description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS. Read the latest from the MonkFeed team.",
+    keywords: ["product management blog", "customer feedback strategies", "SaaS growth tips", "feature prioritization", "MonkFeed"],
+    authors: [{ name: "MonkFeed Team" }],
     openGraph: {
         title: "Product Management & Growth",
         description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Expert insights on product management, customer feedback automation, and scaling your B2B SaaS.",
     },
     alternates: {
-        canonical: "https://upvote.entrext.com/blogs",
+        canonical: "https://monkfeed.entrext.com/blogs",
     },
 };
 
@@ -43,7 +43,7 @@ export default function BlogsPage() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl mx-auto text-center space-y-6">
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white to-white/50">
-                            The Upvote Blog
+                            The MonkFeed Blog
                         </h1>
                         <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
                             Insights, guides, and strategies to help you build products users love and automate your feedback loop.
@@ -110,7 +110,7 @@ export default function BlogsPage() {
                     <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-[2.5rem] bg-linear-to-br from-zinc-700/20 to-zinc-700/20 border border-zinc-500/20 relative overflow-hidden text-center space-y-8">
                         <div className="relative z-10 space-y-4">
                             <h2 className="text-3xl md:text-4xl font-bold">Never miss an update</h2>
-                            <p className="text-zinc-400 max-w-md mx-auto">Get the latest product management insights and Upvote news delivered to your inbox.</p>
+                            <p className="text-zinc-400 max-w-md mx-auto">Get the latest product management insights and MonkFeed news delivered to your inbox.</p>
 
                             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-4">
                                 <input

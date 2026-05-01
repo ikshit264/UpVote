@@ -9,25 +9,25 @@ const Footer = dynamic(() => import('@/components/landing/footer'), {
     ssr: true
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
 
 export const metadata = {
-    title: 'Platform Information | UpVote - Mission & Global Vision',
-    description: 'Discover the story behind UpVote. Learn about our mission to democratize product feedback and our vision for transparent feature prioritization.',
+    title: 'Platform Information | MonkFeed - Mission & Global Vision',
+    description: 'Discover the story behind MonkFeed. Learn about our mission to democratize product feedback and our vision for transparent feature prioritization.',
     keywords: [
-        'product mission', 'feature prioritization vision', 'UpVote information',
+        'product mission', 'feature prioritization vision', 'MonkFeed information',
         'customer feedback platform', 'product roadmap transparency',
-        'about UpVote', 'SaaS feedback tool', 'community-driven development'
+        'about MonkFeed', 'SaaS feedback tool', 'community-driven development'
     ],
     openGraph: {
-        title: 'Platform Information - UpVote Mission',
+        title: 'Platform Information - MonkFeed Mission',
         description: 'The mission and vision for the future of product feedback.',
         url: `${baseUrl}/info`,
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Platform Information - UpVote Mission',
+        title: 'Platform Information - MonkFeed Mission',
         description: 'The mission and vision for the future of product feedback.',
     },
     alternates: {
@@ -42,7 +42,7 @@ export default function InfoPage() {
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
                         <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
-                        <span className="font-bold tracking-tight">UpVote</span>
+                        <span className="font-bold tracking-tight">MonkFeed</span>
                     </Link>
                     <Info className="w-5 h-5 text-zinc-700" />
                 </div>
@@ -53,7 +53,7 @@ export default function InfoPage() {
                     <Badge className="bg-zinc-100 text-zinc-800 dark:bg-zinc-950/30 dark:text-zinc-400 border-none px-3 py-1 text-xs">About Us</Badge>
                     <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Information Hub</h1>
                     <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                        Everything you need to know about the UpVote platform and our commitment to product excellence.
+                        Everything you need to know about the MonkFeed platform and our commitment to product excellence.
                     </p>
                 </div>
 
@@ -86,11 +86,11 @@ export default function InfoPage() {
                             Who We Serve
                         </h2>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                            UpVote is built for founders, product managers, and developers who value their users' input. We believe that the best products are built in collaboration with the people who use them every day.
+                            MonkFeed is built for founders, product managers, and developers who value their users' input. We believe that the best products are built in collaboration with the people who use them every day.
                         </p>
                         <div className="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-dashed border-zinc-200 dark:border-zinc-800">
                             <p className="text-sm text-zinc-500 italic">
-                                "Product development shouldn't be a guessing game. UpVote puts the power of prioritization back into the hands of the community."
+                                "Product development shouldn't be a guessing game. MonkFeed puts the power of prioritization back into the hands of the community."
                             </p>
                         </div>
                     </section>

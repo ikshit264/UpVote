@@ -65,7 +65,7 @@ export default function IntegrationGuide({
             icon: FileCode,
             code: `<!-- Add this to your main template -->
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID" // Optional: enabled Feedback
   data-email="USER_EMAIL" // Optional: for attribution
@@ -90,7 +90,7 @@ export default function IntegrationGuide({
             icon: Code2,
             code: `import { useEffect, useState } from 'react';
 
-export default function UpvoteWidget({ userId, email }) {
+export default function MonkFeedWidget({ userId, email }) {
   const [remountKey, setRemountKey] = useState(0);
 
   useEffect(() => {
@@ -98,12 +98,12 @@ export default function UpvoteWidget({ userId, email }) {
     setRemountKey(k => k + 1);
     
     // Proactive cleanup of existing floating elements
-    if (window.__upvote_cleanup) window.__upvote_cleanup();
+    if (window.__monkfeed_cleanup) window.__monkfeed_cleanup();
   }, [userId, email]);
 
   return (
     <div key={remountKey}>
-      <div className="upvote-widget"
+      <div className="monkfeed-widget"
            data-application-id="${applicationId}"
            data-user-id={userId || ''}
            data-email={email || ''}
@@ -121,20 +121,20 @@ export default function UpvoteWidget({ userId, email }) {
         nextjs: {
             name: "Next.js",
             icon: Rocket,
-            code: `// 1. lib/upvote-sync.ts
-export const syncUpvoteLogin = (user) => {
-  window.dispatchEvent(new CustomEvent('upvote:login', { detail: user }));
+            code: `// 1. lib/monkfeed-sync.ts
+export const syncMonkFeedLogin = (user) => {
+  window.dispatchEvent(new CustomEvent('monkfeed:login', { detail: user }));
 };
-export const syncUpvoteLogout = () => {
-  window.dispatchEvent(new CustomEvent('upvote:logout'));
+export const syncMonkFeedLogout = () => {
+  window.dispatchEvent(new CustomEvent('monkfeed:logout'));
 };
 
-// 2. components/UpvoteWidget.tsx
+// 2. components/MonkFeedWidget.tsx
 'use client';
 import { useEffect, useState, useCallback } from 'react';
 import Script from 'next/script';
 
-export default function UpvoteWidget() {
+export default function MonkFeedWidget() {
   const [userData, setUserData] = useState(null);
   const [remountKey, setRemountKey] = useState(0);
 
@@ -150,22 +150,22 @@ export default function UpvoteWidget() {
     const handleLogout = () => { 
         setUserData(null); 
         setRemountKey(k => k + 1); 
-        if(window.__upvote_cleanup) window.__upvote_cleanup(); 
+        if(window.__monkfeed_cleanup) window.__monkfeed_cleanup(); 
     };
     
-    window.addEventListener('upvote:login', handleLogin);
-    window.addEventListener('upvote:logout', handleLogout);
+    window.addEventListener('monkfeed:login', handleLogin);
+    window.addEventListener('monkfeed:logout', handleLogout);
     window.addEventListener('focus', fetchSession);
     return () => {
-      window.removeEventListener('upvote:login', handleLogin);
-      window.removeEventListener('upvote:logout', handleLogout);
+      window.removeEventListener('monkfeed:login', handleLogin);
+      window.removeEventListener('monkfeed:logout', handleLogout);
       window.removeEventListener('focus', fetchSession);
     };
   }, [fetchSession]);
 
   return (
     <div key={remountKey}>
-      <div className="upvote-widget"
+      <div className="monkfeed-widget"
            data-application-id="${applicationId}"
            data-user-id={userData?.id || ''}
            data-email={userData?.email || ''}
@@ -183,13 +183,13 @@ export default function UpvoteWidget() {
         angular: {
             name: "Angular",
             icon: BoxSelect,
-            code: `// upvote-widget.component.ts
+            code: `// monkfeed-widget.component.ts
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-upvote-widget',
+  selector: 'app-monkfeed-widget',
   template: \`
-    <div class="upvote-widget"
+    <div class="monkfeed-widget"
          data-application-id="${applicationId}"
          [attr.data-user-id]="user?.id || ''"
          [attr.data-email]="user?.email || ''"
@@ -207,7 +207,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
   \`
 })
-export class UpvoteWidgetComponent implements OnInit {
+export class MonkFeedWidgetComponent implements OnInit {
   user: any = null;
 
   ngOnInit() {
@@ -278,7 +278,7 @@ export class UpvoteWidgetComponent implements OnInit {
                                 Get Started in Minutes
                             </h2>
                             <p className="text-lg text-zinc-600 dark:text-zinc-300">
-                                Add the UpVote feedback widget to your website in just a few simple steps.
+                                Add the MonkFeed feedback widget to your website in just a few simple steps.
                                 Works with any framework.
                             </p>
                         </div>
@@ -458,7 +458,7 @@ export class UpvoteWidgetComponent implements OnInit {
                     <div className="p-4 bg-zinc-50 dark:bg-black/20 rounded-xl border border-zinc-200 dark:border-zinc-950/50">
                         <h4 className="font-bold text-sm mb-3 text-zinc-950 dark:text-zinc-100">Complete Configuration Example:</h4>
                         <pre className="text-xs font-mono bg-zinc-100 dark:bg-zinc-950/30 p-3 rounded-lg overflow-x-auto text-zinc-950 dark:text-zinc-100">
-{`<div class="upvote-widget"
+{`<div class="monkfeed-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID"           <!-- Optional -->
   data-email="user@example.com"    <!-- Optional -->
@@ -523,7 +523,7 @@ export class UpvoteWidgetComponent implements OnInit {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-white/10">
                             <div className="space-y-1">
                                 <div className="text-xs font-black uppercase tracking-wider text-zinc-200">Step 1</div>
-                                <p className="text-xs font-medium">Define <code className="bg-black/20 px-1 rounded">syncUpvoteLogin</code> in your Auth Utility.</p>
+                                <p className="text-xs font-medium">Define <code className="bg-black/20 px-1 rounded">syncMonkFeedLogin</code> in your Auth Utility.</p>
                             </div>
                             <div className="space-y-1">
                                 <div className="text-xs font-black uppercase tracking-wider text-zinc-200">Step 2</div>
@@ -615,14 +615,14 @@ export class UpvoteWidgetComponent implements OnInit {
                             See how it works for your users
                         </h3>
                         <p className="text-zinc-400 leading-relaxed">
-                            The UpVote widget sits quietly in the corner of your app. When users have an idea,
+                            The MonkFeed widget sits quietly in the corner of your app. When users have an idea,
                             it's just one click away. No distractions, just pure feedback.
                         </p>
 
                         <ul className="space-y-4">
                             {[
                                 "Users click the floating button",
-                                "They see current board and upvote ideas",
+                                "They see current board and vote on ideas",
                                 "Submit new feedback instantly",
                                 "Get replies from you in real-time"
                             ].map((text, i) => (

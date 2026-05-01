@@ -4,10 +4,10 @@ import { useEffect, useState, useCallback } from 'react';
 import Script from 'next/script';
 
 /**
- * ADVANCED UPVOTE WIDGET
+ * ADVANCED MONKFEED WIDGET
  * Event-driven, cache-busting, and lifecycle-aware.
  */
-export default function UpvoteWidget() {
+export default function MonkFeedWidget() {
     const [userData, setUserData] = useState<{ id: string; email: string } | null>(null);
     const [remountKey, setRemountKey] = useState(0);
 
@@ -20,7 +20,7 @@ export default function UpvoteWidget() {
             const user = data.user?.email ? { id: data.user.id, email: data.user.email } : null;
             setUserData(user);
         } catch (e) {
-            console.error('UpVote session fetch failed', e);
+            console.error('MonkFeed session fetch failed', e);
         }
     }, []);
 
@@ -38,18 +38,18 @@ export default function UpvoteWidget() {
             setRemountKey(prev => prev + 1); // Force cleanup remount
 
             // Aggressive DOM cleanup for SPAs
-            if (typeof window !== 'undefined' && (window as any).__upvote_cleanup) {
-                (window as any).__upvote_cleanup();
+            if (typeof window !== 'undefined' && (window as any).__monkfeed_cleanup) {
+                (window as any).__monkfeed_cleanup();
             }
         };
 
-        window.addEventListener('upvote:login', handleLogin);
-        window.addEventListener('upvote:logout', handleLogout);
+        window.addEventListener('monkfeed:login', handleLogin);
+        window.addEventListener('monkfeed:logout', handleLogout);
         window.addEventListener('focus', fetchSession);
 
         return () => {
-            window.removeEventListener('upvote:login', handleLogin);
-            window.removeEventListener('upvote:logout', handleLogout);
+            window.removeEventListener('monkfeed:login', handleLogin);
+            window.removeEventListener('monkfeed:logout', handleLogout);
             window.removeEventListener('focus', fetchSession);
         };
     }, [fetchSession]);
@@ -57,7 +57,7 @@ export default function UpvoteWidget() {
     return (
         <div key={remountKey}>
             <div
-                className="upvote-widget"
+                className="monkfeed-widget"
                 data-application-id="69a41f203a9a405a41b02afc"
                 data-user-id={userData?.id || ''}
                 data-email={userData?.email || ''}

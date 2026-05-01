@@ -10,7 +10,7 @@ export default function Loading() {
 
       <div className="mt-8 text-center space-y-4">
         <h2 className="text-xl font-black tracking-tight text-zinc-900 dark:text-white uppercase italic">
-          UpVote
+          MonkFeed
         </h2>
         <div className="flex items-center gap-1.5 justify-center">
           <div className="w-1.5 h-1.5 rounded-full bg-zinc-900 animate-bounce" style={{ animationDelay: '0ms' }} />

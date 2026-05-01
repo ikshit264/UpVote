@@ -1,10 +1,10 @@
 # Widget Customization Quick Reference
 
-## 🚀 Quick Start (Copy & Paste)
+## Ã°Å¸Å¡â‚¬ Quick Start (Copy & Paste)
 
 ### Basic Widget with Custom Logo
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="YOUR_APP_ID"
   data-logo-url="https://yourdomain.com/logo.png"
 ></div>
@@ -13,7 +13,7 @@
 
 ### Fully Configured Widget
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="YOUR_APP_ID"
   data-user-id="USER_ID"
   data-email="user@example.com"
@@ -27,11 +27,11 @@
 <script src="http://localhost:3000/widget.js"></script>
 ```
 
-## 📋 All Configuration Attributes
+## Ã°Å¸â€œâ€¹ All Configuration Attributes
 
 | Attribute | Required | Description | Default |
 |-----------|----------|-------------|---------|
-| `data-application-id` | ✅ YES | Your UpVote app ID | - |
+| `data-application-id` | Ã¢Å“â€¦ YES | Your MonkFeed app ID | - |
 | `data-user-id` | Optional | Current user ID | `""` |
 | `data-email` | Optional | User email | `""` |
 | `data-position` | Optional | `"left"` or `"right"` | `"right"` |
@@ -41,14 +41,14 @@
 | `data-about-text` | Optional | About text | Default text |
 | `data-faqs` | Optional | JSON FAQ array | Default FAQs |
 
-## 🎨 Logo Requirements
+## Ã°Å¸Å½Â¨ Logo Requirements
 
 - **Format**: PNG, JPG, SVG, WebP
 - **Size**: 128x128px minimum (auto-scaled to 32px)
 - **URL**: Must use HTTPS (or HTTP for local dev)
 - **Shape**: Square works best (circular crop applied)
 
-## 📝 FAQ Format
+## Ã°Å¸â€œÂ FAQ Format
 
 ```json
 [
@@ -73,13 +73,13 @@ data-faqs='[
 ]'
 ```
 
-**⚠️ Important:** FAQs are now **completely customizable**. If you don't provide any FAQs, the FAQ section will be empty. There are no default fallback questions.
+**Ã¢Å¡Â Ã¯Â¸Â Important:** FAQs are now **completely customizable**. If you don't provide any FAQs, the FAQ section will be empty. There are no default fallback questions.
 
-## 💡 Pro Tips
+## Ã°Å¸â€™Â¡ Pro Tips
 
 ### Dynamic Updates (JavaScript)
 ```javascript
-const widget = document.querySelector('.upvote-widget');
+const widget = document.querySelector('.monkfeed-widget');
 
 // Update logo
 widget.setAttribute('data-logo-url', 'https://newlogo.com/logo.png');
@@ -101,7 +101,7 @@ widget.setAttribute('data-faqs', '[{"question":"New Q?","answer":"New A!"}]');
 - **FAQ Answer**: 2-3 sentences (max 200 chars)
 - **Total FAQs**: Keep under 10 for best performance
 
-## 🔧 Troubleshooting
+## Ã°Å¸â€Â§ Troubleshooting
 
 ### Logo Not Showing
 ```bash
@@ -132,7 +132,7 @@ setTimeout(() => {
 }, 100);
 ```
 
-## 📱 Mobile Testing
+## Ã°Å¸â€œÂ± Mobile Testing
 
 Test on different screen sizes:
 ```html
@@ -144,7 +144,7 @@ Widget is responsive and adapts to:
 - Tablet (max-width: calc(100vw - 48px))
 - Mobile (full width with padding)
 
-## 🎯 Common Use Cases
+## Ã°Å¸Å½Â¯ Common Use Cases
 
 ### SaaS Product
 ```html
@@ -176,13 +176,13 @@ data-faqs='[
 ]'
 ```
 
-## 🔗 Quick Links
+## Ã°Å¸â€â€” Quick Links
 
 - **Full Guide**: `WIDGET-CUSTOMIZATION-GUIDE.md`
 - **Live Demo**: `/custom-widget-demo.html`
 - **Implementation Details**: `WIDGET-CUSTOMIZATION-IMPLEMENTATION.md`
 
-## ⚡ Performance Tips
+## Ã¢Å¡Â¡ Performance Tips
 
 1. **Optimize Logo**: Compress to < 50KB
 2. **Limit FAQs**: 5-10 questions ideal
@@ -190,7 +190,7 @@ data-faqs='[
 4. **Lazy Load**: Widget loads after page content
 5. **Cache Strategy**: Browser caches widget.js automatically
 
-## 🎨 Styling Best Practices
+## Ã°Å¸Å½Â¨ Styling Best Practices
 
 - Use high contrast logos for visibility
 - Test logo on both light/dark backgrounds

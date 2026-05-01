@@ -163,7 +163,7 @@ function WidgetContent() {
     else setLoadingMore(true);
 
     try {
-      const sort = activeTab === 'all' ? 'upvotes' : 'recent';
+      const sort = activeTab === 'all' ? 'monkfeeds' : 'recent';
       const res = await fetch(`/api/widget/feedback?applicationId=${applicationId}&userId=${userId}&page=${pageNum}&limit=10&sort=${sort}`);
       const data = await res.json();
 
@@ -318,7 +318,7 @@ function WidgetContent() {
   };
 
   const closeWidget = () => {
-    window.parent.postMessage({ type: 'upvote:close' }, '*');
+    window.parent.postMessage({ type: 'monkfeed:close' }, '*');
   };
 
   const topFeedback = useMemo(() => {
@@ -455,9 +455,9 @@ function WidgetContent() {
         {/* Brand Footer */}
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
+            <a href="https://monkfeed.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
-              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by MonkFeed</p>
             </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />
@@ -582,9 +582,9 @@ function WidgetContent() {
         {/* Brand Footer */}
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0 relative z-10">
           <div className="flex items-center justify-between">
-            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
+            <a href="https://monkfeed.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
-              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by MonkFeed</p>
             </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />
@@ -823,7 +823,7 @@ function WidgetContent() {
                     </div>
                     <h3 className="font-semibold text-base mb-2">Product Overview</h3>
                     <p className="text-sm text-zinc-500 leading-relaxed">
-                      This product is integrated with UpVote to ensure your voice is heard. We prioritize our roadmap based on the feedback you provide here.
+                      This product is integrated with MonkFeed to ensure your voice is heard. We prioritize our roadmap based on the feedback you provide here.
                     </p>
                   </div>
 
@@ -833,9 +833,9 @@ function WidgetContent() {
                         <img src={resolvedLogoUrl} alt="Logo" className="w-6 h-6 object-contain" />
                       </div>
                     )}
-                    <h3 className="font-semibold text-base mb-2">About UpVote</h3>
+                    <h3 className="font-semibold text-base mb-2">About MonkFeed</h3>
                     <p className="text-sm text-zinc-500 leading-relaxed">
-                      UpVote is a feedback management platform that helps companies listen to their customers and prioritize development based on real user interest.
+                      MonkFeed is a feedback management platform that helps companies listen to their customers and prioritize development based on real user interest.
                     </p>
                   </div>
                 </div>
@@ -866,9 +866,9 @@ function WidgetContent() {
         {/* Brand Footer */}
         <div className="px-6 py-4 bg-zinc-50/50 border-t border-zinc-100 shrink-0">
           <div className="flex items-center justify-between">
-            <a href="https://upvote.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
+            <a href="https://monkfeed.entrext.com" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
-              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by UpVote</p>
+              <p className="text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Powered by MonkFeed</p>
             </a>
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-green-500" />

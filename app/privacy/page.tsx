@@ -3,26 +3,26 @@ import Link from 'next/link';
 import { Shield, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
 
 export const metadata = {
-    title: 'Privacy Policy | UpVote - Data Protection & User Privacy',
-    description: 'Read the UpVote Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
+    title: 'Privacy Policy | MonkFeed - Data Protection & User Privacy',
+    description: 'Read the MonkFeed Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
     keywords: [
         'privacy policy', 'data protection', 'GDPR compliance', 'user privacy',
-        'feedback data safety', 'secure voting system', 'UpVote privacy',
+        'feedback data safety', 'secure voting system', 'MonkFeed privacy',
         'customer data handling', 'product management security', 'SaaS privacy'
     ],
     openGraph: {
-        title: 'Privacy Policy - UpVote Platform',
-        description: 'Read the UpVote Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
+        title: 'Privacy Policy - MonkFeed Platform',
+        description: 'Read the MonkFeed Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
         url: `${baseUrl}/privacy`,
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Privacy Policy - UpVote Platform',
-        description: 'Read the UpVote Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
+        title: 'Privacy Policy - MonkFeed Platform',
+        description: 'Read the MonkFeed Privacy Policy. Learn how we handle customer feedback data, protect user identity, and maintain transparency in product prioritization.',
     },
     alternates: {
         canonical: `${baseUrl}/privacy`,
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
                         <ChevronLeft className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
-                        <span className="font-bold tracking-tight">UpVote</span>
+                        <span className="font-bold tracking-tight">MonkFeed</span>
                     </Link>
                     <Shield className="w-5 h-5 text-zinc-700" />
                 </div>
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold">1. Introduction</h2>
                         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-                            Welcome to UpVote. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website or use our feedback widget.
+                            Welcome to MonkFeed. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website or use our feedback widget.
                         </p>
                     </section>
 
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-bold">5. Contact Us</h2>
                         <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-                            If you have any questions about this privacy policy, please contact us at <span className="text-zinc-700 font-medium">privacy@upvote.com</span>.
+                            If you have any questions about this privacy policy, please contact us at <span className="text-zinc-700 font-medium">privacy@monkfeed.com</span>.
                         </p>
                     </section>
                 </div>

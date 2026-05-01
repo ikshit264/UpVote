@@ -6,21 +6,21 @@ import { ArrowUp, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function InteractiveDemo() {
-    const [upvotes, setUpvotes] = useState(42);
-    const [hasUpvoted, setHasUpvoted] = useState(false);
+    const [monkfeeds, setMonkFeeds] = useState(42);
+    const [hasMonkFeedd, setHasMonkFeedd] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [comments, setComments] = useState([
         { id: 1, text: "This would be a game changer for our workflow!", author: "Jenila", time: "2h ago" },
         { id: 2, text: "Yes please! I've been waiting for this.", author: "James", time: "5h ago" },
     ]);
 
-    const handleUpvote = () => {
-        if (hasUpvoted) {
-            setUpvotes((prev) => prev - 1);
-            setHasUpvoted(false);
+    const handleMonkFeed = () => {
+        if (hasMonkFeedd) {
+            setMonkFeeds((prev) => prev - 1);
+            setHasMonkFeedd(false);
         } else {
-            setUpvotes((prev) => prev + 1);
-            setHasUpvoted(true);
+            setMonkFeeds((prev) => prev + 1);
+            setHasMonkFeedd(true);
         }
     };
 
@@ -57,7 +57,7 @@ export default function InteractiveDemo() {
                             transition={{ delay: 0.1 }}
                             className="text-lg text-zinc-600 dark:text-zinc-400"
                         >
-                            Your users can upvote features, leave comments, and engage with your product roadmap without ever leaving your site.
+                            Your users can monkfeed features, leave comments, and engage with your product roadmap without ever leaving your site.
                         </m.p>
 
                         <m.div
@@ -97,16 +97,16 @@ export default function InteractiveDemo() {
                             <div className="p-6 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/50">
                                 <div className="flex gap-4">
                                     <button
-                                        onClick={handleUpvote}
-                                        aria-label={hasUpvoted ? "Remove upvote from feature request" : "Upvote feature request"}
-                                        aria-pressed={hasUpvoted}
-                                        className={`cursor-pointer flex flex-col items-center justify-center w-12 h-14 rounded-lg border transition-all ${hasUpvoted
+                                        onClick={handleMonkFeed}
+                                        aria-label={hasMonkFeedd ? "Remove monkfeed from feature request" : "MonkFeed feature request"}
+                                        aria-pressed={hasMonkFeedd}
+                                        className={`cursor-pointer flex flex-col items-center justify-center w-12 h-14 rounded-lg border transition-all ${hasMonkFeedd
                                             ? "bg-zinc-700 border-zinc-700 text-white shadow-lg shadow-zinc-500/30"
                                             : "bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-500 hover:border-zinc-300"
                                             }`}
                                     >
-                                        <ArrowUp className={`w-5 h-5 ${hasUpvoted ? "translate-y-[-2px]" : ""}`} />
-                                        <span className="text-xs font-bold">{upvotes}</span>
+                                        <ArrowUp className={`w-5 h-5 ${hasMonkFeedd ? "translate-y-[-2px]" : ""}`} />
+                                        <span className="text-xs font-bold">{monkfeeds}</span>
                                     </button>
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-900 dark:text-white">Dark Mode Ready</h3>

@@ -28,8 +28,8 @@ export default function ContactPage() {
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-zinc-900 dark:text-white mb-1">Email Us</h3>
-                <a href="mailto:hello@upvote.com" rel="nofollow" className="text-zinc-700 dark:text-zinc-400 hover:underline">
-                  hello@upvote.com
+                <a href="mailto:hello@monkfeed.com" rel="nofollow" className="text-zinc-700 dark:text-zinc-400 hover:underline">
+                  hello@monkfeed.com
                 </a>
               </div>
             </div>

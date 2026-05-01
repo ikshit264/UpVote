@@ -70,7 +70,7 @@ export default function SignupPage() {
       <Card className="w-full max-w-md p-8 bg-white shadow-lg border-0">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            UpVote
+            MonkFeed
           </h1>
           <p className="text-gray-600">
             Create your account
@@ -119,7 +119,7 @@ export default function SignupPage() {
             </label>
             <Input
               type="password"
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
@@ -133,7 +133,7 @@ export default function SignupPage() {
             </label>
             <Input
               type="password"
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               disabled={loading}

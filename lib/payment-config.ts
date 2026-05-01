@@ -216,6 +216,6 @@ export function getDisplayPrice(plan: Plan, interval?: BillingInterval): string 
  * Contact information for Enterprise plan
  */
 export const ENTERPRISE_CONTACT = {
-    email: 'sales@upvote.com',
+    email: 'sales@monkfeed.com',
     subject: 'Enterprise Plan Inquiry',
 };

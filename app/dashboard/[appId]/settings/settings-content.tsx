@@ -49,10 +49,10 @@ export default function SettingsContent({ applicationId }: { applicationId: stri
 
     // Generate embed code with implemented options
     const generateEmbedCode = () => {
-        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.yourdomain.com';
-        return `<!-- UpVote Widget -->
-<div 
-  class="upvote-widget"
+        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.yourdomain.com';
+        return `<!-- MonkFeed Widget -->
+<div
+  class="monkfeed-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID"     <!-- Optional: enables Feedback -->
   data-email="USER_EMAIL"   <!-- Optional: for attribution -->

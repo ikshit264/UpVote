@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import Script from 'next/script';
 
-export default function UpvoteWidget() {
+export default function MonkFeedWidget() {
   const [userData, setUserData] = useState<any>(null);
   const [remountKey, setRemountKey] = useState(0);
 
@@ -12,39 +12,39 @@ export default function UpvoteWidget() {
       const data = await res.json();
       setUserData(data.user?.email ? data.user : null);
     } catch (error) {
-      console.error('Failed to fetch session for Upvote widget:', error);
+      console.error('Failed to fetch session for MonkFeed widget:', error);
     }
   }, []);
 
   useEffect(() => {
     fetchSession();
-    
-    const handleLogin = (e: any) => { 
-      setUserData(e.detail); 
-      setRemountKey(k => k + 1); 
+
+    const handleLogin = (e: any) => {
+      setUserData(e.detail);
+      setRemountKey(k => k + 1);
     };
-    
-    const handleLogout = () => { 
-      setUserData(null); 
-      setRemountKey(k => k + 1); 
-      if ((window as any).__upvote_cleanup) (window as any).__upvote_cleanup(); 
+
+    const handleLogout = () => {
+      setUserData(null);
+      setRemountKey(k => k + 1);
+      if ((window as any).__monkfeed_cleanup) (window as any).__monkfeed_cleanup();
     };
-    
-    window.addEventListener('upvote:login', handleLogin as EventListener);
-    window.addEventListener('upvote:logout', handleLogout as EventListener);
+
+    window.addEventListener('monkfeed:login', handleLogin as EventListener);
+    window.addEventListener('monkfeed:logout', handleLogout as EventListener);
     window.addEventListener('focus', fetchSession);
-    
+
     return () => {
-      window.removeEventListener('upvote:login', handleLogin as EventListener);
-      window.removeEventListener('upvote:logout', handleLogout as EventListener);
+      window.removeEventListener('monkfeed:login', handleLogin as EventListener);
+      window.removeEventListener('monkfeed:logout', handleLogout as EventListener);
       window.removeEventListener('focus', fetchSession);
     };
   }, [fetchSession]);
 
   return (
     <div key={remountKey}>
-      <div 
-        className="upvote-widget"
+      <div
+        className="monkfeed-widget"
         data-application-id="69cc03a83b83f3df5f0cd419"
         data-user-id={userData?.id || ''}
         data-email={userData?.email || ''}
@@ -55,9 +55,9 @@ export default function UpvoteWidget() {
         data-about-text="We'd love to hear your feedback!"
         data-faqs='[{"question":"How do I request a feature?","answer":"You can use this widget to submit new feature requests and vote on existing ones."}]'
       />
-      <Script 
-        src="https://upvote.entrext.com/widget.js" 
-        strategy="afterInteractive" 
+      <Script
+        src="https://monkfeed.entrext.com/widget.js"
+        strategy="afterInteractive"
       />
     </div>
   );

@@ -27,7 +27,7 @@ export default function Navbar() {
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-2.5 text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tighter hover:opacity-80 transition-opacity">
               <Logo size={32} animated />
-              <span className="hidden sm:inline">UpVote</span>
+              <span className="hidden sm:inline">MonkFeed</span>
             </Link>
 
             {/* Desktop Navigation Links */}

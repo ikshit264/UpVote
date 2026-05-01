@@ -11,7 +11,7 @@ import { Card } from '@/components/ui/card';
 import { AlertCircle } from 'lucide-react';
 
 import { signIn } from 'next-auth/react';
-import { syncUpvoteLogin } from '@/lib/upvote-sync';
+import { syncMonkFeedLogin } from '@/lib/monkfeed-sync';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -42,7 +42,7 @@ export default function LoginPage() {
         const res = await fetch('/api/auth/session');
         const session = await res.json();
         if (session?.user) {
-          syncUpvoteLogin(session.user);
+          syncMonkFeedLogin(session.user);
         }
         router.push('/dashboard');
       }
@@ -71,7 +71,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md p-8 bg-white shadow-lg border-0">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            UpVote
+            MonkFeed
           </h1>
           <p className="text-gray-600">
             Sign in to your dashboard

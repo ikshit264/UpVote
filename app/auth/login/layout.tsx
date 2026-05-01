@@ -4,16 +4,16 @@ import { getCompanySession } from '@/lib/auth';
 
 export const metadata: Metadata = {
     title: 'Sign In',
-    description: 'Access your UpVote dashboard to manage customer feedback and prioritize features.',
+    description: 'Access your MonkFeed dashboard to manage customer feedback and prioritize features.',
     openGraph: {
-        title: 'Sign In - UpVote',
-        description: 'Access your UpVote dashboard to manage customer feedback and prioritize features.',
+        title: 'Sign In - MonkFeed',
+        description: 'Access your MonkFeed dashboard to manage customer feedback and prioritize features.',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Sign In - UpVote',
-        description: 'Access your UpVote dashboard to manage customer feedback and prioritize features.',
+        title: 'Sign In - MonkFeed',
+        description: 'Access your MonkFeed dashboard to manage customer feedback and prioritize features.',
     },
 };
 

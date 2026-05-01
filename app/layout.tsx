@@ -4,13 +4,13 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://upvote.com";
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://monkfeed.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Customer Feedback & Feature Voting Platform - UpVote by Entrext",
-    template: "%s | UpVote Blog",
+    default: "Customer Feedback & Feature Voting Platform - MonkFeed by Entrext",
+    template: "%s | MonkFeed Blog",
   },
   description:
     "The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "agile product management",
     "embeddable widget",
   ],
-  authors: [{ name: "UpVote Team" }],
-  creator: "UpVote Inc.",
-  publisher: "UpVote Inc.",
+  authors: [{ name: "MonkFeed Team" }],
+  creator: "MonkFeed Inc.",
+  publisher: "MonkFeed Inc.",
   formatDetection: {
     email: false,
     address: false,
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: baseUrl,
-    siteName: "UpVote",
-    title: "UpVote - Customer Feedback & Feature Voting Platform",
+    siteName: "MonkFeed",
+    title: "MonkFeed - Customer Feedback & Feature Voting Platform",
     description:
       "The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.",
     images: [
@@ -49,17 +49,17 @@ export const metadata: Metadata = {
         url: "/new-logo.png",
         width: 1200,
         height: 630,
-        alt: "UpVote Platform Preview",
+        alt: "MonkFeed Platform Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "UpVote - Customer Feedback & Feature Voting Platform",
+    title: "MonkFeed - Customer Feedback & Feature Voting Platform",
     description:
       "The easiest way to collect, manage and prioritize customer feedback. Beautiful embeddable widgets for modern product teams. Boost engagement and build better products.",
     images: ["/new-logo.png"],
-    creator: "@upvote",
+    creator: "@monkfeed",
   },
   icons: {
     icon: [
@@ -94,18 +94,18 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "UpVote",
+  name: "MonkFeed",
   url: baseUrl,
   logo: `${baseUrl}/new-logo.png`,
   description:
     "Customer feedback and feature voting platform for modern product teams.",
-  sameAs: ["https://twitter.com/upvote", "https://github.com/upvote"],
+  sameAs: ["https://twitter.com/monkfeed", "https://github.com/monkfeed"],
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "UpVote",
+  name: "MonkFeed",
   url: baseUrl,
   potentialAction: {
     "@type": "SearchAction",
@@ -117,7 +117,7 @@ const websiteJsonLd = {
 import { Providers } from "@/components/providers";
 import { MotionProvider } from "@/components/motion-provider";
 import { Toaster } from "sonner";
-import UpvoteWidget from "@/components/UpvoteWidget";
+import MonkFeedWidget from "@/components/MonkFeedWidget";
 
 export default function RootLayout({
   children,
@@ -154,7 +154,7 @@ export default function RootLayout({
           <MotionProvider>
             {children}
             <Toaster position="top-center" richColors />
-            {/* <UpvoteWidget /> */}
+            {/* <MonkFeedWidget /> */}
           </MotionProvider>
         </Providers>
       </body>

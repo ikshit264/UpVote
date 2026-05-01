@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UpVote Widget Integration Example</title>
+  <title>MonkFeed Widget Integration Example</title>
   <style>
     * {
       margin: 0;
@@ -152,9 +152,9 @@
   <div class="container">
     <!-- Header -->
     <header>
-      <h1>UpVote Widget Integration Example</h1>
+      <h1>MonkFeed Widget Integration Example</h1>
       <p class="subtitle">
-        This page demonstrates how to integrate the UpVote feedback widget into your website
+        This page demonstrates how to integrate the MonkFeed feedback widget into your website
       </p>
     </header>
 
@@ -208,7 +208,7 @@
             Replace <code>YOUR_COMPANY_ID</code> with your actual company ID:
           </div>
           <div class="code-block">
-&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;div data-monkfeed-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
 &lt;script src="http://localhost:3000/widget.js"&gt;&lt;/script&gt;
           </div>
         </div>
@@ -219,7 +219,7 @@
             When deploying to production, update the script src to your actual domain:
           </div>
           <div class="code-block">
-&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;div data-monkfeed-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
 &lt;script src="https://your-domain.com/widget.js"&gt;&lt;/script&gt;
           </div>
         </div>
@@ -230,8 +230,8 @@
             Track specific users by adding a user ID attribute:
           </div>
           <div class="code-block">
-&lt;div data-upvote-company-id="YOUR_COMPANY_ID" 
-     data-upvote-user-id="user@example.com"&gt;&lt;/div&gt;
+&lt;div data-monkfeed-company-id="YOUR_COMPANY_ID" 
+     data-monkfeed-user-id="user@example.com"&gt;&lt;/div&gt;
 &lt;script src="https://your-domain.com/widget.js"&gt;&lt;/script&gt;
           </div>
         </div>
@@ -260,7 +260,7 @@
           </li>
         </ol>
 
-        <div id="upvote-widget-container" class="widget-placeholder">
+        <div id="monkfeed-widget-container" class="widget-placeholder">
           Widget will appear here once you add your company ID and load widget.js
         </div>
 
@@ -272,7 +272,7 @@
 // 3. The widget will appear above
 
 &lt;!-- 
-&lt;div data-upvote-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
+&lt;div data-monkfeed-company-id="YOUR_COMPANY_ID"&gt;&lt;/div&gt;
 &lt;script src="http://localhost:3000/widget.js"&gt;&lt;/script&gt;
 --&gt;
           </div>
@@ -287,7 +287,7 @@
 
     /*
     document.addEventListener('DOMContentLoaded', function() {
-      const container = document.getElementById('upvote-widget-container');
+      const container = document.getElementById('monkfeed-widget-container');
       const companyId = 'YOUR_COMPANY_ID'; // Update this!
       
       if (companyId === 'YOUR_COMPANY_ID') {
@@ -297,7 +297,7 @@
 
       // Create the widget container
       const widgetDiv = document.createElement('div');
-      widgetDiv.setAttribute('data-upvote-company-id', companyId);
+      widgetDiv.setAttribute('data-monkfeed-company-id', companyId);
       container.innerHTML = '';
       container.appendChild(widgetDiv);
 

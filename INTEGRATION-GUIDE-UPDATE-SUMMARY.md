@@ -18,7 +18,7 @@ const [aboutText, setAboutText] = useState('');
 The generated embed code now includes all customization options:
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="${applicationId}"
   data-user-id="USER_ID"
   data-email="USER_EMAIL"
@@ -62,10 +62,10 @@ All framework code snippets now include customization options:
 #### New Configuration Section
 Added comprehensive "Widget Configuration Options" card displaying:
 
-1. **🖼️ Custom Logo** - Visual branding guide
-2. **📄 Product Overview** - Description field info
-3. **ℹ️ About Section** - Company/team info
-4. **❓ Custom FAQs** - FAQ JSON format
+1. **ðŸ–¼ï¸ Custom Logo** - Visual branding guide
+2. **ðŸ“„ Product Overview** - Description field info
+3. **â„¹ï¸ About Section** - Company/team info
+4. **â“ Custom FAQs** - FAQ JSON format
 
 Each with:
 - Icon and title
@@ -74,7 +74,7 @@ Each with:
 
 #### Complete Example Box
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="APP_ID"
   data-user-id="USER_ID"           <!-- Optional -->
   data-email="user@example.com"    <!-- Optional -->

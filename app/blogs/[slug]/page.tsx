@@ -29,7 +29,7 @@ export async function generateMetadata(
 
     if (!blog) {
         return {
-            title: "Blog Not Found | Upvote",
+            title: "Blog Not Found | MonkFeed",
         };
     }
 
@@ -53,7 +53,7 @@ export async function generateMetadata(
             images: [blog.image],
         },
         alternates: {
-            canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://upvote.entrext.com'}/blogs/${slug}`,
+            canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com'}/blogs/${slug}`,
         },
     };
 }
@@ -82,7 +82,7 @@ export default async function BlogDetailPage({ params }: Props) {
                         "datePublished": blog.date,
                         "author": [{
                             "@type": "Organization",
-                            "name": "Upvote",
+                            "name": "MonkFeed",
                             "url": process.env.NEXT_PUBLIC_APP_URL
                         }]
                     })
@@ -219,7 +219,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-700/10 blur-[80px] rounded-full group-hover:bg-zinc-700/20 transition-colors" />
                             <div className="relative z-10 space-y-6">
                                 <h3 className="text-3xl font-bold">Ready to automate your feedback loop?</h3>
-                                <p className="text-zinc-400 text-lg">Join hundreds of early-stage SaaS teams who use Upvote to build better products, faster.</p>
+                                <p className="text-zinc-400 text-lg">Join hundreds of early-stage SaaS teams who use MonkFeed to build better products, faster.</p>
                                 <div className="flex flex-wrap gap-4 pt-2">
                                     {session ? (
                                         <Link

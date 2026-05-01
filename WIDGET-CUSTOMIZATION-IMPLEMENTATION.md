@@ -93,7 +93,7 @@ const customFaqs: FAQ[] = faqsString ? JSON.parse(faqsString) : [];
   {logoUrl && (
     <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-md object-contain" />
   )}
-  <span className="font-semibold text-base tracking-tight">UpVote</span>
+  <span className="font-semibold text-base tracking-tight">MonkFeed</span>
 </div>
 ```
 
@@ -147,7 +147,7 @@ Interactive demo page showing:
 
 ```html
 <div 
-  class="upvote-widget"
+  class="monkfeed-widget"
   data-application-id="your-app-id"
   data-user-id="user-id"
   data-logo-url="https://yourdomain.com/logo.png"
@@ -165,34 +165,34 @@ Interactive demo page showing:
 
 ## Features Implemented
 
-✅ **Custom Logo**
+Ã¢Å“â€¦ **Custom Logo**
 - Appears on widget button
 - Appears in FAQ section header
 - Falls back to default favicon if not provided
 - Automatically scaled (32px)
 
-✅ **Product Overview**
+Ã¢Å“â€¦ **Product Overview**
 - Displays in FAQ tab
 - Replaces default text when provided
 - Full custom text support
 
-✅ **About Section**
+Ã¢Å“â€¦ **About Section**
 - Displays in FAQ tab
 - Shows custom logo or default
-- Replaces default UpVote info when provided
+- Replaces default MonkFeed info when provided
 
-✅ **Custom FAQs**
+Ã¢Å“â€¦ **Custom FAQs**
 - Unlimited FAQ entries
 - JSON format for easy editing
 - Renders as accordion
 - Falls back to default FAQs when empty
 
-✅ **Smart Updates**
+Ã¢Å“â€¦ **Smart Updates**
 - Auto-detects configuration changes
 - Refreshes widget without page reload
 - Maintains current mode during updates
 
-✅ **No Database Changes**
+Ã¢Å“â€¦ **No Database Changes**
 - All configuration via data attributes
 - No Prisma schema modifications
 - No API route changes needed
@@ -207,10 +207,10 @@ Interactive demo page showing:
 5. UI renders based on custom config
 
 ### Fallback Strategy
-- Logo → defaults to `/favicon.png`
-- Product Overview → shows default text
-- About → shows default UpVote info
-- FAQs → shows 3 default questions
+- Logo Ã¢â€ â€™ defaults to `/favicon.png`
+- Product Overview Ã¢â€ â€™ shows default text
+- About Ã¢â€ â€™ shows default MonkFeed info
+- FAQs Ã¢â€ â€™ shows 3 default questions
 
 ### Performance Considerations
 - No additional API calls
@@ -219,10 +219,10 @@ Interactive demo page showing:
 - Lazy-loaded via iframe
 
 ## Browser Compatibility
-- ✅ Chrome/Edge (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Mobile browsers
+- Ã¢Å“â€¦ Chrome/Edge (latest)
+- Ã¢Å“â€¦ Firefox (latest)
+- Ã¢Å“â€¦ Safari (latest)
+- Ã¢Å“â€¦ Mobile browsers
 
 ## Accessibility
 - Proper alt text on images

@@ -19,7 +19,7 @@ export default function Logo({ className = '', size = 100, animated = false }: L
             <div className="relative w-[270%] h-[270%] shrink-0 transition-transform duration-500">
                 <Image
                     src="/new-logo-removebg-preview.png"
-                    alt="UpVote Logo"
+                    alt="MonkFeed Logo"
                     fill
                     className="object-contain"
                     sizes="100px"

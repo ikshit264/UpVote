@@ -2,8 +2,8 @@
 
 ## Overview
 Fixed two critical issues in the widget FAQ section:
-1. ✅ Verified custom logo displays correctly in About section
-2. ✅ Removed default fallback FAQs - now 100% user-provided content
+1. Ã¢Å“â€¦ Verified custom logo displays correctly in About section
+2. Ã¢Å“â€¦ Removed default fallback FAQs - now 100% user-provided content
 
 ## Changes Made
 
@@ -20,7 +20,7 @@ Fixed two critical issues in the widget FAQ section:
       <AccordionItem value="item-1">
         <AccordionTrigger>How does voting work?</AccordionTrigger>
         <AccordionContent>
-          You can upvote features you want to see built...
+          You can monkfeed features you want to see built...
         </AccordionContent>
       </AccordionItem>
       {/* 2 more default questions */}
@@ -67,44 +67,44 @@ The About section already properly handles custom logos:
 ```
 
 **Behavior:**
-- ✅ Shows custom logo when `logoUrl` is provided
-- ✅ Falls back to UpVote logo when not provided
-- ✅ Works in both Product Overview and About sections
+- Ã¢Å“â€¦ Shows custom logo when `logoUrl` is provided
+- Ã¢Å“â€¦ Falls back to MonkFeed logo when not provided
+- Ã¢Å“â€¦ Works in both Product Overview and About sections
 
 ### 3. Documentation Updates
 
 #### WIDGET-QUICK-REFERENCE.md
 Added warning note:
 ```markdown
-**⚠️ Important:** FAQs are now **completely customizable**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will be empty. There are no default fallback questions.
+**Ã¢Å¡Â Ã¯Â¸Â Important:** FAQs are now **completely customizable**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will be empty. There are no default fallback questions.
 ```
 
 #### WIDGET-CUSTOMIZATION-GUIDE.md
 Added clarification:
 ```markdown
-**⚠️ Note:** There are **no default FAQs**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will not display any questions. This gives you complete control over what your users see.
+**Ã¢Å¡Â Ã¯Â¸Â Note:** There are **no default FAQs**. If you don't provide any FAQs via the `data-faqs` attribute, the FAQ section will not display any questions. This gives you complete control over what your users see.
 ```
 
 ## Why These Changes Matter
 
 ### Before
-- ❌ Default FAQs showed even when user didn't provide any
-- ❌ Generic questions like "How does voting work?" appeared
-- ❌ Not branded to individual products
-- ❌ Confusing for end users
+- Ã¢ÂÅ’ Default FAQs showed even when user didn't provide any
+- Ã¢ÂÅ’ Generic questions like "How does voting work?" appeared
+- Ã¢ÂÅ’ Not branded to individual products
+- Ã¢ÂÅ’ Confusing for end users
 
 ### After
-- ✅ Only user-provided FAQs display
-- ✅ Complete customization control
-- ✅ FAQs match the specific product/company
-- ✅ Professional, branded experience
-- ✅ Logo always displays correctly
+- Ã¢Å“â€¦ Only user-provided FAQs display
+- Ã¢Å“â€¦ Complete customization control
+- Ã¢Å“â€¦ FAQs match the specific product/company
+- Ã¢Å“â€¦ Professional, branded experience
+- Ã¢Å“â€¦ Logo always displays correctly
 
 ## Usage Example
 
 ### With FAQs (Recommended)
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="APP_ID"
   data-logo-url="/logo.png"
   data-product-overview="Our platform helps teams collaborate."
@@ -124,7 +124,7 @@ Added clarification:
 
 ### Without FAQs (Empty FAQ Section)
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="APP_ID"
   data-logo-url="/logo.png"
   data-product-overview="..."
@@ -138,7 +138,7 @@ Added clarification:
 - [x] Custom FAQs display when provided
 - [x] FAQ section empty when no FAQs provided
 - [x] Custom logo shows in About section
-- [x] UpVote logo shows as fallback
+- [x] MonkFeed logo shows as fallback
 - [x] Product Overview displays correctly
 - [x] About section displays correctly
 - [x] No TypeScript errors
@@ -160,13 +160,13 @@ Added clarification:
 
 ## Impact on Existing Implementations
 
-### ⚠️ Breaking Change Notice
+### Ã¢Å¡Â Ã¯Â¸Â Breaking Change Notice
 
 If you were relying on default FAQs, you need to update:
 
 **Before (worked with defaults):**
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="APP_ID"
   <!-- No FAQs = showed 3 default questions -->
 ></div>
@@ -174,7 +174,7 @@ If you were relying on default FAQs, you need to update:
 
 **After (requires explicit FAQs):**
 ```html
-<div class="upvote-widget"
+<div class="monkfeed-widget"
   data-application-id="APP_ID"
   data-faqs='[
     {"question":"Your Q?","answer":"Your A."}
@@ -202,39 +202,39 @@ data-faqs='[
 ## Benefits
 
 ### For Users
-- ✅ Fully branded FAQ experience
-- ✅ Questions relevant to their specific product
-- ✅ No generic/irrelevant questions
-- ✅ Control over what information is shown
+- Ã¢Å“â€¦ Fully branded FAQ experience
+- Ã¢Å“â€¦ Questions relevant to their specific product
+- Ã¢Å“â€¦ No generic/irrelevant questions
+- Ã¢Å“â€¦ Control over what information is shown
 
 ### For Developers
-- ✅ Complete control over content
-- ✅ No unwanted default text
-- ✅ Cleaner integration
-- ✅ Better documentation
+- Ã¢Å“â€¦ Complete control over content
+- Ã¢Å“â€¦ No unwanted default text
+- Ã¢Å“â€¦ Cleaner integration
+- Ã¢Å“â€¦ Better documentation
 
 ## Visual Comparison
 
 ### Before
 ```
 FAQ Tab
-├─ Product Overview (default text)
-├─ About UpVote (default text)
-└─ Common Questions
-   ├─ How does voting work? ← Generic
-   ├─ Will I be notified? ← Generic
-   └─ Can I suggest anything? ← Generic
+Ã¢â€Å“Ã¢â€â‚¬ Product Overview (default text)
+Ã¢â€Å“Ã¢â€â‚¬ About MonkFeed (default text)
+Ã¢â€â€Ã¢â€â‚¬ Common Questions
+   Ã¢â€Å“Ã¢â€â‚¬ How does voting work? Ã¢â€ Â Generic
+   Ã¢â€Å“Ã¢â€â‚¬ Will I be notified? Ã¢â€ Â Generic
+   Ã¢â€â€Ã¢â€â‚¬ Can I suggest anything? Ã¢â€ Â Generic
 ```
 
 ### After
 ```
 FAQ Tab
-├─ Product Overview (your custom text or none)
-├─ About (your custom text or none)
-└─ Frequently Asked Questions
-   ├─ Your Question 1 ✓
-   ├─ Your Question 2 ✓
-   └─ Your Question 3 ✓
+Ã¢â€Å“Ã¢â€â‚¬ Product Overview (your custom text or none)
+Ã¢â€Å“Ã¢â€â‚¬ About (your custom text or none)
+Ã¢â€â€Ã¢â€â‚¬ Frequently Asked Questions
+   Ã¢â€Å“Ã¢â€â‚¬ Your Question 1 Ã¢Å“â€œ
+   Ã¢â€Å“Ã¢â€â‚¬ Your Question 2 Ã¢Å“â€œ
+   Ã¢â€â€Ã¢â€â‚¬ Your Question 3 Ã¢Å“â€œ
 
 (Or completely empty if no FAQs provided)
 ```
@@ -242,9 +242,9 @@ FAQ Tab
 ## Conclusion
 
 These changes ensure:
-1. ✅ **Complete customization** - Users have full control
-2. ✅ **Better branding** - No generic content
-3. ✅ **Clear expectations** - Documentation updated
-4. ✅ **Professional appearance** - Only relevant FAQs shown
+1. Ã¢Å“â€¦ **Complete customization** - Users have full control
+2. Ã¢Å“â€¦ **Better branding** - No generic content
+3. Ã¢Å“â€¦ **Clear expectations** - Documentation updated
+4. Ã¢Å“â€¦ **Professional appearance** - Only relevant FAQs shown
 
 The widget now provides a truly white-label experience where every piece of content is intentionally chosen by the implementer.

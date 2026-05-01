@@ -32,14 +32,14 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    const upvotes = await prisma.vote.count({
+    const monkfeeds = await prisma.vote.count({
       where: { feedbackId, voteType: 'UPVOTE' }
     });
 
     return NextResponse.json({
       success: true,
-      upvotes,
-      voteCount: upvotes,
+      monkfeeds,
+      voteCount: monkfeeds,
     });
   } catch (error) {
     console.error('Vote error:', error);
@@ -71,14 +71,14 @@ export async function DELETE(request: NextRequest) {
       }
     });
 
-    const upvotes = await prisma.vote.count({
+    const monkfeeds = await prisma.vote.count({
       where: { feedbackId, voteType: 'UPVOTE' }
     });
 
     return NextResponse.json({
       success: true,
-      upvotes,
-      voteCount: upvotes,
+      monkfeeds,
+      voteCount: monkfeeds,
     });
   } catch (error) {
     console.error('Delete vote error:', error);

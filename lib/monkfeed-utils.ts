@@ -1,9 +1,9 @@
 /**
- * UpVote Auth Synchronization Utility
+ * MonkFeed Auth Synchronization Utility
  * Centralizes login/logout events for the feedback widget.
  */
 
-interface UpvoteUser {
+interface MonkFeedUser {
     id: string;
     email: string;
 }
@@ -12,8 +12,8 @@ interface UpvoteUser {
  * Dispatches a custom event when a user logs in.
  * Use this in your login success handler.
  */
-export function syncUpvoteLogin(user: UpvoteUser) {
-    const event = new CustomEvent('upvote:login', { detail: user });
+export function syncMonkFeedLogin(user: MonkFeedUser) {
+    const event = new CustomEvent('monkfeed:login', { detail: user });
     window.dispatchEvent(event);
 }
 
@@ -21,7 +21,7 @@ export function syncUpvoteLogin(user: UpvoteUser) {
  * Dispatches a custom event when a user logs out.
  * Use this in your logout handler.
  */
-export function syncUpvoteLogout() {
-    const event = new CustomEvent('upvote:logout');
+export function syncMonkFeedLogout() {
+    const event = new CustomEvent('monkfeed:logout');
     window.dispatchEvent(event);
 }

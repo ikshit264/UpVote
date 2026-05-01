@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
             where: appWhere
         });
 
-        // 2. Total upvotes/downvotes
+        // 2. Total monkfeeds/downvotes
         const votes = await prisma.vote.groupBy({
             by: ['voteType'],
             where: {
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
             _count: true
         });
 
-        const upvotes = votes.find(v => v.voteType === 'UPVOTE')?._count || 0;
+        const monkfeeds = votes.find(v => v.voteType === 'UPVOTE')?._count || 0;
 
         // 3. Unique users count
         const uniqueUsers = await prisma.feedback.groupBy({
@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
             };
         });
 
-        // 5. Top feedback by upvotes
+        // 5. Top feedback by monkfeeds
         const topFeedback = await prisma.feedback.findMany({
             where: appWhere,
             include: {
@@ -100,13 +100,13 @@ export async function GET(request: NextRequest) {
 
         return NextResponse.json({
             totalFeedback,
-            upvotes,
+            monkfeeds,
             uniqueUsers: allUniqueUsers.size,
             feedbackTrend: trendData,
             topFeedback: topFeedback.map(f => ({
                 id: f.id,
                 title: f.title,
-                upvotes: f._count.votes
+                monkfeeds: f._count.votes
             })),
             tagDistribution: tags.map(t => ({
                 name: t.name,

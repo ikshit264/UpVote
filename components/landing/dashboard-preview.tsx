@@ -102,7 +102,7 @@ export default function DashboardPreview() {
                 </div>
 
                 <div className="flex-1 text-center text-[10px] md:text-sm text-zinc-500 font-medium">
-                  upvote.entrext.com/dashboard
+                  monkfeed.entrext.com/dashboard
                 </div>
 
                 <div className="w-12 md:w-16" />
@@ -115,7 +115,7 @@ export default function DashboardPreview() {
                 <div className="hidden lg:block w-56 border-r bg-zinc-50 p-6 space-y-4">
 
                   <div className="text-lg font-bold mb-6">
-                    Upvote
+                    MonkFeed
                   </div>
 
                   <nav className="space-y-2">

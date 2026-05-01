@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpVote Widget - Testing Page</title>
+    <title>MonkFeed Widget - Testing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="http://localhost:3000/widget.js" async></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
             <div
                 class="w-20 h-20 bg-indigo-600 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl font-black italic shadow-2xl shadow-indigo-600/30">
                 UV</div>
-            <h1 class="text-5xl font-black tracking-tighter text-zinc-900">UpVote Verification</h1>
+            <h1 class="text-5xl font-black tracking-tighter text-zinc-900">MonkFeed Verification</h1>
             <p class="text-zinc-500 text-lg">Use this page to test your widget integration in real-time.</p>
         </div>
 
@@ -76,7 +76,7 @@
     </div>
 
     <!-- WIDGET CONFIGURATION -->
-    <div class="upvote-widget" data-application-id="app_clx7y89z00000abc12345" data-user-id="user_test_999"
+    <div class="monkfeed-widget" data-application-id="app_clx7y89z00000abc12345" data-user-id="user_test_999"
         data-position="right" data-theme="light">
     </div>
 
@@ -87,7 +87,7 @@
             const statusLabel = document.getElementById('script-status');
 
             setTimeout(() => {
-                const btn = document.getElementById('upvote-widget-button');
+                const btn = document.getElementById('monkfeed-widget-button');
                 if (btn) {
                     statusLabel.textContent = 'CONNECTED';
                     statusLabel.className = 'text-[10px] font-bold bg-green-500/10 text-green-500 px-2 py-0.5 rounded';

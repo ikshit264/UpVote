@@ -161,7 +161,7 @@ export default function PricingSection() {
                                 99.9% Uptime SLA
                             </li>
                         </ul>
-                        <Link href="mailto:sales@upvote.com">
+                        <Link href="mailto:sales@monkfeed.com">
                             <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Contact Sales</Button>
                         </Link>
                     </m.div>

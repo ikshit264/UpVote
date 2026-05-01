@@ -70,8 +70,8 @@ export default function AnalyticsContentClient({
       bg: 'bg-zinc-50 dark:bg-black/20',
     },
     {
-      label: 'Total Upvotes',
-      value: stats.upvotes,
+      label: 'Total Votes',
+      value: stats.monkfeeds,
       icon: ArrowUp,
       color: 'text-green-500',
       bg: 'bg-green-50 dark:bg-green-950/20',
@@ -209,7 +209,7 @@ export default function AnalyticsContentClient({
               </div>
               <div className="flex items-center gap-1.5 font-black text-green-500">
                 <ArrowUp className="h-4 w-4" />
-                {item.upvotes}
+                {item.monkfeeds}
               </div>
             </div>
           ))}
