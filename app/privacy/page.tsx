@@ -2,6 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { Shield, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('@/components/landing/footer'), {
+    loading: () => <div className="h-32 bg-zinc-100 dark:bg-zinc-900" />,
+    ssr: true
+});
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
 
@@ -111,6 +117,7 @@ export default function PrivacyPage() {
                     </Link>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

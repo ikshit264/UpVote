@@ -108,7 +108,7 @@ export default function FAQSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 rounded-2xl border-amber-300/35 bg-amber-400 text-lg font-bold text-zinc-950 px-10 shadow-lg shadow-amber-500/20 transition-all hover:scale-[1.02] hover:bg-amber-300 active:scale-[0.98]"
+                  className="h-14 rounded-2xl bg-white text-lg font-bold text-zinc-950 px-10 shadow-lg shadow-zinc-900/10 transition-all hover:scale-[1.02] hover:bg-zinc-700 hover:text-zinc-100"
                 >
                   Talk to Sales
                 </Button>
