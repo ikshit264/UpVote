@@ -1,5 +1,38 @@
 [
     {
+        "slug": "introducing-monkfeed-feedback-widget",
+        "title": "Stop Guessing, Start Building: Introducing Monkfeed, the Feedback Widget That Actually Drives Product Decisions",
+        "description": "Every product manager knows the struggle. You're staring at a roadmap full of 'nice-to-haves,' but you're not 100% sure which feature will actually move the needle.",
+        "image": "/blogs/monkfeed-launch.png",
+        "date": "2026-05-03",
+        "author": "MonkFeed Team",
+        "category": "Product Launch",
+        "metadata": {
+            "title": "Introducing Monkfeed: The Embeddable Feedback Widget for SaaS",
+            "description": "Stop guessing what features to build. Meet Monkfeed, a lightweight, embeddable customer feedback widget that helps SaaS teams prioritize roadmaps and capture real-time insights.",
+            "keywords": "feedback widget, customer feedback tool, SaaS product management, feature prioritization, product roadmap, embeddable feedback widget, user feedback software, Monkfeed launch, SaaS growth"
+        },
+        "faqs": [
+            {
+                "question": "Does it work on mobile apps?",
+                "answer": "Yes! Monkfeed is designed for both SaaS platforms and mobile apps, ensuring a seamless experience across all devices."
+            },
+            {
+                "question": "Can I customize the look and feel?",
+                "answer": "Absolutely. You can match your brand's colors, fonts, and styles to ensure the widget feels like a native part of your product."
+            },
+            {
+                "question": "Is there a free plan?",
+                "answer": "Yes, our Hobby Plan is free forever and perfect for side projects and personal sites."
+            },
+            {
+                "question": "How do you handle spam?",
+                "answer": "We have built-in moderation tools and filtering to keep your feedback submissions clean, useful, and high-quality."
+            }
+        ],
+        "content": "## Why Most Feedback Fails (And How Monkfeed Fixes It)\n\nTraditional feedback loops are broken. They are often slow, disconnected from the user’s workflow, and lack context. When a user has to leave your app to fill out a Typeform© or send an email, you lose momentum and valuable data.\n\nMonkfeed lives inside your application.\n\nBy embedding a simple one-line script, you give users a direct line to your product team. They can suggest features, vote on existing ideas, and engage in discussions without ever leaving the page they are working on.\n\n## The Monkfeed Difference\n\n### Real-Time, Contextual Feedback\nDon’t wait for the next quarterly survey. Capture feedback the moment a user hits a friction point or has a bright idea. Our widget is lightning fast, ensuring your Core Web Vitals stay intact and the user experience remains seamless.\n\n### Smart Prioritization, Not Just Noise\nGetting 1,000 feature requests is useless if you don’t know which ones matter. Monkfeed doesn’t just count votes; it helps you spot the ideas that matter most. By focusing on requests from your most engaged customers and teammates, you can prioritize your roadmap with confidence.\n\n### Rich Discussions, Not Just Data Points\nFeedback isn’t a one-way street. Monkfeed enables rich discussions with comments and threaded replies. This gives your team the context they need to understand the why behind a request, turning a simple \"Add Dark Mode\" vote into a detailed conversation about user workflow.\n\n## A Dashboard Built for Product Teams\n\nForget spreadsheets. Our focused dashboard gives you a bird’s-eye view of your product’s health.\n- **Track Demand**: See exactly how many users are asking for a feature.\n- **Analyze Trends**: Identify sentiment shifts and emerging needs over time.\n- **Measure Engagement**: Monitor response rates and active participation.\n\nTurn feedback into product decisions faster. A focused dashboard for spotting demand, tracking requests, and acting on customer insight quickly.\n\n## Built for Modern Teams\n\nWhether you are a solo developer building a side project or a large enterprise fintech team, Monkfeed scales with you.\n- **Lightweight**: Loads instantly so your site speed stays perfect.\n- **Highly Customizable**: Match your brand with custom colors, fonts, and styles.\n- **Spam Protection**: Keep submissions clean with built-in moderation and filtering.\n- **Dark Mode Ready**: Because we practice what we preach, the dashboard looks great in any light.\n\n## How It Works\n\nSetting up Monkfeed takes seconds, not days.\n1. **Sign Up**: Start with our Hobby Plan (free forever) or choose the Pro or Enterprise plans as you grow. No credit card required.\n2. **Embed**: Copy one line of JavaScript code. It works with HTML, Next.js, React, and more.\n3. **Customize**: Adjust the theme to match your app’s UI.\n4. **Launch**: Users can immediately start monkfeeding features and engaging with your roadmap.\n\n## Join the Feedback Revolution\n\nBuilding better products starts with listening to the people who use them every day. Monkfeed removes the friction between your users and your roadmap, ensuring you build what they actually want.\n\nDon’t let another feature request get lost in the void.\n\nTry Monkfeed Live Today - It’s free to start, and you’ll see the impact on your product strategy immediately."
+    },
+    {
         "slug": "why-canny-is-too-expensive-for-small-b2b-teams-2026",
         "title": "Why Canny is too expensive for small B2B teams in 2026",
         "description": "A direct, value-driven comparison of pricing structures. This post highlights how Cannyâ€™s 'startup' pricing often scales faster than a small team's revenue.",
