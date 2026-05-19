@@ -1,4 +1,4 @@
-import { getBlogBySlug, getAllBlogs } from "@/lib/blogs";
+import { getBlogBySlug, getAllBlogs, type BlogImage, type BlogSection } from "@/lib/blogs";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,50 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import Footer from "@/components/landing/footer";
 import Navbar from "@/components/landing/navbar";
+
+function slugifyHeading(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+}
+
+function BlogFigure({ image }: { image: BlogImage }) {
+    return (
+        <figure className="my-10 not-prose">
+            <div className="relative w-full overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/50 shadow-xl">
+                <Image
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.title || image.alt}
+                    width={image.width || 1600}
+                    height={image.height || 900}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 768px) 100vw, 768px"
+                />
+            </div>
+            {image.caption && (
+                <figcaption className="mt-3 text-center text-sm text-zinc-500 italic px-4">
+                    {image.caption}
+                </figcaption>
+            )}
+        </figure>
+    );
+}
+
+function SectionImages({ images, position }: { images?: BlogImage[]; position: 'before' | 'after' }) {
+    if (!images || images.length === 0) return null;
+    const filtered = images.filter((img) => (img.position || 'after') === position);
+    if (filtered.length === 0) return null;
+    return (
+        <div className={filtered.length > 1 ? "grid grid-cols-1 sm:grid-cols-2 gap-6 my-10" : ""}>
+            {filtered.map((img, idx) => (
+                <BlogFigure key={`${position}-${idx}-${img.src}`} image={img} />
+            ))}
+        </div>
+    );
+}
 
 interface Props {
     params: { slug: string };
@@ -67,6 +111,13 @@ export default async function BlogDetailPage({ params }: Props) {
         notFound();
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://monkfeed.entrext.com';
+
+    const sectionImageUrls = (blog.sections || [])
+        .flatMap((s) => s.images || [])
+        .map((img) => `${baseUrl}${img.src}`);
+    const allImageUrls = [`${baseUrl}${blog.image}`, ...sectionImageUrls];
+
     return (
         <div className="min-h-screen bg-[#0a0a0b] text-white selection:bg-zinc-500/30">
             <Navbar />
@@ -78,13 +129,23 @@ export default async function BlogDetailPage({ params }: Props) {
                         "@type": "BlogPosting",
                         "headline": blog.title,
                         "description": blog.description,
-                        "image": [`${process.env.NEXT_PUBLIC_APP_URL}${blog.image}`],
+                        "image": allImageUrls,
                         "datePublished": blog.date,
+                        "dateModified": blog.date,
                         "author": [{
                             "@type": "Organization",
                             "name": "MonkFeed",
-                            "url": process.env.NEXT_PUBLIC_APP_URL
-                        }]
+                            "url": baseUrl
+                        }],
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "MonkFeed",
+                            "url": baseUrl
+                        },
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": `${baseUrl}/blogs/${blog.slug}`
+                        }
                     })
                 }}
             />
@@ -174,10 +235,12 @@ export default async function BlogDetailPage({ params }: Props) {
                         <div className="relative aspect-21/9 rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
                             <Image
                                 src={blog.image}
-                                alt={blog.title}
+                                alt={blog.imageAlt || blog.title}
+                                title={blog.imageAlt || blog.title}
                                 fill
                                 className="object-cover"
                                 priority
+                                sizes="(max-width: 1024px) 100vw, 1024px"
                             />
                         </div>
                     </div>
@@ -188,7 +251,7 @@ export default async function BlogDetailPage({ params }: Props) {
             <main className="pb-32">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
-                        <article className="prose prose-invert prose-zinc prose-lg max-w-none 
+                        <article className="prose prose-invert prose-zinc prose-lg max-w-none
               prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white
               prose-p:text-zinc-400 prose-p:leading-relaxed
               prose-strong:text-zinc-200 prose-a:text-zinc-400 prose-a:no-underline hover:prose-a:underline
@@ -196,7 +259,25 @@ export default async function BlogDetailPage({ params }: Props) {
               prose-hr:border-zinc-800
               prose-blockquote:border-l-zinc-700 prose-blockquote:bg-zinc-900/50 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:text-zinc-300
             ">
-                            <ReactMarkdown>{blog.content}</ReactMarkdown>
+                            {blog.sections && blog.sections.length > 0 ? (
+                                blog.sections.map((section: BlogSection, idx: number) => {
+                                    const sectionId = section.id || (section.heading ? slugifyHeading(section.heading) : `section-${idx}`);
+                                    return (
+                                        <section key={sectionId} id={sectionId} className="scroll-mt-24">
+                                            {section.heading && (
+                                                <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-white">
+                                                    {section.heading}
+                                                </h2>
+                                            )}
+                                            <SectionImages images={section.images} position="before" />
+                                            <ReactMarkdown>{section.content}</ReactMarkdown>
+                                            <SectionImages images={section.images} position="after" />
+                                        </section>
+                                    );
+                                })
+                            ) : (
+                                <ReactMarkdown>{blog.content || ''}</ReactMarkdown>
+                            )}
                         </article>
 
                         {/* FAQ Section */}

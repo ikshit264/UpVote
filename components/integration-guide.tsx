@@ -51,6 +51,23 @@ export default function IntegrationGuide({
 
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
+    const buildTestWidgetUrl = () => {
+        const params = new URLSearchParams({
+            applicationId,
+            userId: "test-user",
+            email: "test@monkfeed.dev",
+            position: widgetPosition || "right",
+            primaryColor,
+            secondaryColor,
+            bgColor,
+            textColor,
+        });
+        if (widgetLogoUrl) params.set("logoUrl", widgetLogoUrl);
+        if (productOverview) params.set("productOverview", productOverview);
+        if (aboutText) params.set("aboutText", aboutText);
+        return `${baseUrl}/widget?${params.toString()}`;
+    };
+
     const copyToClipboard = async (text: string, id: string) => {
         navigator.clipboard.writeText(text);
         setCopied(id);
@@ -676,7 +693,7 @@ export class MonkFeedWidgetComponent implements OnInit {
                     <Button
                         size="lg"
                         className="bg-white text-zinc-700 hover:bg-zinc-50 rounded-xl font-bold shadow-lg"
-                        onClick={() => window.open(`${baseUrl}/widget`, "_blank")}
+                        onClick={() => window.open(buildTestWidgetUrl(), "_blank", "noopener,noreferrer")}
                     >
                         Test Widget
                         <ExternalLink className="w-4 h-4 ml-2" />
