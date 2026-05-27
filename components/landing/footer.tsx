@@ -27,6 +27,11 @@ export function Footer() {
 
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
+                <Link href="/features" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                  Features
+                </Link>
+              </li>
+              <li>
                 <Link href="/blogs" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
                   Blog
                 </Link>

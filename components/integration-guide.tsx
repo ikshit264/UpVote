@@ -393,7 +393,7 @@ export class MonkFeedWidgetComponent implements OnInit {
                                         size="sm"
                                         variant="outline"
                                         onClick={() => copyToClipboard(framework.code, key)}
-                                        className="rounded-lg"
+                                        className="rounded-lg text-zinc-900 dark:text-zinc-100 hover:text-zinc-900 dark:hover:text-zinc-100"
                                     >
                                         {copied === key ? (
                                             <>

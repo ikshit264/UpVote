@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, ArrowLeft } from 'lucide-react';
 
 import { signIn } from 'next-auth/react';
 import { syncMonkFeedLogin } from '@/lib/monkfeed-sync';
@@ -69,6 +69,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md p-8 bg-white shadow-lg border-0">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-900 mb-4 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to website
+        </Link>
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             MonkFeed
@@ -136,7 +143,7 @@ export default function LoginPage() {
           onClick={handleGoogleSignIn}
           disabled={loading}
           variant="outline"
-          className="w-full border-gray-300 hover:bg-gray-50 cursor-pointer"
+          className="w-full border-gray-300 text-gray-900 hover:bg-gray-50 hover:text-gray-900 cursor-pointer"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
             <path

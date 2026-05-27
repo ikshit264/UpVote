@@ -1,0 +1,380 @@
+[
+    {
+        "slug": "lightning-speed",
+        "title": "Lightning Speed",
+        "tagline": "Your feedback widget shouldn't slow down your site. Ours doesn't — lightning-fast loading keeps your Core Web Vitals intact while capturing every customer insight.",
+        "icon": "🚀",
+        "image": "/features/mf_01_lightning_speed.png",
+        "imageAlt": "MonkFeed Lightning Speed — a lightweight feedback widget that loads fast and protects Core Web Vitals",
+        "order": 1,
+        "metadata": {
+            "title": "Lightning-Fast Feedback Widget | MonkFeed - No Performance Impact",
+            "description": "Embed customer feedback collection without slowing your site. MonkFeed keeps Core Web Vitals intact while capturing insights.",
+            "keywords": "fast feedback widget, lightweight feedback widget, Core Web Vitals, performance feedback tool, no performance impact, async feedback widget, MonkFeed speed"
+        },
+        "hero": {
+            "heading": "Feedback Collection That Doesn't Slow Your Site Down",
+            "subheading": "A bloated feedback tool can cost you rankings, conversions, and trust. MonkFeed loads asynchronously and stays out of your critical path, so you capture every insight without sacrificing a millisecond of performance."
+        },
+        "sections": [
+            {
+                "heading": "The hidden cost of heavy widgets",
+                "content": "Most feedback tools ship a heavy bundle that blocks rendering, hogs the main thread, and drags down your **Largest Contentful Paint**. The result is slower pages, frustrated users, and worse search rankings — the exact opposite of what you wanted when you added a feedback tool.\n\nThe trade-off feels unavoidable: collect feedback *or* keep your site fast. Teams end up delaying installs, gating the widget to a few pages, or removing it entirely after a Lighthouse audit turns red.\n\nYou shouldn't have to choose. Listening to customers should never make their experience worse."
+            },
+            {
+                "heading": "How MonkFeed stays fast",
+                "content": "MonkFeed is engineered to be invisible to your performance budget:\n\n- **Async, non-blocking load** — the widget script loads after your content, never blocking first paint or interactivity.\n- **Tiny footprint** — a lean bundle that won't bloat your page weight.\n- **Lazy rendering** — the full feedback UI mounts only when a user actually opens it, not on every page load.\n- **No layout shift** — the launcher is positioned absolutely, so it never pushes your content around or hurts your CLS.\n- **Edge-served** — `widget.js` is delivered from a fast CDN, close to your users.\n\nDrop it in and your Core Web Vitals stay exactly where they were."
+            },
+            {
+                "heading": "Performance that holds up",
+                "content": "Because the widget loads outside your critical rendering path, the metrics that matter to Google and to your users stay intact:\n\n- **Largest Contentful Paint (LCP)** — unaffected; your hero content renders first.\n- **Cumulative Layout Shift (CLS)** — effectively zero; nothing reflows.\n- **Interaction to Next Paint (INP)** — the main thread stays free for *your* app.\n\nYour Lighthouse score keeps its green, and your SEO keeps its edge — while you collect more feedback than ever."
+            },
+            {
+                "heading": "Built for high-traffic products",
+                "content": "Performance matters most exactly where feedback matters most:\n\n- **SaaS dashboards** — keep complex, data-heavy apps snappy while gathering in-context feature requests.\n- **Mobile and PWA experiences** — a light widget respects limited bandwidth and battery on mobile devices.\n- **High-traffic marketing sites** — capture sentiment at scale without risking the conversion-killing slowdown a heavy script would cause.\n\nWhether you serve thousands or millions of pageviews, MonkFeed scales without dragging you down."
+            },
+            {
+                "heading": "Get started in seconds",
+                "content": "Adding MonkFeed is a two-line change, and it won't move your performance numbers:\n\n```html\n<div class=\"monkfeed-widget\" data-application-id=\"YOUR_APP_ID\"></div>\n<script src=\"https://monkfeed.entrext.com/widget.js\"></script>\n```\n\nThat's it. The widget loads quietly in the background and starts capturing feedback immediately — no build step, no performance penalty, no compromise."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Will MonkFeed slow down my website?",
+                "answer": "No. The widget script loads asynchronously and outside your critical rendering path, so it never blocks your content from painting. The full feedback UI only renders when a user opens it, keeping your Core Web Vitals intact."
+            },
+            {
+                "question": "Does the widget affect my Lighthouse or SEO score?",
+                "answer": "It's designed not to. Because the script is non-blocking, adds no layout shift, and serves from a CDN, your LCP, CLS, and INP stay where they were — protecting both your Lighthouse score and your search rankings."
+            },
+            {
+                "question": "Is it fast enough for high-traffic and mobile sites?",
+                "answer": "Yes. The bundle is intentionally lean and edge-served, so it performs well on mobile connections and scales to high-traffic sites without adding meaningful page weight."
+            }
+        ]
+    },
+    {
+        "slug": "smart-prioritization",
+        "title": "Smart Prioritization",
+        "tagline": "Not all feedback is created equal. Smart prioritization surfaces the requests that matter most — from your most engaged users — so you build what actually moves the needle.",
+        "icon": "📊",
+        "image": "/features/mf_02_smart_prioritization_v2.png",
+        "imageAlt": "MonkFeed Smart Prioritization — surfacing the highest-impact feature requests from engaged users",
+        "order": 2,
+        "metadata": {
+            "title": "Smart Feature Prioritization | MonkFeed - Build What Users Want",
+            "description": "Prioritize feature requests based on engaged user data. Make data-driven product decisions faster with MonkFeed's smart prioritization.",
+            "keywords": "feature prioritization, product roadmap prioritization, feature request voting, data-driven product decisions, user engagement scoring, feedback prioritization tool, MonkFeed"
+        },
+        "hero": {
+            "heading": "Stop Building Features Nobody Wants",
+            "subheading": "Every roadmap has a graveyard of features that shipped to silence. MonkFeed scores demand by who is asking — not just how many — so you invest your sprints where they'll actually pay off."
+        },
+        "sections": [
+            {
+                "heading": "Why prioritization breaks down",
+                "content": "When feedback piles up, teams default to the loudest voice or the biggest customer in the room. The roadmap fills with one-off requests, and you end up shipping **feature bloat** — a sprawling product that's harder to use and harder to maintain.\n\nThe core problem: a raw vote count treats every request the same. Ten votes from trial users who churned next week shouldn't outweigh five votes from power users who renew every year. Without context, prioritization becomes guesswork dressed up as data."
+            },
+            {
+                "heading": "How smart prioritization works",
+                "content": "MonkFeed weighs feedback by **engagement signal**, not just volume. Each request is ranked using factors like:\n\n- **Who voted** — activity level and tenure of the requesting users.\n- **How many** — total demand across your user base.\n- **Recency and momentum** — whether interest is growing or fading.\n- **Discussion depth** — threaded comments that signal genuine need versus a passing wish.\n\nThe result is a prioritized view that surfaces requests from your most invested customers at the top — the ones most likely to translate into retention and revenue."
+            },
+            {
+                "heading": "What you get back",
+                "content": "Prioritizing by real engagement pays off across the board:\n\n- **Faster time-to-market** — you spend cycles on fewer, higher-impact features.\n- **Higher adoption** — features ship to an audience that already asked for them, so usage starts on day one.\n- **Better ROI per sprint** — engineering effort lands where it moves retention and expansion.\n- **A defensible roadmap** — \"here's the demand, weighted by our best users\" beats \"the loudest customer asked.\""
+            },
+            {
+                "heading": "Better than the alternatives",
+                "content": "**Versus building everything:** you avoid the bloat, the maintenance debt, and the diluted UX that comes from saying yes to every request.\n\n**Versus guessing:** you replace gut feel and HiPPO decisions with a transparent, evidence-backed ranking your whole team can rally behind.\n\nPrioritization stops being a debate and becomes a shared, data-driven view of what to build next."
+            },
+            {
+                "heading": "See prioritization in action",
+                "content": "Add MonkFeed to your product, let your users vote and discuss, and watch the highest-impact requests rise to the top automatically. Your next sprint plans itself — backed by the people who matter most to your business."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "How is smart prioritization different from a simple vote count?",
+                "answer": "A raw vote count treats every user the same. MonkFeed weighs requests by engagement signals — who is voting, how active they are, momentum over time, and discussion depth — so demand from your most invested users carries more weight than noise from one-time visitors."
+            },
+            {
+                "question": "Does prioritization help reduce feature bloat?",
+                "answer": "Yes. By surfacing the few requests that genuinely move retention and revenue, it helps you say no to low-impact one-offs and keep your product focused, rather than shipping everything that gets asked for."
+            },
+            {
+                "question": "Can my whole team see the prioritized roadmap?",
+                "answer": "Yes. Prioritization produces a transparent, evidence-backed ranking everyone can view, so roadmap decisions are grounded in shared data instead of whoever argues loudest."
+            }
+        ]
+    },
+    {
+        "slug": "rich-discussions",
+        "title": "Rich Discussions",
+        "tagline": "Threaded replies. Comments. Context. Our feedback widget turns one-liners into real conversations, so you understand why users want what they want.",
+        "icon": "💬",
+        "image": "/features/mf_03_rich_discussions_v2.png",
+        "imageAlt": "MonkFeed Rich Discussions — threaded replies and comments that turn feedback into conversations",
+        "order": 3,
+        "metadata": {
+            "title": "Rich Feedback Discussions | MonkFeed - Threaded Comments & Context",
+            "description": "Transform one-liner feedback into meaningful conversations. Threaded replies, comments, and context for deeper customer insights.",
+            "keywords": "feedback discussions, threaded comments feedback, feature request comments, customer feedback context, feedback conversations, up-voting feedback, MonkFeed"
+        },
+        "hero": {
+            "heading": "Turn Feedback Into Conversations That Matter",
+            "subheading": "\"Add dark mode\" tells you what. A conversation tells you why, for whom, and what done looks like. MonkFeed turns every request into a thread so you build the right thing the first time."
+        },
+        "sections": [
+            {
+                "heading": "Why context beats one-liners",
+                "content": "A one-line request is an iceberg — you see the ask, not the need beneath it. \"Make exports faster\" could mean a 30-second wait feels broken, or that a finance team exports 50,000 rows every Monday. Same words, completely different solutions.\n\nWithout context, teams guess at requirements, ship the wrong interpretation, and watch the feature miss. **Rich feedback** closes that gap by letting users explain, react, and build on each other's ideas — so you understand the real problem before you write a line of code."
+            },
+            {
+                "heading": "Everything a conversation needs",
+                "content": "MonkFeed gives every request the tools of a real discussion:\n\n- **Up-voting** — users rally behind ideas they share, so demand is visible at a glance.\n- **Threaded replies** — responses nest under the comment they answer, keeping debate organized instead of a flat wall of text.\n- **Comment threads** — customers add use cases, edge cases, and \"+1, but also…\" detail that sharpens the requirement.\n- **Notifications** — participants get pinged when a thread moves or status changes, so the conversation stays alive and they feel heard."
+            },
+            {
+                "heading": "The payoff for your team",
+                "content": "Richer discussion turns directly into better delivery:\n\n- **Clearer requirements** — you ship knowing exactly what users meant.\n- **Fewer misunderstandings** — context lives next to the request, not buried in someone's memory.\n- **Faster implementation** — less back-and-forth in refinement because the \"why\" is already documented.\n- **Stronger relationships** — users who are replied to and notified feel like partners, not a ticket number."
+            },
+            {
+                "heading": "How a thread unfolds",
+                "content": "A typical conversation flows naturally:\n\n1. A user posts: *\"Wish I could filter the dashboard by team.\"*\n2. Three others up-vote and one replies: *\"Same — specifically by team **and** date range for our monthly review.\"*\n3. Your PM jumps in to ask a clarifying question, and the original poster confirms the exact use case.\n4. You mark it **Planned**, everyone in the thread is notified, and the requirement is fully scoped before it ever hits a sprint board.\n\nWhat started as one line ends as a spec."
+            },
+            {
+                "heading": "Fits the way your team already works",
+                "content": "Discussions don't live in a silo. Use status changes to keep customers in the loop, fold the documented context straight into your sprint planning, and let the thread itself serve as the lightweight spec your engineers reference. Try the discussion widget and watch one-liners become decisions."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "How are rich discussions better than a simple comment box?",
+                "answer": "A flat comment box collects disconnected one-liners. MonkFeed adds threaded replies, up-voting, and notifications so users build on each other's ideas, demand becomes visible, and the full context of a request stays organized in one place."
+            },
+            {
+                "question": "Do users get notified when a discussion is updated?",
+                "answer": "Yes. Participants are notified when a thread gets new replies or when a request's status changes, which keeps the conversation active and makes customers feel genuinely heard."
+            },
+            {
+                "question": "How do discussions help my engineering team?",
+                "answer": "The thread documents the real requirement — use cases, edge cases, and clarifications — right next to the request. That means clearer scope, fewer misunderstandings in refinement, and faster implementation."
+            }
+        ]
+    },
+    {
+        "slug": "one-line-code-embed",
+        "title": "One-Line Code Embed",
+        "tagline": "Embed in seconds. Works with React, Next.js, HTML, and more. Collecting customer feedback shouldn't require an engineering sprint — add one line of code and you're done.",
+        "icon": "⚙️",
+        "image": "/features/mf_04_one-line_embed_v2.png",
+        "imageAlt": "MonkFeed One-Line Code Embed — add a feedback widget with a single snippet across any framework",
+        "order": 4,
+        "metadata": {
+            "title": "One-Line Code Embed | MonkFeed - Instant Feedback Widget Setup",
+            "description": "Add customer feedback in seconds. One line of code. Works with React, Next.js, HTML, and any tech stack. No complex integrations.",
+            "keywords": "embed feedback widget, one line code feedback, React feedback widget, Next.js feedback widget, HTML feedback embed, easy feedback integration, no-code feedback, MonkFeed"
+        },
+        "hero": {
+            "heading": "Feedback Collection in Seconds, Not Sprints",
+            "subheading": "No SDK to wire up, no backend to provision, no integration ticket sitting in the backlog. Paste a snippet, ship, and start collecting feedback today."
+        },
+        "sections": [
+            {
+                "heading": "Integration shouldn't need a sprint",
+                "content": "Too many feedback tools turn a simple goal — *listen to users* — into an engineering project. You install an SDK, configure a backend, manage API keys, write event handlers, and wait for the next release cycle before a single piece of feedback comes in.\n\nThat overhead is why so many teams *plan* to add feedback and never do. The friction kills the initiative before it starts."
+            },
+            {
+                "heading": "How it works",
+                "content": "MonkFeed is a script and a container element. Drop these two lines anywhere in your page and the widget mounts itself:\n\n```html\n<div class=\"monkfeed-widget\" data-application-id=\"YOUR_APP_ID\"></div>\n<script src=\"https://monkfeed.entrext.com/widget.js\"></script>\n```\n\nThe script finds the container by its `monkfeed-widget` class, reads your configuration from `data-` attributes, and renders the launcher. No build step, no bundler config, no backend. It just works."
+            },
+            {
+                "heading": "Works with your stack",
+                "content": "Because it's plain HTML and JavaScript, MonkFeed drops into virtually any framework:\n\n- **HTML / static sites** — paste the snippet into your template.\n- **React** — render the `<div>` and load the script with an effect or `<script>` tag.\n- **Next.js** — use `next/script` to load `widget.js` and place the container in your layout.\n- **Vue, Angular, Svelte** — the same container-plus-script pattern applies everywhere.\n\nIf your framework renders HTML, MonkFeed fits."
+            },
+            {
+                "heading": "Step-by-step",
+                "content": "1. **Grab your snippet** from the MonkFeed dashboard — your `application-id` is already filled in.\n2. **Paste the container** `<div>` where you want the launcher to appear.\n3. **Add the script** tag (once per page, ideally near the closing `</body>`).\n4. **Customize** with optional `data-` attributes for position, colors, and branding.\n5. **Ship it.** The widget appears and starts collecting feedback immediately.\n\nFor single-page apps, just update the container's attributes to re-trigger the widget on navigation."
+            },
+            {
+                "heading": "Measured in minutes and lines",
+                "content": "The numbers tell the story:\n\n- **Lines of code:** 2\n- **Build steps:** 0\n- **Backend setup:** none\n- **Time to first feedback:** minutes, not the days or weeks an SDK integration usually takes.\n\nGrab your code snippet from the dashboard and have feedback flowing before your coffee gets cold."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Do I really only need one snippet to add MonkFeed?",
+                "answer": "Yes. A container <div> with the monkfeed-widget class plus a single <script> tag is all it takes. The script reads your configuration from data- attributes and mounts the widget — no SDK, build step, or backend required."
+            },
+            {
+                "question": "Does it work with React and Next.js?",
+                "answer": "Yes. Render the container element and load widget.js — in Next.js you can use next/script. The same container-plus-script pattern works with Vue, Angular, Svelte, and plain HTML too."
+            },
+            {
+                "question": "How do I make the widget update in a single-page app?",
+                "answer": "In SPAs, update the container div's data- attributes (for example on route change) to re-trigger the widget. MonkFeed also exposes a cleanup hook so you can remount cleanly during client-side navigation."
+            }
+        ]
+    },
+    {
+        "slug": "full-customization",
+        "title": "Full Customization",
+        "tagline": "Make it yours. Match your brand colors, fonts, and styles — plus full dark mode support. Your feedback widget should look like you.",
+        "icon": "🎨",
+        "image": "/features/mf_05_customization.png",
+        "imageAlt": "MonkFeed Full Customization — a feedback widget styled to match your brand colors and dark mode",
+        "order": 5,
+        "metadata": {
+            "title": "Customizable Feedback Widget | MonkFeed - Match Your Brand",
+            "description": "Customize colors, fonts, and styles. Full dark mode support. Make your feedback widget feel like your product.",
+            "keywords": "customizable feedback widget, branded feedback widget, white label feedback, dark mode feedback widget, widget colors, feedback widget styling, MonkFeed customization"
+        },
+        "hero": {
+            "heading": "Your Feedback Widget, Your Brand",
+            "subheading": "A feedback widget that looks bolted-on erodes trust the moment it opens. MonkFeed adapts to your colors, your placement, and your light or dark theme — so it feels like a native part of your product."
+        },
+        "sections": [
+            {
+                "heading": "Why brand consistency matters",
+                "content": "Every touchpoint either reinforces your brand or chips away at it. A generic, off-brand widget signals \"third-party tool\" — and users are warier about sharing honest feedback with a stranger than with *you*.\n\nWhen the feedback experience matches your product's look and feel, it reads as a first-party feature. Users trust it, engage with it more, and the insights you collect go up as a direct result. Consistency isn't cosmetic; it's a conversion lever."
+            },
+            {
+                "heading": "Customization options",
+                "content": "MonkFeed exposes the controls that matter through simple `data-` attributes — no fork, no custom build:\n\n- **Placement** — anchor the launcher in the corner that fits your layout via `data-position`.\n- **Colors** — set primary, secondary, background, text, and launcher colors to match your palette.\n- **Branding** — add your logo, a product overview, and an about section so the widget speaks in your voice.\n- **Content** — preload FAQs so users get answers before they even submit.\n\nEverything is configurable from the embed snippet, so you can theme the widget without touching its internals."
+            },
+            {
+                "heading": "Dark mode, done right",
+                "content": "Dark mode isn't an afterthought — it's a baseline expectation. MonkFeed ships with **full dark mode support** so the widget looks intentional against a dark UI instead of glaring white.\n\nThe benefits compound: reduced eye strain for users in low-light settings, a consistent feel for products that default to dark, and one less reason for the widget to feel out of place. Set your dark-friendly colors and the launcher, panels, and text all follow suit."
+            },
+            {
+                "heading": "Advanced styling with CSS",
+                "content": "Need pixel-level control? Power users can target the widget's classes — like `.monkfeed-widget` — with their own CSS to fine-tune spacing, typography, and accents beyond the attribute presets.\n\nThis gives design teams an escape hatch: start from the `data-` attribute configuration for speed, then layer custom CSS for the finishing touches that make the widget unmistakably yours."
+            },
+            {
+                "heading": "Looks right on every screen",
+                "content": "Customization that breaks on mobile isn't customization. The widget is **responsive by default** — the launcher and panels adapt to small screens, touch targets stay comfortable, and your branding holds up from desktop down to phone.\n\nConfigure it once and trust it to look polished everywhere your users are. Design your widget to match your product, top to bottom."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "What can I customize on the widget?",
+                "answer": "You can set the launcher position, primary/secondary/background/text/launcher colors, your logo, product overview, about text, and preloaded FAQs — all through data- attributes on the embed snippet, with no custom build required."
+            },
+            {
+                "question": "Does MonkFeed support dark mode?",
+                "answer": "Yes, full dark mode is supported. Set your dark-friendly colors and the launcher, panels, and text adapt, so the widget looks intentional against a dark UI instead of a glaring white box."
+            },
+            {
+                "question": "Can advanced users apply custom CSS?",
+                "answer": "Yes. Beyond the data- attribute presets, you can target the widget's classes (such as .monkfeed-widget) with your own CSS for pixel-level control over spacing, typography, and accents."
+            }
+        ]
+    },
+    {
+        "slug": "spam-protection",
+        "title": "Spam Protection",
+        "tagline": "Spam-free feedback, guaranteed. Built-in moderation and filtering keep your insights clean and actionable, so you can focus on what matters.",
+        "icon": "🛡️",
+        "image": "/features/mf_06_spam_protection.png",
+        "imageAlt": "MonkFeed Spam Protection — moderation and filtering that keep feedback clean and actionable",
+        "order": 6,
+        "metadata": {
+            "title": "Spam Protection for Feedback | MonkFeed - Clean, Actionable Insights",
+            "description": "Built-in moderation and filtering. Spam-free feedback guaranteed. Keep your insights clean and actionable with MonkFeed's protection.",
+            "keywords": "feedback spam protection, feedback moderation, spam filtering, clean feedback, feedback verification, GDPR feedback, rate limiting feedback, MonkFeed"
+        },
+        "hero": {
+            "heading": "Spam-Free Feedback, Guaranteed",
+            "subheading": "Bots and junk submissions don't just waste time — they bury the signal you need. MonkFeed filters the noise with verification, AI moderation, and rate limiting so every insight you read is worth reading."
+        },
+        "sections": [
+            {
+                "heading": "The real cost of spam",
+                "content": "An open feedback channel is an open door for noise: bot submissions, promotional junk, duplicate rants, and low-effort comments. Each one steals time — someone has to read it, triage it, and dismiss it.\n\nWorse, spam **buries the signal**. The thoughtful feature request from your best customer gets lost in a sea of garbage, and decisions get made on a dataset you can't trust. Dirty feedback is often worse than no feedback at all, because it *feels* like data while quietly misleading you."
+            },
+            {
+                "heading": "Layered protection mechanisms",
+                "content": "MonkFeed keeps feedback clean with defense in depth:\n\n- **User login and verification** — optional identity via `data-user-id` and `data-email` ties feedback to real, attributable users and deters drive-by spam.\n- **AI filtering** — automated detection flags spammy, abusive, or low-quality submissions before they reach your queue.\n- **Moderation tools** — review, approve, hide, or remove submissions so you stay in control of what's public.\n- **Rate limiting** — throttling stops bots and bad actors from flooding your board with bulk submissions.\n\nTogether these layers catch the noise so your team never has to."
+            },
+            {
+                "heading": "Compliance and security built in",
+                "content": "Clean feedback and responsible data handling go hand in hand. MonkFeed is built with **privacy in mind** — feedback is tied to the minimal attribution you choose to share, and you control what's collected and displayed.\n\nFor teams with **GDPR** and data-privacy obligations, that matters: you decide whether to capture identity, you can moderate or remove content, and you keep a defensible, well-governed feedback record instead of an unmoderated free-for-all."
+            },
+            {
+                "heading": "Automatic and manual, your choice",
+                "content": "Different teams want different levels of control:\n\n- **Automatic moderation** — let AI filtering and rate limiting run in the background and only surface what's clean. Best for high volume and lean teams.\n- **Manual moderation** — review submissions before they go public when you want a human in the loop for sensitive products.\n\nMix the two: auto-filter the obvious junk, then manually approve the gray areas. You set the threshold."
+            },
+            {
+                "heading": "The ROI of clean feedback",
+                "content": "Spam protection isn't a nice-to-have — it's what makes the rest of your feedback program work:\n\n- **Time saved** — your team analyzes insights instead of deleting junk.\n- **Better decisions** — prioritization runs on trustworthy data, not a polluted dataset.\n- **More trust** — a clean, well-moderated board is one customers actually want to participate in.\n\nProtect your feedback, and everything downstream gets sharper."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "How does MonkFeed keep feedback free of spam?",
+                "answer": "It uses layered protection: optional user login and verification, AI filtering that flags spammy or low-quality submissions, moderation tools to approve or remove content, and rate limiting to stop bots from flooding your board."
+            },
+            {
+                "question": "Can I review feedback before it becomes public?",
+                "answer": "Yes. You can run automatic moderation that surfaces only clean submissions, manual moderation that puts a human in the loop, or a mix — auto-filtering obvious junk while manually approving the gray areas."
+            },
+            {
+                "question": "Is MonkFeed suitable for GDPR-conscious teams?",
+                "answer": "Yes. It's built with privacy in mind: you control what identity data is captured, feedback is tied only to the attribution you choose to share, and you can moderate or remove content to keep a defensible, well-governed record."
+            }
+        ]
+    },
+    {
+        "slug": "analytics-and-trends",
+        "title": "Analytics & Trends",
+        "tagline": "Spot demand. Track sentiment. See what's trending. Our analytics dashboard turns raw feedback into product roadmap gold.",
+        "icon": "📈",
+        "image": "/features/mf_07_analytics_and_trends.png",
+        "imageAlt": "MonkFeed Analytics & Trends — a dashboard turning raw feedback into demand, sentiment, and trend insights",
+        "order": 7,
+        "metadata": {
+            "title": "Feedback Analytics & Trends | MonkFeed - Turn Insights Into Roadmap Gold",
+            "description": "Spot demand, track sentiment, and see what's trending. MonkFeed's analytics dashboard turns raw feedback into data-driven product decisions.",
+            "keywords": "feedback analytics, product feedback trends, sentiment analysis, feature demand tracking, feedback dashboard, data-driven roadmap, product analytics, MonkFeed"
+        },
+        "hero": {
+            "heading": "Turn Raw Feedback Into Roadmap Gold",
+            "subheading": "Hundreds of comments and votes are only as useful as the patterns you can pull from them. MonkFeed's analytics dashboard turns the firehose into a clear read on demand, sentiment, and momentum."
+        },
+        "sections": [
+            {
+                "heading": "Raw feedback is just noise",
+                "content": "A growing pile of feedback feels productive — until you have to act on it. Scrolling individual comments doesn't tell you what's *trending*, which themes are *accelerating*, or how customers actually *feel*.\n\nWithout aggregation, every roadmap conversation restarts from anecdotes: \"I think a lot of people asked for this.\" Analytics replace that hunch with a number, so you can argue from evidence instead of memory."
+            },
+            {
+                "heading": "What the dashboard shows you",
+                "content": "MonkFeed turns scattered submissions into a single, scannable view:\n\n- **Demand** — which features and themes are most requested, ranked at a glance.\n- **Sentiment** — how customers feel, not just what they ask for.\n- **Trends** — what's gaining momentum versus fading, over time.\n- **Engagement** — votes, comments, and participation that reveal how strongly users care.\n\nInstead of reading feedback one item at a time, you see the shape of the whole conversation."
+            },
+            {
+                "heading": "Track sentiment, not just volume",
+                "content": "Volume tells you *how many*; sentiment tells you *how it's landing*. A feature with lots of requests but souring sentiment is a very different signal than one with steady, positive demand.\n\nBy tracking sentiment alongside request counts, you catch frustration early — a rising tide of negative feedback about a flow you just shipped — and you double down on the wins your customers are genuinely excited about."
+            },
+            {
+                "heading": "Spot trends before your competitors",
+                "content": "The most valuable insight is the one you see first. Trend detection surfaces themes that are **accelerating** — the requests quietly gaining votes week over week — so you can act while the opportunity is fresh.\n\nThat early read lets you align the roadmap with real, rising demand instead of reacting after a competitor has already shipped it."
+            },
+            {
+                "heading": "From insight to decision",
+                "content": "Analytics only matter if they change what you build. MonkFeed connects the dots from signal to action:\n\n- **Prioritize** the high-demand, high-sentiment themes with confidence.\n- **Validate** ideas with data before committing engineering time.\n- **Communicate** the \"why\" behind roadmap calls to your team and customers.\n\nExplore your analytics and let the data write the first draft of your roadmap."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "What does the MonkFeed analytics dashboard show?",
+                "answer": "It aggregates your feedback into a single view of demand (most-requested themes), sentiment (how customers feel), trends (what's gaining or losing momentum), and engagement (votes, comments, and participation) — so you see the whole conversation, not one comment at a time."
+            },
+            {
+                "question": "Does it track sentiment as well as request volume?",
+                "answer": "Yes. Tracking sentiment alongside volume lets you tell the difference between a heavily requested feature with souring sentiment and one with steady, positive demand — so you catch frustration early and double down on genuine wins."
+            },
+            {
+                "question": "How do analytics help with roadmap decisions?",
+                "answer": "They replace anecdotes with evidence. You can prioritize high-demand, high-sentiment themes, validate ideas with data before committing engineering time, and clearly communicate the reasoning behind roadmap decisions to your team and customers."
+            }
+        ]
+    }
+]

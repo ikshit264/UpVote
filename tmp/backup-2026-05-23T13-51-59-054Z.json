@@ -1,0 +1,2505 @@
+{
+  "takenAt": "2026-05-23T13:51:59.056Z",
+  "companies": [
+    {
+      "id": "69a41d73bc21688fb5a88fd5",
+      "email": "team0@entrext.com",
+      "passwordHash": "$2b$10$OXzqDRgEx5rKVY7C1wxV5OQkJ5qMofYp4Ni2x0PqCmsvjkZT5mvva",
+      "googleId": null,
+      "name": "Team 0",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:05:23.317Z"
+    },
+    {
+      "id": "69a41de35cbcf4f0c89e8968",
+      "email": "team1@entrext.com",
+      "passwordHash": "$2b$10$X5mh.c2Bwpin6ijmDTw7k.jF0MtRkOKlwu.kOBasb7kxxwVCeWVh2",
+      "googleId": null,
+      "name": "Team 1",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:07:15.169Z"
+    },
+    {
+      "id": "69a41de35cbcf4f0c89e8969",
+      "email": "team2@entrext.com",
+      "passwordHash": "$2b$10$eDdZRlgfn2svluhvRCYJfuz7DeCNrM.D8FRr1jVU1IJmA0fmBCBVy",
+      "googleId": null,
+      "name": "Team 2",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:07:15.494Z"
+    },
+    {
+      "id": "69a41de35cbcf4f0c89e896a",
+      "email": "team3@entrext.com",
+      "passwordHash": "$2b$10$o4fE0SaCu0VZcNolKgCK7e.UgDOVAsk/37Qv5kvNvw0ieN9gHPqLO",
+      "googleId": null,
+      "name": "Team 3",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:07:15.775Z"
+    },
+    {
+      "id": "69a41de45cbcf4f0c89e896b",
+      "email": "team4@entrext.com",
+      "passwordHash": "$2b$10$zGINTLlO3IJBE5qocrvgSeMZ96N0uQmcCgaa8/DQshTcDz615JUXS",
+      "googleId": null,
+      "name": "Team 4",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:07:16.064Z"
+    },
+    {
+      "id": "69a41de45cbcf4f0c89e896c",
+      "email": "team5@entrext.com",
+      "passwordHash": "$2b$10$ScuFVVgcJ0qxEy3a.bpQje0V0iwu5rfrKYc9.40248SBj2vWaFV2m",
+      "googleId": null,
+      "name": "Team 5",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-01T11:07:16.334Z"
+    },
+    {
+      "id": "69a4ae45c70844bd0c9ba35f",
+      "email": "ikshit.talera@gmail.com",
+      "passwordHash": null,
+      "googleId": "112873294439942614334",
+      "name": "Ikshit Talera",
+      "isEntrextTeam": false,
+      "createdAt": "2026-03-01T21:23:17.250Z"
+    },
+    {
+      "id": "69aa0f515190de9c73a65cc2",
+      "email": "team6@entrext.com",
+      "passwordHash": "$2b$10$8NbJQBzzlT0KQD2IbluSkefSjM1wTfBzOeM77KNQ8ZvNpvwVy9evm",
+      "googleId": null,
+      "name": "Team 6",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-05T23:18:41.266Z"
+    },
+    {
+      "id": "69aa0f515190de9c73a65cc3",
+      "email": "team7@entrext.com",
+      "passwordHash": "$2b$10$p9vlro9ivqOPcn.MgCihwOmhqWSv2zT.vSlicQAakQf30jfwqBj0C",
+      "googleId": null,
+      "name": "Team 7",
+      "isEntrextTeam": true,
+      "createdAt": "2026-03-05T23:18:41.438Z"
+    },
+    {
+      "id": "69ad771e006229180183c1f5",
+      "email": "komalsiddharth814@gmail.com",
+      "passwordHash": null,
+      "googleId": "113438922793798172588",
+      "name": "Komal Siddharth",
+      "isEntrextTeam": false,
+      "createdAt": "2026-03-08T13:18:22.093Z"
+    },
+    {
+      "id": "69ad7ab7006229180183c1f9",
+      "email": "surya.nallagonda@gmail.com",
+      "passwordHash": "$2b$10$NiwW/DX4epPHnXizPS8/I.mmlxX1PSaT/Dzq.V6lF/hWUhKM2/Wsy",
+      "googleId": null,
+      "name": "ikshit",
+      "isEntrextTeam": false,
+      "createdAt": "2026-03-08T13:33:43.772Z"
+    },
+    {
+      "id": "69c153b494c1919258747d5c",
+      "email": "sagavekararyan@gmail.com",
+      "passwordHash": null,
+      "googleId": "107279965053030922102",
+      "name": "Aryan Sagavekar",
+      "isEntrextTeam": false,
+      "createdAt": "2026-03-23T14:52:36.086Z"
+    },
+    {
+      "id": "69dfab406655d26a63e08d9b",
+      "email": "garvthakralfx@gmail.com",
+      "passwordHash": null,
+      "googleId": "115632166487437181559",
+      "name": "Garv Thakral",
+      "isEntrextTeam": false,
+      "createdAt": "2026-04-15T15:14:08.500Z"
+    },
+    {
+      "id": "69dfad78f759a4537071f4ca",
+      "email": "mohitxsharma09@gmail.com",
+      "passwordHash": null,
+      "googleId": "115219642979701923443",
+      "name": "Mohit Sharma",
+      "isEntrextTeam": false,
+      "createdAt": "2026-04-15T15:23:36.672Z"
+    },
+    {
+      "id": "69e53dfa5954fc577d43e987",
+      "email": "s@gmail.com",
+      "passwordHash": "$2b$10$SCucinrXky5ztdaVsj30reJi6ah6U6R9DMltv4kvxZh/wtFRJFUYy",
+      "googleId": null,
+      "name": "s",
+      "isEntrextTeam": false,
+      "createdAt": "2026-04-19T20:41:30.250Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "69a41f203a9a405a41b02afc",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "InviteFlow",
+      "createdAt": "2026-03-01T11:12:32.604Z"
+    },
+    {
+      "id": "69a41f4f3a9a405a41b02afe",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "SubSafe",
+      "createdAt": "2026-03-01T11:13:19.662Z"
+    },
+    {
+      "id": "69ad141a34328edaba8e1b81",
+      "companyId": "69a41d73bc21688fb5a88fd5",
+      "name": "SkillVibe",
+      "createdAt": "2026-03-08T06:15:54.797Z"
+    },
+    {
+      "id": "69ad73a0bdabf4c809dacb82",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "name": "sessionly",
+      "createdAt": "2026-03-08T13:03:28.150Z"
+    },
+    {
+      "id": "69ad7733006229180183c1f7",
+      "companyId": "69ad771e006229180183c1f5",
+      "name": "NeuraVerse",
+      "createdAt": "2026-03-08T13:18:43.235Z"
+    },
+    {
+      "id": "69b3b8edf6afcee5f4330531",
+      "companyId": "69a41d73bc21688fb5a88fd5",
+      "name": "BuildInPublic",
+      "createdAt": "2026-03-13T07:12:45.314Z"
+    },
+    {
+      "id": "69b42f8e586572cf100724c5",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Nurturely",
+      "createdAt": "2026-03-13T15:38:54.019Z"
+    },
+    {
+      "id": "69b43ea5861752ae99cd14bb",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "CurioCafe",
+      "createdAt": "2026-03-13T16:43:17.829Z"
+    },
+    {
+      "id": "69b59e949da3a2c7ec28f1fc",
+      "companyId": "69a4ae45c70844bd0c9ba35f",
+      "name": "asasa",
+      "createdAt": "2026-03-14T17:44:52.206Z"
+    },
+    {
+      "id": "69b6c4e6f244031d81ca6da6",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "Babysimple",
+      "createdAt": "2026-03-15T14:40:38.972Z"
+    },
+    {
+      "id": "69b6d0fe5cc6277f2375180e",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "SecretRoom",
+      "createdAt": "2026-03-15T15:32:14.852Z"
+    },
+    {
+      "id": "69b6fc563c257178f36b2a92",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "Editflow",
+      "createdAt": "2026-03-15T18:37:10.806Z"
+    },
+    {
+      "id": "69baa800f2b9c4ec3d6aea89",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Soho Space",
+      "createdAt": "2026-03-18T13:26:24.630Z"
+    },
+    {
+      "id": "69baa8f0f2b9c4ec3d6aea8a",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "PickSpy",
+      "createdAt": "2026-03-18T13:30:24.634Z"
+    },
+    {
+      "id": "69baa955dd284c93bc8b0d4e",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "FutureFit",
+      "createdAt": "2026-03-18T13:32:05.807Z"
+    },
+    {
+      "id": "69be329a58344d4f3ca2c6ef",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "name": "inbox",
+      "createdAt": "2026-03-21T05:54:34.376Z"
+    },
+    {
+      "id": "69c16f424fa9731c0441a765",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "FinGenius",
+      "createdAt": "2026-03-23T16:50:10.812Z"
+    },
+    {
+      "id": "69c1729fb534274331e96721",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "DOCAI",
+      "createdAt": "2026-03-23T17:04:31.631Z"
+    },
+    {
+      "id": "69c21a3ed02e1883a4503f5c",
+      "companyId": "69c153b494c1919258747d5c",
+      "name": "EdgeFoundation",
+      "createdAt": "2026-03-24T04:59:42.082Z"
+    },
+    {
+      "id": "69c2c48ef66da0a8aef41c23",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "OpinVox",
+      "createdAt": "2026-03-24T17:06:22.026Z"
+    },
+    {
+      "id": "69c7eb68a59168ff8d08615a",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Arctic",
+      "createdAt": "2026-03-28T14:53:28.922Z"
+    },
+    {
+      "id": "69ca72a2cbc3499b308bf80c",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "BranchScope",
+      "createdAt": "2026-03-30T12:54:58.541Z"
+    },
+    {
+      "id": "69cc03a83b83f3df5f0cd419",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Upvote",
+      "createdAt": "2026-03-31T17:26:00.478Z"
+    },
+    {
+      "id": "69cfff1ed282b633a3387f58",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "Auraix",
+      "createdAt": "2026-04-03T17:55:42.240Z"
+    },
+    {
+      "id": "69d113e2907ca65231e55ae8",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "envdrop",
+      "createdAt": "2026-04-04T13:36:34.229Z"
+    },
+    {
+      "id": "69d56992c6bf2acb4955e625",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "name": "Sprintforage",
+      "createdAt": "2026-04-07T20:31:14.400Z"
+    },
+    {
+      "id": "69e5402f5954fc577d43e988",
+      "companyId": "69e53dfa5954fc577d43e987",
+      "name": "aa",
+      "createdAt": "2026-04-19T20:50:55.148Z"
+    },
+    {
+      "id": "69e78fcc1504959fb54d0ae8",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "name": "Vent",
+      "createdAt": "2026-04-21T14:55:08.108Z"
+    },
+    {
+      "id": "6a0b22aeff5533e2916ecac7",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Example Test 009",
+      "createdAt": "2026-05-18T14:31:10.864Z"
+    },
+    {
+      "id": "6a0d975c0bb6eb68122bedd6",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Example Test 010",
+      "createdAt": "2026-05-20T11:13:32.101Z"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "69c16faf1629e9fc64e077da",
+      "applicationId": "69b6fc563c257178f36b2a92",
+      "userId": "87078c07-a724-47b5-892e-0490a77c90b5",
+      "title": "all good",
+      "description": "",
+      "status": "Planned",
+      "createdAt": "2026-03-23T16:51:59.179Z",
+      "updatedAt": "2026-03-23T16:52:39.278Z"
+    },
+    {
+      "id": "69c4427ace20fea403c48162",
+      "applicationId": "69c1729fb534274331e96721",
+      "userId": "USER_ID",
+      "title": "hi",
+      "description": "",
+      "status": "Open",
+      "createdAt": "2026-03-25T20:15:54.501Z",
+      "updatedAt": "2026-03-25T20:15:54.501Z"
+    },
+    {
+      "id": "69cab277c71f154eefb76db2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "title": "Wow, Dammmm",
+      "description": "Great product man loved the idea and the user flow",
+      "status": "Planned",
+      "createdAt": "2026-03-30T17:27:19.429Z",
+      "updatedAt": "2026-05-23T12:46:55.334Z"
+    },
+    {
+      "id": "69cab277c71f154eefb26db1",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "title": "Loved the app",
+      "description": "Cool product",
+      "status": "Open",
+      "createdAt": "2026-03-28T17:27:19.429Z",
+      "updatedAt": "2026-03-28T17:27:19.429Z"
+    },
+    {
+      "id": "69cab277c71f154eefb26db2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "title": "Found something meaningful after a very long time",
+      "description": "Crazy bro",
+      "status": "Open",
+      "createdAt": "2026-03-28T17:27:19.429Z",
+      "updatedAt": "2026-03-28T17:27:19.429Z"
+    },
+    {
+      "id": "69cab277c71f154eefb26db3",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "title": "will be the first place i do my research from now",
+      "description": "",
+      "status": "In Progress",
+      "createdAt": "2026-03-29T17:27:19.429Z",
+      "updatedAt": "2026-03-30T17:49:37.158Z"
+    },
+    {
+      "id": "69cab277c71f154eefb26db4",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "title": "Nice for research",
+      "description": "",
+      "status": "Open",
+      "createdAt": "2026-03-25T17:27:19.429Z",
+      "updatedAt": "2026-03-25T17:27:19.429Z"
+    },
+    {
+      "id": "69cb7cd3af6d9e201c8cf016",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_013",
+      "title": "Keyboard shortcuts",
+      "description": "Power users would benefit from keyboard shortcuts for common actions like navigating between feedbacks, changing status, etc.",
+      "status": "Open",
+      "createdAt": "2026-03-30T12:29:05.765Z",
+      "updatedAt": "2026-03-30T12:29:05.765Z"
+    },
+    {
+      "id": "69cb7cd4af6d9e201c8cf01a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_009",
+      "title": "Comment threading on feedback",
+      "description": "Allow threaded discussions on feedback items so team members and users can have structured conversations.",
+      "status": "Open",
+      "createdAt": "2026-03-30T13:30:26.567Z",
+      "updatedAt": "2026-03-30T13:30:26.567Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf021",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_023",
+      "title": "Merge duplicate feedback items",
+      "description": "When duplicates are found, we should be able to merge them into one item while preserving all votes and comments.",
+      "status": "Open",
+      "createdAt": "2026-03-29T09:49:56.998Z",
+      "updatedAt": "2026-03-29T09:49:56.998Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf025",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_016",
+      "title": "Feedback sentiment analysis",
+      "description": "Use NLP to automatically tag feedback as positive, negative, or neutral to quickly gauge user sentiment.",
+      "status": "Open",
+      "createdAt": "2026-03-29T16:21:13.427Z",
+      "updatedAt": "2026-03-29T16:21:13.427Z"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf02d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_012",
+      "title": "Duplicate detection",
+      "description": "Users are submitting similar feedback multiple times. An AI-based duplicate detection would save us time on triaging.",
+      "status": "Open",
+      "createdAt": "2026-03-28T16:57:38.649Z",
+      "updatedAt": "2026-03-28T16:57:38.649Z"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf030",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_005",
+      "title": "Webhook support for events",
+      "description": "Trigger webhooks when feedback is created, updated, or status changes so we can integrate with our internal tools.",
+      "status": "Open",
+      "createdAt": "2026-03-28T09:49:39.177Z",
+      "updatedAt": "2026-03-28T09:49:39.177Z"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf033",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_015",
+      "title": "Voting system improvements",
+      "description": "The upvote/downvote UI is not very intuitive. Consider adding vote counts visibly and maybe a 'trending' sort option.",
+      "status": "Under Review",
+      "createdAt": "2026-03-28T14:19:17.238Z",
+      "updatedAt": "2026-03-28T14:19:17.238Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf038",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_004",
+      "title": "Improve loading speed",
+      "description": "The dashboard takes about 4-5 seconds to load when we have more than 200 feedback entries. Performance optimization would be appreciated.",
+      "status": "Open",
+      "createdAt": "2026-03-27T05:32:04.295Z",
+      "updatedAt": "2026-03-27T05:32:04.295Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03e",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_012",
+      "title": "Roadmap view",
+      "description": "A public roadmap page that automatically populates from feedback status changes would be amazing for transparency.",
+      "status": "Open",
+      "createdAt": "2026-03-26T02:38:00.343Z",
+      "updatedAt": "2026-03-26T02:38:00.343Z"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf041",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_013",
+      "title": "SSO login support",
+      "description": "Our enterprise clients require SAML/SSO based login. Without it, adoption is blocked for several accounts.",
+      "status": "Open",
+      "createdAt": "2026-03-26T11:46:12.833Z",
+      "updatedAt": "2026-03-26T11:46:12.833Z"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf045",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_026",
+      "title": "Feedback priority scoring",
+      "description": "Automatically score and rank feedback based on vote count, user segment, and recency to help us prioritize the backlog.",
+      "status": "Open",
+      "createdAt": "2026-03-26T06:18:09.224Z",
+      "updatedAt": "2026-03-26T06:18:09.224Z"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf04a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_001",
+      "title": "Auto-close stale feedback",
+      "description": "Feedback items that haven't received activity in 90 days should be auto-closed or flagged for review.",
+      "status": "Open",
+      "createdAt": "2026-03-25T13:15:48.363Z",
+      "updatedAt": "2026-03-25T13:15:48.363Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf052",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_030",
+      "title": "Better onboarding flow",
+      "description": "First-time setup is confusing. A step-by-step wizard or tutorial would help new users get started faster.",
+      "status": "Open",
+      "createdAt": "2026-03-25T13:11:16.256Z",
+      "updatedAt": "2026-03-25T13:11:16.256Z"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf05c",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_004",
+      "title": "Add changelog feature",
+      "description": "Let us publish changelogs so users can see what feedback has been acted upon. Closes the feedback loop.",
+      "status": "Open",
+      "createdAt": "2026-03-24T16:33:19.258Z",
+      "updatedAt": "2026-03-24T16:33:19.258Z"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf064",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_014",
+      "title": "Real-time updates",
+      "description": "When another team member changes a feedback status, it should reflect in real-time without needing a page refresh.",
+      "status": "Open",
+      "createdAt": "2026-03-23T07:29:54.609Z",
+      "updatedAt": "2026-03-23T07:29:54.609Z"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf069",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_006",
+      "title": "Two-factor authentication",
+      "description": "For security-conscious teams, 2FA should be available as an option for account protection.",
+      "status": "Open",
+      "createdAt": "2026-03-23T15:20:41.887Z",
+      "updatedAt": "2026-03-23T15:20:41.887Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf06d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_015",
+      "title": "Add feedback categories",
+      "description": "Currently all feedbacks are in one list. Having categories like 'Bug Report', 'Feature Request', 'Improvement' would help organize better.",
+      "status": "Open",
+      "createdAt": "2026-03-22T15:38:47.320Z",
+      "updatedAt": "2026-03-22T15:38:47.320Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf074",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_012",
+      "title": "Custom branding for widget",
+      "description": "Allow us to fully customize the widget colors, fonts and logo so it matches our product's brand identity.",
+      "status": "Open",
+      "createdAt": "2026-03-22T06:46:29.926Z",
+      "updatedAt": "2026-03-22T06:46:29.926Z"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf077",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_027",
+      "title": "Export data to CSV",
+      "description": "We need the ability to export our feedback data to CSV or Excel for offline analysis and reporting to stakeholders.",
+      "status": "Open",
+      "createdAt": "2026-03-22T03:47:58.215Z",
+      "updatedAt": "2026-03-22T03:47:58.215Z"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07b",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_015",
+      "title": "Search and filter feedback",
+      "description": "We have hundreds of feedback items. Need a robust search with filters by status, date range, tags, and vote count.",
+      "status": "Open",
+      "createdAt": "2026-03-21T09:57:43.163Z",
+      "updatedAt": "2026-03-21T09:57:43.163Z"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf081",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_006",
+      "title": "Batch import feedback",
+      "description": "We're migrating from another tool and need to import 500+ existing feedback items. A CSV import feature would help.",
+      "status": "Open",
+      "createdAt": "2026-03-21T11:33:33.908Z",
+      "updatedAt": "2026-03-21T11:33:33.908Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_010",
+      "title": "API rate limiting issues",
+      "description": "When we send bursts of feedback via the API, we occasionally get 429 errors. Please increase rate limits or provide better docs on limits.",
+      "status": "Open",
+      "createdAt": "2026-03-20T13:57:36.191Z",
+      "updatedAt": "2026-03-20T13:57:36.191Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_020",
+      "title": "Audit log",
+      "description": "We need a detailed audit log showing who changed what and when for compliance and accountability purposes.",
+      "status": "Open",
+      "createdAt": "2026-03-20T09:52:06.442Z",
+      "updatedAt": "2026-03-20T09:52:06.442Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf090",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_027",
+      "title": "Bulk actions for feedback",
+      "description": "Allow selecting multiple feedback items and performing bulk actions like changing status, adding tags, or deleting.",
+      "status": "Open",
+      "createdAt": "2026-03-20T05:05:55.031Z",
+      "updatedAt": "2026-03-20T05:05:55.031Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf097",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_021",
+      "title": "Role-based access control",
+      "description": "Need different permission levels: admin, editor, viewer. Currently everyone has full access which is a security concern.",
+      "status": "Open",
+      "createdAt": "2026-03-19T05:28:55.516Z",
+      "updatedAt": "2026-03-19T05:28:55.516Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf0a0",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_007",
+      "title": "Feedback analytics dashboard",
+      "description": "A dedicated analytics page showing trends, sentiment analysis, most requested features, and response times would be invaluable.",
+      "status": "Open",
+      "createdAt": "2026-03-18T09:46:22.502Z",
+      "updatedAt": "2026-03-18T09:46:22.502Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a5",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_030",
+      "title": "User segmentation for feedback",
+      "description": "Tag feedback by user plan (free, pro, enterprise) so we can prioritize feedback from paying customers.",
+      "status": "Open",
+      "createdAt": "2026-03-18T13:06:30.123Z",
+      "updatedAt": "2026-03-18T13:06:30.123Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0ac",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_007",
+      "title": "Email notifications for new feedback",
+      "description": "As a product manager, I'd love to receive email notifications whenever new feedback is submitted so I can respond quickly.",
+      "status": "Under Review",
+      "createdAt": "2026-03-18T06:55:55.432Z",
+      "updatedAt": "2026-03-18T06:55:55.432Z"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b1",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_016",
+      "title": "Widget accessibility improvements",
+      "description": "The widget doesn't fully comply with WCAG 2.1 AA. Screen reader support and keyboard navigation need work.",
+      "status": "Open",
+      "createdAt": "2026-03-17T08:32:14.638Z",
+      "updatedAt": "2026-03-17T08:32:14.638Z"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b5",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_017",
+      "title": "Mobile responsive issues",
+      "description": "The sidebar overlaps with the main content area on mobile devices (tested on iPhone 15 and Samsung Galaxy S24).",
+      "status": "Open",
+      "createdAt": "2026-03-17T03:41:47.963Z",
+      "updatedAt": "2026-03-17T03:41:47.963Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0ba",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_004",
+      "title": "Widget loading is slow on Safari",
+      "description": "The embedded widget takes noticeably longer to load on Safari compared to Chrome. Possible WebKit compatibility issue.",
+      "status": "Open",
+      "createdAt": "2026-03-17T10:29:32.202Z",
+      "updatedAt": "2026-03-17T10:29:32.202Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_018",
+      "title": "Integrate with Slack",
+      "description": "Our team uses Slack heavily. A Slack integration to post new feedback into a channel would streamline our workflow.",
+      "status": "Open",
+      "createdAt": "2026-03-16T15:56:35.316Z",
+      "updatedAt": "2026-03-16T15:56:35.316Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c7",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_017",
+      "title": "Dark mode support",
+      "description": "It would be great to have a dark mode option for the dashboard. Working late at night with the bright UI is straining on the eyes.",
+      "status": "Open",
+      "createdAt": "2026-03-15T11:21:42.311Z",
+      "updatedAt": "2026-03-15T11:21:42.311Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0cb",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_026",
+      "title": "Embed widget in React Native app",
+      "description": "We have a React Native mobile app and need a way to embed the feedback widget natively, not just via WebView.",
+      "status": "Open",
+      "createdAt": "2026-03-15T15:39:44.281Z",
+      "updatedAt": "2026-03-15T15:39:44.281Z"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0ce",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_004",
+      "title": "Multi-language support",
+      "description": "Our product serves users globally. Feedback widget and dashboard in multiple languages (Spanish, French, German at minimum) is needed.",
+      "status": "Open",
+      "createdAt": "2026-03-15T09:54:59.924Z",
+      "updatedAt": "2026-03-15T09:54:59.924Z"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d3",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_014",
+      "title": "Attachment support",
+      "description": "Users should be able to attach screenshots or files to their feedback to better illustrate issues they're reporting.",
+      "status": "Under Review",
+      "createdAt": "2026-03-14T10:08:21.293Z",
+      "updatedAt": "2026-03-14T10:08:21.293Z"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0d6",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_023",
+      "title": "Dashboard widget for Notion",
+      "description": "A Notion embed or widget that shows our top feedback items directly in our product wiki would be very useful.",
+      "status": "Open",
+      "createdAt": "2026-03-14T04:35:51.727Z",
+      "updatedAt": "2026-03-14T04:35:51.727Z"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0d9",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_009",
+      "title": "Improved error messages",
+      "description": "When API calls fail, the error messages are generic. More descriptive errors would help us debug integration issues faster.",
+      "status": "Open",
+      "createdAt": "2026-03-14T04:33:45.392Z",
+      "updatedAt": "2026-03-14T04:33:45.392Z"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0dc",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_024",
+      "title": "Custom status workflows",
+      "description": "The default statuses (Open, Under Review, Closed) don't match our workflow. Let us define custom status names and transitions.",
+      "status": "Open",
+      "createdAt": "2026-03-13T09:45:58.380Z",
+      "updatedAt": "2026-03-13T09:45:58.380Z"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0df",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_010",
+      "title": "Date range filter on dashboard",
+      "description": "Allow filtering the dashboard view by custom date ranges to see feedback trends over specific periods.",
+      "status": "Open",
+      "createdAt": "2026-03-13T12:54:29.855Z",
+      "updatedAt": "2026-03-13T12:54:29.855Z"
+    },
+    {
+      "id": "69dfaccb6655d26a63e08d9d",
+      "applicationId": "69c16f424fa9731c0441a765",
+      "userId": "xtYEZEVkiMTpw4F4AxFPfeVXyhx2",
+      "title": "It is good ",
+      "description": "It was very good for tracking expenses everyday",
+      "status": "Open",
+      "createdAt": "2026-04-15T15:20:43.311Z",
+      "updatedAt": "2026-04-15T15:20:43.311Z"
+    },
+    {
+      "id": "69dfad3bf759a4537071f4c9",
+      "applicationId": "69c16f424fa9731c0441a765",
+      "userId": "mqKYeWIfI3NtB8LOhXg0regxdzA3",
+      "title": "It's a great idea ",
+      "description": "It's Great idea I am using this app from one week ",
+      "status": "Open",
+      "createdAt": "2026-04-15T15:22:35.110Z",
+      "updatedAt": "2026-04-15T15:22:35.110Z"
+    }
+  ],
+  "votes": [
+    {
+      "id": "69a5aa7cc41d499c081ab337",
+      "applicationId": "69a41f203a9a405a41b02afc",
+      "feedbackId": "69a5aa64c41d499c081ab334",
+      "userId": "6997e5ddd0d1084f19fa2b56",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-02T15:19:24.275Z"
+    },
+    {
+      "id": "69ae837bde030879a0eed0af",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69ae836ede030879a0eed0ac",
+      "userId": "6991f84192d5f94c112afacd",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-09T08:23:23.758Z"
+    },
+    {
+      "id": "69b1b1fd89f075e4380ba676",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69b1b1f589f075e4380ba674",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-11T18:18:36.881Z"
+    },
+    {
+      "id": "69b3bc912d2745e5debe7caa",
+      "applicationId": "69b3b8edf6afcee5f4330531",
+      "feedbackId": "69b3bc8c2d2745e5debe7ca8",
+      "userId": "14",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-13T07:28:17.587Z"
+    },
+    {
+      "id": "69b5a7bf9da3a2c7ec28f1fe",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69ae836ede030879a0eed0ac",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-14T18:23:59.274Z"
+    },
+    {
+      "id": "69b7b189dd1d40b09516ce46",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69ae836ede030879a0eed0ac",
+      "userId": "69b7b157ee04f26aa0e59afd",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-16T07:30:17.087Z"
+    },
+    {
+      "id": "69cab281c71f154eefb76db5",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cab277c71f154eefb76db2",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-30T17:27:28.975Z"
+    },
+    {
+      "id": "69cb7cd4af6d9e201c8cf019",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd3af6d9e201c8cf016",
+      "userId": "user_ext_027",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-31T08:51:29.767Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf01d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd4af6d9e201c8cf01a",
+      "userId": "user_ext_014",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-31T12:39:09.300Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf01e",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd4af6d9e201c8cf01a",
+      "userId": "user_ext_008",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-31T03:49:10.774Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf024",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd5af6d9e201c8cf021",
+      "userId": "user_ext_002",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-29T14:29:47.508Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf028",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd6af6d9e201c8cf025",
+      "userId": "user_ext_014",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-30T15:39:55.033Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf029",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd6af6d9e201c8cf025",
+      "userId": "user_ext_012",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-30T04:21:12.712Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf02a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd6af6d9e201c8cf025",
+      "userId": "user_ext_021",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-30T00:18:32.503Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03b",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd8af6d9e201c8cf038",
+      "userId": "user_ext_003",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-27T20:58:51.681Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03c",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd8af6d9e201c8cf038",
+      "userId": "user_ext_025",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-28T04:19:58.407Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd8af6d9e201c8cf038",
+      "userId": "user_ext_022",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-28T01:24:50.904Z"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf044",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd9af6d9e201c8cf041",
+      "userId": "user_ext_024",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-27T03:20:05.234Z"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf048",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd9af6d9e201c8cf045",
+      "userId": "user_ext_021",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T21:16:22.129Z"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf049",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cd9af6d9e201c8cf045",
+      "userId": "user_ext_002",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T18:34:09.359Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf04d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "user_ext_011",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-25T21:57:13.893Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf04e",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "user_ext_006",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T03:41:55.515Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf04f",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "user_ext_022",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-25T16:37:07.888Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf050",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "user_ext_026",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T09:18:04.406Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf051",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "user_ext_030",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T03:39:18.771Z"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf055",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "user_ext_013",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-25T15:45:17.503Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf056",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "user_ext_026",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-25T18:09:01.703Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf057",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "user_ext_011",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-25T16:09:39.001Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf058",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "user_ext_001",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-26T07:43:35.115Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf059",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "user_ext_016",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-25T17:59:27.021Z"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf05f",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cddaf6d9e201c8cf05c",
+      "userId": "user_ext_014",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-25T09:20:19.934Z"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf060",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cddaf6d9e201c8cf05c",
+      "userId": "user_ext_021",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-25T07:58:38.851Z"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf061",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cddaf6d9e201c8cf05c",
+      "userId": "user_ext_019",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-25T01:09:54.629Z"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf067",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf064",
+      "userId": "user_ext_025",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-23T12:39:10.515Z"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf068",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf064",
+      "userId": "user_ext_028",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-23T17:22:02.467Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf06c",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf069",
+      "userId": "user_ext_022",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-24T06:37:37.137Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf070",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "userId": "user_ext_013",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T16:48:42.949Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf071",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "userId": "user_ext_022",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T23:30:00.226Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf072",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "userId": "user_ext_029",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-22T18:40:17.354Z"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf073",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "userId": "user_ext_030",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T18:06:36.153Z"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce0af6d9e201c8cf077",
+      "userId": "user_ext_030",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T17:02:10.044Z"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07e",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce0af6d9e201c8cf07b",
+      "userId": "user_ext_014",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T02:56:26.274Z"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07f",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce0af6d9e201c8cf07b",
+      "userId": "user_ext_024",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T06:04:39.430Z"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf080",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce0af6d9e201c8cf07b",
+      "userId": "user_ext_008",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T05:14:56.468Z"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf084",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "user_ext_017",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-21T14:50:23.428Z"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf085",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "user_ext_022",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T02:05:54.628Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf086",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "user_ext_003",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-21T22:55:52.850Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf087",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "user_ext_018",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T06:54:08.546Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf088",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "user_ext_030",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-22T00:29:18.843Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf093",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "userId": "user_ext_017",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-20T12:55:21.271Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf094",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "userId": "user_ext_021",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-20T17:21:15.497Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf095",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "userId": "user_ext_009",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-21T00:55:36.738Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf096",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "userId": "user_ext_018",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-20T16:52:27.242Z"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf09a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "userId": "user_ext_008",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T13:34:22.693Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf09b",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "userId": "user_ext_004",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T17:27:44.168Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf09c",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "userId": "user_ext_018",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-20T01:39:04.225Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf09d",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "userId": "user_ext_013",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T23:37:21.511Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf09e",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "userId": "user_ext_005",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T17:20:52.492Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf0a3",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce4af6d9e201c8cf0a0",
+      "userId": "user_ext_028",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T01:06:15.707Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a4",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce4af6d9e201c8cf0a0",
+      "userId": "user_ext_024",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-18T23:45:40.986Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a8",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "userId": "user_ext_022",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-18T21:17:47.250Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a9",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "userId": "user_ext_017",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-18T18:56:00.859Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0aa",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "userId": "user_ext_026",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-19T08:00:27.574Z"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0ab",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "userId": "user_ext_024",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-18T23:25:12.087Z"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0af",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0ac",
+      "userId": "user_ext_023",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-18T23:37:47.800Z"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b4",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b1",
+      "userId": "user_ext_004",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-17T16:41:44.734Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0b8",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b5",
+      "userId": "user_ext_009",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-17T15:01:38.284Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0b9",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b5",
+      "userId": "user_ext_026",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-18T03:37:42.027Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0be",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce7af6d9e201c8cf0ba",
+      "userId": "user_ext_019",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-17T17:39:40.880Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0bf",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce7af6d9e201c8cf0ba",
+      "userId": "user_ext_014",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-17T20:50:30.659Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0ca",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0c7",
+      "userId": "user_ext_006",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-15T22:15:10.007Z"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d1",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0ce",
+      "userId": "user_ext_020",
+      "voteType": "DOWNVOTE",
+      "createdAt": "2026-03-15T16:43:47.561Z"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0ce",
+      "userId": "user_ext_016",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-03-15T15:38:02.849Z"
+    },
+    {
+      "id": "69de5f9f494d4a107ede90af",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-04-14T15:39:11.156Z"
+    },
+    {
+      "id": "69de5fa7494d4a107ede90b1",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-04-14T15:39:19.786Z"
+    },
+    {
+      "id": "69de5fae494d4a107ede90b2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "userId": "69af287ecb95f6d769ee02be",
+      "voteType": "UPVOTE",
+      "createdAt": "2026-04-14T15:39:25.980Z"
+    }
+  ],
+  "support": [
+    {
+      "id": "69a5a0e6c41d499c081ab333",
+      "applicationId": "69a41f203a9a405a41b02afc",
+      "userId": "anonymous",
+      "email": "ikshit.talera@gmail.com",
+      "message": "This is just a support test\n",
+      "createdAt": "2026-03-02T14:38:30.354Z"
+    },
+    {
+      "id": "69ae83a3de030879a0eed0b0",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "6991f84192d5f94c112afacd",
+      "email": "ikshit.talera@gmail.com",
+      "message": "The credits system is not working well please help!",
+      "createdAt": "2026-03-09T08:24:03.863Z"
+    },
+    {
+      "id": "69b1b23789f075e4380ba677",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69af287ecb95f6d769ee02be",
+      "email": "ikshit.talera@gmail.com",
+      "message": "asdfghjk",
+      "createdAt": "2026-03-11T18:19:35.032Z"
+    },
+    {
+      "id": "69b1b3b589f075e4380ba678",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "69b1b3a93cb99641f0c61f0c",
+      "email": "ikshittesting@gmail.com",
+      "message": "hi\n",
+      "createdAt": "2026-03-11T18:25:57.873Z"
+    },
+    {
+      "id": "69b23df3ded044c367dc7c1b",
+      "applicationId": "69ad7733006229180183c1f7",
+      "userId": "anonymous",
+      "email": "tirthp646@gmail.com",
+      "message": "Hello",
+      "createdAt": "2026-03-12T04:15:47.301Z"
+    },
+    {
+      "id": "69c409c58a4c1cf046ccc100",
+      "applicationId": "69b43ea5861752ae99cd14bb",
+      "userId": "anonymous",
+      "email": "yash@gmail.com",
+      "message": "I cannot navigate from UI can you please guide me?\n",
+      "createdAt": "2026-03-25T16:13:57.958Z"
+    },
+    {
+      "id": "69c40a0b8a4c1cf046ccc101",
+      "applicationId": "69ad7733006229180183c1f7",
+      "userId": "anonymous",
+      "email": "nilesh@gmail.com",
+      "message": "I am having trouble navigating from the UI can you help me in this.",
+      "createdAt": "2026-03-25T16:15:07.239Z"
+    },
+    {
+      "id": "69c40a688a4c1cf046ccc102",
+      "applicationId": "69ad73a0bdabf4c809dacb82",
+      "userId": "anonymous",
+      "email": "manthan@gmail.com",
+      "message": "Bhai upvote to check kia kro.",
+      "createdAt": "2026-03-25T16:16:40.892Z"
+    },
+    {
+      "id": "69c40ad08a4c1cf046ccc103",
+      "applicationId": "69b42f8e586572cf100724c5",
+      "userId": "anonymous",
+      "email": "nurture@gmail.com",
+      "message": "This is fully white on this widget can you change the theme?\n",
+      "createdAt": "2026-03-25T16:18:24.003Z"
+    },
+    {
+      "id": "69c41cb36db6ed193ca86af5",
+      "applicationId": "69c16f424fa9731c0441a765",
+      "userId": "a63a4346-445a-491a-8d54-3d2b121a1ca0",
+      "email": "user99@fingenius.ai",
+      "message": "good",
+      "createdAt": "2026-03-25T17:34:43.163Z"
+    },
+    {
+      "id": "69c4423dce20fea403c48161",
+      "applicationId": "69c1729fb534274331e96721",
+      "userId": "USER_ID",
+      "email": "USER_EMAIL",
+      "message": "hi\n",
+      "createdAt": "2026-03-25T20:14:53.656Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf01f",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_009",
+      "email": "marcus@fintech.io",
+      "message": "Is the data encrypted at rest? We handle sensitive financial feedback and need to ensure data security compliance.",
+      "createdAt": "2026-03-30T11:02:30.762Z"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf020",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_020",
+      "email": "laura@designlab.co",
+      "message": "The feedback widget is not showing up on our website after following the integration guide. We're using Webflow. Any specific steps for Webflow sites?",
+      "createdAt": "2026-03-30T04:40:54.432Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf02b",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_020",
+      "email": "tom.harris@corp.org",
+      "message": "Can you provide a SOC 2 compliance report? Our security team requires it before we can proceed with procurement.",
+      "createdAt": "2026-03-29T05:07:54.077Z"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf02c",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_008",
+      "email": "claire@legal.firm",
+      "message": "We need a Data Processing Agreement (DPA) signed before onboarding. Can you send us your standard DPA template?",
+      "createdAt": "2026-03-29T10:37:57.327Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf036",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_018",
+      "email": "nina.r@agency.co",
+      "message": "We're managing multiple client projects. Is there a way to switch between different applications without logging out and back in?",
+      "createdAt": "2026-03-28T11:52:03.603Z"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf037",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_028",
+      "email": "carlos@freelancer.net",
+      "message": "Is there a free tier available? I'm a solo developer and the current pricing is a bit steep for my side project.",
+      "createdAt": "2026-03-28T13:11:14.254Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf05a",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_012",
+      "email": "emma.wilson@saas.io",
+      "message": "How do I delete a feedback item? I accidentally posted test data and now it's showing up in our public board.",
+      "createdAt": "2026-03-25T15:56:15.460Z"
+    },
+    {
+      "id": "69cb7cdcaf6d9e201c8cf05b",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_016",
+      "email": "alex.m@startup.dev",
+      "message": "Love the product! Quick question — is there a way to white-label the widget so our brand name shows instead of yours?",
+      "createdAt": "2026-03-25T11:22:30.694Z"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf062",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_007",
+      "email": "sophie@edtech.com",
+      "message": "We need to export all our data before our subscription ends next week. What export options are available and what format is the data in?",
+      "createdAt": "2026-03-24T04:46:44.070Z"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf063",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_007",
+      "email": "jessica@ecommerce.shop",
+      "message": "The feedback form submission is failing with a 500 error when users type emojis in their feedback. This seems like a character encoding issue.",
+      "createdAt": "2026-03-24T09:33:05.676Z"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf089",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_009",
+      "email": "mike@devhouse.co",
+      "message": "Is there a way to programmatically submit feedback via your API? I couldn't find API documentation anywhere on the site.",
+      "createdAt": "2026-03-21T06:49:43.472Z"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf09f",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_008",
+      "email": "anna@nonprofit.org",
+      "message": "Do you offer any discounts for non-profit organizations? We'd love to use your platform but have limited budget.",
+      "createdAt": "2026-03-19T07:26:25.514Z"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b0",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_009",
+      "email": "kevin.b@analytics.co",
+      "message": "The analytics numbers on the dashboard don't match what I see when I manually count the feedback items. There seems to be a discrepancy of about 15 items.",
+      "createdAt": "2026-03-18T12:31:48.425Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0c0",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_012",
+      "email": "diana@travel.app",
+      "message": "We accidentally deleted an application and lost all feedback data. Is there any way to recover it? This happened about 2 hours ago.",
+      "createdAt": "2026-03-17T03:27:26.539Z"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0c1",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_021",
+      "email": "fiona@crm.tools",
+      "message": "Can we integrate your feedback widget with our CRM? Specifically, we'd like feedback to automatically create tickets in our support system.",
+      "createdAt": "2026-03-17T05:06:08.039Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c5",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_001",
+      "email": "hugo@marketplace.com",
+      "message": "How do we handle GDPR data deletion requests? If a user asks us to delete their data, how do we remove their feedback from your system?",
+      "createdAt": "2026-03-16T13:37:18.627Z"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c6",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_002",
+      "email": "omar@retail.co",
+      "message": "Is it possible to have different feedback boards for different product lines within the same application? Currently mixing all feedback together.",
+      "createdAt": "2026-03-16T04:05:57.915Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e2",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_029",
+      "email": "sarah.k@techstart.io",
+      "message": "We're trying to embed the feedback widget on our Next.js app but it's throwing a hydration error. Here's the error: 'Text content does not match server-rendered HTML'. Please advise.",
+      "createdAt": "2026-03-12T14:06:05.581Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e3",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_028",
+      "email": "raj.patel@enterprise.com",
+      "message": "We need to discuss enterprise pricing for our organization (500+ users). Can someone from your sales team reach out?",
+      "createdAt": "2026-03-11T05:06:13.316Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e4",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_023",
+      "email": "lisa@healthapp.co",
+      "message": "Can we set up automated responses when users submit feedback? Something like 'Thank you for your feedback, we'll review it within 48 hours'.",
+      "createdAt": "2026-03-10T04:22:37.309Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e5",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_022",
+      "email": "priya.sharma@bigcorp.in",
+      "message": "Our subscription was charged twice this month. Order IDs: ORD-4821 and ORD-4823. Please process a refund for the duplicate charge.",
+      "createdAt": "2026-03-10T05:46:48.760Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e6",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_017",
+      "email": "robert.j@gaming.studio",
+      "message": "The widget conflicts with our existing CSS. Specifically, our .btn class styles are being overridden. Can you namespace your CSS classes?",
+      "createdAt": "2026-03-09T15:28:42.878Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e7",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_008",
+      "email": "ben@devops.cloud",
+      "message": "Getting intermittent timeouts when loading the dashboard. Started happening about 3 days ago. Our team is in the EU region — could this be a latency issue?",
+      "createdAt": "2026-03-07T17:28:24.169Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e8",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_013",
+      "email": "david.chen@mobile.app",
+      "message": "Is there a Flutter SDK available? We need native mobile integration and the JavaScript widget doesn't work well in WebViews.",
+      "createdAt": "2026-03-07T13:29:06.539Z"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e9",
+      "applicationId": "69a41f4f3a9a405a41b02afe",
+      "userId": "user_ext_024",
+      "email": "john.doe@acme.com",
+      "message": "Hi, I'm unable to log into my account after the recent update. It says 'invalid credentials' even though I'm sure the password is correct. Can you help?",
+      "createdAt": "2026-03-06T08:50:02.721Z"
+    }
+  ],
+  "replies": [
+    {
+      "id": "69c16fd61629e9fc64e077db",
+      "feedbackId": "69c16faf1629e9fc64e077da",
+      "message": "",
+      "createdAt": "2026-03-23T16:52:37.983Z"
+    },
+    {
+      "id": "69cc0167b66917b9aef7f436",
+      "feedbackId": "69cab277c71f154eefb76db2",
+      "message": "",
+      "createdAt": "2026-03-31T17:16:23.858Z"
+    },
+    {
+      "id": "69dfb8cecf302e365e2ccbeb",
+      "feedbackId": "69dfad3bf759a4537071f4c9",
+      "message": "",
+      "createdAt": "2026-04-15T16:11:58.264Z"
+    }
+  ],
+  "tags": [
+    {
+      "id": "69a5aa64c41d499c081ab335",
+      "feedbackId": "69a5aa64c41d499c081ab334",
+      "name": "Feature"
+    },
+    {
+      "id": "69ae836ede030879a0eed0ad",
+      "feedbackId": "69ae836ede030879a0eed0ac",
+      "name": "Improvement"
+    },
+    {
+      "id": "69b1b1f689f075e4380ba675",
+      "feedbackId": "69b1b1f589f075e4380ba674",
+      "name": "Performance"
+    },
+    {
+      "id": "69b3bc8d2d2745e5debe7ca9",
+      "feedbackId": "69b3bc8c2d2745e5debe7ca8",
+      "name": "Bug"
+    },
+    {
+      "id": "69c4427ace20fea403c48163",
+      "feedbackId": "69c4427ace20fea403c48162",
+      "name": "Feature"
+    },
+    {
+      "id": "69cab277c71f154eefb76db3",
+      "feedbackId": "69cab277c71f154eefb76db2",
+      "name": "Performance"
+    },
+    {
+      "id": "69cab277c71f154eefb76db4",
+      "feedbackId": "69cab277c71f154eefb76db2",
+      "name": "Feature"
+    },
+    {
+      "id": "69cb7cd3af6d9e201c8cf017",
+      "feedbackId": "69cb7cd3af6d9e201c8cf016",
+      "name": "ux"
+    },
+    {
+      "id": "69cb7cd3af6d9e201c8cf018",
+      "feedbackId": "69cb7cd3af6d9e201c8cf016",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cd4af6d9e201c8cf01b",
+      "feedbackId": "69cb7cd4af6d9e201c8cf01a",
+      "name": "collaboration"
+    },
+    {
+      "id": "69cb7cd4af6d9e201c8cf01c",
+      "feedbackId": "69cb7cd4af6d9e201c8cf01a",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf022",
+      "feedbackId": "69cb7cd5af6d9e201c8cf021",
+      "name": "deduplication"
+    },
+    {
+      "id": "69cb7cd5af6d9e201c8cf023",
+      "feedbackId": "69cb7cd5af6d9e201c8cf021",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf026",
+      "feedbackId": "69cb7cd6af6d9e201c8cf025",
+      "name": "ai"
+    },
+    {
+      "id": "69cb7cd6af6d9e201c8cf027",
+      "feedbackId": "69cb7cd6af6d9e201c8cf025",
+      "name": "analytics"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf02e",
+      "feedbackId": "69cb7cd7af6d9e201c8cf02d",
+      "name": "ai"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf02f",
+      "feedbackId": "69cb7cd7af6d9e201c8cf02d",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf031",
+      "feedbackId": "69cb7cd7af6d9e201c8cf030",
+      "name": "integration"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf032",
+      "feedbackId": "69cb7cd7af6d9e201c8cf030",
+      "name": "webhooks"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf034",
+      "feedbackId": "69cb7cd7af6d9e201c8cf033",
+      "name": "ui"
+    },
+    {
+      "id": "69cb7cd7af6d9e201c8cf035",
+      "feedbackId": "69cb7cd7af6d9e201c8cf033",
+      "name": "improvement"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf039",
+      "feedbackId": "69cb7cd8af6d9e201c8cf038",
+      "name": "performance"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03a",
+      "feedbackId": "69cb7cd8af6d9e201c8cf038",
+      "name": "bug"
+    },
+    {
+      "id": "69cb7cd8af6d9e201c8cf03f",
+      "feedbackId": "69cb7cd8af6d9e201c8cf03e",
+      "name": "roadmap"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf040",
+      "feedbackId": "69cb7cd8af6d9e201c8cf03e",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf042",
+      "feedbackId": "69cb7cd9af6d9e201c8cf041",
+      "name": "enterprise"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf043",
+      "feedbackId": "69cb7cd9af6d9e201c8cf041",
+      "name": "authentication"
+    },
+    {
+      "id": "69cb7cd9af6d9e201c8cf046",
+      "feedbackId": "69cb7cd9af6d9e201c8cf045",
+      "name": "prioritization"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf047",
+      "feedbackId": "69cb7cd9af6d9e201c8cf045",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf04b",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "name": "automation"
+    },
+    {
+      "id": "69cb7cdaaf6d9e201c8cf04c",
+      "feedbackId": "69cb7cdaaf6d9e201c8cf04a",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf053",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "name": "onboarding"
+    },
+    {
+      "id": "69cb7cdbaf6d9e201c8cf054",
+      "feedbackId": "69cb7cdbaf6d9e201c8cf052",
+      "name": "ux"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf05d",
+      "feedbackId": "69cb7cddaf6d9e201c8cf05c",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cddaf6d9e201c8cf05e",
+      "feedbackId": "69cb7cddaf6d9e201c8cf05c",
+      "name": "changelog"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf065",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf064",
+      "name": "real-time"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf066",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf064",
+      "name": "ux"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf06a",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf069",
+      "name": "security"
+    },
+    {
+      "id": "69cb7cdeaf6d9e201c8cf06b",
+      "feedbackId": "69cb7cdeaf6d9e201c8cf069",
+      "name": "authentication"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf06e",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "name": "organization"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf06f",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf06d",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7cdfaf6d9e201c8cf075",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf074",
+      "name": "widget"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf076",
+      "feedbackId": "69cb7cdfaf6d9e201c8cf074",
+      "name": "customization"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf078",
+      "feedbackId": "69cb7ce0af6d9e201c8cf077",
+      "name": "export"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf079",
+      "feedbackId": "69cb7ce0af6d9e201c8cf077",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07c",
+      "feedbackId": "69cb7ce0af6d9e201c8cf07b",
+      "name": "search"
+    },
+    {
+      "id": "69cb7ce0af6d9e201c8cf07d",
+      "feedbackId": "69cb7ce0af6d9e201c8cf07b",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf082",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "name": "import"
+    },
+    {
+      "id": "69cb7ce1af6d9e201c8cf083",
+      "feedbackId": "69cb7ce1af6d9e201c8cf081",
+      "name": "migration"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08b",
+      "feedbackId": "69cb7ce2af6d9e201c8cf08a",
+      "name": "api"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08c",
+      "feedbackId": "69cb7ce2af6d9e201c8cf08a",
+      "name": "bug"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08e",
+      "feedbackId": "69cb7ce2af6d9e201c8cf08d",
+      "name": "compliance"
+    },
+    {
+      "id": "69cb7ce2af6d9e201c8cf08f",
+      "feedbackId": "69cb7ce2af6d9e201c8cf08d",
+      "name": "enterprise"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf091",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf092",
+      "feedbackId": "69cb7ce2af6d9e201c8cf090",
+      "name": "productivity"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf098",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "name": "security"
+    },
+    {
+      "id": "69cb7ce3af6d9e201c8cf099",
+      "feedbackId": "69cb7ce3af6d9e201c8cf097",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf0a1",
+      "feedbackId": "69cb7ce4af6d9e201c8cf0a0",
+      "name": "analytics"
+    },
+    {
+      "id": "69cb7ce4af6d9e201c8cf0a2",
+      "feedbackId": "69cb7ce4af6d9e201c8cf0a0",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a6",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "name": "segmentation"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0a7",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0a5",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0ad",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0ac",
+      "name": "notifications"
+    },
+    {
+      "id": "69cb7ce5af6d9e201c8cf0ae",
+      "feedbackId": "69cb7ce5af6d9e201c8cf0ac",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b2",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b1",
+      "name": "accessibility"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b3",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b1",
+      "name": "widget"
+    },
+    {
+      "id": "69cb7ce6af6d9e201c8cf0b6",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b5",
+      "name": "bug"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0b7",
+      "feedbackId": "69cb7ce6af6d9e201c8cf0b5",
+      "name": "mobile"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0bb",
+      "feedbackId": "69cb7ce7af6d9e201c8cf0ba",
+      "name": "bug"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0bc",
+      "feedbackId": "69cb7ce7af6d9e201c8cf0ba",
+      "name": "performance"
+    },
+    {
+      "id": "69cb7ce7af6d9e201c8cf0bd",
+      "feedbackId": "69cb7ce7af6d9e201c8cf0ba",
+      "name": "safari"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c3",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0c2",
+      "name": "integration"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c4",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0c2",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c8",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0c7",
+      "name": "ui"
+    },
+    {
+      "id": "69cb7ce8af6d9e201c8cf0c9",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0c7",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0cc",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0cb",
+      "name": "mobile"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0cd",
+      "feedbackId": "69cb7ce8af6d9e201c8cf0cb",
+      "name": "sdk"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0cf",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0ce",
+      "name": "i18n"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d0",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0ce",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d4",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0d3",
+      "name": "feature-request"
+    },
+    {
+      "id": "69cb7ce9af6d9e201c8cf0d5",
+      "feedbackId": "69cb7ce9af6d9e201c8cf0d3",
+      "name": "uploads"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0d7",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0d6",
+      "name": "integration"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0d8",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0d6",
+      "name": "notion"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0da",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0d9",
+      "name": "api"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0db",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0d9",
+      "name": "dx"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0dd",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0dc",
+      "name": "customization"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0de",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0dc",
+      "name": "workflow"
+    },
+    {
+      "id": "69cb7ceaaf6d9e201c8cf0e0",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0df",
+      "name": "filter"
+    },
+    {
+      "id": "69cb7cebaf6d9e201c8cf0e1",
+      "feedbackId": "69cb7ceaaf6d9e201c8cf0df",
+      "name": "dashboard"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "69a41e2f3a9a405a41b02afb",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T11:08:31.785Z",
+      "updatedAt": "2026-03-01T11:08:31.785Z"
+    },
+    {
+      "id": "69a4adbc9b0a657ff19de59c",
+      "companyId": "69a41d73bc21688fb5a88fd5",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:21:00.381Z",
+      "updatedAt": "2026-03-01T21:21:00.381Z"
+    },
+    {
+      "id": "69a4adbc9b0a657ff19de59d",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:21:00.470Z",
+      "updatedAt": "2026-03-01T21:21:00.470Z"
+    },
+    {
+      "id": "69a4adbc9b0a657ff19de59e",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:21:00.520Z",
+      "updatedAt": "2026-03-01T21:21:00.520Z"
+    },
+    {
+      "id": "69a4adbc9b0a657ff19de59f",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:21:00.588Z",
+      "updatedAt": "2026-03-01T21:21:00.588Z"
+    },
+    {
+      "id": "69a4adbc9b0a657ff19de5a0",
+      "companyId": "69a41de45cbcf4f0c89e896c",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:21:00.659Z",
+      "updatedAt": "2026-03-01T21:21:00.659Z"
+    },
+    {
+      "id": "69a4ae45c70844bd0c9ba360",
+      "companyId": "69a4ae45c70844bd0c9ba35f",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-01T21:23:17.250Z",
+      "updatedAt": "2026-03-01T21:23:17.250Z"
+    },
+    {
+      "id": "69aa0fbb67fc53436bd80d1b",
+      "companyId": "69aa0f515190de9c73a65cc2",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-05T23:20:27.175Z",
+      "updatedAt": "2026-03-05T23:20:27.175Z"
+    },
+    {
+      "id": "69ad771e006229180183c1f6",
+      "companyId": "69ad771e006229180183c1f5",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-08T13:18:22.093Z",
+      "updatedAt": "2026-03-08T13:18:22.093Z"
+    },
+    {
+      "id": "69c153b494c1919258747d5d",
+      "companyId": "69c153b494c1919258747d5c",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-03-23T14:52:36.086Z",
+      "updatedAt": "2026-03-23T14:52:36.086Z"
+    },
+    {
+      "id": "69dfab406655d26a63e08d9c",
+      "companyId": "69dfab406655d26a63e08d9b",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-04-15T15:14:08.500Z",
+      "updatedAt": "2026-04-15T15:14:08.500Z"
+    },
+    {
+      "id": "69dfad78f759a4537071f4cb",
+      "companyId": "69dfad78f759a4537071f4ca",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-04-15T15:23:36.672Z",
+      "updatedAt": "2026-04-15T15:23:36.672Z"
+    },
+    {
+      "id": "69e53ef3743ee97ff34e595b",
+      "companyId": "69e53dfa5954fc577d43e987",
+      "plan": "FREE",
+      "status": "ACTIVE",
+      "dodoCustomerId": null,
+      "dodoSubscriptionId": null,
+      "dodoProductId": null,
+      "currentPeriodStart": null,
+      "currentPeriodEnd": null,
+      "trialEnd": null,
+      "cancelAtPeriodEnd": false,
+      "createdAt": "2026-04-19T20:45:39.680Z",
+      "updatedAt": "2026-04-19T20:45:39.680Z"
+    }
+  ],
+  "usageMetrics": [
+    {
+      "id": "69a41f203a9a405a41b02afd",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "periodStart": "2026-02-28T18:30:00.000Z",
+      "periodEnd": "2026-03-31T18:29:59.000Z",
+      "projectCount": 2,
+      "feedbackCount": 1,
+      "createdAt": "2026-03-01T11:12:32.878Z",
+      "updatedAt": "2026-03-02T15:19:00.647Z"
+    },
+    {
+      "id": "69ad141b34328edaba8e1b82",
+      "companyId": "69a41d73bc21688fb5a88fd5",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 2,
+      "feedbackCount": 1,
+      "createdAt": "2026-03-08T06:15:55.749Z",
+      "updatedAt": "2026-03-13T07:28:14.261Z"
+    },
+    {
+      "id": "69ad73a1bdabf4c809dacb83",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 2,
+      "feedbackCount": 0,
+      "createdAt": "2026-03-08T13:03:29.096Z",
+      "updatedAt": "2026-03-21T05:54:35.396Z"
+    },
+    {
+      "id": "69ad7734006229180183c1f8",
+      "companyId": "69ad771e006229180183c1f5",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 1,
+      "feedbackCount": 0,
+      "createdAt": "2026-03-08T13:18:44.248Z",
+      "updatedAt": "2026-03-08T13:18:44.855Z"
+    },
+    {
+      "id": "69ae836fde030879a0eed0ae",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 2,
+      "feedbackCount": 3,
+      "createdAt": "2026-03-09T08:23:11.649Z",
+      "updatedAt": "2026-03-31T17:26:01.632Z"
+    },
+    {
+      "id": "69b42f8f586572cf100724c6",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 7,
+      "feedbackCount": 1,
+      "createdAt": "2026-03-13T15:38:55.121Z",
+      "updatedAt": "2026-03-30T12:54:59.645Z"
+    },
+    {
+      "id": "69b59e949da3a2c7ec28f1fd",
+      "companyId": "69a4ae45c70844bd0c9ba35f",
+      "periodStart": "2026-02-28T18:30:00.000Z",
+      "periodEnd": "2026-03-31T18:29:59.000Z",
+      "projectCount": 1,
+      "feedbackCount": 0,
+      "createdAt": "2026-03-14T17:44:52.339Z",
+      "updatedAt": "2026-03-14T17:44:52.394Z"
+    },
+    {
+      "id": "69b6c4e7f244031d81ca6da7",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 5,
+      "feedbackCount": 2,
+      "createdAt": "2026-03-15T14:40:39.918Z",
+      "updatedAt": "2026-03-25T20:15:55.817Z"
+    },
+    {
+      "id": "69c21a3fd02e1883a4503f5d",
+      "companyId": "69c153b494c1919258747d5c",
+      "periodStart": "2026-03-01T00:00:00.000Z",
+      "periodEnd": "2026-03-31T23:59:59.000Z",
+      "projectCount": 1,
+      "feedbackCount": 0,
+      "createdAt": "2026-03-24T04:59:43.028Z",
+      "updatedAt": "2026-03-24T04:59:43.592Z"
+    },
+    {
+      "id": "69cfff1fd282b633a3387f59",
+      "companyId": "69a41de45cbcf4f0c89e896b",
+      "periodStart": "2026-04-01T00:00:00.000Z",
+      "periodEnd": "2026-04-30T23:59:59.000Z",
+      "projectCount": 3,
+      "feedbackCount": 2,
+      "createdAt": "2026-04-03T17:55:43.343Z",
+      "updatedAt": "2026-04-15T15:22:36.427Z"
+    },
+    {
+      "id": "69e540305954fc577d43e989",
+      "companyId": "69e53dfa5954fc577d43e987",
+      "periodStart": "2026-04-01T00:00:00.000Z",
+      "periodEnd": "2026-04-30T23:59:59.000Z",
+      "projectCount": 1,
+      "feedbackCount": 0,
+      "createdAt": "2026-04-19T20:50:56.244Z",
+      "updatedAt": "2026-04-19T20:50:56.899Z"
+    },
+    {
+      "id": "69e78fcd1504959fb54d0ae9",
+      "companyId": "69a41de35cbcf4f0c89e896a",
+      "periodStart": "2026-04-01T00:00:00.000Z",
+      "periodEnd": "2026-04-30T23:59:59.000Z",
+      "projectCount": 1,
+      "feedbackCount": 0,
+      "createdAt": "2026-04-21T14:55:09.183Z",
+      "updatedAt": "2026-04-21T14:55:09.824Z"
+    },
+    {
+      "id": "6a0b22afff5533e2916ecac8",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "periodStart": "2026-05-01T00:00:00.000Z",
+      "periodEnd": "2026-05-31T23:59:59.000Z",
+      "projectCount": 2,
+      "feedbackCount": 0,
+      "createdAt": "2026-05-18T14:31:11.892Z",
+      "updatedAt": "2026-05-20T11:13:33.228Z"
+    }
+  ]
+}

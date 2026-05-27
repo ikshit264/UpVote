@@ -12,6 +12,8 @@ export async function GET(request: NextRequest) {
         }
 
         const applicationId = request.nextUrl.searchParams.get('applicationId');
+        const daysParam = parseInt(request.nextUrl.searchParams.get('days') || '30', 10);
+        const trendDays = [7, 30, 90, 180, 365].includes(daysParam) ? daysParam : 30;
 
         const appWhere = {
             application: {
@@ -55,19 +57,19 @@ export async function GET(request: NextRequest) {
         });
         const allUniqueUsers = new Set([...uniqueUsers.map(u => u.userId), ...uniqueVoters.map(u => u.userId)]);
 
-        // 4. Feedback over time (last 30 days)
-        const thirtyDaysAgo = subDays(new Date(), 30);
+        // 4. Feedback over time (configurable window)
+        const trendStart = subDays(new Date(), trendDays);
         const feedbackTrend = await prisma.feedback.findMany({
             where: {
                 ...appWhere,
-                createdAt: { gte: thirtyDaysAgo }
+                createdAt: { gte: trendStart }
             },
             select: { createdAt: true }
         });
 
         // Group by day
-        const trendData = Array.from({ length: 30 }).map((_, i) => {
-            const date = startOfDay(subDays(new Date(), 29 - i));
+        const trendData = Array.from({ length: trendDays }).map((_, i) => {
+            const date = startOfDay(subDays(new Date(), trendDays - 1 - i));
             const count = feedbackTrend.filter(f => startOfDay(f.createdAt).getTime() === date.getTime()).length;
             return {
                 date: date.toISOString().split('T')[0],

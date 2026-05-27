@@ -58,7 +58,7 @@ export function UserAccountNav({
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-zinc-100 dark:bg-zinc-800" />
-                <DropdownMenuItem asChild className="rounded-lg focus:bg-zinc-100 dark:focus:bg-zinc-800 transition-colors cursor-pointer my-1">
+                <DropdownMenuItem asChild className="rounded-lg text-zinc-900 dark:text-zinc-100 focus:bg-zinc-100 focus:text-zinc-900 dark:focus:bg-zinc-800 dark:focus:text-zinc-100 transition-colors cursor-pointer my-1">
                     <Link href="/dashboard" className="flex items-center w-full px-2 py-1.5">
                         <LayoutDashboard className="mr-2.5 h-4 w-4 text-zinc-500" />
                         <span className="text-sm font-medium">Dashboard</span>
@@ -66,7 +66,7 @@ export function UserAccountNav({
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-zinc-100 dark:bg-zinc-800" />
                 <DropdownMenuItem
-                    className="rounded-lg focus:bg-red-50 dark:focus:bg-red-900/20 text-red-600 dark:text-red-400 transition-colors cursor-pointer my-1 px-2 py-1.5"
+                    className="rounded-lg focus:bg-red-50 focus:text-red-600 dark:focus:bg-red-900/20 dark:focus:text-red-400 text-red-600 dark:text-red-400 transition-colors cursor-pointer my-1 px-2 py-1.5"
                     onSelect={(event) => {
                         event.preventDefault()
                         syncMonkFeedLogout()

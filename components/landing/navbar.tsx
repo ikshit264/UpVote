@@ -39,7 +39,7 @@ export default function Navbar() {
                 Blogs
               </Link>
               <Link
-                href="#features"
+                href="/features"
                 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Features
@@ -61,7 +61,7 @@ export default function Navbar() {
                 Blogs
               </Link>
               <Link
-                href="#features"
+                href="/features"
                 className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Features
@@ -142,7 +142,7 @@ export default function Navbar() {
                     Blogs
                   </Link>
                   <Link
-                    href="#features"
+                    href="/features"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
                   >

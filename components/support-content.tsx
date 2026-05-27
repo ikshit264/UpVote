@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Search, HelpCircle, Mail, Clock, User, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, HelpCircle, Mail, Clock, User, ChevronLeft, ChevronRight, X as XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateRangePicker } from '@/components/date-range-picker';
 import { DateRange } from 'react-day-picker';
@@ -81,11 +81,22 @@ export default function SupportContent({ applicationId }: SupportContentProps) {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    <div className="flex items-center gap-3 w-full md:w-auto">
+                    <div className="flex items-center gap-2 w-full md:w-auto">
                         <Badge variant="secondary" className="bg-zinc-100 dark:bg-zinc-800 font-bold text-xs h-9 px-3">
                             {totalCount} {totalCount === 1 ? 'Query' : 'Queries'}
                         </Badge>
                         <DateRangePicker date={dateRange} setDate={setDateRange} className="flex-1" />
+                        {dateRange && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => setDateRange(undefined)}
+                                className="rounded-xl h-9 text-zinc-500 hover:text-zinc-900 dark:hover:text-white font-bold"
+                            >
+                                <XIcon className="w-3.5 h-3.5 mr-1" />
+                                Clear
+                            </Button>
+                        )}
                     </div>
                 </div>
             </Card>

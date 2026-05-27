@@ -23,19 +23,30 @@ interface AnalyticsContentProps {
   appId: string;
 }
 
+const TREND_RANGES: { label: string; days: number }[] = [
+  { label: '7d', days: 7 },
+  { label: '30d', days: 30 },
+  { label: '90d', days: 90 },
+  { label: '180d', days: 180 },
+  { label: '1y', days: 365 },
+];
+
 export default function AnalyticsContentClient({
   appId,
 }: AnalyticsContentProps) {
   const [stats, setStats] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [trendDays, setTrendDays] = useState<number>(30);
 
   useEffect(() => {
-    fetchStats();
-  }, [appId]);
+    fetchStats(trendDays);
+  }, [appId, trendDays]);
 
-  const fetchStats = async () => {
+  const fetchStats = async (days: number) => {
     try {
-      const res = await fetch(`/api/dashboard/analytics?applicationId=${appId}`);
+      const res = await fetch(
+        `/api/dashboard/analytics?applicationId=${appId}&days=${days}`,
+      );
       const data = await res.json();
       setStats(data);
     } catch (error) {
@@ -122,55 +133,35 @@ export default function AnalyticsContentClient({
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <Card className="rounded-3xl border-none bg-white p-8 shadow-sm dark:bg-zinc-900 lg:col-span-2">
-          <div className="mb-8 flex items-center justify-between">
-            <h3 className="flex items-center gap-2 text-lg font-bold">
-              <TrendingUp className="h-5 w-5 text-zinc-500" />
-              Feedback Trend
-            </h3>
-            <span className="rounded bg-zinc-100 px-2 py-1 text-xs font-bold uppercase text-zinc-400 dark:bg-zinc-800">
-              Last 30 Days
-            </span>
-          </div>
-          <div className="h-80 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={stats.feedbackTrend}>
-                <defs>
-                  <linearGradient id="colorTrend" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#000000" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#000000" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid
-                  strokeDasharray="3 3"
-                  vertical={false}
-                  stroke="#e4e4e7"
-                />
-                <XAxis dataKey="date" hide />
-                <YAxis hide />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: '12px',
-                    border: 'none',
-                    boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
-                  }}
-                  labelClassName="font-bold text-zinc-900"
-                />
-                <Area
-                  type="monotone"
-                  dataKey="count"
-                  stroke="#000000"
-                  strokeWidth={4}
-                  fillOpacity={1}
-                  fill="url(#colorTrend)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          <h3 className="mb-6 text-lg font-bold">Top Contributing Ideas</h3>
+          {stats.topFeedback.length > 0 ? (
+            <div className="grid gap-4">
+              {stats.topFeedback.map((item: any, i: number) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-2xl bg-zinc-50 p-4 transition-colors hover:bg-zinc-100 dark:bg-zinc-800/50"
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl font-black text-zinc-200 dark:text-zinc-800">
+                      0{i + 1}
+                    </span>
+                    <span className="font-bold">{item.title}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-black text-green-500">
+                    <ArrowUp className="h-4 w-4" />
+                    {item.monkfeeds}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="py-12 text-center text-zinc-500">No data yet</p>
+          )}
         </Card>
 
         <Card className="rounded-3xl border-none bg-white p-8 shadow-sm dark:bg-zinc-900">
-          <h3 className="mb-8 text-lg font-bold">Tag Distribution</h3>
-          <div className="space-y-6">
+          <h3 className="mb-6 text-lg font-bold">Tag Distribution</h3>
+          <div className="max-h-112 space-y-6 overflow-y-auto pr-2 -mr-2">
             {stats.tagDistribution.length > 0 ? (
               stats.tagDistribution.map((tag: any, i: number) => (
                 <div key={i} className="space-y-2">
@@ -194,25 +185,62 @@ export default function AnalyticsContentClient({
       </div>
 
       <Card className="rounded-3xl border-none bg-white p-8 shadow-sm dark:bg-zinc-900">
-        <h3 className="mb-6 text-lg font-bold">Top Contributing Ideas</h3>
-        <div className="grid gap-4">
-          {stats.topFeedback.map((item: any, i: number) => (
-            <div
-              key={i}
-              className="flex items-center justify-between rounded-2xl bg-zinc-50 p-4 transition-colors hover:bg-zinc-100 dark:bg-zinc-800/50"
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl font-black text-zinc-200 dark:text-zinc-800">
-                  0{i + 1}
-                </span>
-                <span className="font-bold">{item.title}</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-black text-green-500">
-                <ArrowUp className="h-4 w-4" />
-                {item.monkfeeds}
-              </div>
-            </div>
-          ))}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+          <h3 className="flex items-center gap-2 text-lg font-bold">
+            <TrendingUp className="h-5 w-5 text-zinc-500" />
+            Feedback Trend
+          </h3>
+          <div className="inline-flex items-center gap-1 rounded-xl bg-zinc-100 p-1 dark:bg-zinc-800">
+            {TREND_RANGES.map((range) => (
+              <button
+                key={range.days}
+                type="button"
+                onClick={() => setTrendDays(range.days)}
+                className={`rounded-lg px-3 py-1 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  trendDays === range.days
+                    ? 'bg-white text-zinc-900 shadow-sm dark:bg-zinc-950 dark:text-white'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
+                }`}
+              >
+                {range.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="h-80 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={stats.feedbackTrend}>
+              <defs>
+                <linearGradient id="colorTrend" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#000000" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#000000" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                vertical={false}
+                stroke="#e4e4e7"
+              />
+              <XAxis dataKey="date" hide />
+              <YAxis hide />
+              <Tooltip
+                contentStyle={{
+                  borderRadius: '12px',
+                  border: 'none',
+                  boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
+                }}
+                labelClassName="font-bold text-zinc-900"
+              />
+              <Area
+                type="monotone"
+                dataKey="count"
+                stroke="#000000"
+                strokeWidth={4}
+                fillOpacity={1}
+                fill="url(#colorTrend)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </Card>
     </div>

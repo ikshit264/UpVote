@@ -88,7 +88,7 @@ export default function PricingSection() {
                             </li>
                         </ul>
                         <Link href="/auth/signup">
-                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Get Started</Button>
+                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-all">Get Started</Button>
                         </Link>
                     </m.div>
 
@@ -162,7 +162,7 @@ export default function PricingSection() {
                             </li>
                         </ul>
                         <Link href="mailto:sales@monkfeed.com">
-                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all">Contact Sales</Button>
+                            <Button variant="outline" className="w-full h-12 rounded-xl border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white text-base font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-all">Contact Sales</Button>
                         </Link>
                     </m.div>
                 </div>
