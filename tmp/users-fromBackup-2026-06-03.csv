@@ -1,0 +1,11 @@
+Name,Email,CompanyId,IsEntrextTeam,AuthMethods,SignedUpAt,ProjectCount,FirstProjectAt,LastProjectAt,Plan,SubscriptionStatus,HasPaid,DodoCustomerId,DodoSubscriptionId,DodoProductId,CurrentPeriodStart,CurrentPeriodEnd,TrialEnd,CancelAtPeriodEnd
+Team 1,team1@entrext.com,69a41de35cbcf4f0c89e8968,true,password,2026-03-01T11:07:15.169Z,17,2026-03-01T11:12:32.604Z,2026-05-20T11:13:32.101Z,FREE,ACTIVE,NO,,,,,,,false
+Team 2,team2@entrext.com,69a41de35cbcf4f0c89e8969,true,password,2026-03-01T11:07:15.494Z,9,2026-03-15T14:40:38.972Z,2026-04-07T20:31:14.400Z,FREE,ACTIVE,NO,,,,,,,false
+Ikshit Talera,ikshit.talera@gmail.com,69a4ae45c70844bd0c9ba35f,false,google,2026-03-01T21:23:17.250Z,1,2026-03-14T17:44:52.206Z,2026-03-14T17:44:52.206Z,FREE,ACTIVE,NO,,,,,,,false
+Team 7,team7@entrext.com,69aa0f515190de9c73a65cc3,true,password,2026-03-05T23:18:41.438Z,0,,,NONE,,NO,,,,,,,
+Komal Siddharth,komalsiddharth814@gmail.com,69ad771e006229180183c1f5,false,google,2026-03-08T13:18:22.093Z,1,2026-03-08T13:18:43.235Z,2026-03-08T13:18:43.235Z,FREE,ACTIVE,NO,,,,,,,false
+ikshit,surya.nallagonda@gmail.com,69ad7ab7006229180183c1f9,false,password,2026-03-08T13:33:43.772Z,0,,,NONE,,NO,,,,,,,
+Aryan Sagavekar,sagavekararyan@gmail.com,69c153b494c1919258747d5c,false,google,2026-03-23T14:52:36.086Z,1,2026-03-24T04:59:42.082Z,2026-03-24T04:59:42.082Z,FREE,ACTIVE,NO,,,,,,,false
+Garv Thakral,garvthakralfx@gmail.com,69dfab406655d26a63e08d9b,false,google,2026-04-15T15:14:08.500Z,0,,,FREE,ACTIVE,NO,,,,,,,false
+Mohit Sharma,mohitxsharma09@gmail.com,69dfad78f759a4537071f4ca,false,google,2026-04-15T15:23:36.672Z,0,,,FREE,ACTIVE,NO,,,,,,,false
+s,s@gmail.com,69e53dfa5954fc577d43e987,false,password,2026-04-19T20:41:30.250Z,1,2026-04-19T20:50:55.148Z,2026-04-19T20:50:55.148Z,FREE,ACTIVE,NO,,,,,,,false

@@ -1,0 +1,185 @@
+{
+  "takenAt": "2026-06-02T14:04:19.424Z",
+  "applications": [
+    {
+      "id": "69a41f203a9a405a41b02afc",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "InviteFlow",
+      "createdAt": "2026-03-01T11:12:32.604Z"
+    },
+    {
+      "id": "69a41f4f3a9a405a41b02afe",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "SubSafe",
+      "createdAt": "2026-03-01T11:13:19.662Z"
+    },
+    {
+      "id": "69ad141a34328edaba8e1b81",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "SkillVibe",
+      "createdAt": "2026-03-08T06:15:54.797Z"
+    },
+    {
+      "id": "69ad73a0bdabf4c809dacb82",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "sessionly",
+      "createdAt": "2026-03-08T13:03:28.150Z"
+    },
+    {
+      "id": "69ad7733006229180183c1f7",
+      "companyId": "69ad771e006229180183c1f5",
+      "name": "NeuraVerse",
+      "createdAt": "2026-03-08T13:18:43.235Z"
+    },
+    {
+      "id": "69b3b8edf6afcee5f4330531",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "BuildInPublic",
+      "createdAt": "2026-03-13T07:12:45.314Z"
+    },
+    {
+      "id": "69b42f8e586572cf100724c5",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Nurturely",
+      "createdAt": "2026-03-13T15:38:54.019Z"
+    },
+    {
+      "id": "69b43ea5861752ae99cd14bb",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "CurioCafe",
+      "createdAt": "2026-03-13T16:43:17.829Z"
+    },
+    {
+      "id": "69b59e949da3a2c7ec28f1fc",
+      "companyId": "69a4ae45c70844bd0c9ba35f",
+      "name": "asasa",
+      "createdAt": "2026-03-14T17:44:52.206Z"
+    },
+    {
+      "id": "69b6c4e6f244031d81ca6da6",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Babysimple",
+      "createdAt": "2026-03-15T14:40:38.972Z"
+    },
+    {
+      "id": "69b6d0fe5cc6277f2375180e",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "SecretRoom",
+      "createdAt": "2026-03-15T15:32:14.852Z"
+    },
+    {
+      "id": "69b6fc563c257178f36b2a92",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Editflow",
+      "createdAt": "2026-03-15T18:37:10.806Z"
+    },
+    {
+      "id": "69baa800f2b9c4ec3d6aea89",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Soho Space",
+      "createdAt": "2026-03-18T13:26:24.630Z"
+    },
+    {
+      "id": "69baa8f0f2b9c4ec3d6aea8a",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "PickSpy",
+      "createdAt": "2026-03-18T13:30:24.634Z"
+    },
+    {
+      "id": "69baa955dd284c93bc8b0d4e",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "FutureFit",
+      "createdAt": "2026-03-18T13:32:05.807Z"
+    },
+    {
+      "id": "69be329a58344d4f3ca2c6ef",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "inbox",
+      "createdAt": "2026-03-21T05:54:34.376Z"
+    },
+    {
+      "id": "69c16f424fa9731c0441a765",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "FinGenius",
+      "createdAt": "2026-03-23T16:50:10.812Z"
+    },
+    {
+      "id": "69c1729fb534274331e96721",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "DOCAI",
+      "createdAt": "2026-03-23T17:04:31.631Z"
+    },
+    {
+      "id": "69c21a3ed02e1883a4503f5c",
+      "companyId": "69c153b494c1919258747d5c",
+      "name": "EdgeFoundation",
+      "createdAt": "2026-03-24T04:59:42.082Z"
+    },
+    {
+      "id": "69c2c48ef66da0a8aef41c23",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "OpinVox",
+      "createdAt": "2026-03-24T17:06:22.026Z"
+    },
+    {
+      "id": "69c7eb68a59168ff8d08615a",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Arctic",
+      "createdAt": "2026-03-28T14:53:28.922Z"
+    },
+    {
+      "id": "69ca72a2cbc3499b308bf80c",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "BranchScope",
+      "createdAt": "2026-03-30T12:54:58.541Z"
+    },
+    {
+      "id": "69cc03a83b83f3df5f0cd419",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Upvote",
+      "createdAt": "2026-03-31T17:26:00.478Z"
+    },
+    {
+      "id": "69cfff1ed282b633a3387f58",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Auraix",
+      "createdAt": "2026-04-03T17:55:42.240Z"
+    },
+    {
+      "id": "69d113e2907ca65231e55ae8",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "envdrop",
+      "createdAt": "2026-04-04T13:36:34.229Z"
+    },
+    {
+      "id": "69d56992c6bf2acb4955e625",
+      "companyId": "69a41de35cbcf4f0c89e8969",
+      "name": "Sprintforage",
+      "createdAt": "2026-04-07T20:31:14.400Z"
+    },
+    {
+      "id": "69e5402f5954fc577d43e988",
+      "companyId": "69e53dfa5954fc577d43e987",
+      "name": "aa",
+      "createdAt": "2026-04-19T20:50:55.148Z"
+    },
+    {
+      "id": "69e78fcc1504959fb54d0ae8",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Vent",
+      "createdAt": "2026-04-21T14:55:08.108Z"
+    },
+    {
+      "id": "6a0b22aeff5533e2916ecac7",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Example Test 009",
+      "createdAt": "2026-05-18T14:31:10.864Z"
+    },
+    {
+      "id": "6a0d975c0bb6eb68122bedd6",
+      "companyId": "69a41de35cbcf4f0c89e8968",
+      "name": "Example Test 010",
+      "createdAt": "2026-05-20T11:13:32.101Z"
+    }
+  ]
+}
