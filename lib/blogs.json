@@ -451,6 +451,7 @@
     },
     {
         "slug": "feature-requests-vs-feature-needs",
+        "draft": true,
         "title": "Feature Requests vs. Feature Needs: Why Your Customers Don't Always Know What They Want",
         "description": "Users are great at pointing out problems but terrible at designing solutions. Here's how to distinguish a loud feature request from a silent feature need — and why it's the single most critical skill in product strategy.",
         "image": "/blogs/feature-requests-vs-needs/hero-wants-vs-needs.jpg",

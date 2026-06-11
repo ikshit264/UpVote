@@ -41,14 +41,16 @@ export interface Blog {
     sections?: BlogSection[];
     metadata: BlogMetadata;
     faqs?: FAQ[];
+    draft?: boolean;
 }
 
 export function getAllBlogs(): Blog[] {
     return (blogsData as Blog[])
+        .filter((blog) => !blog.draft)
         .slice()
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getBlogBySlug(slug: string): Blog | undefined {
-    return (blogsData as Blog[]).find((blog) => blog.slug === slug);
+    return (blogsData as Blog[]).find((blog) => blog.slug === slug && !blog.draft);
 }
