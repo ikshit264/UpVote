@@ -1,0 +1,226 @@
+[
+    {
+        "slug": "clear-the-clutter",
+        "title": "Clear the Clutter",
+        "tagline": "Tired of feedback scattered across emails, Slack, and support tickets? Centralize everything in one dashboard so you can prioritize it, act on it, and never miss a customer insight again.",
+        "icon": "🎯",
+        "image": "/benefits/clear-the-clutter.jpg",
+        "imageAlt": "MonkFeed Clear the Clutter — one dashboard centralizing all feedback from emails, Slack, and support tickets",
+        "order": 1,
+        "metadata": {
+            "title": "Centralize Customer Feedback | MonkFeed Dashboard",
+            "description": "Stop managing feedback across emails and Slack. Centralize all customer insights in one dashboard with MonkFeed for total clarity and faster decisions.",
+            "keywords": "feedback management, centralized feedback, customer feedback dashboard, feedback consolidation, feedback tool, MonkFeed dashboard"
+        },
+        "hero": {
+            "heading": "One Dashboard. Total Clarity.",
+            "subheading": "Feedback scattered across emails, Slack threads, and support tickets means missed insights and slow decisions. MonkFeed pulls everything into one place — centralized, ranked, and ready to act on."
+        },
+        "sections": [
+            {
+                "heading": "The feedback chaos problem",
+                "content": "When your team collects feedback across multiple channels — support tickets, Slack messages, email threads, app store reviews — every piece of data lives in a different silo. Nothing is connected. Nothing is ranked. By the time someone reads the fifth Slack message about the same issue, you've already shipped something else.\n\nThe result is **decision paralysis**. Teams either build based on the loudest voice in the most recent channel, or they spend hours each week manually tagging and consolidating feedback that should already be organized.\n\nThis isn't a process problem. It's an infrastructure problem."
+            },
+            {
+                "heading": "One dashboard. Everything in it.",
+                "content": "MonkFeed centralizes every piece of feedback — feature requests, bug reports, comments, votes — into a single structured dashboard.\n\nInstead of hunting through threads, you get:\n\n- **A ranked list** of requests, sorted by votes and user engagement\n- **Status tracking** — Under Review, In Progress, Shipped, Closed\n- **Comment threads** that give every request full context\n- **Moderation tools** to keep your board clean and actionable\n- **Trend analytics** to spot what's gaining momentum\n\nEverything your product team needs. One place. No tab-switching."
+            },
+            {
+                "heading": "From scattered to structured",
+                "content": "The shift from scattered feedback to a centralized board changes how your entire team operates:\n\n- **Faster triage** — New feedback is immediately visible and votable, not buried in an inbox\n- **Shared context** — Your whole product team sees the same data at the same time\n- **Customer trust** — Users see their feedback acknowledged and tracked, not sent into a void\n- **Fewer status meetings** — Progress is self-serve. No more \"where did we land on that request?\" threads\n\nWhen the signal is clean, decisions are faster and more confident."
+            },
+            {
+                "heading": "Set up in under five minutes",
+                "content": "MonkFeed takes less than five minutes to install. Drop in one line of code, and every feedback submission goes straight to your dashboard. No configuration required. No training needed.\n\n```html\n<div class=\"monkfeed-widget\" data-application-id=\"YOUR_APP_ID\"></div>\n<script src=\"https://monkfeed.entrext.com/widget.js\"></script>\n```\n\nBy the time you finish your next coffee, you'll have a centralized feedback board and a clear picture of what your users actually want."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Can MonkFeed replace my existing support ticket system?",
+                "answer": "MonkFeed complements your support system rather than replacing it. It's designed specifically for product feedback — feature requests, ideas, and improvements — rather than bug reports or urgent support issues. Many teams run both in parallel."
+            },
+            {
+                "question": "What happens to feedback submitted before I installed MonkFeed?",
+                "answer": "Existing feedback from emails or Slack can be manually added to your MonkFeed board by your team. Going forward, the widget captures everything automatically."
+            },
+            {
+                "question": "Can multiple team members access the dashboard?",
+                "answer": "Yes. MonkFeed supports team access so your product managers, designers, and engineers can all see and triage the same feedback board simultaneously."
+            },
+            {
+                "question": "How does MonkFeed prevent duplicate feedback submissions?",
+                "answer": "Users can see existing submissions before adding their own, which encourages them to vote on existing ideas rather than creating duplicates. The result is a cleaner board with more accurate vote counts."
+            }
+        ]
+    },
+    {
+        "slug": "free-to-start",
+        "title": "Free to Start",
+        "tagline": "Start collecting real customer feedback today. No credit card. No commitment. Our free forever plan gives you real insights from real users with no strings attached.",
+        "icon": "💚",
+        "image": "/benefits/free-to-start.jpg",
+        "imageAlt": "MonkFeed Free to Start — no credit card required, free forever plan with real feedback collection",
+        "order": 2,
+        "metadata": {
+            "title": "Free Customer Feedback Software | No Credit Card Required | MonkFeed",
+            "description": "Collect real customer feedback with MonkFeed's free forever plan. Start today with no credit card needed and no time limits.",
+            "keywords": "free feedback tool, free customer feedback software, free forever plan, feedback collection free, no credit card feedback tool, MonkFeed free"
+        },
+        "hero": {
+            "heading": "Start Collecting Feedback Today — For Free",
+            "subheading": "No credit card. No commitment. No expiry date. Our free forever plan gives you a fully working feedback widget, a live dashboard, and real insights from real users — from the moment you sign up."
+        },
+        "sections": [
+            {
+                "heading": "Zero barriers to your first insight",
+                "content": "Most feedback tools gate their most useful features behind expensive plans, forcing you to pay before you've proven the tool is worth it. MonkFeed flips that model.\n\nOur free forever plan gives you real feedback collection, real voting, and a real dashboard — with **no credit card required** and **no time limit**. You start learning what your users need from day one, not after a sales call.\n\nWe believe building better products shouldn't require a budget approval."
+            },
+            {
+                "heading": "What's included in the free plan",
+                "content": "The Hobby Plan isn't a crippled trial. It gives you the complete core feedback loop:\n\n- **Feedback widget embed** on your site or app\n- **Unlimited feature requests** from your users\n- **Voting and discussion** on all submitted ideas\n- **Status tracking** — Under Review, Coming Soon, Shipped\n- **Analytics dashboard** for spotting trends\n- **Spam protection** and moderation tools\n\nCollect, prioritize, and act on feedback — entirely for free. No hidden caps, no feature locks that make the free tier useless."
+            },
+            {
+                "heading": "Upgrade only when it makes sense",
+                "content": "When your feedback volume grows or you need advanced capabilities — private boards, custom branding, team permissions, API access, or priority support — our Pro and Enterprise plans are there.\n\nBut you'll **never be forced to upgrade** just to collect basic feedback. The free plan doesn't expire. Your board and all its data stay accessible as long as you use MonkFeed.\n\nGrow into a paid plan because your product is growing, not because a trial clock ran out."
+            },
+            {
+                "heading": "Start in under 60 seconds",
+                "content": "Sign up, copy your embed code, and paste it into your site. There's no billing page to navigate, no credit card form to fill out, and no sales process to complete.\n\nJust a working feedback widget and a dashboard waiting for your first submission.\n\n```html\n<div class=\"monkfeed-widget\" data-application-id=\"YOUR_APP_ID\"></div>\n<script src=\"https://monkfeed.entrext.com/widget.js\"></script>\n```\n\nWorks with HTML, React, Next.js, and any other stack. One line. Done."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Is the free plan really free forever?",
+                "answer": "Yes. The Hobby Plan has no time limit. It's not a trial that converts to paid after 14 or 30 days. You can use the core feedback collection features for as long as you want, at no cost."
+            },
+            {
+                "question": "Do I need a credit card to sign up?",
+                "answer": "No. You can sign up and start collecting feedback immediately without entering any payment information. A credit card is only required if you choose to upgrade to a paid plan."
+            },
+            {
+                "question": "What are the limits on the free plan?",
+                "answer": "The free plan is designed for early-stage projects and growing teams. As your usage scales, Pro and Enterprise plans unlock higher limits, private boards, team seats, and advanced integrations."
+            },
+            {
+                "question": "Can I migrate my data if I upgrade later?",
+                "answer": "Yes. All feedback, votes, comments, and history from your free plan carry over automatically when you upgrade. There's no migration needed."
+            },
+            {
+                "question": "What happens to my data if I stop using MonkFeed?",
+                "answer": "Your data remains accessible while your account is active. We don't delete inactive accounts without notice, and we give you the ability to export your feedback data at any time."
+            }
+        ]
+    },
+    {
+        "slug": "before-after-clarity",
+        "title": "Before/After Clarity",
+        "tagline": "Before: Guessing what users want. After: Knowing exactly what features matter most. That's the power of structured feedback at scale.",
+        "icon": "👁️",
+        "image": "/benefits/before-after.jpg",
+        "imageAlt": "MonkFeed Before/After Clarity — transforming product decisions from guesswork to data-driven clarity",
+        "order": 3,
+        "metadata": {
+            "title": "Stop Guessing What Users Want | MonkFeed Feedback Analytics",
+            "description": "Transform product decisions from guesswork to data-driven clarity. See exactly what features your customers demand with MonkFeed's structured feedback system.",
+            "keywords": "customer insights, product roadmap, feature prioritization, user feedback analytics, data-driven product development, stop guessing what users want, MonkFeed"
+        },
+        "hero": {
+            "heading": "Stop Guessing. Start Knowing.",
+            "subheading": "Before MonkFeed, product decisions are expensive guesses. After MonkFeed, your roadmap is backed by ranked, voted, real-user demand. The difference shows up in retention, not just satisfaction."
+        },
+        "sections": [
+            {
+                "heading": "The real cost of guessing",
+                "content": "Before structured feedback, product decisions are expensive guesses. Teams ship features based on:\n\n- The last customer complaint someone remembered in a meeting\n- What the sales team thinks will close the next deal\n- What sounded exciting in sprint planning last Tuesday\n\nThe result? Features that nobody uses. Sprint cycles that don't move the retention needle. Engineering hours absorbed into the graveyard of **shipped-but-abandoned** functionality.\n\nThe guessing game isn't just inefficient — it's compounding. Every wrong feature built is a right feature that didn't get built."
+            },
+            {
+                "heading": "What structured feedback reveals",
+                "content": "With MonkFeed embedded in your product, every user can submit and vote on ideas in real time — in the exact context where the need actually lives.\n\nInstead of guessing, you see:\n\n- **Which features have the most demand** across your user base\n- **Who is asking** — free tier, paying, power user, recently churned\n- **How the need is described** in users' own words, not filtered through support\n- **What workarounds users are already using** — the strongest signal of all\n- **Sentiment over time** — whether urgency is rising or fading"
+            },
+            {
+                "heading": "Before MonkFeed vs. After MonkFeed",
+                "content": "**Before:**\n- Roadmap built from memory and gut feel\n- Loudest customer or biggest deal shapes the next sprint\n- \"Did we fix what users actually wanted?\" gets answered after shipping — too late\n- Churn happens for reasons you couldn't predict and didn't see coming\n\n**After:**\n- Roadmap backed by ranked, voted, segmented user demand\n- Highest-impact requests surface automatically — no manual triage\n- You know what users want *before* you start building\n- Retention improves because you build what actually removes friction"
+            },
+            {
+                "heading": "The data-driven roadmap",
+                "content": "MonkFeed's dashboard turns raw feedback into a ranked, filterable backlog. Sort by votes, filter by user segment, and track how sentiment shifts over time.\n\nEvery decision starts from real signal. Not a hunch, not a loudest-voice-in-the-room, not a sales promise made without engineering buy-in.\n\nWhen you know exactly what your users need, building the right thing stops being lucky and starts being systematic."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "How quickly will I see meaningful data after installing MonkFeed?",
+                "answer": "Most teams see their first meaningful patterns within the first week — once enough users have interacted with the widget to establish voting trends. The more active your user base, the faster signal emerges."
+            },
+            {
+                "question": "How does MonkFeed prevent power users from skewing the results?",
+                "answer": "MonkFeed tracks engagement signals alongside raw vote counts. You can filter by user segment — paid vs. free, new vs. power users — so a handful of vocal users don't automatically dominate the rankings."
+            },
+            {
+                "question": "Can I see which specific users voted on a request?",
+                "answer": "Yes, on paid plans you can view voter lists and correlate requests with user segments. On the free plan, you see aggregate vote counts and discussion threads."
+            },
+            {
+                "question": "What's the difference between a feature request and a product insight?",
+                "answer": "A feature request is what a user says they want. A product insight is the underlying need you extract from patterns across many requests. MonkFeed gives you both — the raw requests and the aggregated signal to find the insight beneath them."
+            }
+        ]
+    },
+    {
+        "slug": "privacy-focused",
+        "title": "Privacy Focused",
+        "tagline": "Your users' data is treated with respect. Built with privacy-first principles to keep customer information secure, compliant, and under your control.",
+        "icon": "🔒",
+        "image": "/benefits/privacy-focused.jpg",
+        "imageAlt": "MonkFeed Privacy Focused — privacy-first customer feedback built with GDPR compliance and data security",
+        "order": 4,
+        "metadata": {
+            "title": "Privacy-First Customer Feedback | GDPR Compliant | MonkFeed",
+            "description": "MonkFeed treats customer data with respect. Privacy-first principles, GDPR compliant, secure feedback collection with no third-party tracking.",
+            "keywords": "GDPR compliant feedback, privacy-focused analytics, secure customer data, compliant feedback tool, privacy-first SaaS, MonkFeed privacy"
+        },
+        "hero": {
+            "heading": "Your Users' Data Is Treated With Respect",
+            "subheading": "MonkFeed is built with privacy-first principles from the ground up. We collect only what's needed to operate the feedback widget — nothing more. Your users' data is yours, not ours."
+        },
+        "sections": [
+            {
+                "heading": "Privacy is not an afterthought",
+                "content": "Most feedback tools track everything they can — user behavior, session data, third-party pixels — because their business model depends on it. MonkFeed's model doesn't.\n\nWe are not an advertising company. We do not monetize your users' data. We do not sell insights derived from your feedback to third parties.\n\nPrivacy-first isn't a marketing claim — it's a structural decision baked into how MonkFeed is built and how it generates revenue."
+            },
+            {
+                "heading": "What we collect — and what we don't",
+                "content": "**MonkFeed collects:**\n- Feedback content — the actual requests and votes submitted by your users\n- Basic session identifiers — to prevent duplicate votes and spam submissions\n- Usage metrics — to power your dashboard analytics\n\n**MonkFeed does not collect:**\n- Behavioral tracking, heatmaps, or session recordings\n- Third-party advertising data or cross-site tracking\n- Personally identifiable information beyond what you explicitly configure\n- Data sold, shared with, or accessible to advertisers\n\nYou control what identifiers (if any) are passed to the widget. Anonymous feedback is fully supported."
+            },
+            {
+                "heading": "Built for compliance",
+                "content": "MonkFeed is designed with GDPR principles at its core:\n\n- **Encryption in transit and at rest** — all data is protected end-to-end\n- **User deletion rights** — users can request removal of their submitted feedback\n- **No cross-site tracking or fingerprinting** — the widget doesn't follow your users across the web\n- **Minimal data collection** — we only store what's necessary to deliver the service\n- **Data residency** — enterprise plans support custom data processing agreements and retention policies\n\nFor teams in regulated industries, MonkFeed is designed to stay out of your compliance audit's way."
+            },
+            {
+                "heading": "Trust is a feature",
+                "content": "When you tell your users that your feedback tool respects their data, they engage more honestly. They submit more candid requests. They vote more accurately.\n\nPrivacy-first feedback collection isn't just an ethical choice — it produces **higher-quality signal**. Users who trust your product share more, and the insights you gather are more representative of what they actually need.\n\nMonkFeed helps you build that trust by design, not as an afterthought."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Is MonkFeed GDPR compliant?",
+                "answer": "MonkFeed is built with GDPR principles at its core — minimal data collection, user deletion rights, encryption in transit and at rest, and no third-party data sharing. Enterprise plans include data processing agreements for teams with specific compliance requirements."
+            },
+            {
+                "question": "Does MonkFeed track users across websites?",
+                "answer": "No. MonkFeed does not use cross-site tracking, fingerprinting, or advertising pixels. The widget only operates within the context of your site and does not follow your users elsewhere."
+            },
+            {
+                "question": "Can users submit feedback anonymously?",
+                "answer": "Yes. Anonymous feedback is fully supported. You can configure the widget to accept submissions without requiring any user identification."
+            },
+            {
+                "question": "Who owns the feedback data collected through MonkFeed?",
+                "answer": "You do. The feedback submitted by your users belongs to you. MonkFeed does not claim ownership of your data, does not analyze it for third-party purposes, and does not sell it."
+            },
+            {
+                "question": "What happens to data if I cancel my MonkFeed account?",
+                "answer": "You can export all your feedback data before cancelling. After account closure, data is retained for a grace period and then permanently deleted according to our data retention policy."
+            }
+        ]
+    }
+]
