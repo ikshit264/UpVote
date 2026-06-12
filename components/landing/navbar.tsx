@@ -45,7 +45,13 @@ export default function Navbar() {
                 Features
               </Link>
               <Link
-                href="#pricing"
+                href="/benefits"
+                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+              >
+                Benefits
+              </Link>
+              <Link
+                href="/#pricing"
                 className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Pricing
@@ -67,7 +73,13 @@ export default function Navbar() {
                 Features
               </Link>
               <Link
-                href="#pricing"
+                href="/benefits"
+                className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
+              >
+                Benefits
+              </Link>
+              <Link
+                href="/#pricing"
                 className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 Pricing
@@ -149,7 +161,14 @@ export default function Navbar() {
                     Features
                   </Link>
                   <Link
-                    href="#pricing"
+                    href="/benefits"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
+                  >
+                    Benefits
+                  </Link>
+                  <Link
+                    href="/#pricing"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-2"
                   >
