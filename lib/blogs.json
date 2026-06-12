@@ -5,7 +5,7 @@
         "description": "Feedback widgets capture insights while users are actively engaged, dramatically out-performing email surveys. Here's exactly why response rates climb when feedback lives inside your product.",
         "image": "/blogs/widget-response-rates/hero-better-response-rates.jpg",
         "imageAlt": "Illustration showing rising response rates from an in-app feedback widget compared to traditional email surveys",
-        "date": "2026-05-17",
+        "date": "2026-05-10",
         "author": "MonkFeed Team",
         "category": "Customer Feedback",
         "metadata": {
@@ -140,7 +140,7 @@
         "title": "Why Canny is too expensive for small B2B teams in 2026",
         "description": "A direct, value-driven comparison of pricing structures. This post highlights how Cannyâ€™s 'startup' pricing often scales faster than a small team's revenue.",
         "image": "/blogs/canny-vs-monkfeed.png",
-        "date": "2026-01-30",
+        "date": "2026-04-26",
         "author": "MonkFeed Team",
         "category": "Vs. The Giants",
         "metadata": {
@@ -177,7 +177,7 @@
         "title": "5 Best Feature Upvoting alternatives to Aha! Ideas",
         "description": "Targeting the 'Enterprise Fatigue' crowd. Aha! is powerful but often overkill. Positioning MonkFeed as the lean, agile alternative.",
         "image": "/blogs/aha-alternatives.png",
-        "date": "2026-01-29",
+        "date": "2026-04-19",
         "author": "MonkFeed Team",
         "category": "Best Tools",
         "metadata": {
@@ -210,7 +210,7 @@
         "title": "How to automate your product roadmap without writing a single line of code",
         "description": "A high-utility 'How-To' focusing on the 'set it and forget it' nature of MonkFeedâ€™s automation rules.",
         "image": "/blogs/roadmap-automation.png",
-        "date": "2026-01-28",
+        "date": "2026-04-12",
         "author": "MonkFeed Team",
         "category": "How-To Guides",
         "metadata": {
@@ -243,7 +243,7 @@
         "title": "7 Best free tools for anonymous customer feedback you haven't heard of",
         "description": "Capture top-of-funnel traffic looking for low-friction feedback solutions, featuring MonkFeed's free tier.",
         "image": "/blogs/anonymous-feedback-tools.png",
-        "date": "2026-01-27",
+        "date": "2026-04-05",
         "author": "MonkFeed Team",
         "category": "Best Tools",
         "metadata": {
@@ -276,7 +276,7 @@
         "title": "Download our free Feature Prioritization Template for Notion",
         "description": "A lead magnet post that provides a Notion template while showing why dedicated software is the logical next step.",
         "image": "/blogs/notion-template.png",
-        "date": "2026-01-26",
+        "date": "2026-03-29",
         "author": "MonkFeed Team",
         "category": "Resources",
         "metadata": {
@@ -305,7 +305,7 @@
         "title": "How to calculate the ROI of your Customer Feedback software",
         "description": "The 'Closer' piece providing the math needed to justify the purchase to a CFO, focusing on engineering hours and churn reduction.",
         "image": "/blogs/feedback-roi.png",
-        "date": "2026-01-25",
+        "date": "2026-03-22",
         "author": "MonkFeed Team",
         "category": "How-To Guides",
         "metadata": {
@@ -338,7 +338,7 @@
         "title": "The fastest way to get feature validation for your new B2B module",
         "description": "A tactical guide for PMs who need to know before they build, focusing on the 'Proposed' status in feedback boards.",
         "image": "/blogs/feature-validation.png",
-        "date": "2026-01-24",
+        "date": "2026-03-15",
         "author": "MonkFeed Team",
         "category": "How-To Guides",
         "metadata": {
@@ -367,7 +367,7 @@
         "title": "10 Must-have Chrome extensions for B2B Product Managers",
         "description": "A high-shareability listicle that builds authority and includes MonkFeedâ€™s extension alongside industry giants.",
         "image": "/blogs/chrome-extensions-pm.png",
-        "date": "2026-01-23",
+        "date": "2026-03-08",
         "author": "MonkFeed Team",
         "category": "Best Tools",
         "metadata": {
@@ -396,7 +396,7 @@
         "title": "How to cut your Churn Rate by 50% this quarter using user voting",
         "description": "A high-stakes 'ROI' blog that addresses the #1 pain point of SaaS: Churn.",
         "image": "/blogs/reduce-churn.png",
-        "date": "2026-01-22",
+        "date": "2026-03-01",
         "author": "MonkFeed Team",
         "category": "ROI",
         "metadata": {
@@ -425,7 +425,7 @@
         "title": "Productboard vs. MonkFeed: Which is better for early-stage B2B SaaS?",
         "description": "A classic comparison piece. Productboard is for massive teams; MonkFeed is for the fast-movers.",
         "image": "/blogs/productboard-vs-monkfeed.png",
-        "date": "2026-01-21",
+        "date": "2026-02-22",
         "author": "MonkFeed Team",
         "category": "Vs. The Giants",
         "metadata": {
@@ -451,12 +451,11 @@
     },
     {
         "slug": "feature-requests-vs-feature-needs",
-        "draft": true,
         "title": "Feature Requests vs. Feature Needs: Why Your Customers Don't Always Know What They Want",
         "description": "Users are great at pointing out problems but terrible at designing solutions. Here's how to distinguish a loud feature request from a silent feature need — and why it's the single most critical skill in product strategy.",
         "image": "/blogs/feature-requests-vs-needs/hero-wants-vs-needs.jpg",
         "imageAlt": "Scales weighing user wants and needs against product features, representing the balance between requests and real needs",
-        "date": "2026-11-08",
+        "date": "2026-05-31",
         "author": "MonkFeed Team",
         "category": "Product Strategy",
         "metadata": {
@@ -585,7 +584,7 @@
         "description": "Improving customer experience isn't about guessing—it's about listening to your users and acting faster than your competition. Learn how embedded feedback widgets turn passive users into active co-creators.",
         "image": "/blogs/improve-customer-experience/widget-performance.png",
         "imageAlt": "MonkFeed feedback widget showing feature requests, upvotes, and discussion threads embedded in a SaaS product",
-        "date": "2026-06-11",
+        "date": "2026-05-17",
         "author": "MonkFeed Team",
         "category": "Customer Experience",
         "metadata": {
@@ -700,7 +699,7 @@
         "description": "Most roadmaps look great internally but miss the mark with users. Learn how modern product teams are moving from 'build and hope' to 'listen and validate' — and how to co-create a roadmap your customers actually care about.",
         "image": "/blogs/product-roadmap/hero-feedback-loop.png",
         "imageAlt": "MonkFeed feedback loop diagram showing the cycle of collect, analyze, validate, and communicate for product roadmap building",
-        "date": "2026-06-12",
+        "date": "2026-05-24",
         "author": "MonkFeed Team",
         "category": "Product Strategy",
         "metadata": {
